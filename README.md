@@ -38,12 +38,11 @@ node's side of that.
 
 ## Quick start
 
-You need a C++23 compiler, `make`, Python 3, Node.js 25.9 and npm. Clang 18
+You need a C++23 compiler, `make` and Python 3. Clang 18
 with libc++ and GCC 13 with libstdc++ are the verified Linux toolchains;
 Apple Clang works for development on macOS.
 
 ```sh
-npm ci --omit=optional          # tools for the generators and tests; not part of the server
 make -j4
 mkdir -p data
 FORTIS_KV_DIR="$PWD/data" NODE_ENV=development ./build/fortis_node 8080

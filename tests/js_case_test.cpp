@@ -1,6 +1,6 @@
 // Reads "<U|L> <hex UTF-8>" lines and writes the hex UTF-8 result of
 // JsToUpperCase/JsToLowerCase per line ("!" when the input is refused).
-// Driven by tests/js_case_test.mjs, which compares against Node.js.
+// Driven by tests/js_case_test.py, which compares with recorded Node.js answers.
 // First it checks the identifier mapping (AsciiToUpperCase/AsciiToLowerCase,
 // js-case) and exits 1 on a failure.
 #include "js_case.h"

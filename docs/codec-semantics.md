@@ -182,10 +182,10 @@ comparison all use `proto_wire::Reader`.
   `-0` and non-finite numbers, plus whole messages that use every writer
   entry point. Regenerate the goldens only for an intended wire change:
   `./build/proto_wire_golden_test --print`.
-- `node tests/js_json_test.mjs build/js_json_test` compares the serializer
-  with an independent source-order `Map` reference, using Node.js scalar
-  formatting and protobuf-es scalar encodings with independent Struct
-  framing.
+- `python3 tests/js_json_test.py build/js_json_test` compares the serializer
+  with recorded reference answers: an independent source-order `Map`
+  reference using Node.js scalar formatting and protobuf-es scalar encodings
+  with independent Struct framing (`tests/reference/record_js_json.mjs`).
 - `tests/proto_request_reader_test.cpp`, `tests/query_string_test.cpp` and
   `tests/unicode_contract_test.cpp` pin the shared request reader, the query
   parser and the Unicode rules.

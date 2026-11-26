@@ -7,7 +7,7 @@
 
 // This server's URL parser: the WHATWG URL Standard as Ada 2.9.2 implements
 // it (the parser behind `new URL(input, base?)` in Node.js 22, Unicode 15.1),
-// which tests/whatwg_url_test.mjs pins against. The IDNA step is Ada's
+// which tests/whatwg_url_test.py pins against. The IDNA step is Ada's
 // to_ascii (src/compat/idna.cpp, tables in src/compat/idna_tables.cpp
 // generated from the pinned Ada source by scripts/generate_idna_tables.py).
 //

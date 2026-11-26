@@ -1,5 +1,5 @@
 // Generated from contracts/price-id-fixtures.json by
-// scripts/generate_price_id_parser_fixtures.mjs. Historical reference cases.
+// scripts/generate_price_id_parser_fixtures.py. Historical reference cases.
 #pragma once
 
 #include "../src/providers/price_id_parser.h"

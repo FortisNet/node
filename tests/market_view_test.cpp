@@ -1,4 +1,4 @@
-// Line filter for tests/market_view_test.mjs:
+// Line filter for tests/market_view_test.py:
 //   "E <id hex> <row hex>" -> market entry JSON hex ("-" for a non-object row)
 //   "D <hex>"              -> "1" when Date.parse would succeed, else "0"
 //   "U <hex>"              -> "<0|1> <media key or ->"

@@ -9,16 +9,14 @@ gate does not cover. Contributors and reviewers need it.
 From the repository root:
 
 ```sh
-npm ci --omit=optional   # once: the tool packages for generators and tests
 make verify
 ```
 
 Docker must be running. The first run builds the tool image described by
 `Dockerfile.verify`; its tag includes the Dockerfile hash. The image supplies
 Clang 18, GCC 13, Cppcheck and the lint tools (on macOS, `/usr/bin/gcc` is
-Clang, so the host cannot stand in for GCC). Node.js 25.9.0 is pinned by
-digest to match the generated Unicode 17 tables; Ubuntu's Node 18 package
-would report those tables as stale.
+Clang, so the host cannot stand in for GCC). Generators and tests are Python
+and use only its standard library.
 
 `scripts/verify.py` orchestrates the build and the tests. It is not linked
 into the server and is not part of a release.
@@ -49,7 +47,7 @@ The command then runs seven stages:
    warnings as errors.
 4. **lint.** Run the tests of the verification tools, the generator and
    boundary checks (`check-network-catalog`, `check-api-docs`,
-   `check-redaction-tables`, `check-js-case-tables`, `check-layers`,
+   `check-redaction-tables`, `check-layers`,
    `check-cpp-contracts`) and strict clang-tidy over all of `src/` and
    `tests/` (`lint-all`).
 5. **cppcheck.** Run Cppcheck with compiler-derived flags, with errors,
@@ -137,7 +135,7 @@ The gate runs the unit commands and the `test-current-contracts` replays. It
 does not run:
 
 - the other Python replays of `make test`;
-- the differential tests that compare with Node.js (`tests/*.mjs`);
+- the two checks that need a JavaScript engine (`tests/reference/`);
 - the sanitizer builds (see [sanitizers.md](sanitizers.md));
 - a release build or a test of the packaged executable.
 

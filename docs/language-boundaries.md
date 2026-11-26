@@ -21,12 +21,11 @@ inputs (`contracts/`, `openapi.native.yaml`) and compiled into the server.
 The repository owns its generator inputs: the network catalog, the redaction
 data, the reference cases, the OpenAPI inputs and the protobuf schemas under
 `proto/schema/`. The generators and the default build read nothing outside
-this repository. Tool packages have their own pinned manifest and lock file
-(`package.json`, `package-lock.json`).
+this repository, and they are Python with no package to install.
 
 ## Build and test tooling
 
-Python, Node.js and shell scripts are used for build and test orchestration,
+Python and shell scripts are used for build and test orchestration,
 protobuf generation, linting, provider fixtures and probes. They are not
 linked into the server and are not part of a release. They give verification
 that is independent of the C++ code under test.

@@ -53,7 +53,7 @@ def input_hashes():
     paths += [PROJECT / name for name in ('Makefile', 'sources.mk', '.clang-tidy',
                                          '.cppcheck-suppressions', 'Dockerfile.verify', 'Dockerfile.native-build',
                                          '.gitignore', '.dockerignore', 'component_headers.json', 'openapi.native.yaml',
-                                         'package.json', 'package-lock.json', 'LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md')]
+                                         'LICENSE', 'NOTICE', 'THIRD_PARTY_NOTICES.md')]
     return {str(p.relative_to(PROJECT)): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted(paths)}
 
@@ -73,7 +73,7 @@ def docker(stage, jobs):
     if subprocess.run(['docker', 'image', 'inspect', tag], capture_output=True).returncode:
         with recipe.open('rb') as source:
             subprocess.run(['docker', 'build', '-t', tag, '-'], stdin=source, check=True)
-    # The standalone native project owns all generator inputs and npm packages.
+    # The project owns all its generator inputs; nothing is fetched for them.
     command = ['docker', 'run', '--rm', '--init', '-v', f'{PROJECT}:/work',
                '-w', '/work', '-e', 'FORTIS_VERIFY_CONTAINER=1',
                '-e', 'PYTHONDONTWRITEBYTECODE=1']
@@ -334,7 +334,7 @@ def execute_stage(stage, jobs, log, built, standalone=False):
         code = logged(['make', '-k', 'CC=clang-18', 'CXX=clang++-18',
                        f'CXXFLAGS={CXXFLAGS} -stdlib=libc++',
                        'verify-tool-tests', 'check-network-catalog', 'check-api-docs',
-                       'check-redaction-tables', 'check-js-case-tables', 'check-layers',
+                       'check-redaction-tables', 'check-layers',
                        'check-cpp-contracts', 'lint-all'], log)
     elif stage in ('cppcheck', 'clang-analyzer'):
         entries = compilation_database(jobs)
@@ -401,7 +401,7 @@ def run_gate(args):
     report = {'complete': False, 'stages': {}, 'tool_versions': {}, 'started_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
     report_path = OUTPUT / ('report.json' if args.stage == 'all' else f'report-{args.stage}.json')
     report_path.write_text(json.dumps(report, indent=2) + '\n')
-    for tool in ('clang-18', 'gcc-13', 'clang-tidy-18', 'cppcheck', 'node', 'shellcheck'):
+    for tool in ('clang-18', 'gcc-13', 'clang-tidy-18', 'cppcheck', 'shellcheck'):
         version_lines = run([tool, '--version']).splitlines()
         report['tool_versions'][tool] = (next(line for line in version_lines if line.startswith('version:'))
                                          if tool == 'shellcheck' else version_lines[0])

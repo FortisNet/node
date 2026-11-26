@@ -1,6 +1,6 @@
 // Reads hex-encoded JSON documents, one per line, and prints for each
 // "<stringify hex> <protobuf Value hex> <array element count or -1>" (or "!"
-// for a refused document). Driven by tests/js_json_test.mjs, which compares
+// for a refused document). Driven by tests/js_json_test.py, which compares
 // against JSON.stringify(JSON.parse()) and protobuf-es toBinary(fromJson()).
 #include "js_json.h"
 

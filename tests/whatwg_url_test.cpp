@@ -1,5 +1,5 @@
 #include <algorithm>
-// stdin/stdout driver for tests/whatwg_url_test.mjs. One request per line:
+// stdin/stdout driver for tests/whatwg_url_test.py. One request per line:
 //   P <hex input> <hex base | ->  -> "null" | "basefail" | ten tab-separated
 //        hex fields: href protocol username password host hostname port
 //        pathname search hash

@@ -162,7 +162,7 @@ FORTIS_SOURCES += src/storage/kv_expiry_sweeper.cpp
 # Discovery: POST /v1/bittensor/analytics, POST /v1/prices/markets
 # and POST /v1/tokens/compare (registered behind the price canary), their
 # shared provider owner, SWR cache, JSON/protobuf helpers and the generated
-# JavaScript case tables (make generate-js-case-tables).
+# JavaScript case tables (tests/reference/generate_js_case_tables.mjs).
 FORTIS_SOURCES += src/compat/js_case.cpp
 FORTIS_SOURCES += src/compat/js_case_tables.cpp
 FORTIS_SOURCES += src/compat/js_json.cpp

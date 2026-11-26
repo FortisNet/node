@@ -183,20 +183,20 @@ $(FLAGS_STAMP):
 build:
 	@mkdir -p $@
 
-.PHONY: generate-node-home check-node-home all test clean check-production-binary generate-network-catalog check-network-catalog generate-api-docs check-api-docs generate-redaction-tables check-redaction-tables generate-js-case-tables check-js-case-tables check-layers
+.PHONY: generate-node-home check-node-home all test clean check-production-binary generate-network-catalog check-network-catalog generate-api-docs check-api-docs generate-redaction-tables check-redaction-tables check-layers
 
 all: check-network-catalog check-api-docs build/fortis_node
 
-test: check-api-docs check-layers check-production-binary check-network-catalog check-redaction-tables check-js-case-tables
+test: check-api-docs check-layers check-production-binary check-network-catalog check-redaction-tables
 
 generate-network-catalog:
-	node scripts/generate_network_catalog.mjs --write
+	python3 scripts/generate_network_catalog.py --write
 
 check-network-catalog:
-	node scripts/generate_network_catalog.mjs --check
+	python3 scripts/generate_network_catalog.py --check
 
 generate-api-docs:
-	node scripts/generate_api_docs.mjs --write
+	python3 scripts/generate_api_docs.py --write
 
 generate-node-home:
 	python3 scripts/generate_node_home.py --write
@@ -206,20 +206,16 @@ check-node-home:
 	python3 scripts/generate_node_home.py
 
 check-api-docs: check-node-home
-	node tests/route_bindings_test.mjs
-	node scripts/generate_api_docs.mjs --check
+	python3 tests/route_bindings_test.py
+	python3 tests/api_docs_yaml_test.py
+	python3 scripts/generate_api_docs.py --check
 
 generate-redaction-tables:
-	node scripts/generate_redaction_tables.mjs --write
+	python3 scripts/generate_redaction_tables.py --write
 
 check-redaction-tables:
-	node scripts/generate_redaction_tables.mjs --check
-
-generate-js-case-tables:
-	node scripts/generate_js_case_tables.mjs --write
-
-check-js-case-tables:
-	node scripts/generate_js_case_tables.mjs --check
+	python3 scripts/generate_redaction_tables.py --check
+	python3 scripts/generate_price_id_parser_fixtures.py --check
 
 # Module layering: src/ includes must follow the layer order in the script.
 check-layers:
@@ -1143,7 +1139,7 @@ test: test-prereqs test-current-contracts
 	python3 tests/app_post_wire_test.py build/fortis_node --compare tests/fixtures/app_post_schema_baseline.json --strict-types
 	./build/proto_request_reader_test
 	./build/query_string_test
-	node tests/network_catalog_generator_test.mjs
+	python3 tests/network_catalog_generator_test.py
 	./build/network_registry_catalog_test
 	python3 tests/kv_backup_test.py
 	python3 tests/smoke.py build/fortis_node build/fortis_node_probe_test
@@ -1246,7 +1242,7 @@ test: test-prereqs test-current-contracts
 	./build/metrics_auth_test
 	./build/diagnostic_redaction_test tests/corpus/crash_redaction_corpus.json
 	./build/error_board_test
-	node tests/incorrect_coin_ids_page_test.mjs
+	python3 tests/incorrect_coin_ids_page_test.py
 	./build/api_telemetry_test tests/corpus/operations_telemetry.json
 	./build/crash_report_codec_test
 	./build/resource_snapshot_test
@@ -1262,10 +1258,10 @@ test: test-prereqs test-current-contracts
 	python3 tests/lint_tool_test.py
 	./build/base_status_test
 	./build/base_log_test
-	node tests/js_case_test.mjs build/js_case_test
-	node tests/js_json_test.mjs build/js_json_test
+	python3 tests/js_case_test.py build/js_case_test
+	python3 tests/js_json_test.py build/js_json_test
 	./build/proto_wire_golden_test
-	node tests/market_view_test.mjs build/market_view_test
+	python3 tests/market_view_test.py build/market_view_test
 	./build/token_ref_test tests/corpus/token_ref_corpus.json
 	./build/token_comparison_test
 	./build/token_atomicity_test
@@ -1364,7 +1360,7 @@ test: test-prereqs test-current-contracts
 	python3 tests/token_search_route_test.py build/fortis_node_discovery_route_test
 	./build/token_search_test tests/corpus/token_search_edges.json
 	python3 tests/token_search_edges_test.py build/fortis_node_discovery_route_test build/fortis_node
-	node tests/whatwg_url_test.mjs build/whatwg_url_test
+	python3 tests/whatwg_url_test.py build/whatwg_url_test
 	python3 tests/news_media_native_test.py build/fortis_node_news_route_test build/fortis_node
 	./build/news_reads_test tests/corpus/news_reads_edges.json
 	python3 tests/news_reads_edges_test.py build/fortis_node_news_route_test build/fortis_node
@@ -1447,7 +1443,7 @@ verify-tool-tests:
 	python3 tests/portfolio_load_tool_test.py
 	python3 tests/quote_contract_expectations_test.py
 	python3 tests/verify_tool_test.py
-	node tests/redaction_generator_test.mjs
+	python3 tests/redaction_generator_test.py
 lint:
 	python3 scripts/lint.py tidy $(if $(LINT_BASE),--base '$(LINT_BASE)') $(if $(LINT_WHOLE_FILES),--whole-files)
 lint-all:

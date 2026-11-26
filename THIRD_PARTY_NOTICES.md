@@ -19,7 +19,6 @@ notices when you redistribute source or binaries.
 | --- | --- | --- |
 | Mbed TLS 3.6.7 | `scripts/fetch-mbedtls.sh` downloads the source archive and checks its hash | Apache-2.0 |
 | blst assembly | `scripts/fetch-blst-assembly.sh`, checked by hash | Apache-2.0 |
-| `yaml`, `@bufbuild/protobuf` | `package.json`; used by generators and tests only, never by the server | ISC; Apache-2.0 and BSD-3-Clause |
 
 ## Code inside a release
 

@@ -58,4 +58,4 @@ The Open Graph and Twitter tags in `assets/node-home.html` contain a fixed canon
 
 - `operations_pages_test` renders all 128 combinations of the seven service switches, with exact-fit, short and null buffers, and compares the embedded assets byte for byte.
 - `tests/operations_routes_test.py` checks the public routes on the real program: methods, query handling, security headers, JSON, asset bytes, MIME types and `HEAD`.
-- `tests/dashboard_browser_test.mjs` checks the page in Chromium at desktop width and at 390 and 320 pixels, without JavaScript, including the feature list and the social tags.
+- `tests/reference/dashboard_browser_test.mjs` checks the page in Chromium at desktop width and at 390 and 320 pixels, without JavaScript, including the feature list and the social tags.

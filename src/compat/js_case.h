@@ -6,7 +6,7 @@
 // This server's locale-independent Unicode case mapping over valid UTF-8 (no
 // surrogate code points): the Unicode default full case mapping, as
 // String.prototype.toUpperCase / toLowerCase define it, driven by tables
-// generated from ICU data (scripts/generate_js_case_tables.mjs).
+// generated from ICU data (tests/reference/generate_js_case_tables.mjs).
 // Multi-code-point mappings (ß → SS, İ → i̇) and the Final_Sigma rule of
 // lower-casing are applied; there is no other context or locale rule.
 // Allocation-free and guest-safe.

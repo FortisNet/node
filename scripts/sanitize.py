@@ -148,7 +148,7 @@ def make_command(variant: str) -> list[str]:
     cc = os.environ.get("CC") or "clang"
     flags = VARIANTS[variant]
     jobs = os.environ.get("FORTIS_SANITIZER_JOBS") or str(os.cpu_count() or 4)
-    # The generated-catalog check (node) guards the source tree and belongs to
+    # The generated-catalog check guards the source tree and belongs to
     # the normal build; a variant compiles whatever the tree holds.
     return ["make", f"-j{jobs}", "-o", "check-network-catalog", f"CXX={cxx}", f"CC={cc}",
             f"CXXFLAGS={flags} {COMMON_CXX} {stdlib}".strip(), f"CFLAGS={flags} {COMMON_C}"]

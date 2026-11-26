@@ -372,7 +372,7 @@ paths:
                       of persisted files and total is null. The scan refreshes
                       at most once per 30 seconds. Null if measurement fails.
                     properties:
-                      used: { type: integer, format: int64, description: Used bytes on the data filesystem, or allocated bytes in a bounded data-tree scan when capacity is unavailable. See native resources.diskScope. }
+                      used: { type: integer, format: int64, description: "Used bytes on the data filesystem, or allocated bytes in a bounded data-tree scan when capacity is unavailable. See native resources.diskScope." }
                       total: { type: integer, format: int64, nullable: true, description: Total filesystem bytes when available. }
                   resources:
                     type: object
@@ -2311,7 +2311,7 @@ paths:
               schema: { type: string, format: binary, description: 'fortisnet.intelligence.v1.NewsItemDetailResponse' }
         '304': { description: The story is unchanged. }
         '400': { $ref: '#/components/responses/BadRequest' }
-        '404': { description: Unknown story, or one past retention. }
+        '404': { description: "Unknown story, or one past retention." }
   /v1/news/{id}/reactions:
     get:
       tags: [News]
@@ -2354,7 +2354,7 @@ paths:
               schema: { type: string, format: binary, description: 'fortisnet.intelligence.v1.NewsReactionsResponse' }
         '304': { description: The measurements are unchanged. }
         '400': { $ref: '#/components/responses/BadRequest' }
-        '404': { description: Unknown story, or one past retention. }
+        '404': { description: "Unknown story, or one past retention." }
   /v1/gems:
     get:
       tags: [Gems]
@@ -2660,7 +2660,7 @@ components:
         signatureVerified: { type: boolean }
         requestSamples: { type: integer, minimum: 0 }
         nodeEvents: { type: integer, minimum: 0, description: New recorded node incidents relative to the pre-handover baseline; not unique failed requests. }
-        providerEvents: { type: integer, minimum: 0, description: New external-provider incidents, assessed separately from node failures. }
+        providerEvents: { type: integer, minimum: 0, description: "New external-provider incidents, assessed separately from node failures." }
         maxGroupP95Ms: { type: integer, minimum: 0, description: Largest API-group histogram p95 estimate; not a merged global percentile. }
         observationMs: { type: integer, minimum: 0 }
     SponsoredEvmCall:
@@ -2877,8 +2877,8 @@ components:
       properties:
         id: { type: string, description: 'Stable id for the pick: {network}/{canonical token id}.' }
         network: { type: string }
-        ref: { type: string, description: The ref as requested, so a client can re-read the page itself. }
-        note: { type: string, description: Why this token is in the list, in the feed's own words. }
+        ref: { type: string, description: "The ref as requested, so a client can re-read the page itself." }
+        note: { type: string, description: "Why this token is in the list, in the feed's own words." }
         page: { $ref: '#/components/schemas/TokenPage' }
     NewsFeed:
       type: object
@@ -3904,7 +3904,7 @@ components:
         ref:
           type: string
           description: Canonical spelling of the requested ref — cache under this, and ask with it next time.
-        input: { type: string, description: What the caller wrote, before normalization. }
+        input: { type: string, description: "What the caller wrote, before normalization." }
         asOf:
           type: string
           format: date-time
@@ -4015,7 +4015,7 @@ components:
         ambiguous:
           type: boolean
           description: True when a ticker matched several listed coins and the first was taken.
-        verified: { type: boolean, nullable: true, description: The family's own verification flag, where it has one. }
+        verified: { type: boolean, nullable: true, description: "The family's own verification flag, where it has one." }
         priceId: { type: string, nullable: true, description: '`GET /v1/prices?ids=` id, or null when the price plane has no grammar for this family.' }
         input: { type: string }
     TokenComparisonRequest:

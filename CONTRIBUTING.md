@@ -12,10 +12,9 @@ reviewed with that in mind: small, explained and tested.
 
 ## Building and testing
 
-You need Docker, a C++23 compiler, `make`, Python 3, Node.js 25.9 and npm.
+You need Docker, a C++23 compiler, `make` and Python 3.
 
 ```sh
-npm ci --omit=optional
 make verify
 ```
 

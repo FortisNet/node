@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
-const source = readFileSync(new URL('../src/operations/operations_pages.cpp', import.meta.url), 'utf8');
+const source = readFileSync(new URL('../../src/operations/operations_pages.cpp', import.meta.url), 'utf8');
 const html = source.split('R"FERROR(')[1].split(')FERROR"')[0];
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const elements = new Map();
