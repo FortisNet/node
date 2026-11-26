@@ -117,6 +117,31 @@ paths:
                   node: { type: object }
         '503':
           description: Something needs attention, or no fresh report exists.
+  /node.json:
+    get:
+      tags: [System]
+      operationId: hostNodeReport
+      summary: Which node release runs on this host, and what is coming
+      description: "Written by the host's orchestrator and handed out unchanged: the running release, the host interface range and channel of the host, the state of automatic updates with the countdown to an install, newer releases that were skipped and why, and the last installs. No paths, keys or setting values."
+      security: []
+      responses:
+        '200':
+          description: The host's report about its node.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schemaVersion, generatedMs, running, host, update, skipped]
+                properties:
+                  schemaVersion: { type: integer, enum: [1] }
+                  generatedMs: { type: integer, format: int64 }
+                  running: { type: object, nullable: true }
+                  host: { type: object }
+                  update: { type: object }
+                  skipped: { type: array, items: { type: object } }
+                  history: { type: array, items: { type: object } }
+        '404':
+          description: This host has no orchestrator that writes the report.
   /releases:
     get:
       tags: [System]

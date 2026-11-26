@@ -1621,6 +1621,7 @@ bool ConnectionSession::Dispatch(int client, const char* remote_ip, const timesp
                                     strcmp(match->path, "/") == 0 ||
                                     strcmp(match->path, "/health") == 0 ||
                                     strcmp(match->path, "/health.json") == 0 ||
+                                    strcmp(match->path, "/node.json") == 0 ||
                                     strcmp(match->path, "/assets/background.jpg") == 0 ||
                                     strcmp(match->path, "/statusz") == 0 ||
                                     strcmp(match->path, "/stats") == 0 ||

@@ -21,6 +21,7 @@ The node does not update itself. A separate program on the host, the update cont
 | `history-N.json` | Controller | Page `N` of the activation history |
 | `index.html` | Host | Replaces the node's built-in home page at `/` |
 | `health.html`, `health.json` | Host | The host's health report |
+| `node.json` | Host | Which release runs, which is coming and when |
 | `health.status` | Host | One line, `STATUS WRITTEN_MS`: the HTTP status to answer with and the time the report was written, in milliseconds since the Unix epoch |
 
 Rules the node applies ([src/operations/release_routes.h](../src/operations/release_routes.h)):
@@ -40,6 +41,7 @@ All routes are public, read-only and answered with `Cache-Control: no-store`.
 | `GET /releasesz` | `current.json` |
 | `GET /releasesz/history?page=N` | `history-N.json`. The `page` parameter is required |
 | `GET /health`, `GET /health.json` | The host's health report |
+| `GET /node.json` | The host's report about this node: running release, automatic update state and countdown, skipped releases. `404` when the host writes none |
 
 Failure cases:
 

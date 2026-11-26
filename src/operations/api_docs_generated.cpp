@@ -5,8 +5,8 @@ namespace fortis::operations {
 
 const char kApiDocsHtml[] = R"FORTIS_HTML(<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FortisNet Intelligence API — API Reference</title>
 <style>:root{color-scheme:dark;font:14px/1.6 system-ui,sans-serif;background:#101116;color:#e8e8ee}*{box-sizing:border-box}body{margin:0;display:grid;grid-template-columns:230px minmax(0,1fr)}aside{position:sticky;top:0;height:100vh;overflow:auto;padding:1.5rem;background:#171920;border-right:1px solid #30343d}aside a{display:block;color:#b7c2d9;text-decoration:none;padding:.3rem 0}aside a:hover{color:#fff}main{max-width:1100px;width:100%;padding:2rem 3rem}h1{font-size:2rem}h2{margin-top:2.5rem;border-bottom:1px solid #343943;padding-bottom:.3rem}h2 small{color:#8793a7;font-size:.75rem}h3{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}article,.schema{background:#1a1d25;border:1px solid #343943;border-radius:10px;padding:1rem 1.4rem;margin:1rem 0}article p{white-space:normal;color:#bdc4cf}code,pre{font-family:ui-monospace,SFMono-Regular,monospace}code{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#11131a;border-radius:6px;padding:1rem;max-height:28rem;overflow:auto}details{margin:.75rem 0}summary{cursor:pointer;color:#c5aaff;font-weight:600}.method{border-radius:4px;padding:.2rem .5rem;color:#081011;background:#69d8a0;font-size:.7rem}.post{background:#e5b86b}.delete{background:#fa9292}.put,.patch{background:#80baf1}.meta{font-size:.8rem;color:#9da6b5!important}.summary{font-weight:700;color:#f0f1f6!important}input{width:100%;padding:.7rem;background:#20242d;color:#fff;border:1px solid #444c58;border-radius:6px}a{color:#bc9fff}@media(max-width:700px){body{display:block}aside{position:relative;height:auto}main{padding:1rem}} </style></head><body>
-<aside><strong>FortisNet API</strong><p>76 operations · 110 schemas</p><input id="search" type="search" placeholder="Filter operations" aria-label="Filter operations"><a href="/">← Home</a><a href="/openapi.yaml" download>Download OpenAPI YAML</a><hr><a href="#tag-System">System</a><a href="#tag-Device-authentication">Device authentication</a><a href="#tag-Diagnostics">Diagnostics</a><a href="#tag-AI">AI</a><a href="#tag-Capabilities">Capabilities</a><a href="#tag-DashPay">DashPay</a><a href="#tag-Prices">Prices</a><a href="#tag-Accounts">Accounts</a><a href="#tag-Transactions">Transactions</a><a href="#tag-Tokens">Tokens</a><a href="#tag-Exchange">Exchange</a><a href="#tag-Bittensor">Bittensor</a><a href="#tag-News">News</a><a href="#tag-Sync">Sync</a><a href="#schemas">Schemas</a></aside>
-<main><h1>FortisNet Intelligence API</h1><p>Version 0.1.0 · OpenAPI 3.0.3 · Read-only reference</p><p>Read-side API for the FortisWallet self-custody client. The service enriches<br>public blockchain data with balances, history, NFTs, market data, charts and<br>exchange quotes while keeping provider credentials on the server.<br><br>Signing, key management, transaction construction/broadcast and keyless<br>current-balance fallback remain client-side and are deliberately not part of<br>this API. No wallet seed or private key may ever be sent here.<br><br>All `/v1` operations except enrollment and media require a short-lived device<br>bearer token. Obtain it through the attestation challenge and device enrollment<br>flow. This browser documentation is read-only; use a native client or `curl` for<br>authenticated requests. Production enrollment requires Apple App Attest or Play<br>Integrity; development enrollment is private-network only.<br><br>Cache-aware responses expose `cache.hit` and `cache.timestamp`. A response may<br>also set `cache.partial` when only part of a requested time window was already<br>cached. Historical-price responses include `availability` so clients can draw<br>the portion that exists when an upstream source has incomplete history.<br></p><section id="tag-System"><h2>System <small>27</small></h2><article id="landingPage" data-search="system get / human-facing landing page">
+<aside><strong>FortisNet API</strong><p>77 operations · 110 schemas</p><input id="search" type="search" placeholder="Filter operations" aria-label="Filter operations"><a href="/">← Home</a><a href="/openapi.yaml" download>Download OpenAPI YAML</a><hr><a href="#tag-System">System</a><a href="#tag-Device-authentication">Device authentication</a><a href="#tag-Diagnostics">Diagnostics</a><a href="#tag-AI">AI</a><a href="#tag-Capabilities">Capabilities</a><a href="#tag-DashPay">DashPay</a><a href="#tag-Prices">Prices</a><a href="#tag-Accounts">Accounts</a><a href="#tag-Transactions">Transactions</a><a href="#tag-Tokens">Tokens</a><a href="#tag-Exchange">Exchange</a><a href="#tag-Bittensor">Bittensor</a><a href="#tag-News">News</a><a href="#tag-Sync">Sync</a><a href="#schemas">Schemas</a></aside>
+<main><h1>FortisNet Intelligence API</h1><p>Version 0.1.0 · OpenAPI 3.0.3 · Read-only reference</p><p>Read-side API for the FortisWallet self-custody client. The service enriches<br>public blockchain data with balances, history, NFTs, market data, charts and<br>exchange quotes while keeping provider credentials on the server.<br><br>Signing, key management, transaction construction/broadcast and keyless<br>current-balance fallback remain client-side and are deliberately not part of<br>this API. No wallet seed or private key may ever be sent here.<br><br>All `/v1` operations except enrollment and media require a short-lived device<br>bearer token. Obtain it through the attestation challenge and device enrollment<br>flow. This browser documentation is read-only; use a native client or `curl` for<br>authenticated requests. Production enrollment requires Apple App Attest or Play<br>Integrity; development enrollment is private-network only.<br><br>Cache-aware responses expose `cache.hit` and `cache.timestamp`. A response may<br>also set `cache.partial` when only part of a requested time window was already<br>cached. Historical-price responses include `availability` so clients can draw<br>the portion that exists when an upstream source has incomplete history.<br></p><section id="tag-System"><h2>System <small>28</small></h2><article id="landingPage" data-search="system get / human-facing landing page">
 <h3><span class="method get">GET</span><code>/</code></h3>
 <p class="summary">Human-facing landing page</p><p>On a managed host, the host orchestrator&#39;s first page, handed out unchanged. Otherwise the node&#39;s built-in introduction with its configuration-derived service checklist. Not consumed by the app.</p>
 <p class="meta">Operation: <code>landingPage</code> · Security: public</p><details><summary>Responses</summary><pre>{
@@ -91,6 +91,66 @@ const char kApiDocsHtml[] = R"FORTIS_HTML(<!doctype html><html lang="en"><head><
   },
   &quot;503&quot;: {
     &quot;description&quot;: &quot;Something needs attention, or no fresh report exists.&quot;
+  }
+}</pre></details></article>
+<article id="hostNodeReport" data-search="system get /node.json which node release runs on this host, and what is coming">
+<h3><span class="method get">GET</span><code>/node.json</code></h3>
+<p class="summary">Which node release runs on this host, and what is coming</p><p>Written by the host&#39;s orchestrator and handed out unchanged: the running release, the host interface range and channel of the host, the state of automatic updates with the countdown to an install, newer releases that were skipped and why, and the last installs. No paths, keys or setting values.</p>
+<p class="meta">Operation: <code>hostNodeReport</code> · Security: public</p><details><summary>Responses</summary><pre>{
+  &quot;200&quot;: {
+    &quot;description&quot;: &quot;The host&#39;s report about its node.&quot;,
+    &quot;content&quot;: {
+      &quot;application/json&quot;: {
+        &quot;schema&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;required&quot;: [
+            &quot;schemaVersion&quot;,
+            &quot;generatedMs&quot;,
+            &quot;running&quot;,
+            &quot;host&quot;,
+            &quot;update&quot;,
+            &quot;skipped&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;schemaVersion&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;enum&quot;: [
+                1
+              ]
+            },
+            &quot;generatedMs&quot;: {
+              &quot;type&quot;: &quot;integer&quot;,
+              &quot;format&quot;: &quot;int64&quot;
+            },
+            &quot;running&quot;: {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;nullable&quot;: true
+            },
+            &quot;host&quot;: {
+              &quot;type&quot;: &quot;object&quot;
+            },
+            &quot;update&quot;: {
+              &quot;type&quot;: &quot;object&quot;
+            },
+            &quot;skipped&quot;: {
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              }
+            },
+            &quot;history&quot;: {
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;404&quot;: {
+    &quot;description&quot;: &quot;This host has no orchestrator that writes the report.&quot;
   }
 }</pre></details></article>
 <article id="nodeReleasePage" data-search="system get /releases public executable identity and deployment history">
@@ -10019,6 +10079,35 @@ paths:
                   node: { type: object }
         '503':
           description: Something needs attention, or no fresh report exists.
+  /node.json:
+    get:
+      tags: [ System ]
+      operationId: hostNodeReport
+      summary: Which node release runs on this host, and what is coming
+      description: "Written by the host's orchestrator and handed out unchanged: the
+        running release, the host interface range and channel of the host, the
+        state of automatic updates with the countdown to an install, newer
+        releases that were skipped and why, and the last installs. No paths,
+        keys or setting values."
+      security: []
+      responses:
+        '200':
+          description: The host's report about its node.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ schemaVersion, generatedMs, running, host, update, skipped ]
+                properties:
+                  schemaVersion: { type: integer, enum: [ 1 ] }
+                  generatedMs: { type: integer, format: int64 }
+                  running: { type: object, nullable: true }
+                  host: { type: object }
+                  update: { type: object }
+                  skipped: { type: array, items: { type: object } }
+                  history: { type: array, items: { type: object } }
+        '404':
+          description: This host has no orchestrator that writes the report.
   /releases:
     get:
       tags: [ System ]

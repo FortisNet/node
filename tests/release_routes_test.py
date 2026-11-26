@@ -71,6 +71,8 @@ def main():
             status, _, body = request(port, '/health')
             assert status == 503 and json.loads(body) == {'error': 'health_report_unavailable'}
             assert request(port, '/health.json')[0] == 503
+            status, _, body = request(port, '/node.json')
+            assert status == 404 and json.loads(body) == {'error': 'node_report_unavailable'}
             now = lambda: int(time.time() * 1000)
             first_page = b'<!DOCTYPE html><title>the host page</title>' + b'x' * 300000
             (public / 'index.html').write_bytes(first_page)
@@ -89,6 +91,13 @@ def main():
             status, headers, body = request(port, '/health.json')
             assert status == 200 and body == b'{"schemaVersion":1,"status":200}\n'
             assert headers['content-type'] == 'application/json; charset=utf-8'
+            # The host's report about the node is handed out as written.
+            node_report = b'{"schemaVersion":1,"running":{"version":"one"},"update":{"state":"idle"}}\n'
+            (public / 'node.json').write_bytes(node_report)
+            status, headers, body = request(port, '/node.json')
+            assert status == 200 and body == node_report
+            assert headers['content-type'] == 'application/json; charset=utf-8' and headers['cache-control'] == 'no-store'
+            assert request(port, '/node.json', method='HEAD')[2] == b''
             # The status the report states, and no belief in a report nobody refreshes.
             (public / 'health.status').write_text(f'503 {now()}\n')
             assert request(port, '/health')[0] == 503 and request(port, '/health.json')[0] == 503

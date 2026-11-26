@@ -24,6 +24,8 @@ bool RegisterReleaseRoutes(http::HttpRouter& router, std::string_view directory)
  *   health.json    shown at /health.json
  *   health.status  one line "STATUS WRITTEN_MS": the status code to answer
  *                  with, and when the report was written
+ *   node.json      shown at /node.json: which release runs, which is coming
+ *                  and when (404 when the host writes none)
  *
  * Copies the file `name` into `out`. False when there is no such file (an
  * unmanaged host) or it is not a regular file of at most 512 KiB. Reads are

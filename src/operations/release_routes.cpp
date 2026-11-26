@@ -148,6 +148,18 @@ void HandleHealth(int client, const http::HttpRequest& request, bool head, void*
   Reply(client, head, HostHealthStatus(), json ? "application/json; charset=utf-8" : "text/html; charset=utf-8",
         body.data(), body.size());
 }
+/** The host's report about this node: which release runs, which is coming
+ * and when. Handed out as the host wrote it. */
+void HandleNodeReport(int client, const http::HttpRequest&, bool head, void*) {
+  std::string body;
+  if (!CopyHostPage("node.json", &body)) {
+    // No orchestrator writes a report on this host.
+    constexpr char absent[] = "{\"error\":\"node_report_unavailable\"}";
+    Reply(client, head, 404, "application/json; charset=utf-8", absent, sizeof(absent) - 1);
+    return;
+  }
+  Reply(client, head, 200, "application/json; charset=utf-8", body.data(), body.size());
+}
 }  // namespace
 bool CopyHostPage(const char* name, std::string* out) {
   return name && out && release_directory[0] == '/' && ReadHostFile(name, out, kHostPageCapacity);
@@ -179,6 +191,6 @@ bool RegisterReleaseRoutes(http::HttpRouter& router, std::string_view directory)
   cached_second = -1;
   return router.Add("GET", "/releases", HandlePage) && router.Add("GET", "/releasesz", HandleSnapshot) &&
          router.Add("GET", "/releasesz/history", HandleSnapshot) && router.Add("GET", "/health", HandleHealth) &&
-         router.Add("GET", "/health.json", HandleHealth);
+         router.Add("GET", "/health.json", HandleHealth) && router.Add("GET", "/node.json", HandleNodeReport);
 }
 }  // namespace fortis::operations
