@@ -213,7 +213,8 @@ make verify
 This is the gate, and it runs in a container it builds itself, so Docker
 must be running. It builds with Clang and GCC with warnings as errors, runs
 the Clang Static Analyzer, clang-tidy and Cppcheck, then every unit test
-with both compilers and the HTTP and TLS replays. The result is
+with both compilers, the checks against recorded JavaScript behaviour and
+the HTTP and TLS replays. The result is
 `build-verify/report.json`: every stage must pass and `inputs_unchanged`
 must be true. `make lean-verify` is a quicker subset for small changes.
 [docs/verification.md](docs/verification.md) has the details, and

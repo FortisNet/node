@@ -1139,7 +1139,6 @@ test: test-prereqs test-current-contracts
 	python3 tests/app_post_wire_test.py build/fortis_node --compare tests/fixtures/app_post_schema_baseline.json --strict-types
 	./build/proto_request_reader_test
 	./build/query_string_test
-	python3 tests/network_catalog_generator_test.py
 	./build/network_registry_catalog_test
 	python3 tests/kv_backup_test.py
 	python3 tests/smoke.py build/fortis_node build/fortis_node_probe_test
@@ -1242,7 +1241,6 @@ test: test-prereqs test-current-contracts
 	./build/metrics_auth_test
 	./build/diagnostic_redaction_test tests/corpus/crash_redaction_corpus.json
 	./build/error_board_test
-	python3 tests/incorrect_coin_ids_page_test.py
 	./build/api_telemetry_test tests/corpus/operations_telemetry.json
 	./build/crash_report_codec_test
 	./build/resource_snapshot_test
@@ -1258,10 +1256,7 @@ test: test-prereqs test-current-contracts
 	python3 tests/lint_tool_test.py
 	./build/base_status_test
 	./build/base_log_test
-	python3 tests/js_case_test.py build/js_case_test
-	python3 tests/js_json_test.py build/js_json_test
 	./build/proto_wire_golden_test
-	python3 tests/market_view_test.py build/market_view_test
 	./build/token_ref_test tests/corpus/token_ref_corpus.json
 	./build/token_comparison_test
 	./build/token_atomicity_test
@@ -1360,7 +1355,6 @@ test: test-prereqs test-current-contracts
 	python3 tests/token_search_route_test.py build/fortis_node_discovery_route_test
 	./build/token_search_test tests/corpus/token_search_edges.json
 	python3 tests/token_search_edges_test.py build/fortis_node_discovery_route_test build/fortis_node
-	python3 tests/whatwg_url_test.py build/whatwg_url_test
 	python3 tests/news_media_native_test.py build/fortis_node_news_route_test build/fortis_node
 	./build/news_reads_test tests/corpus/news_reads_edges.json
 	python3 tests/news_reads_edges_test.py build/fortis_node_news_route_test build/fortis_node
@@ -1412,7 +1406,16 @@ sanitize-clean:
 # The complete pre-push gate; isolated real Clang/GCC builds, two analyzers,
 # full clang-tidy lint and native unit tests. See docs/verification.md.
 .PHONY: test-current-contracts
+# The replays the gate runs (scripts/verify.py). The first six check the
+# places where the node must behave exactly like JavaScript, against recorded
+# answers, and the generators' own rules.
 test-current-contracts: test-prereqs
+	python3 tests/js_case_test.py build/js_case_test
+	python3 tests/js_json_test.py build/js_json_test
+	python3 tests/market_view_test.py build/market_view_test
+	python3 tests/whatwg_url_test.py build/whatwg_url_test
+	python3 tests/incorrect_coin_ids_page_test.py
+	python3 tests/network_catalog_generator_test.py
 	python3 tests/price_fallback_warmer_test.py build/price_fallback_warmer_test
 	python3 tests/incoming_https_test.py build/fortis_node --handoff-binary build/incoming_https_fixture
 	python3 tests/error_board_route_test.py build/fortis_node_operations_test

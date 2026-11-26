@@ -55,8 +55,12 @@ The command then runs seven stages:
 6. **unit-tests.** Run every `./build/...` command of the Makefile test
    recipe against **both** compiler builds. A failed build blocks its unit
    tests.
-7. **integration-tests.** Run the HTTP/TLS replays of the
-   `test-current-contracts` target against the Clang build: public error
+7. **integration-tests.** Run the replays of the `test-current-contracts`
+   target against the Clang build. First the places where the node must
+   behave exactly like JavaScript (case conversion, JSON and protobuf
+   numbers, the market view, URL parsing), against answers recorded from a
+   JavaScript engine, and the checks of the error page and the network
+   catalog generator. Then the HTTP/TLS replays: public error
    persistence, operations and status routes, durable asynchronous AI,
    native, contract and Robinhood prices, the price fallback warmer, incoming
    HTTPS and anonymous OHLC back-pressure. A failed Clang build blocks these

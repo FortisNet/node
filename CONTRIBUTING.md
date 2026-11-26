@@ -20,7 +20,8 @@ make verify
 
 `make verify` is the gate. It builds with Clang and GCC with warnings as
 errors, runs the Clang Static Analyzer, clang-tidy and Cppcheck, then every
-unit test with both compilers and the HTTP and TLS replays. It writes
+unit test with both compilers, the checks against recorded JavaScript
+behaviour and the HTTP and TLS replays. It writes
 `build-verify/report.json`. A change is ready for review when every stage
 passes and `inputs_unchanged` is true. `make lean-verify` is a quicker
 subset while you work. [docs/verification.md](docs/verification.md) explains
