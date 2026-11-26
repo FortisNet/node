@@ -1,0 +1,4 @@
+# Build tools only; the fixed runtime below contains none of these packages.
+FROM alpine@sha256:71e9b7bae160ba167fa17414401b94cbcdaf3c32feeab9298bd794a2a0614c35
+RUN apk add --no-cache build-base linux-headers python3 perl-utils nodejs curl ca-certificates binutils openssl
+WORKDIR /work

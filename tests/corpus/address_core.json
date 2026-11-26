@@ -1,0 +1,3500 @@
+{
+ "schemaVersion": 1,
+ "now": 1767323045000,
+ "token": "fintel_dev_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+ "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+ "env": {
+  "ETHERSCAN_API_KEY": "test-etherscan-key"
+ },
+ "providers": {
+  "GET https://api.geckoterminal.com/api/v2/networks/eth/trending_pools?include=base_token&duration=24h&page=1": {
+   "status": 200,
+   "json": {
+    "data": [
+     {
+      "id": "eth_pool0",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": "60000000000",
+       "base_token_price_usd": "1.0001",
+       "price_change_percentage": {
+        "h24": "0.01"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+         "type": "token"
+        }
+       }
+      }
+     },
+     {
+      "id": "eth_pool1",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": null,
+       "base_token_price_usd": "3200",
+       "price_change_percentage": {
+        "h24": "1.5"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+         "type": "token"
+        }
+       }
+      }
+     },
+     {
+      "id": "eth_pool2",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": "4000000000",
+       "base_token_price_usd": "0.00001",
+       "price_change_percentage": {
+        "h24": "-3.2"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0x6982508145454ce325ddbe47a25d4ec3d2311933",
+         "type": "token"
+        }
+       }
+      }
+     },
+     {
+      "id": "eth_pool3",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": "60000000000",
+       "base_token_price_usd": "1",
+       "price_change_percentage": {
+        "h24": "0"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+         "type": "token"
+        }
+       }
+      }
+     }
+    ],
+    "included": [
+     {
+      "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "type": "token",
+      "attributes": {
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "name": "USD Coin",
+       "symbol": "usdc",
+       "decimals": 6,
+       "image_url": "https://assets.coingecko.com/coins/images/6319/large/usdc.png",
+       "coingecko_coin_id": "USD-Coin"
+      }
+     },
+     {
+      "id": "eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "type": "token",
+      "attributes": {
+       "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+       "name": "Wrapped Ether",
+       "symbol": "WETH",
+       "decimals": 18,
+       "image_url": null,
+       "coingecko_coin_id": "weth"
+      }
+     },
+     {
+      "id": "eth_0x6982508145454ce325ddbe47a25d4ec3d2311933",
+      "type": "token",
+      "attributes": {
+       "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "name": "Pepe",
+       "symbol": "PEPE",
+       "decimals": 18,
+       "image_url": "http://insecure.example.com/pepe.png",
+       "coingecko_coin_id": null
+      }
+     },
+     {
+      "id": "eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "type": "token",
+      "attributes": {
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "name": "USD Coin",
+       "symbol": "USDC",
+       "decimals": 6,
+       "image_url": null,
+       "coingecko_coin_id": "usd-coin"
+      }
+     }
+    ]
+   }
+  },
+  "GET https://api.ethplorer.io/getTokenInfo/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?apiKey=freekey": {
+   "status": 200,
+   "json": {
+    "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "holdersCount": 2345678
+   }
+  },
+  "GET https://api.ethplorer.io/getTokenInfo/0x6982508145454ce325ddbe47a25d4ec3d2311933?apiKey=freekey": {
+   "status": 200,
+   "json": {
+    "error": {
+     "code": 150,
+     "message": "Address is not a token contract"
+    }
+   }
+  },
+  "GET https://api.geckoterminal.com/api/v2/networks/base/trending_pools?include=base_token&duration=24h&page=1": {
+   "status": 200,
+   "json": {
+    "data": [
+     {
+      "id": "eth_pool0",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": "4000000000",
+       "base_token_price_usd": "1",
+       "price_change_percentage": {
+        "h24": "0"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+         "type": "token"
+        }
+       }
+      }
+     },
+     {
+      "id": "eth_pool1",
+      "type": "pool",
+      "attributes": {
+       "market_cap_usd": "200000000",
+       "base_token_price_usd": "0.01",
+       "price_change_percentage": {
+        "h24": "12.5"
+       }
+      },
+      "relationships": {
+       "base_token": {
+        "data": {
+         "id": "eth_0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+         "type": "token"
+        }
+       }
+      }
+     }
+    ],
+    "included": [
+     {
+      "id": "eth_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "type": "token",
+      "attributes": {
+       "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+       "name": "USD Coin",
+       "symbol": "USDC",
+       "decimals": 6,
+       "image_url": null,
+       "coingecko_coin_id": "usd-coin"
+      }
+     },
+     {
+      "id": "eth_0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+      "type": "token",
+      "attributes": {
+       "address": "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+       "name": "Degen",
+       "symbol": "DEGEN",
+       "decimals": 18,
+       "image_url": null,
+       "coingecko_coin_id": "degen-base"
+      }
+     }
+    ]
+   }
+  },
+  "GET https://api.etherscan.io/v2/api?chainid=8453&module=token&action=tokenholdercount&contractaddress=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913&apikey=test-etherscan-key": {
+   "status": 200,
+   "json": {
+    "status": "1",
+    "message": "OK",
+    "result": "987654"
+   }
+  },
+  "GET https://api.etherscan.io/v2/api?chainid=8453&module=token&action=tokenholdercount&contractaddress=0x4ed4e862860bed51a9570b96d89af5e1b0efefed&apikey=test-etherscan-key": {
+   "status": 200,
+   "json": {
+    "status": "0",
+    "message": "NOTOK",
+    "result": "Free API access is not supported for this chain. Please upgrade your api plan for full chain coverage."
+   }
+  },
+  "GET https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?include=base_token&duration=24h&page=1": {
+   "status": 200,
+   "json": {
+    "data": [],
+    "included": []
+   }
+  },
+  "GET https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key": {
+   "status": 200,
+   "json": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+     {
+      "blockNumber": "17400000",
+      "timeStamp": "1685620800",
+      "hash": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "from": "0x9999999999999999999999999999999999999999",
+      "to": "0x2222222222222222222222222222222222222222",
+      "value": "2000000000000000000",
+      "gas": "21000",
+      "gasPrice": "20000000000",
+      "isError": "0",
+      "txreceipt_status": "1",
+      "input": "0x",
+      "contractAddress": "",
+      "gasUsed": "21000",
+      "functionName": ""
+     },
+     {
+      "blockNumber": "23900000",
+      "timeStamp": "1767150245",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x9999999999999999999999999999999999999999",
+      "value": "500000000000000000",
+      "gas": "21000",
+      "gasPrice": "20000000000",
+      "isError": "0",
+      "txreceipt_status": "1",
+      "input": "0x",
+      "contractAddress": "",
+      "gasUsed": "21000",
+      "functionName": ""
+     }
+    ]
+   }
+  },
+  "GET https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key": {
+   "status": 200,
+   "json": {
+    "status": "0",
+    "message": "No transactions found",
+    "result": []
+   }
+  },
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}": [
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf6a"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf74"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf79"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf7e"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf7f"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf80"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf81"
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": "0x16caf88"
+    }
+   }
+  ],
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf74\"]}": {
+   "status": 200,
+   "json": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000014d1120d7b160000"
+   }
+  },
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf79\"]}": {
+   "status": 200,
+   "json": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000010a741a462780000"
+   }
+  },
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf7e\"]}": {
+   "status": 200,
+   "json": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000010a741a462780000"
+   }
+  },
+  "GET https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=23900001&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key": {
+   "status": 200,
+   "json": {
+    "status": "1",
+    "message": "OK",
+    "result": [
+     {
+      "blockNumber": "23900028",
+      "timeStamp": "1767323145",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x9999999999999999999999999999999999999999",
+      "value": "300000000000000000",
+      "gas": "21000",
+      "gasPrice": "20000000000",
+      "isError": "0",
+      "txreceipt_status": "1",
+      "input": "0x",
+      "contractAddress": "",
+      "gasUsed": "21000",
+      "functionName": ""
+     }
+    ]
+   }
+  },
+  "GET https://api.coingecko.com/api/v3/coins/ethereum/market_chart/range?vs_currency=usd&from=1766980800&to=1767326400": {
+   "status": 200,
+   "json": {
+    "prices": [
+     [
+      1766980800000,
+      3028
+     ],
+     [
+      1766984400000,
+      3029
+     ],
+     [
+      1766988000000,
+      3030
+     ],
+     [
+      1766991600000,
+      3031
+     ],
+     [
+      1766995200000,
+      3032
+     ],
+     [
+      1766998800000,
+      3033
+     ],
+     [
+      1767002400000,
+      3034
+     ],
+     [
+      1767006000000,
+      3035
+     ],
+     [
+      1767009600000,
+      3036
+     ],
+     [
+      1767013200000,
+      3037
+     ],
+     [
+      1767016800000,
+      3038
+     ],
+     [
+      1767020400000,
+      3039
+     ],
+     [
+      1767024000000,
+      3040
+     ],
+     [
+      1767027600000,
+      3041
+     ],
+     [
+      1767031200000,
+      3042
+     ],
+     [
+      1767034800000,
+      3043
+     ],
+     [
+      1767038400000,
+      3044
+     ],
+     [
+      1767042000000,
+      3045
+     ],
+     [
+      1767045600000,
+      3046
+     ],
+     [
+      1767049200000,
+      3047
+     ],
+     [
+      1767052800000,
+      3048
+     ],
+     [
+      1767056400000,
+      3049
+     ],
+     [
+      1767060000000,
+      3000
+     ],
+     [
+      1767063600000,
+      3001
+     ],
+     [
+      1767067200000,
+      3002
+     ],
+     [
+      1767070800000,
+      3003
+     ],
+     [
+      1767074400000,
+      3004
+     ],
+     [
+      1767078000000,
+      3005
+     ],
+     [
+      1767081600000,
+      3006
+     ],
+     [
+      1767085200000,
+      3007
+     ],
+     [
+      1767088800000,
+      3008
+     ],
+     [
+      1767092400000,
+      3009
+     ],
+     [
+      1767096000000,
+      3010
+     ],
+     [
+      1767099600000,
+      3011
+     ],
+     [
+      1767103200000,
+      3012
+     ],
+     [
+      1767106800000,
+      3013
+     ],
+     [
+      1767110400000,
+      3014
+     ],
+     [
+      1767114000000,
+      3015
+     ],
+     [
+      1767117600000,
+      3016
+     ],
+     [
+      1767121200000,
+      3017
+     ],
+     [
+      1767124800000,
+      3018
+     ],
+     [
+      1767128400000,
+      3019
+     ],
+     [
+      1767132000000,
+      3020
+     ],
+     [
+      1767135600000,
+      3021
+     ],
+     [
+      1767139200000,
+      3022
+     ],
+     [
+      1767142800000,
+      3023
+     ],
+     [
+      1767146400000,
+      3024
+     ],
+     [
+      1767150000000,
+      3025
+     ],
+     [
+      1767153600000,
+      3026
+     ],
+     [
+      1767157200000,
+      3027
+     ],
+     [
+      1767160800000,
+      3028
+     ],
+     [
+      1767164400000,
+      3029
+     ],
+     [
+      1767168000000,
+      3030
+     ],
+     [
+      1767171600000,
+      3031
+     ],
+     [
+      1767175200000,
+      3032
+     ],
+     [
+      1767178800000,
+      3033
+     ],
+     [
+      1767182400000,
+      3034
+     ],
+     [
+      1767186000000,
+      3035
+     ],
+     [
+      1767189600000,
+      3036
+     ],
+     [
+      1767193200000,
+      3037
+     ],
+     [
+      1767196800000,
+      3038
+     ],
+     [
+      1767200400000,
+      3039
+     ],
+     [
+      1767204000000,
+      3040
+     ],
+     [
+      1767207600000,
+      3041
+     ],
+     [
+      1767211200000,
+      3042
+     ],
+     [
+      1767214800000,
+      3043
+     ],
+     [
+      1767218400000,
+      3044
+     ],
+     [
+      1767222000000,
+      3045
+     ],
+     [
+      1767225600000,
+      3046
+     ],
+     [
+      1767229200000,
+      3047
+     ],
+     [
+      1767232800000,
+      3048
+     ],
+     [
+      1767236400000,
+      3049
+     ],
+     [
+      1767240000000,
+      3000
+     ],
+     [
+      1767243600000,
+      3001
+     ],
+     [
+      1767247200000,
+      3002
+     ],
+     [
+      1767250800000,
+      3003
+     ],
+     [
+      1767254400000,
+      3004
+     ],
+     [
+      1767258000000,
+      3005
+     ],
+     [
+      1767261600000,
+      3006
+     ],
+     [
+      1767265200000,
+      3007
+     ],
+     [
+      1767268800000,
+      3008
+     ],
+     [
+      1767272400000,
+      3009
+     ],
+     [
+      1767276000000,
+      3010
+     ],
+     [
+      1767279600000,
+      3011
+     ],
+     [
+      1767283200000,
+      3012
+     ],
+     [
+      1767286800000,
+      3013
+     ],
+     [
+      1767290400000,
+      3014
+     ],
+     [
+      1767294000000,
+      3015
+     ],
+     [
+      1767297600000,
+      3016
+     ],
+     [
+      1767301200000,
+      3017
+     ],
+     [
+      1767304800000,
+      3018
+     ],
+     [
+      1767308400000,
+      3019
+     ],
+     [
+      1767312000000,
+      3020
+     ],
+     [
+      1767315600000,
+      3021
+     ],
+     [
+      1767319200000,
+      3022
+     ],
+     [
+      1767322800000,
+      3023
+     ]
+    ],
+    "market_caps": [],
+    "total_volumes": [
+     [
+      1766980800000,
+      1000000000
+     ],
+     [
+      1766984400000,
+      1000000000
+     ],
+     [
+      1766988000000,
+      1000000000
+     ],
+     [
+      1766991600000,
+      1000000000
+     ],
+     [
+      1766995200000,
+      1000000000
+     ],
+     [
+      1766998800000,
+      1000000000
+     ],
+     [
+      1767002400000,
+      1000000000
+     ],
+     [
+      1767006000000,
+      1000000000
+     ],
+     [
+      1767009600000,
+      1000000000
+     ],
+     [
+      1767013200000,
+      1000000000
+     ],
+     [
+      1767016800000,
+      1000000000
+     ],
+     [
+      1767020400000,
+      1000000000
+     ],
+     [
+      1767024000000,
+      1000000000
+     ],
+     [
+      1767027600000,
+      1000000000
+     ],
+     [
+      1767031200000,
+      1000000000
+     ],
+     [
+      1767034800000,
+      1000000000
+     ],
+     [
+      1767038400000,
+      1000000000
+     ],
+     [
+      1767042000000,
+      1000000000
+     ],
+     [
+      1767045600000,
+      1000000000
+     ],
+     [
+      1767049200000,
+      1000000000
+     ],
+     [
+      1767052800000,
+      1000000000
+     ],
+     [
+      1767056400000,
+      1000000000
+     ],
+     [
+      1767060000000,
+      1000000000
+     ],
+     [
+      1767063600000,
+      1000000000
+     ],
+     [
+      1767067200000,
+      1000000000
+     ],
+     [
+      1767070800000,
+      1000000000
+     ],
+     [
+      1767074400000,
+      1000000000
+     ],
+     [
+      1767078000000,
+      1000000000
+     ],
+     [
+      1767081600000,
+      1000000000
+     ],
+     [
+      1767085200000,
+      1000000000
+     ],
+     [
+      1767088800000,
+      1000000000
+     ],
+     [
+      1767092400000,
+      1000000000
+     ],
+     [
+      1767096000000,
+      1000000000
+     ],
+     [
+      1767099600000,
+      1000000000
+     ],
+     [
+      1767103200000,
+      1000000000
+     ],
+     [
+      1767106800000,
+      1000000000
+     ],
+     [
+      1767110400000,
+      1000000000
+     ],
+     [
+      1767114000000,
+      1000000000
+     ],
+     [
+      1767117600000,
+      1000000000
+     ],
+     [
+      1767121200000,
+      1000000000
+     ],
+     [
+      1767124800000,
+      1000000000
+     ],
+     [
+      1767128400000,
+      1000000000
+     ],
+     [
+      1767132000000,
+      1000000000
+     ],
+     [
+      1767135600000,
+      1000000000
+     ],
+     [
+      1767139200000,
+      1000000000
+     ],
+     [
+      1767142800000,
+      1000000000
+     ],
+     [
+      1767146400000,
+      1000000000
+     ],
+     [
+      1767150000000,
+      1000000000
+     ],
+     [
+      1767153600000,
+      1000000000
+     ],
+     [
+      1767157200000,
+      1000000000
+     ],
+     [
+      1767160800000,
+      1000000000
+     ],
+     [
+      1767164400000,
+      1000000000
+     ],
+     [
+      1767168000000,
+      1000000000
+     ],
+     [
+      1767171600000,
+      1000000000
+     ],
+     [
+      1767175200000,
+      1000000000
+     ],
+     [
+      1767178800000,
+      1000000000
+     ],
+     [
+      1767182400000,
+      1000000000
+     ],
+     [
+      1767186000000,
+      1000000000
+     ],
+     [
+      1767189600000,
+      1000000000
+     ],
+     [
+      1767193200000,
+      1000000000
+     ],
+     [
+      1767196800000,
+      1000000000
+     ],
+     [
+      1767200400000,
+      1000000000
+     ],
+     [
+      1767204000000,
+      1000000000
+     ],
+     [
+      1767207600000,
+      1000000000
+     ],
+     [
+      1767211200000,
+      1000000000
+     ],
+     [
+      1767214800000,
+      1000000000
+     ],
+     [
+      1767218400000,
+      1000000000
+     ],
+     [
+      1767222000000,
+      1000000000
+     ],
+     [
+      1767225600000,
+      1000000000
+     ],
+     [
+      1767229200000,
+      1000000000
+     ],
+     [
+      1767232800000,
+      1000000000
+     ],
+     [
+      1767236400000,
+      1000000000
+     ],
+     [
+      1767240000000,
+      1000000000
+     ],
+     [
+      1767243600000,
+      1000000000
+     ],
+     [
+      1767247200000,
+      1000000000
+     ],
+     [
+      1767250800000,
+      1000000000
+     ],
+     [
+      1767254400000,
+      1000000000
+     ],
+     [
+      1767258000000,
+      1000000000
+     ],
+     [
+      1767261600000,
+      1000000000
+     ],
+     [
+      1767265200000,
+      1000000000
+     ],
+     [
+      1767268800000,
+      1000000000
+     ],
+     [
+      1767272400000,
+      1000000000
+     ],
+     [
+      1767276000000,
+      1000000000
+     ],
+     [
+      1767279600000,
+      1000000000
+     ],
+     [
+      1767283200000,
+      1000000000
+     ],
+     [
+      1767286800000,
+      1000000000
+     ],
+     [
+      1767290400000,
+      1000000000
+     ],
+     [
+      1767294000000,
+      1000000000
+     ],
+     [
+      1767297600000,
+      1000000000
+     ],
+     [
+      1767301200000,
+      1000000000
+     ],
+     [
+      1767304800000,
+      1000000000
+     ],
+     [
+      1767308400000,
+      1000000000
+     ],
+     [
+      1767312000000,
+      1000000000
+     ],
+     [
+      1767315600000,
+      1000000000
+     ],
+     [
+      1767319200000,
+      1000000000
+     ],
+     [
+      1767322800000,
+      1000000000
+     ]
+    ]
+   }
+  },
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getTransactionByHash\",\"params\":[\"0xabababababababababababababababababababababababababababababababab\"]}": [
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": {
+      "hash": "0xabababababababababababababababababababababababababababababababab",
+      "blockNumber": null,
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x9999999999999999999999999999999999999999",
+      "value": "0x1",
+      "nonce": "0x7"
+     }
+    }
+   },
+   {
+    "status": 200,
+    "json": {
+     "jsonrpc": "2.0",
+     "id": 1,
+     "result": {
+      "hash": "0xabababababababababababababababababababababababababababababababab",
+      "blockNumber": "0x16caf84",
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x9999999999999999999999999999999999999999",
+      "value": "0x1",
+      "nonce": "0x7"
+     }
+    }
+   }
+  ],
+  "POST https://ethereum-rpc.publicnode.com {\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getTransactionReceipt\",\"params\":[\"0xabababababababababababababababababababababababababababababababab\"]}": {
+   "status": 200,
+   "json": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+     "transactionHash": "0xabababababababababababababababababababababababababababababababab",
+     "status": "0x1",
+     "gasUsed": "0x5208",
+     "effectiveGasPrice": "0x4a817c800",
+     "blockNumber": "0x16caf84"
+    }
+   }
+  }
+ },
+ "cases": [
+  {
+   "name": "ethOverview",
+   "group": "overview",
+   "at": 1767323045000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1049",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-93b54dca675c2ed6d30cb172\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "eth-mainnet",
+     "name": "Ethereum",
+     "description": "Ethereum network",
+     "websiteUrl": "https://ethereum.org"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [
+      {
+       "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "symbol": "USDC",
+       "name": "USD Coin",
+       "decimals": 6,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": "usd-coin",
+       "marketCapUsd": 60000000000,
+       "holderCount": 2345678,
+       "holderCountAtLeast": false,
+       "priceUsd": 1.0001,
+       "change24hPct": 0.01,
+       "rank": 1,
+       "source": "coingecko"
+      },
+      {
+       "tokenId": "erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "symbol": "PEPE",
+       "name": "Pepe",
+       "decimals": 18,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": null,
+       "marketCapUsd": 4000000000,
+       "holderCount": null,
+       "holderCountAtLeast": false,
+       "priceUsd": 0.00001,
+       "change24hPct": -3.2,
+       "rank": 3,
+       "source": "coingecko"
+      }
+     ],
+     "asOf": "2026-01-02T03:04:05.000Z",
+     "stale": false,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"eth-mainnet\",\"name\":\"Ethereum\",\"description\":\"Ethereum network\",\"websiteUrl\":\"https://ethereum.org\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[{\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"symbol\":\"USDC\",\"name\":\"USD Coin\",\"decimals\":6,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":\"usd-coin\",\"marketCapUsd\":60000000000,\"holderCount\":2345678,\"holderCountAtLeast\":false,\"priceUsd\":1.0001,\"change24hPct\":0.01,\"rank\":1,\"source\":\"coingecko\"},{\"tokenId\":\"erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"address\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"symbol\":\"PEPE\",\"name\":\"Pepe\",\"decimals\":18,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":null,\"marketCapUsd\":4000000000,\"holderCount\":null,\"holderCountAtLeast\":false,\"priceUsd\":0.00001,\"change24hPct\":-3.2,\"rank\":3,\"source\":\"coingecko\"}],\"asOf\":\"2026-01-02T03:04:05.000Z\",\"stale\":false,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/eth/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 200,
+     "body": "{\"data\":[{\"id\":\"eth_pool0\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"60000000000\",\"base_token_price_usd\":\"1.0001\",\"price_change_percentage\":{\"h24\":\"0.01\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\"}}}},{\"id\":\"eth_pool1\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":null,\"base_token_price_usd\":\"3200\",\"price_change_percentage\":{\"h24\":\"1.5\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"type\":\"token\"}}}},{\"id\":\"eth_pool2\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"4000000000\",\"base_token_price_usd\":\"0.00001\",\"price_change_percentage\":{\"h24\":\"-3.2\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"type\":\"token\"}}}},{\"id\":\"eth_pool3\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"60000000000\",\"base_token_price_usd\":\"1\",\"price_change_percentage\":{\"h24\":\"0\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\"}}}}],\"included\":[{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\",\"attributes\":{\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"name\":\"USD Coin\",\"symbol\":\"usdc\",\"decimals\":6,\"image_url\":\"https://assets.coingecko.com/coins/images/6319/large/usdc.png\",\"coingecko_coin_id\":\"USD-Coin\"}},{\"id\":\"eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"type\":\"token\",\"attributes\":{\"address\":\"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"name\":\"Wrapped Ether\",\"symbol\":\"WETH\",\"decimals\":18,\"image_url\":null,\"coingecko_coin_id\":\"weth\"}},{\"id\":\"eth_0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"type\":\"token\",\"attributes\":{\"address\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"name\":\"Pepe\",\"symbol\":\"PEPE\",\"decimals\":18,\"image_url\":\"http://insecure.example.com/pepe.png\",\"coingecko_coin_id\":null}},{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\",\"attributes\":{\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"name\":\"USD Coin\",\"symbol\":\"USDC\",\"decimals\":6,\"image_url\":null,\"coingecko_coin_id\":\"usd-coin\"}}]}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ethplorer.io/getTokenInfo/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48?apiKey=freekey",
+     "status": 200,
+     "body": "{\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"holdersCount\":2345678}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.ethplorer.io/getTokenInfo/0x6982508145454ce325ddbe47a25d4ec3d2311933?apiKey=freekey",
+     "status": 200,
+     "body": "{\"error\":{\"code\":150,\"message\":\"Address is not a token contract\"}}"
+    }
+   ]
+  },
+  {
+   "name": "ethOverviewProtobuf",
+   "group": "overview",
+   "at": 1767323046000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/protobuf",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/protobuf",
+    "content-length": "452",
+    "vary": "Accept",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-protobuf-9bc4afe17aad2ad082b5d3ce\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "eth-mainnet",
+     "name": "Ethereum",
+     "description": "Ethereum network",
+     "websiteUrl": "https://ethereum.org"
+    },
+    "news": {
+     "available": true,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [
+      {
+       "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "symbol": "USDC",
+       "name": "USD Coin",
+       "decimals": 6,
+       "coinGeckoId": "usd-coin",
+       "marketCapUsd": 60000000000,
+       "holderCount": "2345678",
+       "priceUsd": 1.0001,
+       "change24hPct": 0.01,
+       "rank": 1,
+       "source": "coingecko"
+      },
+      {
+       "tokenId": "erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "symbol": "PEPE",
+       "name": "Pepe",
+       "decimals": 18,
+       "marketCapUsd": 4000000000,
+       "priceUsd": 0.00001,
+       "change24hPct": -3.2,
+       "rank": 3,
+       "source": "coingecko"
+      }
+     ],
+     "asOf": "2026-01-02T03:04:05.000Z",
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "wireHex": "0a3f0a0b6574682d6d61696e6e65741208457468657265756d1a10457468657265756d206e6574776f726b221468747470733a2f2f657468657265756d2e6f72671204080120011afa02080112a7010a3065726332303a307861306238363939316336323138623336633164313964346132653965623063653336303665623438122a3078613062383639393163363231386233366331643139643461326539656230636533363036656234381a0455534443220855534420436f696e280642087573642d636f696e49000000b08ef02b4250ce958f016171ac8bdb6800f03f697b14ae47e17a843f70017a09636f696e6765636b6f1294010a3065726332303a307836393832353038313435343534636533323564646265343761323564346563336432333131393333122a3078363938323530383134353435346365333235646462653437613235643465633364323331313933331a04504550452204506570652812490000000065cded4161f168e388b5f8e43e699a999999999909c070037a09636f696e6765636b6f1a18323032362d30312d30325430333a30343a30352e3030305a2a106f6e5f636861696e5f686f6c646572733209636f696e6765636b6f",
+   "upstream": []
+  },
+  {
+   "name": "ethOverview304",
+   "group": "overview",
+   "at": 1767323047000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/json",
+   "ifNoneMatch": "W/\"network-overview-93b54dca675c2ed6d30cb172\"",
+   "mode": {},
+   "status": 304,
+   "headers": {
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-93b54dca675c2ed6d30cb172\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": null,
+   "upstream": []
+  },
+  {
+   "name": "ethOverviewProtobuf304",
+   "group": "overview",
+   "at": 1767323047000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/protobuf",
+   "ifNoneMatch": "W/\"network-overview-protobuf-9bc4afe17aad2ad082b5d3ce\"",
+   "mode": {},
+   "status": 304,
+   "headers": {
+    "vary": "Accept",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-protobuf-9bc4afe17aad2ad082b5d3ce\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": null,
+   "upstream": []
+  },
+  {
+   "name": "eip155Overview",
+   "group": "overview",
+   "at": 1767323048000,
+   "method": "GET",
+   "url": "/v1/networks/eip155%3A1/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1049",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-93b54dca675c2ed6d30cb172\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "eth-mainnet",
+     "name": "Ethereum",
+     "description": "Ethereum network",
+     "websiteUrl": "https://ethereum.org"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [
+      {
+       "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "symbol": "USDC",
+       "name": "USD Coin",
+       "decimals": 6,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": "usd-coin",
+       "marketCapUsd": 60000000000,
+       "holderCount": 2345678,
+       "holderCountAtLeast": false,
+       "priceUsd": 1.0001,
+       "change24hPct": 0.01,
+       "rank": 1,
+       "source": "coingecko"
+      },
+      {
+       "tokenId": "erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "symbol": "PEPE",
+       "name": "Pepe",
+       "decimals": 18,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": null,
+       "marketCapUsd": 4000000000,
+       "holderCount": null,
+       "holderCountAtLeast": false,
+       "priceUsd": 0.00001,
+       "change24hPct": -3.2,
+       "rank": 3,
+       "source": "coingecko"
+      }
+     ],
+     "asOf": "2026-01-02T03:04:05.000Z",
+     "stale": false,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"eth-mainnet\",\"name\":\"Ethereum\",\"description\":\"Ethereum network\",\"websiteUrl\":\"https://ethereum.org\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[{\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"symbol\":\"USDC\",\"name\":\"USD Coin\",\"decimals\":6,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":\"usd-coin\",\"marketCapUsd\":60000000000,\"holderCount\":2345678,\"holderCountAtLeast\":false,\"priceUsd\":1.0001,\"change24hPct\":0.01,\"rank\":1,\"source\":\"coingecko\"},{\"tokenId\":\"erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"address\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"symbol\":\"PEPE\",\"name\":\"Pepe\",\"decimals\":18,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":null,\"marketCapUsd\":4000000000,\"holderCount\":null,\"holderCountAtLeast\":false,\"priceUsd\":0.00001,\"change24hPct\":-3.2,\"rank\":3,\"source\":\"coingecko\"}],\"asOf\":\"2026-01-02T03:04:05.000Z\",\"stale\":false,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": []
+  },
+  {
+   "name": "baseOverview",
+   "group": "overview",
+   "at": 1767323055000,
+   "method": "GET",
+   "url": "/v1/networks/base/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1026",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-c7602c16a5a4a6fc2ec67ef3\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "base",
+     "name": "Base",
+     "description": "Base network",
+     "websiteUrl": "https://base.org"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [
+      {
+       "tokenId": "erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+       "address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+       "symbol": "USDC",
+       "name": "USD Coin",
+       "decimals": 6,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": "usd-coin",
+       "marketCapUsd": 4000000000,
+       "holderCount": 987654,
+       "holderCountAtLeast": false,
+       "priceUsd": 1,
+       "change24hPct": 0,
+       "rank": 1,
+       "source": "coingecko"
+      },
+      {
+       "tokenId": "erc20:0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+       "address": "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+       "symbol": "DEGEN",
+       "name": "Degen",
+       "decimals": 18,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": "degen-base",
+       "marketCapUsd": 200000000,
+       "holderCount": null,
+       "holderCountAtLeast": false,
+       "priceUsd": 0.01,
+       "change24hPct": 12.5,
+       "rank": 2,
+       "source": "coingecko"
+      }
+     ],
+     "asOf": "2026-01-02T03:04:15.000Z",
+     "stale": false,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"base\",\"name\":\"Base\",\"description\":\"Base network\",\"websiteUrl\":\"https://base.org\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[{\"tokenId\":\"erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"address\":\"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"symbol\":\"USDC\",\"name\":\"USD Coin\",\"decimals\":6,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":\"usd-coin\",\"marketCapUsd\":4000000000,\"holderCount\":987654,\"holderCountAtLeast\":false,\"priceUsd\":1,\"change24hPct\":0,\"rank\":1,\"source\":\"coingecko\"},{\"tokenId\":\"erc20:0x4ed4e862860bed51a9570b96d89af5e1b0efefed\",\"address\":\"0x4ed4e862860bed51a9570b96d89af5e1b0efefed\",\"symbol\":\"DEGEN\",\"name\":\"Degen\",\"decimals\":18,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":\"degen-base\",\"marketCapUsd\":200000000,\"holderCount\":null,\"holderCountAtLeast\":false,\"priceUsd\":0.01,\"change24hPct\":12.5,\"rank\":2,\"source\":\"coingecko\"}],\"asOf\":\"2026-01-02T03:04:15.000Z\",\"stale\":false,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/base/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 200,
+     "body": "{\"data\":[{\"id\":\"eth_pool0\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"4000000000\",\"base_token_price_usd\":\"1\",\"price_change_percentage\":{\"h24\":\"0\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"type\":\"token\"}}}},{\"id\":\"eth_pool1\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"200000000\",\"base_token_price_usd\":\"0.01\",\"price_change_percentage\":{\"h24\":\"12.5\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0x4ed4e862860bed51a9570b96d89af5e1b0efefed\",\"type\":\"token\"}}}}],\"included\":[{\"id\":\"eth_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"type\":\"token\",\"attributes\":{\"address\":\"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"name\":\"USD Coin\",\"symbol\":\"USDC\",\"decimals\":6,\"image_url\":null,\"coingecko_coin_id\":\"usd-coin\"}},{\"id\":\"eth_0x4ed4e862860bed51a9570b96d89af5e1b0efefed\",\"type\":\"token\",\"attributes\":{\"address\":\"0x4ed4e862860bed51a9570b96d89af5e1b0efefed\",\"name\":\"Degen\",\"symbol\":\"DEGEN\",\"decimals\":18,\"image_url\":null,\"coingecko_coin_id\":\"degen-base\"}}]}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=8453&module=token&action=tokenholdercount&contractaddress=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"1\",\"message\":\"OK\",\"result\":\"987654\"}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=8453&module=token&action=tokenholdercount&contractaddress=0x4ed4e862860bed51a9570b96d89af5e1b0efefed&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"0\",\"message\":\"NOTOK\",\"result\":\"Free API access is not supported for this chain. Please upgrade your api plan for full chain coverage.\"}"
+    }
+   ]
+  },
+  {
+   "name": "solanaOverview",
+   "group": "overview",
+   "at": 1767323065000,
+   "method": "GET",
+   "url": "/v1/networks/solana/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "313",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-acc6ef31d70adb913482f81e\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "solana",
+     "name": "Solana",
+     "description": "Solana network",
+     "websiteUrl": "https://solana.com"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [],
+     "asOf": "2026-01-02T03:04:25.000Z",
+     "stale": false,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"solana\",\"name\":\"Solana\",\"description\":\"Solana network\",\"websiteUrl\":\"https://solana.com\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[],\"asOf\":\"2026-01-02T03:04:25.000Z\",\"stale\":false,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 200,
+     "body": "{\"data\":[],\"included\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "polygonOverviewOutage",
+   "group": "overview",
+   "at": 1767323075000,
+   "method": "GET",
+   "url": "/v1/networks/polygon/overview",
+   "accept": "application/json",
+   "mode": {
+    "down": [
+     "api.geckoterminal.com"
+    ]
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "301",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-9e9c7bce5dadb44b388a86de\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "polygon",
+     "name": "Polygon",
+     "description": "Polygon network",
+     "websiteUrl": "https://polygon.technology"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"polygon\",\"name\":\"Polygon\",\"description\":\"Polygon network\",\"websiteUrl\":\"https://polygon.technology\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/polygon_pos/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/polygon_pos/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/polygon_pos/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 503,
+     "body": "unavailable"
+    }
+   ]
+  },
+  {
+   "name": "overviewNoAuth",
+   "group": "overview",
+   "at": 1767323076000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/json",
+   "noAuth": true,
+   "mode": {},
+   "status": 401,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "24",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()"
+   },
+   "body": {
+    "error": "UNAUTHORIZED"
+   },
+   "upstream": []
+  },
+  {
+   "name": "overviewTooLong",
+   "group": "overview",
+   "at": 1767323076000,
+   "method": "GET",
+   "url": "/v1/networks/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 414,
+   "headers": {
+    "content-type": "application/json",
+    "content-length": "246"
+   },
+   "body": {
+    "error": "Bad Request",
+    "code": "FST_ERR_MAX_PARAM_LENGTH",
+    "message": "'/v1/networks/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn/overview' is exceeding the max param length",
+    "statusCode": 414
+   },
+   "upstream": []
+  },
+  {
+   "name": "overviewBadParam",
+   "group": "overview",
+   "at": 1767323076000,
+   "method": "GET",
+   "url": "/v1/networks/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "23",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "error": "BAD_REQUEST"
+   },
+   "upstream": []
+  },
+  {
+   "name": "overviewUnknown",
+   "group": "overview",
+   "at": 1767323076000,
+   "method": "GET",
+   "url": "/v1/networks/nowhere/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "59",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "error": "BAD_REQUEST",
+    "detail": "unknown network: nowhere"
+   },
+   "upstream": []
+  },
+  {
+   "name": "overviewTestnet",
+   "group": "overview",
+   "at": 1767323076000,
+   "method": "GET",
+   "url": "/v1/networks/base-sepolia/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 400,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "80",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "error": "BAD_REQUEST",
+    "detail": "network overview is unavailable: base-sepolia"
+   },
+   "upstream": []
+  },
+  {
+   "name": "ethOverviewStale",
+   "group": "overview",
+   "at": 1767323445000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/overview",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "1048",
+    "cache-control": "private, max-age=60",
+    "etag": "W/\"network-overview-904f425a8ec45e1a30c584e2\"",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "network": {
+     "id": "eth-mainnet",
+     "name": "Ethereum",
+     "description": "Ethereum network",
+     "websiteUrl": "https://ethereum.org"
+    },
+    "news": {
+     "available": true,
+     "items": [],
+     "asOf": null,
+     "stale": true
+    },
+    "popularTokens": {
+     "available": true,
+     "items": [
+      {
+       "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+       "symbol": "USDC",
+       "name": "USD Coin",
+       "decimals": 6,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": "usd-coin",
+       "marketCapUsd": 60000000000,
+       "holderCount": 2345678,
+       "holderCountAtLeast": false,
+       "priceUsd": 1.0001,
+       "change24hPct": 0.01,
+       "rank": 1,
+       "source": "coingecko"
+      },
+      {
+       "tokenId": "erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+       "symbol": "PEPE",
+       "name": "Pepe",
+       "decimals": 18,
+       "logoMediaKey": null,
+       "logoUrl": null,
+       "coinGeckoId": null,
+       "marketCapUsd": 4000000000,
+       "holderCount": null,
+       "holderCountAtLeast": false,
+       "priceUsd": 0.00001,
+       "change24hPct": -3.2,
+       "rank": 3,
+       "source": "coingecko"
+      }
+     ],
+     "asOf": "2026-01-02T03:04:05.000Z",
+     "stale": true,
+     "metric": "on_chain_holders",
+     "source": "coingecko"
+    }
+   },
+   "bodyText": "{\"network\":{\"id\":\"eth-mainnet\",\"name\":\"Ethereum\",\"description\":\"Ethereum network\",\"websiteUrl\":\"https://ethereum.org\"},\"news\":{\"available\":true,\"items\":[],\"asOf\":null,\"stale\":true},\"popularTokens\":{\"available\":true,\"items\":[{\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"symbol\":\"USDC\",\"name\":\"USD Coin\",\"decimals\":6,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":\"usd-coin\",\"marketCapUsd\":60000000000,\"holderCount\":2345678,\"holderCountAtLeast\":false,\"priceUsd\":1.0001,\"change24hPct\":0.01,\"rank\":1,\"source\":\"coingecko\"},{\"tokenId\":\"erc20:0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"address\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"symbol\":\"PEPE\",\"name\":\"Pepe\",\"decimals\":18,\"logoMediaKey\":null,\"logoUrl\":null,\"coinGeckoId\":null,\"marketCapUsd\":4000000000,\"holderCount\":null,\"holderCountAtLeast\":false,\"priceUsd\":0.00001,\"change24hPct\":-3.2,\"rank\":3,\"source\":\"coingecko\"}],\"asOf\":\"2026-01-02T03:04:05.000Z\",\"stale\":true,\"metric\":\"on_chain_holders\",\"source\":\"coingecko\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.geckoterminal.com/api/v2/networks/eth/trending_pools?include=base_token&duration=24h&page=1",
+     "status": 200,
+     "body": "{\"data\":[{\"id\":\"eth_pool0\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"60000000000\",\"base_token_price_usd\":\"1.0001\",\"price_change_percentage\":{\"h24\":\"0.01\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\"}}}},{\"id\":\"eth_pool1\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":null,\"base_token_price_usd\":\"3200\",\"price_change_percentage\":{\"h24\":\"1.5\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"type\":\"token\"}}}},{\"id\":\"eth_pool2\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"4000000000\",\"base_token_price_usd\":\"0.00001\",\"price_change_percentage\":{\"h24\":\"-3.2\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"type\":\"token\"}}}},{\"id\":\"eth_pool3\",\"type\":\"pool\",\"attributes\":{\"market_cap_usd\":\"60000000000\",\"base_token_price_usd\":\"1\",\"price_change_percentage\":{\"h24\":\"0\"}},\"relationships\":{\"base_token\":{\"data\":{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\"}}}}],\"included\":[{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\",\"attributes\":{\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"name\":\"USD Coin\",\"symbol\":\"usdc\",\"decimals\":6,\"image_url\":\"https://assets.coingecko.com/coins/images/6319/large/usdc.png\",\"coingecko_coin_id\":\"USD-Coin\"}},{\"id\":\"eth_0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"type\":\"token\",\"attributes\":{\"address\":\"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2\",\"name\":\"Wrapped Ether\",\"symbol\":\"WETH\",\"decimals\":18,\"image_url\":null,\"coingecko_coin_id\":\"weth\"}},{\"id\":\"eth_0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"type\":\"token\",\"attributes\":{\"address\":\"0x6982508145454ce325ddbe47a25d4ec3d2311933\",\"name\":\"Pepe\",\"symbol\":\"PEPE\",\"decimals\":18,\"image_url\":\"http://insecure.example.com/pepe.png\",\"coingecko_coin_id\":null}},{\"id\":\"eth_0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"type\":\"token\",\"attributes\":{\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"name\":\"USD Coin\",\"symbol\":\"USDC\",\"decimals\":6,\"image_url\":null,\"coingecko_coin_id\":\"usd-coin\"}}]}"
+    }
+   ]
+  },
+  {
+   "name": "transfersSeed",
+   "group": "jobs",
+   "at": 1767324045000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/address/0x2222222222222222222222222222222222222222/transfers",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "3805",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "10"
+   },
+   "body": {
+    "network": "eth-mainnet",
+    "address": "0x2222222222222222222222222222222222222222",
+    "items": [
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2025-12-31T03:04:05.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "blockNumber": 23900000,
+      "nonce": null,
+      "confirmations": 11,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "500000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "type": "receive",
+      "status": "confirmed",
+      "direction": "incoming",
+      "timestamp": "2023-06-01T12:00:00.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "blockNumber": 17400000,
+      "nonce": null,
+      "confirmations": 6500011,
+      "fromAddress": "0x9999999999999999999999999999999999999999",
+      "toAddress": "0x2222222222222222222222222222222222222222",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "2000000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": null,
+      "feeSymbol": null,
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     }
+    ],
+    "operations": [
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "recordId": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "kind": "transfer",
+      "triggeredAt": "2025-12-31T03:04:05.000Z",
+      "settledAt": "2025-12-31T03:04:05.000Z",
+      "status": "confirmed",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "500000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "recordId": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "kind": "transfer",
+      "triggeredAt": "2023-06-01T12:00:00.000Z",
+      "settledAt": "2023-06-01T12:00:00.000Z",
+      "status": "confirmed",
+      "hash": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "output",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "2000000000000000000",
+         "decimals": 18
+        },
+        "direction": "in",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     }
+    ],
+    "cursor": "00000000000000000002",
+    "hasMore": false,
+    "nextBefore": null,
+    "historyComplete": true,
+    "window": {
+     "from": null,
+     "to": null,
+     "flow": "all"
+    },
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:20:45.000Z"
+    }
+   },
+   "bodyText": "{\"network\":\"eth-mainnet\",\"address\":\"0x2222222222222222222222222222222222222222\",\"items\":[{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2025-12-31T03:04:05.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"blockNumber\":23900000,\"nonce\":null,\"confirmations\":11,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"type\":\"receive\",\"status\":\"confirmed\",\"direction\":\"incoming\",\"timestamp\":\"2023-06-01T12:00:00.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0101010101010101010101010101010101010101010101010101010101010101\",\"blockNumber\":17400000,\"nonce\":null,\"confirmations\":6500011,\"fromAddress\":\"0x9999999999999999999999999999999999999999\",\"toAddress\":\"0x2222222222222222222222222222222222222222\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"2000000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":null,\"feeSymbol\":null,\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}}],\"operations\":[{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"recordId\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"kind\":\"transfer\",\"triggeredAt\":\"2025-12-31T03:04:05.000Z\",\"settledAt\":\"2025-12-31T03:04:05.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"recordId\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"kind\":\"transfer\",\"triggeredAt\":\"2023-06-01T12:00:00.000Z\",\"settledAt\":\"2023-06-01T12:00:00.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0101010101010101010101010101010101010101010101010101010101010101\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"output\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"2000000000000000000\",\"decimals\":18},\"direction\":\"in\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]}],\"cursor\":\"00000000000000000002\",\"hasMore\":false,\"nextBefore\":null,\"historyComplete\":true,\"window\":{\"from\":null,\"to\":null,\"flow\":\"all\"},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:20:45.000Z\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"1\",\"message\":\"OK\",\"result\":[{\"blockNumber\":\"17400000\",\"timeStamp\":\"1685620800\",\"hash\":\"0x0101010101010101010101010101010101010101010101010101010101010101\",\"from\":\"0x9999999999999999999999999999999999999999\",\"to\":\"0x2222222222222222222222222222222222222222\",\"value\":\"2000000000000000000\",\"gas\":\"21000\",\"gasPrice\":\"20000000000\",\"isError\":\"0\",\"txreceipt_status\":\"1\",\"input\":\"0x\",\"contractAddress\":\"\",\"gasUsed\":\"21000\",\"functionName\":\"\"},{\"blockNumber\":\"23900000\",\"timeStamp\":\"1767150245\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"500000000000000000\",\"gas\":\"21000\",\"gasPrice\":\"20000000000\",\"isError\":\"0\",\"txreceipt_status\":\"1\",\"input\":\"0x\",\"contractAddress\":\"\",\"gasUsed\":\"21000\",\"functionName\":\"\"}]}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"0\",\"message\":\"No transactions found\",\"result\":[]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf6a\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "changeBaseline",
+   "group": "jobs",
+   "at": 1767324055000,
+   "job": "change",
+   "mode": {},
+   "result": 1,
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf74\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000014d1120d7b160000\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf74\"]}"
+    }
+   ]
+  },
+  {
+   "name": "changeMoved",
+   "group": "jobs",
+   "at": 1767324115000,
+   "job": "change",
+   "mode": {},
+   "result": 1,
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf79\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000010a741a462780000\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf79\"]}"
+    }
+   ]
+  },
+  {
+   "name": "changeIngest",
+   "group": "jobs",
+   "at": 1767324215000,
+   "job": "change",
+   "mode": {},
+   "result": 1,
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf7e\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000010a741a462780000\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_call\",\"params\":[{\"to\":\"0xcA11bde05977b3631167028862bE2a173976CA11\",\"data\":\"0x82ad56cb000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000ca11bde05977b3631167028862be2a173976ca110000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000244d2301cc000000000000000000000000222222222222222222222222222222222222222200000000000000000000000000000000000000000000000000000000\"},\"0x16caf7e\"]}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=23900001&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"1\",\"message\":\"OK\",\"result\":[{\"blockNumber\":\"23900028\",\"timeStamp\":\"1767323145\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"300000000000000000\",\"gas\":\"21000\",\"gasPrice\":\"20000000000\",\"isError\":\"0\",\"txreceipt_status\":\"1\",\"input\":\"0x\",\"contractAddress\":\"\",\"gasUsed\":\"21000\",\"functionName\":\"\"}]}"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 200,
+     "body": "{\"status\":\"0\",\"message\":\"No transactions found\",\"result\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "transfersAfterChange",
+   "group": "jobs",
+   "at": 1767324216000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/address/0x2222222222222222222222222222222222222222/transfers",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "5684",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "10"
+   },
+   "body": {
+    "network": "eth-mainnet",
+    "address": "0x2222222222222222222222222222222222222222",
+    "items": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2026-01-02T03:05:45.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "blockNumber": 23900028,
+      "nonce": null,
+      "confirmations": 4,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "300000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2025-12-31T03:04:05.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "blockNumber": 23900000,
+      "nonce": null,
+      "confirmations": 32,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "500000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "type": "receive",
+      "status": "confirmed",
+      "direction": "incoming",
+      "timestamp": "2023-06-01T12:00:00.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "blockNumber": 17400000,
+      "nonce": null,
+      "confirmations": 6500032,
+      "fromAddress": "0x9999999999999999999999999999999999999999",
+      "toAddress": "0x2222222222222222222222222222222222222222",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "2000000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": null,
+      "feeSymbol": null,
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     }
+    ],
+    "operations": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "recordId": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "kind": "transfer",
+      "triggeredAt": "2026-01-02T03:05:45.000Z",
+      "settledAt": "2026-01-02T03:05:45.000Z",
+      "status": "confirmed",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "300000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "recordId": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "kind": "transfer",
+      "triggeredAt": "2025-12-31T03:04:05.000Z",
+      "settledAt": "2025-12-31T03:04:05.000Z",
+      "status": "confirmed",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "500000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "recordId": "eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101",
+      "kind": "transfer",
+      "triggeredAt": "2023-06-01T12:00:00.000Z",
+      "settledAt": "2023-06-01T12:00:00.000Z",
+      "status": "confirmed",
+      "hash": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "output",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "2000000000000000000",
+         "decimals": 18
+        },
+        "direction": "in",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     }
+    ],
+    "cursor": "00000000000000000003",
+    "hasMore": false,
+    "nextBefore": null,
+    "historyComplete": true,
+    "window": {
+     "from": null,
+     "to": null,
+     "flow": "all"
+    },
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:23:35.000Z"
+    }
+   },
+   "bodyText": "{\"network\":\"eth-mainnet\",\"address\":\"0x2222222222222222222222222222222222222222\",\"items\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2026-01-02T03:05:45.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"blockNumber\":23900028,\"nonce\":null,\"confirmations\":4,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2025-12-31T03:04:05.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"blockNumber\":23900000,\"nonce\":null,\"confirmations\":32,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"type\":\"receive\",\"status\":\"confirmed\",\"direction\":\"incoming\",\"timestamp\":\"2023-06-01T12:00:00.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0101010101010101010101010101010101010101010101010101010101010101\",\"blockNumber\":17400000,\"nonce\":null,\"confirmations\":6500032,\"fromAddress\":\"0x9999999999999999999999999999999999999999\",\"toAddress\":\"0x2222222222222222222222222222222222222222\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"2000000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":null,\"feeSymbol\":null,\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}}],\"operations\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"recordId\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"kind\":\"transfer\",\"triggeredAt\":\"2026-01-02T03:05:45.000Z\",\"settledAt\":\"2026-01-02T03:05:45.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"recordId\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"kind\":\"transfer\",\"triggeredAt\":\"2025-12-31T03:04:05.000Z\",\"settledAt\":\"2025-12-31T03:04:05.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"recordId\":\"eth-mainnet:0x0101010101010101010101010101010101010101010101010101010101010101\",\"kind\":\"transfer\",\"triggeredAt\":\"2023-06-01T12:00:00.000Z\",\"settledAt\":\"2023-06-01T12:00:00.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0101010101010101010101010101010101010101010101010101010101010101\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"output\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"2000000000000000000\",\"decimals\":18},\"direction\":\"in\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]}],\"cursor\":\"00000000000000000003\",\"hasMore\":false,\"nextBefore\":null,\"historyComplete\":true,\"window\":{\"from\":null,\"to\":null,\"flow\":\"all\"},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:23:35.000Z\"}}",
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf7f\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "retention",
+   "group": "jobs",
+   "at": 1767324225000,
+   "job": "retention",
+   "mode": {},
+   "result": 1,
+   "upstream": []
+  },
+  {
+   "name": "transfersAfterRetention",
+   "group": "jobs",
+   "at": 1767324226000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/address/0x2222222222222222222222222222222222222222/transfers",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "4059",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "10"
+   },
+   "body": {
+    "network": "eth-mainnet",
+    "address": "0x2222222222222222222222222222222222222222",
+    "items": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2026-01-02T03:05:45.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "blockNumber": 23900028,
+      "nonce": null,
+      "confirmations": 5,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "300000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2025-12-31T03:04:05.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "blockNumber": 23900000,
+      "nonce": null,
+      "confirmations": 33,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "500000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": null,
+      "fiatCurrency": null,
+      "fiatValueSource": null,
+      "fiatValueSourceId": null,
+      "fiatValueAsOf": null,
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     }
+    ],
+    "operations": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "recordId": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "kind": "transfer",
+      "triggeredAt": "2026-01-02T03:05:45.000Z",
+      "settledAt": "2026-01-02T03:05:45.000Z",
+      "status": "confirmed",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "300000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "recordId": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "kind": "transfer",
+      "triggeredAt": "2025-12-31T03:04:05.000Z",
+      "settledAt": "2025-12-31T03:04:05.000Z",
+      "status": "confirmed",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "500000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     }
+    ],
+    "cursor": "00000000000000000003",
+    "hasMore": false,
+    "nextBefore": null,
+    "historyComplete": true,
+    "window": {
+     "from": null,
+     "to": null,
+     "flow": "all"
+    },
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:23:35.000Z"
+    }
+   },
+   "bodyText": "{\"network\":\"eth-mainnet\",\"address\":\"0x2222222222222222222222222222222222222222\",\"items\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2026-01-02T03:05:45.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"blockNumber\":23900028,\"nonce\":null,\"confirmations\":5,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2025-12-31T03:04:05.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"blockNumber\":23900000,\"nonce\":null,\"confirmations\":33,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":null,\"fiatCurrency\":null,\"fiatValueSource\":null,\"fiatValueSourceId\":null,\"fiatValueAsOf\":null,\"memo\":null,\"error\":null,\"metadata\":{}}],\"operations\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"recordId\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"kind\":\"transfer\",\"triggeredAt\":\"2026-01-02T03:05:45.000Z\",\"settledAt\":\"2026-01-02T03:05:45.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"recordId\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"kind\":\"transfer\",\"triggeredAt\":\"2025-12-31T03:04:05.000Z\",\"settledAt\":\"2025-12-31T03:04:05.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]}],\"cursor\":\"00000000000000000003\",\"hasMore\":false,\"nextBefore\":null,\"historyComplete\":true,\"window\":{\"from\":null,\"to\":null,\"flow\":\"all\"},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:23:35.000Z\"}}",
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf80\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "repair",
+   "group": "jobs",
+   "at": 1767324235000,
+   "job": "repair",
+   "mode": {},
+   "result": {
+    "groups": 1,
+    "historiesReady": 1,
+    "transfersRepaired": 2
+   },
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.coingecko.com/api/v3/coins/ethereum/market_chart/range?vs_currency=usd&from=1766980800&to=1767326400",
+     "status": 200,
+     "body": "{\"prices\":[[1766980800000,3028],[1766984400000,3029],[1766988000000,3030],[1766991600000,3031],[1766995200000,3032],[1766998800000,3033],[1767002400000,3034],[1767006000000,3035],[1767009600000,3036],[1767013200000,3037],[1767016800000,3038],[1767020400000,3039],[1767024000000,3040],[1767027600000,3041],[1767031200000,3042],[1767034800000,3043],[1767038400000,3044],[1767042000000,3045],[1767045600000,3046],[1767049200000,3047],[1767052800000,3048],[1767056400000,3049],[1767060000000,3000],[1767063600000,3001],[1767067200000,3002],[1767070800000,3003],[1767074400000,3004],[1767078000000,3005],[1767081600000,3006],[1767085200000,3007],[1767088800000,3008],[1767092400000,3009],[1767096000000,3010],[1767099600000,3011],[1767103200000,3012],[1767106800000,3013],[1767110400000,3014],[1767114000000,3015],[1767117600000,3016],[1767121200000,3017],[1767124800000,3018],[1767128400000,3019],[1767132000000,3020],[1767135600000,3021],[1767139200000,3022],[1767142800000,3023],[1767146400000,3024],[1767150000000,3025],[1767153600000,3026],[1767157200000,3027],[1767160800000,3028],[1767164400000,3029],[1767168000000,3030],[1767171600000,3031],[1767175200000,3032],[1767178800000,3033],[1767182400000,3034],[1767186000000,3035],[1767189600000,3036],[1767193200000,3037],[1767196800000,3038],[1767200400000,3039],[1767204000000,3040],[1767207600000,3041],[1767211200000,3042],[1767214800000,3043],[1767218400000,3044],[1767222000000,3045],[1767225600000,3046],[1767229200000,3047],[1767232800000,3048],[1767236400000,3049],[1767240000000,3000],[1767243600000,3001],[1767247200000,3002],[1767250800000,3003],[1767254400000,3004],[1767258000000,3005],[1767261600000,3006],[1767265200000,3007],[1767268800000,3008],[1767272400000,3009],[1767276000000,3010],[1767279600000,3011],[1767283200000,3012],[1767286800000,3013],[1767290400000,3014],[1767294000000,3015],[1767297600000,3016],[1767301200000,3017],[1767304800000,3018],[1767308400000,3019],[1767312000000,3020],[1767315600000,3021],[1767319200000,3022],[1767322800000,3023]],\"market_caps\":[],\"total_volumes\":[[1766980800000,1000000000],[1766984400000,1000000000],[1766988000000,1000000000],[1766991600000,1000000000],[1766995200000,1000000000],[1766998800000,1000000000],[1767002400000,1000000000],[1767006000000,1000000000],[1767009600000,1000000000],[1767013200000,1000000000],[1767016800000,1000000000],[1767020400000,1000000000],[1767024000000,1000000000],[1767027600000,1000000000],[1767031200000,1000000000],[1767034800000,1000000000],[1767038400000,1000000000],[1767042000000,1000000000],[1767045600000,1000000000],[1767049200000,1000000000],[1767052800000,1000000000],[1767056400000,1000000000],[1767060000000,1000000000],[1767063600000,1000000000],[1767067200000,1000000000],[1767070800000,1000000000],[1767074400000,1000000000],[1767078000000,1000000000],[1767081600000,1000000000],[1767085200000,1000000000],[1767088800000,1000000000],[1767092400000,1000000000],[1767096000000,1000000000],[1767099600000,1000000000],[1767103200000,1000000000],[1767106800000,1000000000],[1767110400000,1000000000],[1767114000000,1000000000],[1767117600000,1000000000],[1767121200000,1000000000],[1767124800000,1000000000],[1767128400000,1000000000],[1767132000000,1000000000],[1767135600000,1000000000],[1767139200000,1000000000],[1767142800000,1000000000],[1767146400000,1000000000],[1767150000000,1000000000],[1767153600000,1000000000],[1767157200000,1000000000],[1767160800000,1000000000],[1767164400000,1000000000],[1767168000000,1000000000],[1767171600000,1000000000],[1767175200000,1000000000],[1767178800000,1000000000],[1767182400000,1000000000],[1767186000000,1000000000],[1767189600000,1000000000],[1767193200000,1000000000],[1767196800000,1000000000],[1767200400000,1000000000],[1767204000000,1000000000],[1767207600000,1000000000],[1767211200000,1000000000],[1767214800000,1000000000],[1767218400000,1000000000],[1767222000000,1000000000],[1767225600000,1000000000],[1767229200000,1000000000],[1767232800000,1000000000],[1767236400000,1000000000],[1767240000000,1000000000],[1767243600000,1000000000],[1767247200000,1000000000],[1767250800000,1000000000],[1767254400000,1000000000],[1767258000000,1000000000],[1767261600000,1000000000],[1767265200000,1000000000],[1767268800000,1000000000],[1767272400000,1000000000],[1767276000000,1000000000],[1767279600000,1000000000],[1767283200000,1000000000],[1767286800000,1000000000],[1767290400000,1000000000],[1767294000000,1000000000],[1767297600000,1000000000],[1767301200000,1000000000],[1767304800000,1000000000],[1767308400000,1000000000],[1767312000000,1000000000],[1767315600000,1000000000],[1767319200000,1000000000],[1767322800000,1000000000]]}"
+    }
+   ]
+  },
+  {
+   "name": "transfersAfterRepair",
+   "group": "jobs",
+   "at": 1767324236000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/address/0x2222222222222222222222222222222222222222/transfers",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "4179",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "10"
+   },
+   "body": {
+    "network": "eth-mainnet",
+    "address": "0x2222222222222222222222222222222222222222",
+    "items": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2026-01-02T03:05:45.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "blockNumber": 23900028,
+      "nonce": null,
+      "confirmations": 6,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "300000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": 906.9,
+      "fiatCurrency": "usd",
+      "fiatValueSource": "1h",
+      "fiatValueSourceId": "ethereum",
+      "fiatValueAsOf": "2026-01-02T03:00:00.000Z",
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2025-12-31T03:04:05.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "blockNumber": 23900000,
+      "nonce": null,
+      "confirmations": 34,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "500000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": 1512.5,
+      "fiatCurrency": "usd",
+      "fiatValueSource": "1h",
+      "fiatValueSourceId": "ethereum",
+      "fiatValueAsOf": "2025-12-31T03:00:00.000Z",
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     }
+    ],
+    "operations": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "recordId": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "kind": "transfer",
+      "triggeredAt": "2026-01-02T03:05:45.000Z",
+      "settledAt": "2026-01-02T03:05:45.000Z",
+      "status": "confirmed",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "300000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": 3023,
+        "totalUsd": 906.9,
+        "valuationSource": "1h",
+        "valuationSourceId": "ethereum",
+        "valuationAsOf": "2026-01-02T03:00:00.000Z"
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "recordId": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "kind": "transfer",
+      "triggeredAt": "2025-12-31T03:04:05.000Z",
+      "settledAt": "2025-12-31T03:04:05.000Z",
+      "status": "confirmed",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "500000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": 3025,
+        "totalUsd": 1512.5,
+        "valuationSource": "1h",
+        "valuationSourceId": "ethereum",
+        "valuationAsOf": "2025-12-31T03:00:00.000Z"
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     }
+    ],
+    "cursor": "00000000000000000003",
+    "hasMore": false,
+    "nextBefore": null,
+    "historyComplete": true,
+    "window": {
+     "from": null,
+     "to": null,
+     "flow": "all"
+    },
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:23:35.000Z"
+    }
+   },
+   "bodyText": "{\"network\":\"eth-mainnet\",\"address\":\"0x2222222222222222222222222222222222222222\",\"items\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2026-01-02T03:05:45.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"blockNumber\":23900028,\"nonce\":null,\"confirmations\":6,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":906.9,\"fiatCurrency\":\"usd\",\"fiatValueSource\":\"1h\",\"fiatValueSourceId\":\"ethereum\",\"fiatValueAsOf\":\"2026-01-02T03:00:00.000Z\",\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2025-12-31T03:04:05.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"blockNumber\":23900000,\"nonce\":null,\"confirmations\":34,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":1512.5,\"fiatCurrency\":\"usd\",\"fiatValueSource\":\"1h\",\"fiatValueSourceId\":\"ethereum\",\"fiatValueAsOf\":\"2025-12-31T03:00:00.000Z\",\"memo\":null,\"error\":null,\"metadata\":{}}],\"operations\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"recordId\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"kind\":\"transfer\",\"triggeredAt\":\"2026-01-02T03:05:45.000Z\",\"settledAt\":\"2026-01-02T03:05:45.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":3023,\"totalUsd\":906.9,\"valuationSource\":\"1h\",\"valuationSourceId\":\"ethereum\",\"valuationAsOf\":\"2026-01-02T03:00:00.000Z\"},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"recordId\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"kind\":\"transfer\",\"triggeredAt\":\"2025-12-31T03:04:05.000Z\",\"settledAt\":\"2025-12-31T03:04:05.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":3025,\"totalUsd\":1512.5,\"valuationSource\":\"1h\",\"valuationSourceId\":\"ethereum\",\"valuationAsOf\":\"2025-12-31T03:00:00.000Z\"},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]}],\"cursor\":\"00000000000000000003\",\"hasMore\":false,\"nextBefore\":null,\"historyComplete\":true,\"window\":{\"from\":null,\"to\":null,\"flow\":\"all\"},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:23:35.000Z\"}}",
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf81\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "txPending",
+   "group": "jobs",
+   "at": 1767324245000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/tx/0xabababababababababababababababababababababababababababababababab",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "362",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "status": "pending",
+    "blockNumber": null,
+    "detail": {},
+    "raw": {
+     "hash": "0xabababababababababababababababababababababababababababababababab",
+     "blockNumber": null,
+     "from": "0x2222222222222222222222222222222222222222",
+     "to": "0x9999999999999999999999999999999999999999",
+     "value": "0x1",
+     "nonce": "0x7"
+    },
+    "fetchedAt": "2026-01-02T03:24:05.000Z",
+    "cache": {
+     "hit": false,
+     "timestamp": null
+    }
+   },
+   "bodyText": "{\"status\":\"pending\",\"blockNumber\":null,\"detail\":{},\"raw\":{\"hash\":\"0xabababababababababababababababababababababababababababababababab\",\"blockNumber\":null,\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"0x1\",\"nonce\":\"0x7\"},\"fetchedAt\":\"2026-01-02T03:24:05.000Z\",\"cache\":{\"hit\":false,\"timestamp\":null}}",
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"hash\":\"0xabababababababababababababababababababababababababababababababab\",\"blockNumber\":null,\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"0x1\",\"nonce\":\"0x7\"}}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getTransactionByHash\",\"params\":[\"0xabababababababababababababababababababababababababababababababab\"]}"
+    }
+   ]
+  },
+  {
+   "name": "pendingAfterRestart",
+   "group": "restart",
+   "at": 1767324255000,
+   "job": "pending",
+   "mode": {},
+   "result": 1,
+   "upstream": [
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"hash\":\"0xabababababababababababababababababababababababababababababababab\",\"blockNumber\":\"0x16caf84\",\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"0x1\",\"nonce\":\"0x7\"}}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getTransactionByHash\",\"params\":[\"0xabababababababababababababababababababababababababababababababab\"]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"transactionHash\":\"0xabababababababababababababababababababababababababababababababab\",\"status\":\"0x1\",\"gasUsed\":\"0x5208\",\"effectiveGasPrice\":\"0x4a817c800\",\"blockNumber\":\"0x16caf84\"}}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getTransactionReceipt\",\"params\":[\"0xabababababababababababababababababababababababababababababababab\"]}"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 200,
+     "body": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":\"0x16caf88\"}",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  },
+  {
+   "name": "txSettledAfterRestart",
+   "group": "restart",
+   "at": 1767324265000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/tx/0xabababababababababababababababababababababababababababababababab",
+   "accept": "application/json",
+   "mode": {},
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "701",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "1"
+   },
+   "body": {
+    "status": "confirmed",
+    "blockNumber": 23900036,
+    "detail": {
+     "confirmations": 5,
+     "requiredConfirmations": 3,
+     "gasUsed": "0x5208",
+     "effectiveGasPrice": "0x4a817c800"
+    },
+    "raw": {
+     "transaction": {
+      "hash": "0xabababababababababababababababababababababababababababababababab",
+      "blockNumber": "0x16caf84",
+      "from": "0x2222222222222222222222222222222222222222",
+      "to": "0x9999999999999999999999999999999999999999",
+      "value": "0x1",
+      "nonce": "0x7"
+     },
+     "receipt": {
+      "transactionHash": "0xabababababababababababababababababababababababababababababababab",
+      "status": "0x1",
+      "gasUsed": "0x5208",
+      "effectiveGasPrice": "0x4a817c800",
+      "blockNumber": "0x16caf84"
+     }
+    },
+    "fetchedAt": "2026-01-02T03:24:15.000Z",
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:24:15.000Z"
+    }
+   },
+   "bodyText": "{\"status\":\"confirmed\",\"blockNumber\":23900036,\"detail\":{\"confirmations\":5,\"requiredConfirmations\":3,\"gasUsed\":\"0x5208\",\"effectiveGasPrice\":\"0x4a817c800\"},\"raw\":{\"transaction\":{\"hash\":\"0xabababababababababababababababababababababababababababababababab\",\"blockNumber\":\"0x16caf84\",\"from\":\"0x2222222222222222222222222222222222222222\",\"to\":\"0x9999999999999999999999999999999999999999\",\"value\":\"0x1\",\"nonce\":\"0x7\"},\"receipt\":{\"transactionHash\":\"0xabababababababababababababababababababababababababababababababab\",\"status\":\"0x1\",\"gasUsed\":\"0x5208\",\"effectiveGasPrice\":\"0x4a817c800\",\"blockNumber\":\"0x16caf84\"}},\"fetchedAt\":\"2026-01-02T03:24:15.000Z\",\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:24:15.000Z\"}}",
+   "upstream": []
+  },
+  {
+   "name": "transfersStoredAfterRestart",
+   "group": "restart",
+   "at": 1767324445000,
+   "method": "GET",
+   "url": "/v1/networks/eth-mainnet/address/0x2222222222222222222222222222222222222222/transfers",
+   "accept": "application/json",
+   "mode": {
+    "down": [
+     "api.etherscan.io",
+     "ethereum-rpc.publicnode.com"
+    ]
+   },
+   "status": 200,
+   "headers": {
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "4178",
+    "vary": "Accept",
+    "cache-control": "no-store",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "no-referrer",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "x-rate-limit-cost": "10"
+   },
+   "body": {
+    "network": "eth-mainnet",
+    "address": "0x2222222222222222222222222222222222222222",
+    "items": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2026-01-02T03:05:45.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "blockNumber": 23900028,
+      "nonce": null,
+      "confirmations": 1,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "300000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": 906.9,
+      "fiatCurrency": "usd",
+      "fiatValueSource": "1h",
+      "fiatValueSourceId": "ethereum",
+      "fiatValueAsOf": "2026-01-02T03:00:00.000Z",
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "type": "send",
+      "status": "confirmed",
+      "direction": "outgoing",
+      "timestamp": "2025-12-31T03:04:05.000Z",
+      "chainId": "eth-mainnet",
+      "family": "evm",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "blockNumber": 23900000,
+      "nonce": null,
+      "confirmations": 1,
+      "fromAddress": "0x2222222222222222222222222222222222222222",
+      "toAddress": "0x9999999999999999999999999999999999999999",
+      "asset": {
+       "chainId": "eth-mainnet",
+       "symbol": "ETH",
+       "name": "ETH",
+       "decimals": 18,
+       "contractAddress": null
+      },
+      "amount": {
+       "raw": "500000000000000000",
+       "decimals": 18
+      },
+      "toAsset": null,
+      "toAmount": null,
+      "destinationChainId": null,
+      "destinationHash": null,
+      "fee": {
+       "raw": "420000000000000",
+       "decimals": 18
+      },
+      "feeSymbol": "ETH",
+      "fiatValue": 1512.5,
+      "fiatCurrency": "usd",
+      "fiatValueSource": "1h",
+      "fiatValueSourceId": "ethereum",
+      "fiatValueAsOf": "2025-12-31T03:00:00.000Z",
+      "memo": null,
+      "error": null,
+      "metadata": {}
+     }
+    ],
+    "operations": [
+     {
+      "id": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "recordId": "eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303",
+      "kind": "transfer",
+      "triggeredAt": "2026-01-02T03:05:45.000Z",
+      "settledAt": "2026-01-02T03:05:45.000Z",
+      "status": "confirmed",
+      "hash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "300000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": 3023,
+        "totalUsd": 906.9,
+        "valuationSource": "1h",
+        "valuationSourceId": "ethereum",
+        "valuationAsOf": "2026-01-02T03:00:00.000Z"
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     },
+     {
+      "id": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "recordId": "eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202",
+      "kind": "transfer",
+      "triggeredAt": "2025-12-31T03:04:05.000Z",
+      "settledAt": "2025-12-31T03:04:05.000Z",
+      "status": "confirmed",
+      "hash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "venue": null,
+      "confidence": "derived",
+      "legs": [
+       {
+        "index": 0,
+        "role": "input",
+        "tokenId": "native",
+        "asset": {
+         "chainId": "eth-mainnet",
+         "symbol": "ETH",
+         "name": "ETH",
+         "decimals": 18,
+         "contractAddress": null
+        },
+        "amount": {
+         "raw": "500000000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": 3025,
+        "totalUsd": 1512.5,
+        "valuationSource": "1h",
+        "valuationSourceId": "ethereum",
+        "valuationAsOf": "2025-12-31T03:00:00.000Z"
+       },
+       {
+        "index": 2,
+        "role": "fee",
+        "tokenId": "native",
+        "asset": null,
+        "amount": {
+         "raw": "420000000000000",
+         "decimals": 18
+        },
+        "direction": "out",
+        "unitPriceUsd": null,
+        "totalUsd": null,
+        "valuationSource": null,
+        "valuationSourceId": null,
+        "valuationAsOf": null
+       }
+      ]
+     }
+    ],
+    "cursor": "00000000000000000003",
+    "hasMore": false,
+    "nextBefore": null,
+    "historyComplete": true,
+    "window": {
+     "from": null,
+     "to": null,
+     "flow": "all"
+    },
+    "cache": {
+     "hit": true,
+     "timestamp": "2026-01-02T03:23:35.000Z"
+    }
+   },
+   "bodyText": "{\"network\":\"eth-mainnet\",\"address\":\"0x2222222222222222222222222222222222222222\",\"items\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2026-01-02T03:05:45.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"blockNumber\":23900028,\"nonce\":null,\"confirmations\":1,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":906.9,\"fiatCurrency\":\"usd\",\"fiatValueSource\":\"1h\",\"fiatValueSourceId\":\"ethereum\",\"fiatValueAsOf\":\"2026-01-02T03:00:00.000Z\",\"memo\":null,\"error\":null,\"metadata\":{}},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"type\":\"send\",\"status\":\"confirmed\",\"direction\":\"outgoing\",\"timestamp\":\"2025-12-31T03:04:05.000Z\",\"chainId\":\"eth-mainnet\",\"family\":\"evm\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"blockNumber\":23900000,\"nonce\":null,\"confirmations\":1,\"fromAddress\":\"0x2222222222222222222222222222222222222222\",\"toAddress\":\"0x9999999999999999999999999999999999999999\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"toAsset\":null,\"toAmount\":null,\"destinationChainId\":null,\"destinationHash\":null,\"fee\":{\"raw\":\"420000000000000\",\"decimals\":18},\"feeSymbol\":\"ETH\",\"fiatValue\":1512.5,\"fiatCurrency\":\"usd\",\"fiatValueSource\":\"1h\",\"fiatValueSourceId\":\"ethereum\",\"fiatValueAsOf\":\"2025-12-31T03:00:00.000Z\",\"memo\":null,\"error\":null,\"metadata\":{}}],\"operations\":[{\"id\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"recordId\":\"eth-mainnet:0x0303030303030303030303030303030303030303030303030303030303030303\",\"kind\":\"transfer\",\"triggeredAt\":\"2026-01-02T03:05:45.000Z\",\"settledAt\":\"2026-01-02T03:05:45.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0303030303030303030303030303030303030303030303030303030303030303\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"300000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":3023,\"totalUsd\":906.9,\"valuationSource\":\"1h\",\"valuationSourceId\":\"ethereum\",\"valuationAsOf\":\"2026-01-02T03:00:00.000Z\"},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]},{\"id\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"recordId\":\"eth-mainnet:0x0202020202020202020202020202020202020202020202020202020202020202\",\"kind\":\"transfer\",\"triggeredAt\":\"2025-12-31T03:04:05.000Z\",\"settledAt\":\"2025-12-31T03:04:05.000Z\",\"status\":\"confirmed\",\"hash\":\"0x0202020202020202020202020202020202020202020202020202020202020202\",\"venue\":null,\"confidence\":\"derived\",\"legs\":[{\"index\":0,\"role\":\"input\",\"tokenId\":\"native\",\"asset\":{\"chainId\":\"eth-mainnet\",\"symbol\":\"ETH\",\"name\":\"ETH\",\"decimals\":18,\"contractAddress\":null},\"amount\":{\"raw\":\"500000000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":3025,\"totalUsd\":1512.5,\"valuationSource\":\"1h\",\"valuationSourceId\":\"ethereum\",\"valuationAsOf\":\"2025-12-31T03:00:00.000Z\"},{\"index\":2,\"role\":\"fee\",\"tokenId\":\"native\",\"asset\":null,\"amount\":{\"raw\":\"420000000000000\",\"decimals\":18},\"direction\":\"out\",\"unitPriceUsd\":null,\"totalUsd\":null,\"valuationSource\":null,\"valuationSourceId\":null,\"valuationAsOf\":null}]}],\"cursor\":\"00000000000000000003\",\"hasMore\":false,\"nextBefore\":null,\"historyComplete\":true,\"window\":{\"from\":null,\"to\":null,\"flow\":\"all\"},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:23:35.000Z\"}}",
+   "upstream": [
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=23900029&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=23900029&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=txlist&address=0x2222222222222222222222222222222222222222&startblock=23900029&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "GET",
+     "url": "https://api.etherscan.io/v2/api?chainid=1&module=account&action=tokentx&address=0x2222222222222222222222222222222222222222&startblock=0&endblock=latest&page=1&offset=500&sort=asc&apikey=test-etherscan-key",
+     "status": 503,
+     "body": "unavailable"
+    },
+    {
+     "method": "POST",
+     "url": "https://ethereum-rpc.publicnode.com",
+     "status": 503,
+     "body": "unavailable",
+     "requestBody": "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_blockNumber\",\"params\":[]}"
+    }
+   ]
+  }
+ ]
+}

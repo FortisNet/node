@@ -1,0 +1,8 @@
+# Upstream/generated implementations are reviewed and pinned separately. Their
+# declarations may be included by project TUs, but findings in them are excluded.
+*:*/third_party/*
+*:*/.deps/*
+*:*/proto/generated/*
+# Unit fixtures intentionally call the operation being tested inside assert().
+# Verification rejects NDEBUG and builds both compiler variants with asserts on.
+assertWithSideEffect:*/tests/*

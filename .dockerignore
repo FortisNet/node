@@ -1,0 +1,7 @@
+# Toolchain images use pinned downloads and mount the checkout when running.
+# Only their recipes belong in the default build context. In particular, never
+# send Git history, .env files, credentials, stores, backups or build caches.
+**
+!Dockerfile.verify
+!Dockerfile.sanitizers
+!Dockerfile.native-build

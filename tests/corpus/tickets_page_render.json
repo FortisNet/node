@@ -1,0 +1,1327 @@
+{
+ "schemaVersion": 1,
+ "adminToken": "fixture-admin-token-0123456789",
+ "renders": [
+  {
+   "name": "empty",
+   "tickets": [],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <p class=\"empty\">No tickets yet. Send one from the app.</p>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "oneRow",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "versions",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "android",
+     "appVersion": "2.4.1",
+     "osVersion": "Android 15",
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": "iOS 18",
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": "",
+     "osVersion": "",
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": null,
+     "appVersion": "1.0",
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": null,
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "<p>",
+     "appVersion": "\"a\"",
+     "osVersion": "'o' & x",
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      android · 2.4.1 · Android 15\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios · iOS 18\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      1.0\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      \n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      &lt;p&gt; · &quot;a&quot; · &#39;o&#39; &amp; x\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "tags",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "pending",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "main",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "resolved",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": true,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "closed",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "main",
+     "flagged": true,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "o\"<&'>",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag pending\">pending</span>\n      \n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag resolved\">resolved</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      <span class=\"tag flag\">redacted</span>\n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag closed\">closed</span>\n      \n      <span class=\"tag flag\">redacted</span>\n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag o&quot;&lt;&amp;&#39;&gt;\">o&quot;&lt;&amp;&#39;&gt;</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "ids",
+   "tickets": [
+    {
+     "id": "a b/c?d#e&f=g+h%i",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "-_.!~*'()",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "é😀",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    {
+     "id": "<\"id\">",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=a%20b%2Fc%3Fd%23e%26f%3Dg%2Bh%25i\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=-_.!~*'()\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=%C3%A9%F0%9F%98%80\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=%3C%22id%22%3E\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "times",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 0
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 253402300799999
+    },
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045999
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">1970-01-01 00:00:00 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">9999-12-31 23:59:59 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n<tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "timeBefore1970",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": -1
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">1969-12-31 23:59:59 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "unsafeText",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "<dev>\"&'",
+     "subject": "<script>alert('x')</script> & \"q\"   😀",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": null,
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  \n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">&lt;script&gt;alert(&#39;x&#39;)&lt;/script&gt; &amp; &quot;q&quot;   😀</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>&lt;dev&gt;&quot;&amp;&#39;</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "thread_open",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "id with/slash",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "Hello",
+      "createdAt": 1767323045000
+     },
+     {
+      "author": "staff",
+      "body": "Hi",
+      "createdAt": 1767323045001
+     }
+    ],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag open\">open</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/status\">\n        <button name=\"status\" value=\"resolved\" type=\"submit\">Resolve</button><button name=\"status\" value=\"closed\" type=\"submit\">Close</button>\n      </form>\n    </div>\n    \n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hello</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">staff · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hi</div>\n        </div>\n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "thread_pending",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "id with/slash",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "pending",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "Hello",
+      "createdAt": 1767323045000
+     },
+     {
+      "author": "staff",
+      "body": "Hi",
+      "createdAt": 1767323045001
+     }
+    ],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag pending\">pending</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/status\">\n        <button name=\"status\" value=\"resolved\" type=\"submit\">Resolve</button><button name=\"status\" value=\"closed\" type=\"submit\">Close</button>\n      </form>\n    </div>\n    \n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hello</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">staff · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hi</div>\n        </div>\n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "thread_resolved",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "id with/slash",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "resolved",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "Hello",
+      "createdAt": 1767323045000
+     },
+     {
+      "author": "staff",
+      "body": "Hi",
+      "createdAt": 1767323045001
+     }
+    ],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag resolved\">resolved</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/status\">\n        <button name=\"status\" value=\"open\" type=\"submit\">Reopen</button>\n      </form>\n    </div>\n    \n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hello</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">staff · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hi</div>\n        </div>\n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "thread_closed",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "id with/slash",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "closed",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "Hello",
+      "createdAt": 1767323045000
+     },
+     {
+      "author": "staff",
+      "body": "Hi",
+      "createdAt": 1767323045001
+     }
+    ],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag closed\">closed</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/id%20with%2Fslash/status\">\n        <button name=\"status\" value=\"open\" type=\"submit\">Reopen</button>\n      </form>\n    </div>\n    \n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hello</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">staff · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">Hi</div>\n        </div>\n    \n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "threadMessages",
+   "tickets": [],
+   "thread": {
+    "ticket": {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Thread <x>",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "line\nbreak\ttab  spaces",
+      "createdAt": 1767323045000
+     },
+     {
+      "author": "staff",
+      "body": "<b>\"&'</b>",
+      "createdAt": 1767323046000
+     },
+     {
+      "author": "ot<x>\"",
+      "body": "unknown author",
+      "createdAt": 1767323047000
+     },
+     {
+      "author": "user",
+      "body": "",
+      "createdAt": 1767323048000
+     },
+     {
+      "author": "user",
+      "body": "😀   \u0000",
+      "createdAt": 0
+     }
+    ],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Thread &lt;x&gt;</h2>\n      <span class=\"tag open\">open</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/status\">\n        <button name=\"status\" value=\"resolved\" type=\"submit\">Resolve</button><button name=\"status\" value=\"closed\" type=\"submit\">Close</button>\n      </form>\n    </div>\n    \n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">line\nbreak\ttab  spaces</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">staff · 2026-01-02 03:04:06 UTC</div>\n          <div class=\"body\">&lt;b&gt;&quot;&amp;&#39;&lt;/b&gt;</div>\n        </div>\n<div class=\"msg \">\n          <div class=\"who\">ot&lt;x&gt;&quot; · 2026-01-02 03:04:07 UTC</div>\n          <div class=\"body\">unknown author</div>\n        </div>\n<div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:08 UTC</div>\n          <div class=\"body\"></div>\n        </div>\n<div class=\"msg user\">\n          <div class=\"who\">user · 1970-01-01 00:00:00 UTC</div>\n          <div class=\"body\">😀   \u0000</div>\n        </div>\n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <p class=\"empty\">No tickets yet. Send one from the app.</p>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "threadNoMessages",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [],
+    "attachments": []
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag open\">open</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/status\">\n        <button name=\"status\" value=\"resolved\" type=\"submit\">Resolve</button><button name=\"status\" value=\"closed\" type=\"submit\">Close</button>\n      </form>\n    </div>\n    \n    \n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  },
+  {
+   "name": "attachments",
+   "tickets": [
+    {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    }
+   ],
+   "thread": {
+    "ticket": {
+     "id": "01JZ0000000000000000000001",
+     "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+     "subject": "Subject",
+     "status": "open",
+     "platform": "ios",
+     "appVersion": null,
+     "osVersion": null,
+     "queue": "sandbox",
+     "flagged": false,
+     "lastMessageAt": 1767323045000
+    },
+    "messages": [
+     {
+      "author": "user",
+      "body": "see files",
+      "createdAt": 1767323045000
+     }
+    ],
+    "attachments": [
+     {
+      "kind": "transaction",
+      "name": "tx \"1\".json",
+      "contentType": "application/json",
+      "byteSize": 1234,
+      "data": {
+       "2": "two",
+       "10": "ten",
+       "hash": "0xab",
+       "n": [
+        1,
+        0,
+        1e+21,
+        1e-7,
+        0.1,
+        5e-324,
+        1.7976931348623157e+308,
+        123456789012345680000,
+        -1.5
+       ],
+       "deep": {
+        "a": {
+         "b": {
+          "c": []
+         }
+        },
+        "e": {}
+       },
+       "s": "quote \" backslash \\ slash / control \u0001\u001f line sep <tag> & '",
+       "t": true,
+       "f": false,
+       "z": null
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "shot.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 99,
+      "data": {
+       "encoding": "base64",
+       "bytes": "/9j/AAAA+Q==",
+       "width": 3,
+       "height": 2
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "empty.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 0,
+      "data": {
+       "encoding": "base64",
+       "bytes": ""
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "bad.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 5,
+      "data": {
+       "encoding": "base64",
+       "bytes": "ab\"c"
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "pad.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 5,
+      "data": {
+       "encoding": "base64",
+       "bytes": "abc==="
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "mid.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 5,
+      "data": {
+       "encoding": "base64",
+       "bytes": "ab=c"
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "hex.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 5,
+      "data": {
+       "encoding": "hex",
+       "bytes": "abcd"
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "num.jpg",
+      "contentType": "image/jpeg",
+      "byteSize": 5,
+      "data": {
+       "encoding": "base64",
+       "bytes": 5
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "json-as-image.json",
+      "contentType": "application/json",
+      "byteSize": 5,
+      "data": {
+       "encoding": "base64",
+       "bytes": "abcd"
+      }
+     },
+     {
+      "kind": "diagnostic",
+      "name": "empty.json",
+      "contentType": "application/json",
+      "byteSize": 2,
+      "data": {}
+     },
+     {
+      "kind": "diagnostic",
+      "name": "<name> & \"x\"",
+      "contentType": "application/json",
+      "byteSize": 7,
+      "data": {
+       "list": [
+        [],
+        [
+         []
+        ],
+        [
+         {}
+        ],
+        [
+         "a",
+         [
+          "b"
+         ]
+        ]
+       ]
+      }
+     }
+    ]
+   },
+   "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<title>Tickets · FortisNet</title>\n<style>\n  :root {\n    --bg: #0b0b0d; --panel: #141417; --line: #26262b;\n    --on-surface: #e2e2e2; --muted: #a1a1aa;\n    --primary: #a970ff; --green: #34d399; --red: #f87171; --amber: #fbbf24;\n  }\n  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n  body {\n    background: var(--bg); color: var(--on-surface); min-height: 100dvh;\n    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;\n    padding: 32px 20px;\n  }\n  .wrap { max-width: 1040px; margin: 0 auto; }\n  h1 { font-size: 20px; font-weight: 650; letter-spacing: -0.01em; }\n  .sub { color: var(--muted); margin: 6px 0 22px; font-size: 13px; }\n  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; }\n  table { width: 100%; border-collapse: collapse; }\n  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }\n  th { color: var(--muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }\n  tr:last-child td { border-bottom: none; }\n  td.subject { font-weight: 550; }\n  a { color: var(--primary); text-decoration: none; }\n  a:hover { text-decoration: underline; }\n  .tag {\n    display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px;\n    border: 1px solid var(--line); color: var(--muted); white-space: nowrap;\n  }\n  .tag.open { color: var(--green); border-color: rgba(52,211,153,.4); }\n  .tag.closed { color: var(--muted); }\n  .tag.sandbox { color: var(--amber); border-color: rgba(251,191,36,.4); }\n  .tag.flag { color: var(--red); border-color: rgba(248,113,113,.4); }\n  .empty { color: var(--muted); padding: 28px 14px; text-align: center; }\n  .meta { color: var(--muted); font-size: 12px; }\n  .msg { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .msg:last-child { border-bottom: none; }\n  .msg .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }\n  .msg .body { white-space: pre-wrap; word-break: break-word; }\n  .msg.user .who { color: var(--primary); }\n  .thread { margin-bottom: 26px; }\n  .thread-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  .thread-head h2 { font-size: 15px; font-weight: 600; }\n  details.attachment { padding: 12px 14px; border-bottom: 1px solid var(--line); }\n  details.attachment summary { cursor: pointer; color: var(--primary); }\n  details.attachment img { display: block; margin-top: 10px; max-width: 100%; max-height: 560px; border-radius: 8px; object-fit: contain; }\n  pre { margin-top: 10px; max-height: 320px; overflow: auto; white-space: pre-wrap; word-break: break-word; }\n  form.reply { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); }\n  form.reply textarea { flex: 1; min-height: 72px; resize: vertical; color: var(--on-surface); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px; }\n  form.reply button { align-self: end; color: #fff; background: var(--primary); border: 0; border-radius: 8px; padding: 10px 16px; cursor: pointer; }\n  form.status { display: inline-flex; gap: 6px; margin-left: auto; }\n  form.status button { color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; cursor: pointer; }\n  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }\n</style>\n</head>\n<body>\n<div class=\"wrap\">\n  <h1>Tickets</h1>\n  <p class=\"sub\">\n    Help desk staging bridge. Protected by a dedicated admin credential; move it behind wallet-admin RBAC before production.\n  </p>\n  <div class=\"panel thread\">\n    <div class=\"thread-head\">\n      <h2>Subject</h2>\n      <span class=\"tag open\">open</span>\n      <form class=\"status\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/status\">\n        <button name=\"status\" value=\"resolved\" type=\"submit\">Resolve</button><button name=\"status\" value=\"closed\" type=\"submit\">Close</button>\n      </form>\n    </div>\n    <details class=\"attachment\">\n    <summary>tx &quot;1&quot;.json · transaction · 1234 bytes</summary>\n    <pre><code>{\n  &quot;2&quot;: &quot;two&quot;,\n  &quot;10&quot;: &quot;ten&quot;,\n  &quot;hash&quot;: &quot;0xab&quot;,\n  &quot;n&quot;: [\n    1,\n    0,\n    1e+21,\n    1e-7,\n    0.1,\n    5e-324,\n    1.7976931348623157e+308,\n    123456789012345680000,\n    -1.5\n  ],\n  &quot;deep&quot;: {\n    &quot;a&quot;: {\n      &quot;b&quot;: {\n        &quot;c&quot;: []\n      }\n    },\n    &quot;e&quot;: {}\n  },\n  &quot;s&quot;: &quot;quote \\&quot; backslash \\\\ slash / control \\u0001\\u001f line sep &lt;tag&gt; &amp; &#39;&quot;,\n  &quot;t&quot;: true,\n  &quot;f&quot;: false,\n  &quot;z&quot;: null\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>shot.jpg · diagnostic · 99 bytes</summary>\n    <img src=\"data:image/jpeg;base64,/9j/AAAA+Q==\" alt=\"shot.jpg\" />\n  </details>\n<details class=\"attachment\">\n    <summary>empty.jpg · diagnostic · 0 bytes</summary>\n    <img src=\"data:image/jpeg;base64,\" alt=\"empty.jpg\" />\n  </details>\n<details class=\"attachment\">\n    <summary>bad.jpg · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;base64&quot;,\n  &quot;bytes&quot;: &quot;ab\\&quot;c&quot;\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>pad.jpg · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;base64&quot;,\n  &quot;bytes&quot;: &quot;abc===&quot;\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>mid.jpg · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;base64&quot;,\n  &quot;bytes&quot;: &quot;ab=c&quot;\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>hex.jpg · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;hex&quot;,\n  &quot;bytes&quot;: &quot;abcd&quot;\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>num.jpg · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;base64&quot;,\n  &quot;bytes&quot;: 5\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>json-as-image.json · diagnostic · 5 bytes</summary>\n    <pre><code>{\n  &quot;encoding&quot;: &quot;base64&quot;,\n  &quot;bytes&quot;: &quot;abcd&quot;\n}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>empty.json · diagnostic · 2 bytes</summary>\n    <pre><code>{}</code></pre>\n  </details>\n<details class=\"attachment\">\n    <summary>&lt;name&gt; &amp; &quot;x&quot; · diagnostic · 7 bytes</summary>\n    <pre><code>{\n  &quot;list&quot;: [\n    [],\n    [\n      []\n    ],\n    [\n      {}\n    ],\n    [\n      &quot;a&quot;,\n      [\n        &quot;b&quot;\n      ]\n    ]\n  ]\n}</code></pre>\n  </details>\n    <div class=\"msg user\">\n          <div class=\"who\">user · 2026-01-02 03:04:05 UTC</div>\n          <div class=\"body\">see files</div>\n        </div>\n    <form class=\"reply\" method=\"post\" action=\"/admin/tickets/01JZ0000000000000000000001/reply\">\n      <textarea name=\"body\" maxlength=\"8000\" required placeholder=\"Reply to the user…\"></textarea>\n      <button type=\"submit\">Send reply</button>\n    </form>\n  </div>\n  <div class=\"panel\">\n    <table>\n      <tr><th>Subject</th><th>Status</th><th>Device</th><th>Last activity</th><th></th></tr>\n      <tr>\n    <td class=\"subject\">Subject</td>\n    <td>\n      <span class=\"tag open\">open</span>\n      <span class=\"tag sandbox\">sandbox</span>\n      \n    </td>\n    <td class=\"meta\">\n      <code>01ARZ3NDEKTSV4RRFFQ69G5FAV</code><br />\n      ios\n    </td>\n    <td class=\"meta\">2026-01-02 03:04:05 UTC</td>\n    <td><a href=\"/admin/tickets?open=01JZ0000000000000000000001\">Open</a></td>\n  </tr>\n    </table>\n  </div>\n</div>\n</body>\n</html>"
+  }
+ ],
+ "query": [
+  {
+   "target": "",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open=",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open=abc",
+   "status": 200,
+   "lookedUp": true,
+   "open": "abc",
+   "array": false
+  },
+  {
+   "target": "?open=a+b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a b",
+   "array": false
+  },
+  {
+   "target": "?open=a%20b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a b",
+   "array": false
+  },
+  {
+   "target": "?open=a%2Bb",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a+b",
+   "array": false
+  },
+  {
+   "target": "?open=%41",
+   "status": 200,
+   "lookedUp": true,
+   "open": "A",
+   "array": false
+  },
+  {
+   "target": "?open=%4a%4A",
+   "status": 200,
+   "lookedUp": true,
+   "open": "JJ",
+   "array": false
+  },
+  {
+   "target": "?open=%",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%",
+   "array": false
+  },
+  {
+   "target": "?open=a%",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a%",
+   "array": false
+  },
+  {
+   "target": "?open=a%2",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a%2",
+   "array": false
+  },
+  {
+   "target": "?open=%ZZ",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%ZZ",
+   "array": false
+  },
+  {
+   "target": "?open=a%ZZb%41",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a%ZZb%41",
+   "array": false
+  },
+  {
+   "target": "?open=%C3%28",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%C3%28",
+   "array": false
+  },
+  {
+   "target": "?open=%C3%A9",
+   "status": 200,
+   "lookedUp": true,
+   "open": "é",
+   "array": false
+  },
+  {
+   "target": "?open=%F0%9F%98%80",
+   "status": 200,
+   "lookedUp": true,
+   "open": "😀",
+   "array": false
+  },
+  {
+   "target": "?open=%ED%A0%80",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%ED%A0%80",
+   "array": false
+  },
+  {
+   "target": "?open=%00",
+   "status": 200,
+   "lookedUp": true,
+   "open": "\u0000",
+   "array": false
+  },
+  {
+   "target": "?open=a&open=b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a,b",
+   "array": true
+  },
+  {
+   "target": "?open=&open=b",
+   "status": 200,
+   "lookedUp": true,
+   "open": ",b",
+   "array": true
+  },
+  {
+   "target": "?open=a&open=",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a,",
+   "array": true
+  },
+  {
+   "target": "?open&open",
+   "status": 200,
+   "lookedUp": true,
+   "open": ",",
+   "array": true
+  },
+  {
+   "target": "?open=a&open=b&open=c",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a,b,c",
+   "array": true
+  },
+  {
+   "target": "?x=1&open=a",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a",
+   "array": false
+  },
+  {
+   "target": "?&open=a&",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a",
+   "array": false
+  },
+  {
+   "target": "?open==a",
+   "status": 200,
+   "lookedUp": true,
+   "open": "=a",
+   "array": false
+  },
+  {
+   "target": "?open=a=b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a=b",
+   "array": false
+  },
+  {
+   "target": "?OPEN=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?%6Fpen=a",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a",
+   "array": false
+  },
+  {
+   "target": "?%6fpen=a",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a",
+   "array": false
+  },
+  {
+   "target": "?op%65n=a",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a",
+   "array": false
+  },
+  {
+   "target": "?o+pen=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open+=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open%3Da",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open=a;b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a;b",
+   "array": false
+  },
+  {
+   "target": "?open=a,b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a,b",
+   "array": false
+  },
+  {
+   "target": "?open[]=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "??open=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open=a?b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a?b",
+   "array": false
+  },
+  {
+   "target": "?open=%26",
+   "status": 200,
+   "lookedUp": true,
+   "open": "&",
+   "array": false
+  },
+  {
+   "target": "?open=%3D",
+   "status": 200,
+   "lookedUp": true,
+   "open": "=",
+   "array": false
+  },
+  {
+   "target": "?%=a&open=b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "b",
+   "array": false
+  },
+  {
+   "target": "?open=%25",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%",
+   "array": false
+  },
+  {
+   "target": "?open=%2",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%2",
+   "array": false
+  },
+  {
+   "target": "?open=+",
+   "status": 200,
+   "lookedUp": true,
+   "open": " ",
+   "array": false
+  },
+  {
+   "target": "?open=%2B%20+",
+   "status": 200,
+   "lookedUp": true,
+   "open": "+  ",
+   "array": false
+  },
+  {
+   "target": "?open=a+%ZZ",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a %ZZ",
+   "array": false
+  },
+  {
+   "target": "?open=a+%C3%28",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a %C3%28",
+   "array": false
+  },
+  {
+   "target": "?open=a+%ED%A0%80",
+   "status": 200,
+   "lookedUp": true,
+   "open": "a %ED%A0%80",
+   "array": false
+  },
+  {
+   "target": "?op%ZZen=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open%=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?open%ZZ=a",
+   "status": 200,
+   "lookedUp": false,
+   "open": null,
+   "array": false
+  },
+  {
+   "target": "?%C3%28=a&open=b",
+   "status": 200,
+   "lookedUp": true,
+   "open": "b",
+   "array": false
+  },
+  {
+   "target": "?open=%C3",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%C3",
+   "array": false
+  },
+  {
+   "target": "?open=%E2%82",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%E2%82",
+   "array": false
+  },
+  {
+   "target": "?open=%C0%80",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%C0%80",
+   "array": false
+  },
+  {
+   "target": "?open=%F4%90%80%80",
+   "status": 200,
+   "lookedUp": true,
+   "open": "%F4%90%80%80",
+   "array": false
+  },
+  {
+   "target": "?open=%EF%BB%BF",
+   "status": 200,
+   "lookedUp": true,
+   "open": "﻿",
+   "array": false
+  },
+  {
+   "target": "?open=%7F%01",
+   "status": 200,
+   "lookedUp": true,
+   "open": "\u0001",
+   "array": false
+  },
+  {
+   "target": "?open=%E2%80%A8",
+   "status": 200,
+   "lookedUp": true,
+   "open": " ",
+   "array": false
+  }
+ ],
+ "auth": [
+  {
+   "header": "",
+   "status": 401
+  },
+  {
+   "header": "Bearer",
+   "status": 401
+  },
+  {
+   "header": "Bearer fixture-admin-token-0123456789",
+   "status": 200
+  },
+  {
+   "header": "Bearer fixture-admin-token-0123456789 ",
+   "status": 401
+  },
+  {
+   "header": "Bearer  fixture-admin-token-0123456789",
+   "status": 401
+  },
+  {
+   "header": "bearer fixture-admin-token-0123456789",
+   "status": 401
+  },
+  {
+   "header": "Bearer fixture-admin-token-0123456789x",
+   "status": 401
+  },
+  {
+   "header": "Bearer ixture-admin-token-0123456789",
+   "status": 401
+  },
+  {
+   "header": "Basic dTpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk=",
+   "status": 200
+  },
+  {
+   "header": "Basic OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ==",
+   "status": 200
+  },
+  {
+   "header": "Basic YTpiOmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ==",
+   "status": 401
+  },
+  {
+   "header": "Basic dTpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk6",
+   "status": 401
+  },
+  {
+   "header": "Basic dTogZml4dHVyZS1hZG1pbi10b2tlbi0wMTIzNDU2Nzg5",
+   "status": 401
+  },
+  {
+   "header": "Basic Zml4dHVyZS1hZG1pbi10b2tlbi0wMTIzNDU2Nzg5",
+   "status": 401
+  },
+  {
+   "header": "Basic OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ",
+   "status": 200
+  },
+  {
+   "header": "Basic OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ======",
+   "status": 200
+  },
+  {
+   "header": "Basic O m Z p e H R 1 c m U t Y W R t a W 4 t d G 9 r Z W 4 t M D E y M z Q 1 N j c 4 O Q = =",
+   "status": 200
+  },
+  {
+   "header": "Basic OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ",
+   "status": 200
+  },
+  {
+   "header": "Basic !!OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ==",
+   "status": 200
+  },
+  {
+   "header": "Basic OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ==!!",
+   "status": 200
+  },
+  {
+   "header": "Basic =OmZpeHR1cmUtYWRtaW4tdG9rZW4tMDEyMzQ1Njc4OQ==",
+   "status": 401
+  },
+  {
+   "header": "Basic eDpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk",
+   "status": 200
+  },
+  {
+   "header": "Basic eHk6Zml4dHVyZS1hZG1pbi10b2tlbi0wMTIzNDU2Nzg5",
+   "status": 200
+  },
+  {
+   "header": "Basic ",
+   "status": 401
+  },
+  {
+   "header": "Basic",
+   "status": 401
+  },
+  {
+   "header": "Basic =",
+   "status": 401
+  },
+  {
+   "header": "Basic ==",
+   "status": 401
+  },
+  {
+   "header": "Basic Og==",
+   "status": 401
+  },
+  {
+   "header": "Basic Og",
+   "status": 401
+  },
+  {
+   "header": "Basic Og==",
+   "status": 401
+  },
+  {
+   "header": "Basic /zpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk=",
+   "status": 200
+  },
+  {
+   "header": "Basic dTpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk=\t",
+   "status": 200
+  },
+  {
+   "header": "Basic\tdTpmaXh0dXJlLWFkbWluLXRva2VuLTAxMjM0NTY3ODk=",
+   "status": 401
+  },
+  {
+   "header": "Digest fixture-admin-token-0123456789",
+   "status": 401
+  },
+  {
+   "header": "fixture-admin-token-0123456789",
+   "status": 401
+  }
+ ]
+}

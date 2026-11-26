@@ -1,0 +1,2228 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "server/intelligence/src/facets/candle_history.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "first": 1767225600,
+    "decadeFrom": 1451001600,
+    "twoYearFrom": 1704153600,
+    "fullBodyBytes": 4096,
+    "model": {
+      "base": 1451001600,
+      "dailyAboveSeconds": 7776000,
+      "price": {
+        "base": 100,
+        "perHour": 0.015625
+      },
+      "volume": {
+        "base": 1000,
+        "perHour": 0.0625
+      },
+      "marketCap": {
+        "base": 1000000000000,
+        "perHour": 1234.5,
+        "offset": 0.25
+      }
+    },
+    "seed": {
+      "coins": [
+        "seeded-coin",
+        "locked-coin"
+      ],
+      "from": 1735689600,
+      "days": 365,
+      "open": 50,
+      "high": 51,
+      "low": 49,
+      "close": 50.5,
+      "volume": 7
+    }
+  },
+  "order": [
+    "decadeColdJson",
+    "decadeCachedProtobuf",
+    "decadeBatchCachedProtobuf",
+    "decadeTooLong",
+    "decadeTooLongBatch",
+    "hourlyStillNinetyDays",
+    "twoYearColdProtobuf",
+    "twoYearCachedJson",
+    "unauthorizedSeededJson",
+    "unauthorizedRetryProtobuf",
+    "unauthorizedColdJson",
+    "unavailableColdJson",
+    "seededGapJson",
+    "seededNextProtobuf",
+    "mixedTwoYearJson",
+    "mixedTwoYearNextProtobuf",
+    "mixedDecadeJson",
+    "beforeRestartJson",
+    "afterRestartProtobuf"
+  ],
+  "cases": {
+    "decadeColdJson": {
+      "segment": "decade",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=decade-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "144450",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 144450,
+        "sha256": "5f77064de40cdf38dad934002ea110160fa46b8f6d0e6321c863846c46dcef92",
+        "summary": {
+          "id": "decade-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3661,
+            "head": [
+              [
+                1451001600,
+                100
+              ],
+              [
+                1451088000,
+                100.375
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                1472.125
+              ],
+              [
+                1767225600,
+                1472.5
+              ]
+            ]
+          },
+          "volumes": {
+            "length": 3661,
+            "head": [
+              [
+                1451001600,
+                1000
+              ],
+              [
+                1451088000,
+                1001.5
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                6488.5
+              ],
+              [
+                1767225600,
+                6490
+              ]
+            ]
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 3661
+          },
+          "window": {
+            "from": 1451001600,
+            "to": 1767225600,
+            "days": 3661
+          },
+          "availability": {
+            "from": 1451001600,
+            "to": 1767225600,
+            "days": 3661,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1451001600,
+                "to": 1767225600,
+                "days": 3661
+              },
+              {
+                "interval": "1h",
+                "from": 1451001600,
+                "to": 1767225600,
+                "days": 3661
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/decade-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600"
+      ]
+    },
+    "decadeCachedProtobuf": {
+      "segment": "decade",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=decade-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "124626",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "bytes": 124626,
+        "sha256": "db92c7c01f4d947f955db342509dc5193cdb56cc3694ee8f1f2ad508f8dcc2fb",
+        "summary": {
+          "id": "decade-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3661,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 100
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 100.375
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 1472.125
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 1472.5
+              }
+            ]
+          },
+          "volumes": {
+            "length": 3661,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 1000
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 1001.5
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 6488.5
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 6490
+              }
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 3661
+          },
+          "window": {
+            "from": "1451001600",
+            "to": "1767225600",
+            "days": 3661
+          },
+          "availability": {
+            "from": "1451001600",
+            "to": "1767225600",
+            "days": 3661,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1451001600",
+                "to": "1767225600",
+                "days": 3661
+              },
+              {
+                "interval": "1h",
+                "from": "1451001600",
+                "to": "1767225600",
+                "days": 3661
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "decadeBatchCachedProtobuf": {
+      "segment": "decade",
+      "request": {
+        "method": "POST",
+        "url": "/v1/prices/history",
+        "accept": "application/protobuf",
+        "contentType": "application/protobuf",
+        "hex": "0a0b6465636164652d636f696e10808ef2b3051880f2d6ca0622023164"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "124693",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "bytes": 124693,
+        "sha256": "b1f80bcf05a3e7bb2411b7509f80335873642e94fd428e03c8c6c71d1171d3d1",
+        "summary": {
+          "from": "1451001600",
+          "to": "1767225600",
+          "interval": "1d",
+          "series": [
+            {
+              "id": "decade-coin",
+              "history": {
+                "id": "decade-coin",
+                "interval": "1d",
+                "points": {
+                  "length": 3661,
+                  "head": [
+                    {
+                      "unixSeconds": "1451001600",
+                      "value": 100
+                    },
+                    {
+                      "unixSeconds": "1451088000",
+                      "value": 100.375
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 1472.125
+                    },
+                    {
+                      "unixSeconds": "1767225600",
+                      "value": 1472.5
+                    }
+                  ]
+                },
+                "volumes": {
+                  "length": 3661,
+                  "head": [
+                    {
+                      "unixSeconds": "1451001600",
+                      "value": 1000
+                    },
+                    {
+                      "unixSeconds": "1451088000",
+                      "value": 1001.5
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 6488.5
+                    },
+                    {
+                      "unixSeconds": "1767225600",
+                      "value": 6490
+                    }
+                  ]
+                },
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2026-01-01T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 3661
+                },
+                "window": {
+                  "from": "1451001600",
+                  "to": "1767225600",
+                  "days": 3661
+                },
+                "availability": {
+                  "from": "1451001600",
+                  "to": "1767225600",
+                  "days": 3661,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1451001600",
+                      "to": "1767225600",
+                      "days": 3661
+                    },
+                    {
+                      "interval": "1h",
+                      "from": "1451001600",
+                      "to": "1767225600",
+                      "days": 3661
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T00:00:00.000Z"
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "decadeTooLong": {
+      "segment": "decade",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=decade-coin&from=1451001599&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "71",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "bytes": 71,
+        "sha256": "7bfb52f4c611d0d83a5bc61cdd97dd584c30b3a60c8915ca78ece79baa922a6f",
+        "text": "{\"error\":\"BAD_REQUEST\",\"detail\":\"range for 1d must be 1s–316224000s\"}"
+      },
+      "providerCalls": []
+    },
+    "decadeTooLongBatch": {
+      "segment": "decade",
+      "request": {
+        "method": "POST",
+        "url": "/v1/prices/history",
+        "accept": "application/json",
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"decade-coin\"],\"from\":1451001599,\"to\":1767225600,\"interval\":\"1d\"}"
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "56",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "bytes": 56,
+        "sha256": "2b20e3e2d1754a5394d7485d3ecb8d8ad1974ee2065fe0355e92ed99c105273e",
+        "text": "{\"error\":\"BAD_REQUEST\",\"detail\":\"invalid history range\"}"
+      },
+      "providerCalls": []
+    },
+    "hourlyStillNinetyDays": {
+      "segment": "decade",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=decade-coin&from=1759363200&to=1767225600&interval=1h",
+        "accept": "application/json"
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "69",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "body": {
+        "bytes": 69,
+        "sha256": "b10b693c2b62490ae92dba6dcd28f30c6eacda68706b50ae34c28072263992b6",
+        "text": "{\"error\":\"BAD_REQUEST\",\"detail\":\"range for 1h must be 1s–7776000s\"}"
+      },
+      "providerCalls": []
+    },
+    "twoYearColdProtobuf": {
+      "segment": "twoYear",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=two-coin&from=1704153600&to=1767225600&interval=1d",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "24975",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 24975,
+        "sha256": "dbc5cd78db2db1ef2730206e4fc5214c36d21043dee604b3a3dae049f3572513",
+        "summary": {
+          "id": "two-coin",
+          "interval": "1d",
+          "points": {
+            "length": 731,
+            "head": [
+              {
+                "unixSeconds": "1704153600",
+                "value": 1198.75
+              },
+              {
+                "unixSeconds": "1704240000",
+                "value": 1199.125
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 1472.125
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 1472.5
+              }
+            ]
+          },
+          "volumes": {
+            "length": 731,
+            "head": [
+              {
+                "unixSeconds": "1704153600",
+                "value": 5395
+              },
+              {
+                "unixSeconds": "1704240000",
+                "value": 5396.5
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 6488.5
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 6490
+              }
+            ]
+          },
+          "cache": {},
+          "coverage": {
+            "fetchedPoints": 731
+          },
+          "window": {
+            "from": "1704153600",
+            "to": "1767225600",
+            "days": 731
+          },
+          "availability": {
+            "from": "1704153600",
+            "to": "1767225600",
+            "days": 731,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1704153600",
+                "to": "1767225600",
+                "days": 731
+              },
+              {
+                "interval": "1h",
+                "from": "1704153600",
+                "to": "1767225600",
+                "days": 731
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/two-coin/market_chart/range?vs_currency=usd&from=1704153600&to=1767225600"
+      ]
+    },
+    "twoYearCachedJson": {
+      "segment": "twoYear",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=two-coin&from=1704153600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "29665",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "bytes": 29665,
+        "sha256": "e43bd615a60ee4f9ffc0aa1798a9281935c485b3d542160d9716a6034be04f71",
+        "summary": {
+          "id": "two-coin",
+          "interval": "1d",
+          "points": {
+            "length": 731,
+            "head": [
+              [
+                1704153600,
+                1198.75
+              ],
+              [
+                1704240000,
+                1199.125
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                1472.125
+              ],
+              [
+                1767225600,
+                1472.5
+              ]
+            ]
+          },
+          "volumes": {
+            "length": 731,
+            "head": [
+              [
+                1704153600,
+                5395
+              ],
+              [
+                1704240000,
+                5396.5
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                6488.5
+              ],
+              [
+                1767225600,
+                6490
+              ]
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 731,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1704153600,
+            "to": 1767225600,
+            "days": 731
+          },
+          "availability": {
+            "from": 1704153600,
+            "to": 1767225600,
+            "days": 731,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1704153600,
+                "to": 1767225600,
+                "days": 731
+              },
+              {
+                "interval": "1h",
+                "from": 1704153600,
+                "to": 1767225600,
+                "days": 731
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "unauthorizedSeededJson": {
+      "segment": "unauthorized",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=locked-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "13360",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 13360,
+        "sha256": "938556dc609c2317f6c8b4206a316a6e33d0cf222e82b27b7a3b180dd48820f4",
+        "summary": {
+          "id": "locked-coin",
+          "interval": "1d",
+          "points": {
+            "length": 365,
+            "head": [
+              [
+                1735689600,
+                50.5
+              ],
+              [
+                1735776000,
+                51.5
+              ]
+            ],
+            "tail": [
+              [
+                1767052800,
+                413.5
+              ],
+              [
+                1767139200,
+                414.5
+              ]
+            ]
+          },
+          "volumes": {
+            "length": 365,
+            "head": [
+              [
+                1735689600,
+                7
+              ],
+              [
+                1735776000,
+                8
+              ]
+            ],
+            "tail": [
+              [
+                1767052800,
+                370
+              ],
+              [
+                1767139200,
+                371
+              ]
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2025-12-31T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 365,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1735689600,
+            "to": 1767139200,
+            "days": 365
+          },
+          "availability": {
+            "from": 1735689600,
+            "to": 1767139200,
+            "days": 365,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1735689600,
+                "to": 1767139200,
+                "days": 365
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1735689600"
+      ]
+    },
+    "unauthorizedRetryProtobuf": {
+      "segment": "unauthorized",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=locked-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "12535",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "bytes": 12535,
+        "sha256": "66b8a17a9e8c49d0b51f60cde3b2d13adbedcfd5d59be581794bec7a335bfcb1",
+        "summary": {
+          "id": "locked-coin",
+          "interval": "1d",
+          "points": {
+            "length": 365,
+            "head": [
+              {
+                "unixSeconds": "1735689600",
+                "value": 50.5
+              },
+              {
+                "unixSeconds": "1735776000",
+                "value": 51.5
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767052800",
+                "value": 413.5
+              },
+              {
+                "unixSeconds": "1767139200",
+                "value": 414.5
+              }
+            ]
+          },
+          "volumes": {
+            "length": 365,
+            "head": [
+              {
+                "unixSeconds": "1735689600",
+                "value": 7
+              },
+              {
+                "unixSeconds": "1735776000",
+                "value": 8
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767052800",
+                "value": 370
+              },
+              {
+                "unixSeconds": "1767139200",
+                "value": 371
+              }
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2025-12-31T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 365
+          },
+          "window": {
+            "from": "1735689600",
+            "to": "1767139200",
+            "days": 365
+          },
+          "availability": {
+            "from": "1735689600",
+            "to": "1767139200",
+            "days": 365,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1735689600",
+                "to": "1767139200",
+                "days": 365
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1735689600"
+      ]
+    },
+    "unauthorizedColdJson": {
+      "segment": "unauthorizedCold",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=locked-cold-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "259",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 259,
+        "sha256": "4b0d6a032ed49c61932b12255d4ac935b31ae969d4cc10fde185c651840734ff",
+        "text": "{\"id\":\"locked-cold-coin\",\"interval\":\"1d\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "summary": {
+          "id": "locked-cold-coin",
+          "interval": "1d",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-cold-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600"
+      ]
+    },
+    "unavailableColdJson": {
+      "segment": "unavailable",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=failing-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "255",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 255,
+        "sha256": "e80317c5b8404ce7db173a75a7d172eb039b082d42c7908ad6431e8997163bb3",
+        "text": "{\"id\":\"failing-coin\",\"interval\":\"1d\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "summary": {
+          "id": "failing-coin",
+          "interval": "1d",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/failing-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600",
+        "/api/v3/coins/failing-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600",
+        "/api/v3/coins/failing-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600"
+      ]
+    },
+    "seededGapJson": {
+      "segment": "seeded",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=seeded-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "142838",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 142838,
+        "sha256": "aab7e710aa9d4027c3f8edfeec718122d097d2eb59dd5e17265e6d82ebc0fe90",
+        "summary": {
+          "id": "seeded-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3660,
+            "head": [
+              [
+                1451001600,
+                100
+              ],
+              [
+                1451088000,
+                100.375
+              ]
+            ],
+            "tail": [
+              [
+                1767052800,
+                413.5
+              ],
+              [
+                1767139200,
+                414.5
+              ]
+            ]
+          },
+          "volumes": {
+            "length": 3660,
+            "head": [
+              [
+                1451001600,
+                1000
+              ],
+              [
+                1451088000,
+                1001.5
+              ]
+            ],
+            "tail": [
+              [
+                1767052800,
+                370
+              ],
+              [
+                1767139200,
+                371
+              ]
+            ]
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": "2025-12-31T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 365,
+            "fetchedPoints": 3295
+          },
+          "window": {
+            "from": 1451001600,
+            "to": 1767139200,
+            "days": 3660
+          },
+          "availability": {
+            "from": 1451001600,
+            "to": 1767139200,
+            "days": 3660,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1451001600,
+                "to": 1767139200,
+                "days": 3660
+              },
+              {
+                "interval": "1h",
+                "from": 1451001600,
+                "to": 1735689600,
+                "days": 3296
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/seeded-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1735689600"
+      ]
+    },
+    "seededNextProtobuf": {
+      "segment": "seeded",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=seeded-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "124592",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "bytes": 124592,
+        "sha256": "c3112e3805378bc3f49a260f2c05b12b5019b9fae52e7edef21a726f6012096e",
+        "summary": {
+          "id": "seeded-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3660,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 100
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 100.375
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767052800",
+                "value": 413.5
+              },
+              {
+                "unixSeconds": "1767139200",
+                "value": 414.5
+              }
+            ]
+          },
+          "volumes": {
+            "length": 3660,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 1000
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 1001.5
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767052800",
+                "value": 370
+              },
+              {
+                "unixSeconds": "1767139200",
+                "value": 371
+              }
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2025-12-31T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 3660
+          },
+          "window": {
+            "from": "1451001600",
+            "to": "1767139200",
+            "days": 3660
+          },
+          "availability": {
+            "from": "1451001600",
+            "to": "1767139200",
+            "days": 3660,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1451001600",
+                "to": "1767139200",
+                "days": 3660
+              },
+              {
+                "interval": "1h",
+                "from": "1451001600",
+                "to": "1735689600",
+                "days": 3296
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "mixedTwoYearJson": {
+      "segment": "mixed",
+      "request": {
+        "method": "POST",
+        "url": "/v1/prices/history",
+        "accept": "application/json",
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"two-coin\",\"seeded-coin\",\"locked-coin\",\"unknown id\"],\"from\":1704153600,\"to\":1767225600,\"interval\":\"1d\"}"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "71325",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "4",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "bytes": 71325,
+        "sha256": "ecccf8ac9d6508c74c49d3a3ac90c777113523fdbdeca980bf6944889f653404",
+        "summary": {
+          "from": 1704153600,
+          "to": 1767225600,
+          "interval": "1d",
+          "series": {
+            "two-coin": {
+              "id": "two-coin",
+              "interval": "1d",
+              "points": {
+                "length": 731,
+                "head": [
+                  [
+                    1704153600,
+                    1198.75
+                  ],
+                  [
+                    1704240000,
+                    1199.125
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767139200,
+                    1472.125
+                  ],
+                  [
+                    1767225600,
+                    1472.5
+                  ]
+                ]
+              },
+              "volumes": {
+                "length": 731,
+                "head": [
+                  [
+                    1704153600,
+                    5395
+                  ],
+                  [
+                    1704240000,
+                    5396.5
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767139200,
+                    6488.5
+                  ],
+                  [
+                    1767225600,
+                    6490
+                  ]
+                ]
+              },
+              "cache": {
+                "hit": false,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 731
+              },
+              "window": {
+                "from": 1704153600,
+                "to": 1767225600,
+                "days": 731
+              },
+              "availability": {
+                "from": 1704153600,
+                "to": 1767225600,
+                "days": 731,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1704153600,
+                    "to": 1767225600,
+                    "days": 731
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1704153600,
+                    "to": 1767225600,
+                    "days": 731
+                  }
+                ]
+              }
+            },
+            "seeded-coin": {
+              "id": "seeded-coin",
+              "interval": "1d",
+              "points": {
+                "length": 730,
+                "head": [
+                  [
+                    1704153600,
+                    1198.75
+                  ],
+                  [
+                    1704240000,
+                    1199.125
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    413.5
+                  ],
+                  [
+                    1767139200,
+                    414.5
+                  ]
+                ]
+              },
+              "volumes": {
+                "length": 730,
+                "head": [
+                  [
+                    1704153600,
+                    5395
+                  ],
+                  [
+                    1704240000,
+                    5396.5
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    370
+                  ],
+                  [
+                    1767139200,
+                    371
+                  ]
+                ]
+              },
+              "cache": {
+                "hit": false,
+                "timestamp": "2025-12-31T00:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 365,
+                "fetchedPoints": 365
+              },
+              "window": {
+                "from": 1704153600,
+                "to": 1767139200,
+                "days": 730
+              },
+              "availability": {
+                "from": 1704153600,
+                "to": 1767139200,
+                "days": 730,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1704153600,
+                    "to": 1767139200,
+                    "days": 730
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1704153600,
+                    "to": 1735689600,
+                    "days": 366
+                  }
+                ]
+              }
+            },
+            "locked-coin": {
+              "id": "locked-coin",
+              "interval": "1d",
+              "points": {
+                "length": 365,
+                "head": [
+                  [
+                    1735689600,
+                    50.5
+                  ],
+                  [
+                    1735776000,
+                    51.5
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    413.5
+                  ],
+                  [
+                    1767139200,
+                    414.5
+                  ]
+                ]
+              },
+              "volumes": {
+                "length": 365,
+                "head": [
+                  [
+                    1735689600,
+                    7
+                  ],
+                  [
+                    1735776000,
+                    8
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    370
+                  ],
+                  [
+                    1767139200,
+                    371
+                  ]
+                ]
+              },
+              "cache": {
+                "hit": true,
+                "timestamp": "2025-12-31T00:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 365,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1735689600,
+                "to": 1767139200,
+                "days": 365
+              },
+              "availability": {
+                "from": 1735689600,
+                "to": 1767139200,
+                "days": 365,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1735689600,
+                    "to": 1767139200,
+                    "days": 365
+                  }
+                ]
+              }
+            },
+            "unknown id": {
+              "error": "UNRECOGNIZED_ID",
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            }
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": "2025-12-31T00:00:00.000Z",
+            "partial": true
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-coin/market_chart/range?vs_currency=usd&from=1704153600&to=1735689600",
+        "/api/v3/coins/seeded-coin/market_chart/range?vs_currency=usd&from=1704153600&to=1735689600",
+        "/api/v3/coins/two-coin/market_chart/range?vs_currency=usd&from=1704153600&to=1767225600"
+      ]
+    },
+    "mixedTwoYearNextProtobuf": {
+      "segment": "mixed",
+      "request": {
+        "method": "POST",
+        "url": "/v1/prices/history",
+        "accept": "application/protobuf",
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"two-coin\",\"seeded-coin\",\"locked-coin\",\"unknown id\"],\"from\":1704153600,\"to\":1767225600,\"interval\":\"1d\"}"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "62649",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "4",
+        "x-rate-limit-remaining": "232"
+      },
+      "body": {
+        "bytes": 62649,
+        "sha256": "5b646f7090e07c795e4f0e092ab0471d459b170d8ec19288df2a1387e26ddb1c",
+        "summary": {
+          "from": "1704153600",
+          "to": "1767225600",
+          "interval": "1d",
+          "series": [
+            {
+              "id": "two-coin",
+              "history": {
+                "id": "two-coin",
+                "interval": "1d",
+                "points": {
+                  "length": 731,
+                  "head": [
+                    {
+                      "unixSeconds": "1704153600",
+                      "value": 1198.75
+                    },
+                    {
+                      "unixSeconds": "1704240000",
+                      "value": 1199.125
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 1472.125
+                    },
+                    {
+                      "unixSeconds": "1767225600",
+                      "value": 1472.5
+                    }
+                  ]
+                },
+                "volumes": {
+                  "length": 731,
+                  "head": [
+                    {
+                      "unixSeconds": "1704153600",
+                      "value": 5395
+                    },
+                    {
+                      "unixSeconds": "1704240000",
+                      "value": 5396.5
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 6488.5
+                    },
+                    {
+                      "unixSeconds": "1767225600",
+                      "value": 6490
+                    }
+                  ]
+                },
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2026-01-01T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 731
+                },
+                "window": {
+                  "from": "1704153600",
+                  "to": "1767225600",
+                  "days": 731
+                },
+                "availability": {
+                  "from": "1704153600",
+                  "to": "1767225600",
+                  "days": 731,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1704153600",
+                      "to": "1767225600",
+                      "days": 731
+                    },
+                    {
+                      "interval": "1h",
+                      "from": "1704153600",
+                      "to": "1767225600",
+                      "days": 731
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "seeded-coin",
+              "history": {
+                "id": "seeded-coin",
+                "interval": "1d",
+                "points": {
+                  "length": 730,
+                  "head": [
+                    {
+                      "unixSeconds": "1704153600",
+                      "value": 1198.75
+                    },
+                    {
+                      "unixSeconds": "1704240000",
+                      "value": 1199.125
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767052800",
+                      "value": 413.5
+                    },
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 414.5
+                    }
+                  ]
+                },
+                "volumes": {
+                  "length": 730,
+                  "head": [
+                    {
+                      "unixSeconds": "1704153600",
+                      "value": 5395
+                    },
+                    {
+                      "unixSeconds": "1704240000",
+                      "value": 5396.5
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767052800",
+                      "value": 370
+                    },
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 371
+                    }
+                  ]
+                },
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2025-12-31T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 730
+                },
+                "window": {
+                  "from": "1704153600",
+                  "to": "1767139200",
+                  "days": 730
+                },
+                "availability": {
+                  "from": "1704153600",
+                  "to": "1767139200",
+                  "days": 730,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1704153600",
+                      "to": "1767139200",
+                      "days": 730
+                    },
+                    {
+                      "interval": "1h",
+                      "from": "1704153600",
+                      "to": "1735689600",
+                      "days": 366
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "locked-coin",
+              "history": {
+                "id": "locked-coin",
+                "interval": "1d",
+                "points": {
+                  "length": 365,
+                  "head": [
+                    {
+                      "unixSeconds": "1735689600",
+                      "value": 50.5
+                    },
+                    {
+                      "unixSeconds": "1735776000",
+                      "value": 51.5
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767052800",
+                      "value": 413.5
+                    },
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 414.5
+                    }
+                  ]
+                },
+                "volumes": {
+                  "length": 365,
+                  "head": [
+                    {
+                      "unixSeconds": "1735689600",
+                      "value": 7
+                    },
+                    {
+                      "unixSeconds": "1735776000",
+                      "value": 8
+                    }
+                  ],
+                  "tail": [
+                    {
+                      "unixSeconds": "1767052800",
+                      "value": 370
+                    },
+                    {
+                      "unixSeconds": "1767139200",
+                      "value": 371
+                    }
+                  ]
+                },
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2025-12-31T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 365
+                },
+                "window": {
+                  "from": "1735689600",
+                  "to": "1767139200",
+                  "days": 365
+                },
+                "availability": {
+                  "from": "1735689600",
+                  "to": "1767139200",
+                  "days": 365,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1735689600",
+                      "to": "1767139200",
+                      "days": 365
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "unknown id",
+              "failure": {
+                "error": "UNRECOGNIZED_ID",
+                "availability": {}
+              }
+            }
+          ],
+          "cache": {
+            "timestamp": "2026-01-01T00:00:00.000Z",
+            "partial": true
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-coin/market_chart/range?vs_currency=usd&from=1704153600&to=1735689600"
+      ]
+    },
+    "mixedDecadeJson": {
+      "segment": "mixedDecade",
+      "request": {
+        "method": "POST",
+        "url": "/v1/prices/history",
+        "accept": "application/json",
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"seeded-coin\",\"locked-coin\",\"unknown id\"],\"from\":1451001600,\"to\":1767225600,\"interval\":\"1d\"}"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "156472",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "3",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "bytes": 156472,
+        "sha256": "2f82014d3d77b572a4e2c7f37331849fc8179d87990e345cf242acd32b195f6e",
+        "summary": {
+          "from": 1451001600,
+          "to": 1767225600,
+          "interval": "1d",
+          "series": {
+            "seeded-coin": {
+              "id": "seeded-coin",
+              "interval": "1d",
+              "points": {
+                "length": 3660,
+                "head": [
+                  [
+                    1451001600,
+                    100
+                  ],
+                  [
+                    1451088000,
+                    100.375
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    413.5
+                  ],
+                  [
+                    1767139200,
+                    414.5
+                  ]
+                ]
+              },
+              "volumes": {
+                "length": 3660,
+                "head": [
+                  [
+                    1451001600,
+                    1000
+                  ],
+                  [
+                    1451088000,
+                    1001.5
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    370
+                  ],
+                  [
+                    1767139200,
+                    371
+                  ]
+                ]
+              },
+              "cache": {
+                "hit": false,
+                "timestamp": "2025-12-31T00:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 365,
+                "fetchedPoints": 3295
+              },
+              "window": {
+                "from": 1451001600,
+                "to": 1767139200,
+                "days": 3660
+              },
+              "availability": {
+                "from": 1451001600,
+                "to": 1767139200,
+                "days": 3660,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1451001600,
+                    "to": 1767139200,
+                    "days": 3660
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1451001600,
+                    "to": 1735689600,
+                    "days": 3296
+                  }
+                ]
+              }
+            },
+            "locked-coin": {
+              "id": "locked-coin",
+              "interval": "1d",
+              "points": {
+                "length": 365,
+                "head": [
+                  [
+                    1735689600,
+                    50.5
+                  ],
+                  [
+                    1735776000,
+                    51.5
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    413.5
+                  ],
+                  [
+                    1767139200,
+                    414.5
+                  ]
+                ]
+              },
+              "volumes": {
+                "length": 365,
+                "head": [
+                  [
+                    1735689600,
+                    7
+                  ],
+                  [
+                    1735776000,
+                    8
+                  ]
+                ],
+                "tail": [
+                  [
+                    1767052800,
+                    370
+                  ],
+                  [
+                    1767139200,
+                    371
+                  ]
+                ]
+              },
+              "cache": {
+                "hit": true,
+                "timestamp": "2025-12-31T00:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 365,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1735689600,
+                "to": 1767139200,
+                "days": 365
+              },
+              "availability": {
+                "from": 1735689600,
+                "to": 1767139200,
+                "days": 365,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1735689600,
+                    "to": 1767139200,
+                    "days": 365
+                  }
+                ]
+              }
+            },
+            "unknown id": {
+              "error": "UNRECOGNIZED_ID",
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            }
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": "2025-12-31T00:00:00.000Z",
+            "partial": true
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/locked-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1735689600",
+        "/api/v3/coins/seeded-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1735689600"
+      ]
+    },
+    "beforeRestartJson": {
+      "segment": "restart",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=restart-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "144451",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 144451,
+        "sha256": "b082ed01969c4e056dce75b0e2fbd6df50605219af7f896406bc43e746e48220",
+        "summary": {
+          "id": "restart-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3661,
+            "head": [
+              [
+                1451001600,
+                100
+              ],
+              [
+                1451088000,
+                100.375
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                1472.125
+              ],
+              [
+                1767225600,
+                1472.5
+              ]
+            ]
+          },
+          "volumes": {
+            "length": 3661,
+            "head": [
+              [
+                1451001600,
+                1000
+              ],
+              [
+                1451088000,
+                1001.5
+              ]
+            ],
+            "tail": [
+              [
+                1767139200,
+                6488.5
+              ],
+              [
+                1767225600,
+                6490
+              ]
+            ]
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 3661
+          },
+          "window": {
+            "from": 1451001600,
+            "to": 1767225600,
+            "days": 3661
+          },
+          "availability": {
+            "from": 1451001600,
+            "to": 1767225600,
+            "days": 3661,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1451001600,
+                "to": 1767225600,
+                "days": 3661
+              },
+              {
+                "interval": "1h",
+                "from": 1451001600,
+                "to": 1767225600,
+                "days": 3661
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": [
+        "/api/v3/coins/restart-coin/market_chart/range?vs_currency=usd&from=1451001600&to=1767225600"
+      ]
+    },
+    "afterRestartProtobuf": {
+      "segment": "restartAfter",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=restart-coin&from=1451001600&to=1767225600&interval=1d",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "124627",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "bytes": 124627,
+        "sha256": "ea003cd6c3a6299fc2395bd9fe56233a094e337205473e77c4836a6e1121d5ec",
+        "summary": {
+          "id": "restart-coin",
+          "interval": "1d",
+          "points": {
+            "length": 3661,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 100
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 100.375
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 1472.125
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 1472.5
+              }
+            ]
+          },
+          "volumes": {
+            "length": 3661,
+            "head": [
+              {
+                "unixSeconds": "1451001600",
+                "value": 1000
+              },
+              {
+                "unixSeconds": "1451088000",
+                "value": 1001.5
+              }
+            ],
+            "tail": [
+              {
+                "unixSeconds": "1767139200",
+                "value": 6488.5
+              },
+              {
+                "unixSeconds": "1767225600",
+                "value": 6490
+              }
+            ]
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 3661
+          },
+          "window": {
+            "from": "1451001600",
+            "to": "1767225600",
+            "days": 3661
+          },
+          "availability": {
+            "from": "1451001600",
+            "to": "1767225600",
+            "days": 3661,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1451001600",
+                "to": "1767225600",
+                "days": 3661
+              },
+              {
+                "interval": "1h",
+                "from": "1451001600",
+                "to": "1767225600",
+                "days": 3661
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": []
+    }
+  }
+}

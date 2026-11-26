@@ -1,0 +1,2230 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/networks.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/networks.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "json": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "content-length": "15557",
+      "vary": "Accept",
+      "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "x-rate-limit-cost": "1",
+      "x-rate-limit-remaining": "239"
+    },
+    "body": {
+      "networks": [
+        {
+          "id": "bitcoin",
+          "family": "bitcoin",
+          "testnet": false,
+          "rpcUrls": [
+            "https://mempool.space/api"
+          ],
+          "native": {
+            "symbol": "BTC",
+            "decimals": 8,
+            "coingeckoId": "bitcoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "bitcoin-cash",
+          "family": "bitcoinCash",
+          "testnet": false,
+          "rpcUrls": [
+            "https://blockbook.bch.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "BCH",
+            "decimals": 8,
+            "coingeckoId": "bitcoin-cash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "eth-mainnet",
+          "family": "evm",
+          "evmChainId": 1,
+          "testnet": false,
+          "rpcUrls": [
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "bnb",
+          "family": "evm",
+          "evmChainId": 56,
+          "testnet": false,
+          "rpcUrls": [
+            "https://bsc-dataseed.binance.org"
+          ],
+          "native": {
+            "symbol": "BNB",
+            "decimals": 18,
+            "coingeckoId": "binancecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "solana",
+          "family": "solana",
+          "testnet": false,
+          "rpcUrls": [
+            "https://api.mainnet-beta.solana.com"
+          ],
+          "native": {
+            "symbol": "SOL",
+            "decimals": 9,
+            "coingeckoId": "solana"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "xrpl",
+          "family": "xrpl",
+          "testnet": false,
+          "rpcUrls": [
+            "https://xrplcluster.com",
+            "https://s1.ripple.com:51234",
+            "https://s2.ripple.com:51234"
+          ],
+          "native": {
+            "symbol": "XRP",
+            "decimals": 6,
+            "coingeckoId": "ripple"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "hedera",
+          "family": "hedera",
+          "testnet": false,
+          "rpcUrls": [
+            "https://mainnet-public.mirrornode.hedera.com"
+          ],
+          "native": {
+            "symbol": "HBAR",
+            "decimals": 8,
+            "coingeckoId": "hedera-hashgraph"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cardano",
+          "family": "cardano",
+          "testnet": false,
+          "rpcUrls": [
+            "https://api.koios.rest/api/v1"
+          ],
+          "native": {
+            "symbol": "ADA",
+            "decimals": 6,
+            "coingeckoId": "cardano"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "stellar",
+          "family": "stellar",
+          "testnet": false,
+          "rpcUrls": [
+            "https://horizon.stellar.org"
+          ],
+          "native": {
+            "symbol": "XLM",
+            "decimals": 7,
+            "coingeckoId": "stellar"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "algorand",
+          "family": "algorand",
+          "testnet": false,
+          "rpcUrls": [
+            "https://mainnet-api.algonode.cloud"
+          ],
+          "native": {
+            "symbol": "ALGO",
+            "decimals": 6,
+            "coingeckoId": "algorand"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "base",
+          "family": "evm",
+          "evmChainId": 8453,
+          "testnet": false,
+          "rpcUrls": [
+            "https://mainnet.base.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "polygon",
+          "family": "evm",
+          "evmChainId": 137,
+          "testnet": false,
+          "rpcUrls": [
+            "https://polygon-bor-rpc.publicnode.com"
+          ],
+          "native": {
+            "symbol": "POL",
+            "decimals": 18,
+            "coingeckoId": "polygon-ecosystem-token"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "avalanche",
+          "family": "evm",
+          "evmChainId": 43114,
+          "testnet": false,
+          "rpcUrls": [
+            "https://api.avax.network/ext/bc/C/rpc"
+          ],
+          "native": {
+            "symbol": "AVAX",
+            "decimals": 18,
+            "coingeckoId": "avalanche-2"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "cronos",
+          "family": "evm",
+          "evmChainId": 25,
+          "testnet": false,
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://cronos-evm-rpc.publicnode.com",
+            "https://cronos.drpc.org",
+            "https://evm.cronos.org"
+          ],
+          "native": {
+            "symbol": "CRO",
+            "decimals": 18,
+            "coingeckoId": "crypto-com-chain"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "arbitrum",
+          "family": "evm",
+          "evmChainId": 42161,
+          "testnet": false,
+          "rpcUrls": [
+            "https://arb1.arbitrum.io/rpc"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "optimism",
+          "family": "evm",
+          "evmChainId": 10,
+          "testnet": false,
+          "rpcUrls": [
+            "https://mainnet.optimism.io"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "hyperevm",
+          "family": "evm",
+          "evmChainId": 999,
+          "testnet": false,
+          "rpcUrls": [
+            "https://rpc.hyperliquid.xyz/evm",
+            "https://rpc.hypurrscan.io",
+            "https://hyperliquid.drpc.org"
+          ],
+          "native": {
+            "symbol": "HYPE",
+            "decimals": 18,
+            "coingeckoId": "hyperliquid"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "robinhood",
+          "family": "evm",
+          "evmChainId": 4663,
+          "testnet": false,
+          "rpcUrls": [
+            "https://rpc.mainnet.chain.robinhood.com"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "sei",
+          "family": "evm",
+          "evmChainId": 1329,
+          "testnet": false,
+          "rpcUrls": [
+            "https://evm-rpc.sei-apis.com"
+          ],
+          "native": {
+            "symbol": "SEI",
+            "decimals": 18,
+            "coingeckoId": "sei-network"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "xdc",
+          "family": "evm",
+          "evmChainId": 50,
+          "testnet": false,
+          "rpcUrls": [
+            "https://rpc.xinfin.network",
+            "https://erpc.xinfin.network"
+          ],
+          "native": {
+            "symbol": "XDC",
+            "decimals": 18,
+            "coingeckoId": "xdce-crowd-sale"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "flare",
+          "family": "evm",
+          "evmChainId": 14,
+          "testnet": false,
+          "rpcUrls": [
+            "https://flare-api.flare.network/ext/C/rpc"
+          ],
+          "native": {
+            "symbol": "FLR",
+            "decimals": 18,
+            "coingeckoId": "flare-networks"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "dogecoin",
+          "family": "dogecoin",
+          "testnet": false,
+          "rpcUrls": [
+            "https://dogecoin.atomicwallet.io/api/v2",
+            "https://blockbook.doge.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "DOGE",
+            "decimals": 8,
+            "coingeckoId": "dogecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "dash",
+          "family": "dash",
+          "testnet": false,
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://dash.atomicwallet.io/api/v2"
+          ],
+          "native": {
+            "symbol": "DASH",
+            "decimals": 8,
+            "coingeckoId": "dash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "litecoin",
+          "family": "litecoin",
+          "testnet": false,
+          "rpcUrls": [
+            "https://litecoin.atomicwallet.io/api/v2",
+            "https://ltc1.trezor.io/api/v2"
+          ],
+          "native": {
+            "symbol": "LTC",
+            "decimals": 8,
+            "coingeckoId": "litecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "zcash",
+          "family": "zcash",
+          "testnet": false,
+          "requiredConfirmations": 10,
+          "rpcUrls": [
+            "https://blockbook.zec.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "ZEC",
+            "decimals": 8,
+            "coingeckoId": "zcash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "sui",
+          "family": "sui",
+          "testnet": false,
+          "rpcUrls": [
+            "https://sui-rpc.publicnode.com"
+          ],
+          "graphqlUrls": [
+            "https://graphql.mainnet.sui.io/graphql"
+          ],
+          "native": {
+            "symbol": "SUI",
+            "decimals": 9,
+            "coingeckoId": "sui"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cosmos",
+          "family": "cosmos",
+          "testnet": false,
+          "rpcUrls": [
+            "https://cosmos-rest.publicnode.com"
+          ],
+          "native": {
+            "symbol": "ATOM",
+            "decimals": 6,
+            "coingeckoId": "cosmos"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "near",
+          "family": "near",
+          "testnet": false,
+          "rpcUrls": [
+            "https://free.rpc.fastnear.com"
+          ],
+          "native": {
+            "symbol": "NEAR",
+            "decimals": 24,
+            "coingeckoId": "near"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "ton",
+          "family": "ton",
+          "testnet": false,
+          "rpcUrls": [
+            "https://toncenter.com"
+          ],
+          "native": {
+            "symbol": "GRAM",
+            "decimals": 9,
+            "coingeckoId": "gram"
+          },
+          "capabilities": {
+            "balances": "none",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "tron",
+          "family": "tron",
+          "testnet": false,
+          "rpcUrls": [
+            "https://api.trongrid.io"
+          ],
+          "native": {
+            "symbol": "TRX",
+            "decimals": 6,
+            "coingeckoId": "tron"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "vechain",
+          "family": "vechain",
+          "testnet": false,
+          "rpcUrls": [
+            "https://mainnet.vechain.org",
+            "https://sync-mainnet.vechain.org",
+            "https://vethor-node.vechain.com"
+          ],
+          "native": {
+            "symbol": "VET",
+            "decimals": 18,
+            "coingeckoId": "vechain"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "aptos",
+          "family": "aptos",
+          "testnet": false,
+          "rpcUrls": [
+            "https://fullnode.mainnet.aptoslabs.com/v1"
+          ],
+          "native": {
+            "symbol": "APT",
+            "decimals": 8,
+            "coingeckoId": "aptos"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "bittensor",
+          "family": "bittensor",
+          "testnet": false,
+          "rpcUrls": [
+            "https://api.taostats.io"
+          ],
+          "native": {
+            "symbol": "TAO",
+            "decimals": 9,
+            "coingeckoId": "bittensor"
+          },
+          "capabilities": {
+            "balances": "none",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "icp",
+          "family": "icp",
+          "testnet": false,
+          "rpcUrls": [
+            "https://ledger-api.internetcomputer.org"
+          ],
+          "native": {
+            "symbol": "ICP",
+            "decimals": 8,
+            "coingeckoId": "internet-computer"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "eth-sepolia",
+          "family": "evm",
+          "evmChainId": 11155111,
+          "testnet": true,
+          "rpcUrls": [
+            "https://rpc.sepolia.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "base-sepolia",
+          "family": "evm",
+          "evmChainId": 84532,
+          "testnet": true,
+          "rpcUrls": [
+            "https://sepolia.base.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "bnb-testnet",
+          "family": "evm",
+          "evmChainId": 97,
+          "testnet": true,
+          "rpcUrls": [
+            "https://data-seed-prebsc-1-s1.binance.org:8545"
+          ],
+          "native": {
+            "symbol": "BNB",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cronos-testnet",
+          "family": "evm",
+          "evmChainId": 338,
+          "testnet": true,
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://evm-t3.cronos.org"
+          ],
+          "native": {
+            "symbol": "TCRO",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "xrpl-testnet",
+          "family": "xrpl",
+          "testnet": true,
+          "rpcUrls": [
+            "https://s.altnet.rippletest.net:51234"
+          ],
+          "native": {
+            "symbol": "XRP",
+            "decimals": 6
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "stellar-testnet",
+          "family": "stellar",
+          "testnet": true,
+          "rpcUrls": [
+            "https://horizon-testnet.stellar.org"
+          ],
+          "native": {
+            "symbol": "XLM",
+            "decimals": 7
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "solana-devnet",
+          "family": "solana",
+          "testnet": true,
+          "rpcUrls": [
+            "https://api.devnet.solana.com"
+          ],
+          "native": {
+            "symbol": "SOL",
+            "decimals": 9
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "hedera-testnet",
+          "family": "hedera",
+          "testnet": true,
+          "rpcUrls": [
+            "https://testnet.mirrornode.hedera.com"
+          ],
+          "native": {
+            "symbol": "HBAR",
+            "decimals": 8
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "algorand-testnet",
+          "family": "algorand",
+          "testnet": true,
+          "rpcUrls": [
+            "https://testnet-api.algonode.cloud"
+          ],
+          "native": {
+            "symbol": "ALGO",
+            "decimals": 6
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        }
+      ],
+      "prices": {
+        "spot": true,
+        "history": true,
+        "sources": {
+          "coingecko": "keyless",
+          "jupiter": "lite",
+          "vestige": "keyless"
+        }
+      }
+    }
+  },
+  "protobuf": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/protobuf",
+      "content-length": "10713",
+      "vary": "Accept",
+      "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "x-rate-limit-cost": "1",
+      "x-rate-limit-remaining": "238"
+    },
+    "body": {
+      "networks": [
+        {
+          "id": "bitcoin",
+          "family": "bitcoin",
+          "rpcUrls": [
+            "https://mempool.space/api"
+          ],
+          "native": {
+            "symbol": "BTC",
+            "decimals": 8,
+            "coingeckoId": "bitcoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "bitcoin-cash",
+          "family": "bitcoinCash",
+          "rpcUrls": [
+            "https://blockbook.bch.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "BCH",
+            "decimals": 8,
+            "coingeckoId": "bitcoin-cash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "eth-mainnet",
+          "family": "evm",
+          "evmChainId": 1,
+          "rpcUrls": [
+            "https://ethereum-rpc.publicnode.com"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "bnb",
+          "family": "evm",
+          "evmChainId": 56,
+          "rpcUrls": [
+            "https://bsc-dataseed.binance.org"
+          ],
+          "native": {
+            "symbol": "BNB",
+            "decimals": 18,
+            "coingeckoId": "binancecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "solana",
+          "family": "solana",
+          "rpcUrls": [
+            "https://api.mainnet-beta.solana.com"
+          ],
+          "native": {
+            "symbol": "SOL",
+            "decimals": 9,
+            "coingeckoId": "solana"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "xrpl",
+          "family": "xrpl",
+          "rpcUrls": [
+            "https://xrplcluster.com",
+            "https://s1.ripple.com:51234",
+            "https://s2.ripple.com:51234"
+          ],
+          "native": {
+            "symbol": "XRP",
+            "decimals": 6,
+            "coingeckoId": "ripple"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "hedera",
+          "family": "hedera",
+          "rpcUrls": [
+            "https://mainnet-public.mirrornode.hedera.com"
+          ],
+          "native": {
+            "symbol": "HBAR",
+            "decimals": 8,
+            "coingeckoId": "hedera-hashgraph"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cardano",
+          "family": "cardano",
+          "rpcUrls": [
+            "https://api.koios.rest/api/v1"
+          ],
+          "native": {
+            "symbol": "ADA",
+            "decimals": 6,
+            "coingeckoId": "cardano"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "stellar",
+          "family": "stellar",
+          "rpcUrls": [
+            "https://horizon.stellar.org"
+          ],
+          "native": {
+            "symbol": "XLM",
+            "decimals": 7,
+            "coingeckoId": "stellar"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "algorand",
+          "family": "algorand",
+          "rpcUrls": [
+            "https://mainnet-api.algonode.cloud"
+          ],
+          "native": {
+            "symbol": "ALGO",
+            "decimals": 6,
+            "coingeckoId": "algorand"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "ok",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "base",
+          "family": "evm",
+          "evmChainId": 8453,
+          "rpcUrls": [
+            "https://mainnet.base.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "polygon",
+          "family": "evm",
+          "evmChainId": 137,
+          "rpcUrls": [
+            "https://polygon-bor-rpc.publicnode.com"
+          ],
+          "native": {
+            "symbol": "POL",
+            "decimals": 18,
+            "coingeckoId": "polygon-ecosystem-token"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "avalanche",
+          "family": "evm",
+          "evmChainId": 43114,
+          "rpcUrls": [
+            "https://api.avax.network/ext/bc/C/rpc"
+          ],
+          "native": {
+            "symbol": "AVAX",
+            "decimals": 18,
+            "coingeckoId": "avalanche-2"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "cronos",
+          "family": "evm",
+          "evmChainId": 25,
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://cronos-evm-rpc.publicnode.com",
+            "https://cronos.drpc.org",
+            "https://evm.cronos.org"
+          ],
+          "native": {
+            "symbol": "CRO",
+            "decimals": 18,
+            "coingeckoId": "crypto-com-chain"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "arbitrum",
+          "family": "evm",
+          "evmChainId": 42161,
+          "rpcUrls": [
+            "https://arb1.arbitrum.io/rpc"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "optimism",
+          "family": "evm",
+          "evmChainId": 10,
+          "rpcUrls": [
+            "https://mainnet.optimism.io"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "hyperevm",
+          "family": "evm",
+          "evmChainId": 999,
+          "rpcUrls": [
+            "https://rpc.hyperliquid.xyz/evm",
+            "https://rpc.hypurrscan.io",
+            "https://hyperliquid.drpc.org"
+          ],
+          "native": {
+            "symbol": "HYPE",
+            "decimals": 18,
+            "coingeckoId": "hyperliquid"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "robinhood",
+          "family": "evm",
+          "evmChainId": 4663,
+          "rpcUrls": [
+            "https://rpc.mainnet.chain.robinhood.com"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18,
+            "coingeckoId": "ethereum"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "sei",
+          "family": "evm",
+          "evmChainId": 1329,
+          "rpcUrls": [
+            "https://evm-rpc.sei-apis.com"
+          ],
+          "native": {
+            "symbol": "SEI",
+            "decimals": 18,
+            "coingeckoId": "sei-network"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "xdc",
+          "family": "evm",
+          "evmChainId": 50,
+          "rpcUrls": [
+            "https://rpc.xinfin.network",
+            "https://erpc.xinfin.network"
+          ],
+          "native": {
+            "symbol": "XDC",
+            "decimals": 18,
+            "coingeckoId": "xdce-crowd-sale"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "flare",
+          "family": "evm",
+          "evmChainId": 14,
+          "rpcUrls": [
+            "https://flare-api.flare.network/ext/C/rpc"
+          ],
+          "native": {
+            "symbol": "FLR",
+            "decimals": 18,
+            "coingeckoId": "flare-networks"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "dogecoin",
+          "family": "dogecoin",
+          "rpcUrls": [
+            "https://dogecoin.atomicwallet.io/api/v2",
+            "https://blockbook.doge.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "DOGE",
+            "decimals": 8,
+            "coingeckoId": "dogecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "dash",
+          "family": "dash",
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://dash.atomicwallet.io/api/v2"
+          ],
+          "native": {
+            "symbol": "DASH",
+            "decimals": 8,
+            "coingeckoId": "dash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "litecoin",
+          "family": "litecoin",
+          "rpcUrls": [
+            "https://litecoin.atomicwallet.io/api/v2",
+            "https://ltc1.trezor.io/api/v2"
+          ],
+          "native": {
+            "symbol": "LTC",
+            "decimals": 8,
+            "coingeckoId": "litecoin"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "zcash",
+          "family": "zcash",
+          "requiredConfirmations": 10,
+          "rpcUrls": [
+            "https://blockbook.zec.zelcore.io/api/v2"
+          ],
+          "native": {
+            "symbol": "ZEC",
+            "decimals": 8,
+            "coingeckoId": "zcash"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "sui",
+          "family": "sui",
+          "rpcUrls": [
+            "https://sui-rpc.publicnode.com"
+          ],
+          "graphqlUrls": [
+            "https://graphql.mainnet.sui.io/graphql"
+          ],
+          "native": {
+            "symbol": "SUI",
+            "decimals": 9,
+            "coingeckoId": "sui"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cosmos",
+          "family": "cosmos",
+          "rpcUrls": [
+            "https://cosmos-rest.publicnode.com"
+          ],
+          "native": {
+            "symbol": "ATOM",
+            "decimals": 6,
+            "coingeckoId": "cosmos"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "near",
+          "family": "near",
+          "rpcUrls": [
+            "https://free.rpc.fastnear.com"
+          ],
+          "native": {
+            "symbol": "NEAR",
+            "decimals": 24,
+            "coingeckoId": "near"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "ton",
+          "family": "ton",
+          "rpcUrls": [
+            "https://toncenter.com"
+          ],
+          "native": {
+            "symbol": "GRAM",
+            "decimals": 9,
+            "coingeckoId": "gram"
+          },
+          "capabilities": {
+            "balances": "none",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "tron",
+          "family": "tron",
+          "rpcUrls": [
+            "https://api.trongrid.io"
+          ],
+          "native": {
+            "symbol": "TRX",
+            "decimals": 6,
+            "coingeckoId": "tron"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "vechain",
+          "family": "vechain",
+          "rpcUrls": [
+            "https://mainnet.vechain.org",
+            "https://sync-mainnet.vechain.org",
+            "https://vethor-node.vechain.com"
+          ],
+          "native": {
+            "symbol": "VET",
+            "decimals": 18,
+            "coingeckoId": "vechain"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "aptos",
+          "family": "aptos",
+          "rpcUrls": [
+            "https://fullnode.mainnet.aptoslabs.com/v1"
+          ],
+          "native": {
+            "symbol": "APT",
+            "decimals": 8,
+            "coingeckoId": "aptos"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "ok"
+          }
+        },
+        {
+          "id": "bittensor",
+          "family": "bittensor",
+          "rpcUrls": [
+            "https://api.taostats.io"
+          ],
+          "native": {
+            "symbol": "TAO",
+            "decimals": 9,
+            "coingeckoId": "bittensor"
+          },
+          "capabilities": {
+            "balances": "none",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "icp",
+          "family": "icp",
+          "rpcUrls": [
+            "https://ledger-api.internetcomputer.org"
+          ],
+          "native": {
+            "symbol": "ICP",
+            "decimals": 8,
+            "coingeckoId": "internet-computer"
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "none",
+            "token": "ok",
+            "trustlines": "none",
+            "news": "ok",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "eth-sepolia",
+          "family": "evm",
+          "evmChainId": 11155111,
+          "testnet": true,
+          "rpcUrls": [
+            "https://rpc.sepolia.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "base-sepolia",
+          "family": "evm",
+          "evmChainId": 84532,
+          "testnet": true,
+          "rpcUrls": [
+            "https://sepolia.base.org"
+          ],
+          "native": {
+            "symbol": "ETH",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "bnb-testnet",
+          "family": "evm",
+          "evmChainId": 97,
+          "testnet": true,
+          "rpcUrls": [
+            "https://data-seed-prebsc-1-s1.binance.org:8545"
+          ],
+          "native": {
+            "symbol": "BNB",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "cronos-testnet",
+          "family": "evm",
+          "evmChainId": 338,
+          "testnet": true,
+          "requiredConfirmations": 1,
+          "rpcUrls": [
+            "https://evm-t3.cronos.org"
+          ],
+          "native": {
+            "symbol": "TCRO",
+            "decimals": 18
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "xrpl-testnet",
+          "family": "xrpl",
+          "testnet": true,
+          "rpcUrls": [
+            "https://s.altnet.rippletest.net:51234"
+          ],
+          "native": {
+            "symbol": "XRP",
+            "decimals": 6
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "stellar-testnet",
+          "family": "stellar",
+          "testnet": true,
+          "rpcUrls": [
+            "https://horizon-testnet.stellar.org"
+          ],
+          "native": {
+            "symbol": "XLM",
+            "decimals": 7
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "solana-devnet",
+          "family": "solana",
+          "testnet": true,
+          "rpcUrls": [
+            "https://api.devnet.solana.com"
+          ],
+          "native": {
+            "symbol": "SOL",
+            "decimals": 9
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "none",
+            "nfts": "none",
+            "insight": "ok",
+            "txStatus": "ok",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "none",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "hedera-testnet",
+          "family": "hedera",
+          "testnet": true,
+          "rpcUrls": [
+            "https://testnet.mirrornode.hedera.com"
+          ],
+          "native": {
+            "symbol": "HBAR",
+            "decimals": 8
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        },
+        {
+          "id": "algorand-testnet",
+          "family": "algorand",
+          "testnet": true,
+          "rpcUrls": [
+            "https://testnet-api.algonode.cloud"
+          ],
+          "native": {
+            "symbol": "ALGO",
+            "decimals": 6
+          },
+          "capabilities": {
+            "balances": "ok",
+            "transfers": "ok",
+            "nfts": "none",
+            "insight": "none",
+            "txStatus": "none",
+            "txDetail": "ok",
+            "token": "none",
+            "trustlines": "ok",
+            "news": "none",
+            "popularTokens": "none"
+          }
+        }
+      ],
+      "prices": {
+        "spot": true,
+        "history": true,
+        "sources": {
+          "coingecko": "keyless",
+          "jupiter": "lite",
+          "vestige": "keyless"
+        }
+      }
+    },
+    "wireHex": "0ae5010a07626974636f696e1207626974636f696e321968747470733a2f2f6d656d706f6f6c2e73706163652f61706942100a0342544310081a07626974636f696e4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650a83020a0c626974636f696e2d63617368120b626974636f696e43617368322768747470733a2f2f626c6f636b626f6f6b2e6263682e7a656c636f72652e696f2f6170692f763242150a0342434810081a0c626974636f696e2d636173684a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650aee010a0b6574682d6d61696e6e6574120365766d1801322368747470733a2f2f657468657265756d2d7270632e7075626c69636e6f64652e636f6d42110a0345544810121a08657468657265756d4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae6010a03626e62120365766d1838322068747470733a2f2f6273632d64617461736565642e62696e616e63652e6f726742140a03424e4210121a0b62696e616e6365636f696e4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae8010a06736f6c616e611206736f6c616e61322368747470733a2f2f6170692e6d61696e6e65742d626574612e736f6c616e612e636f6d420f0a03534f4c10091a06736f6c616e614a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0a94020a047872706c12047872706c321768747470733a2f2f7872706c636c75737465722e636f6d321b68747470733a2f2f73312e726970706c652e636f6d3a3531323334321b68747470733a2f2f73322e726970706c652e636f6d3a3531323334420f0a0358525010061a06726970706c654a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a100a0a74727573746c696e657312026f6b4a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650afe010a066865646572611206686564657261322c68747470733a2f2f6d61696e6e65742d7075626c69632e6d6972726f726e6f64652e6865646572612e636f6d421a0a044842415210081a106865646572612d6861736867726170684a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a100a0a74727573746c696e657312026f6b4a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650ae7010a0763617264616e6f120763617264616e6f321d68747470733a2f2f6170692e6b6f696f732e726573742f6170692f763142100a0341444110061a0763617264616e6f4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae5010a077374656c6c617212077374656c6c6172321b68747470733a2f2f686f72697a6f6e2e7374656c6c61722e6f726742100a03584c4d10071a077374656c6c61724a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a100a0a74727573746c696e657312026f6b4a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650af0010a08616c676f72616e641208616c676f72616e64322268747470733a2f2f6d61696e6e65742d6170692e616c676f6e6f64652e636c6f756442120a04414c474f10061a08616c676f72616e644a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a100a0a74727573746c696e657312026f6b4a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650add010a0462617365120365766d188542321868747470733a2f2f6d61696e6e65742e626173652e6f726742110a0345544810121a08657468657265756d4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0afd010a07706f6c79676f6e120365766d188901322668747470733a2f2f706f6c79676f6e2d626f722d7270632e7075626c69636e6f64652e636f6d42200a03504f4c10121a17706f6c79676f6e2d65636f73797374656d2d746f6b656e4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0af4010a096176616c616e636865120365766d18ead002322568747470733a2f2f6170692e617661782e6e6574776f726b2f6578742f62632f432f72706342150a044156415810121a0b6176616c616e6368652d324a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0aa6020a0663726f6e6f73120365766d18192801322568747470733a2f2f63726f6e6f732d65766d2d7270632e7075626c69636e6f64652e636f6d321768747470733a2f2f63726f6e6f732e647270632e6f7267321668747470733a2f2f65766d2e63726f6e6f732e6f726742190a0343524f10121a1063727970746f2d636f6d2d636861696e4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae6010a08617262697472756d120365766d18b1c902321c68747470733a2f2f617262312e617262697472756d2e696f2f72706342110a0345544810121a08657468657265756d4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae3010a086f7074696d69736d120365766d180a321b68747470733a2f2f6d61696e6e65742e6f7074696d69736d2e696f42110a0345544810121a08657468657265756d4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0aa5020a08687970657265766d120365766d18e707321f68747470733a2f2f7270632e68797065726c69717569642e78797a2f65766d321968747470733a2f2f7270632e6879707572727363616e2e696f321c68747470733a2f2f68797065726c69717569642e647270632e6f726742150a044859504510121a0b68797065726c69717569644a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0af1010a09726f62696e686f6f64120365766d18b724322768747470733a2f2f7270632e6d61696e6e65742e636861696e2e726f62696e686f6f642e636f6d42110a0345544810121a08657468657265756d4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0ae3010a03736569120365766d18b10a321c68747470733a2f2f65766d2d7270632e7365692d617069732e636f6d42140a0353454910121a0b7365692d6e6574776f726b4a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0a81020a03786463120365766d1832321a68747470733a2f2f7270632e78696e66696e2e6e6574776f726b321b68747470733a2f2f657270632e78696e66696e2e6e6574776f726b42180a0358444310121a0f786463652d63726f77642d73616c654a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0af4010a05666c617265120365766d180e322968747470733a2f2f666c6172652d6170692e666c6172652e6e6574776f726b2f6578742f432f72706342170a03464c5210121a0e666c6172652d6e6574776f726b734a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0aa1020a08646f6765636f696e1208646f6765636f696e322768747470733a2f2f646f6765636f696e2e61746f6d696377616c6c65742e696f2f6170692f7632322868747470733a2f2f626c6f636b626f6f6b2e646f67652e7a656c636f72652e696f2f6170692f763242120a04444f474510081a08646f6765636f696e4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650aeb010a04646173681204646173682801322368747470733a2f2f646173682e61746f6d696377616c6c65742e696f2f6170692f7632420e0a044441534810081a04646173684a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650a95020a086c697465636f696e12086c697465636f696e322768747470733a2f2f6c697465636f696e2e61746f6d696377616c6c65742e696f2f6170692f7632321d68747470733a2f2f6c7463312e7472657a6f722e696f2f6170692f763242110a034c544310081a086c697465636f696e4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650aef010a057a6361736812057a63617368280a322768747470733a2f2f626c6f636b626f6f6b2e7a65632e7a656c636f72652e696f2f6170692f7632420e0a035a454310081a057a636173684a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650a88020a037375691203737569321e68747470733a2f2f7375692d7270632e7075626c69636e6f64652e636f6d3a2668747470733a2f2f6772617068716c2e6d61696e6e65742e7375692e696f2f6772617068716c420c0a0353554910091a037375694a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650aee010a06636f736d6f731206636f736d6f73322268747470733a2f2f636f736d6f732d726573742e7075626c69636e6f64652e636f6d42100a0441544f4d10061a06636f736d6f734a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650ae3010a046e65617212046e656172321d68747470733a2f2f667265652e7270632e666173746e6561722e636f6d420e0a044e45415210181a046e6561724a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650adf010a03746f6e1203746f6e321568747470733a2f2f746f6e63656e7465722e636f6d420e0a044752414d10091a046772616d4a100a0862616c616e63657312046e6f6e654a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650ada010a0474726f6e120474726f6e321768747470733a2f2f6170692e74726f6e677269642e696f420d0a0354525810061a0474726f6e4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0aac020a077665636861696e12077665636861696e321b68747470733a2f2f6d61696e6e65742e7665636861696e2e6f7267322068747470733a2f2f73796e632d6d61696e6e65742e7665636861696e2e6f7267321f68747470733a2f2f766574686f722d6e6f64652e7665636861696e2e636f6d42100a0356455410121a077665636861696e4a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650aef010a056170746f7312056170746f73322968747470733a2f2f66756c6c6e6f64652e6d61696e6e65742e6170746f736c6162732e636f6d2f7631420e0a0341505410081a056170746f734a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a130a0d706f70756c6172546f6b656e7312026f6b0aef010a0962697474656e736f72120962697474656e736f72321768747470733a2f2f6170692e74616f73746174732e696f42120a0354414f10091a0962697474656e736f724a100a0862616c616e63657312046e6f6e654a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650af7010a036963701203696370322768747470733a2f2f6c65646765722d6170692e696e7465726e6574636f6d70757465722e6f7267421a0a0349435010081a11696e7465726e65742d636f6d70757465724a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a100a08747844657461696c12046e6f6e654a0b0a05746f6b656e12026f6b4a120a0a74727573746c696e657312046e6f6e654a0a0a046e65777312026f6b4a150a0d706f70756c6172546f6b656e7312046e6f6e650ae3010a0b6574682d7365706f6c6961120365766d18a7eda8052001321768747470733a2f2f7270632e7365706f6c69612e6f726742070a0345544810124a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650ae4010a0c626173652d7365706f6c6961120365766d18b494052001321868747470733a2f2f7365706f6c69612e626173652e6f726742070a0345544810124a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650af7010a0b626e622d746573746e6574120365766d18612001322e68747470733a2f2f646174612d736565642d7072656273632d312d73312e62696e616e63652e6f72673a3835343542070a03424e4210124a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650ae9010a0e63726f6e6f732d746573746e6574120365766d18d20220012801321968747470733a2f2f65766d2d74332e63726f6e6f732e6f726742080a045443524f10124a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650aee010a0c7872706c2d746573746e657412047872706c2001322568747470733a2f2f732e616c746e65742e726970706c65746573742e6e65743a353132333442070a0358525010064a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a100a0a74727573746c696e657312026f6b4a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650af2010a0f7374656c6c61722d746573746e657412077374656c6c61722001322368747470733a2f2f686f72697a6f6e2d746573746e65742e7374656c6c61722e6f726742070a03584c4d10074a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a100a0a74727573746c696e657312026f6b4a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650ae9010a0d736f6c616e612d6465766e65741206736f6c616e612001321d68747470733a2f2f6170692e6465766e65742e736f6c616e612e636f6d42070a03534f4c10094a0e0a0862616c616e63657312026f6b4a110a097472616e736665727312046e6f6e654a0c0a046e66747312046e6f6e654a0d0a07696e736967687412026f6b4a0e0a08747853746174757312026f6b4a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a120a0a74727573746c696e657312046e6f6e654a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650af3010a0e6865646572612d746573746e657412066865646572612001322568747470733a2f2f746573746e65742e6d6972726f726e6f64652e6865646572612e636f6d42080a044842415210084a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a100a0a74727573746c696e657312026f6b4a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e650af4010a10616c676f72616e642d746573746e65741208616c676f72616e642001322268747470733a2f2f746573746e65742d6170692e616c676f6e6f64652e636c6f756442080a04414c474f10064a0e0a0862616c616e63657312026f6b4a0f0a097472616e736665727312026f6b4a0c0a046e66747312046e6f6e654a0f0a07696e736967687412046e6f6e654a100a08747853746174757312046e6f6e654a0e0a08747844657461696c12026f6b4a0d0a05746f6b656e12046e6f6e654a100a0a74727573746c696e657312026f6b4a0c0a046e65777312046e6f6e654a150a0d706f70756c6172546f6b656e7312046e6f6e65123f080110011a140a09636f696e6765636b6f12076b65796c6573731a0f0a076a75706974657212046c6974651a120a077665737469676512076b65796c657373"
+  }
+}

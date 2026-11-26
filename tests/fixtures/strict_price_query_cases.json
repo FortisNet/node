@@ -1,0 +1,690 @@
+[
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "repeated ids",
+    "accept": true,
+    "values": {
+      "ids": "ethereum"
+    }
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "repeated fiat",
+    "accept": true,
+    "values": {
+      "ids": "ethereum",
+      "fiat": "usd"
+    }
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "fiat flag twice",
+    "accept": true,
+    "values": {
+      "ids": "ethereum",
+      "fiat": "usd"
+    }
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "malformed escape kept raw",
+    "accept": false
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "invalid UTF-8 kept raw",
+    "accept": false
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "truncated UTF-8 keeps the whole value raw",
+    "accept": false
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "trailing percent",
+    "accept": false
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "percent-u escape",
+    "accept": false
+  },
+  {
+    "suite": "spot",
+    "group": "query",
+    "name": "plus and raw fallback",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "empty values",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "flags without values",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "repeated id",
+    "accept": true,
+    "values": {
+      "id": "ethereum",
+      "from": "1767225600",
+      "to": "1767247200"
+    }
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "repeated from",
+    "accept": true,
+    "values": {
+      "id": "ethereum",
+      "from": "1767225600",
+      "to": "1767247200"
+    }
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "repeated to and interval",
+    "accept": true,
+    "values": {
+      "id": "ethereum",
+      "from": "1767225600",
+      "to": "1767247200",
+      "interval": "1h"
+    }
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "every issue at once",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "missing id with bad numbers",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from padded with spaces",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from with plus as space",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from with encoded plus sign",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from upper-case hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from octal",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from binary",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from exponent",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from exponent with sign",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from trailing dot",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from point zero",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from fraction",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from leading dot",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from negative zero",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from negative",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from negative fraction",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from Infinity",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from negative Infinity",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from NaN text",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from overflow exponent",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from underflow exponent",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from below min safe",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from rounds up past max safe",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from rounds down to max safe",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from long fraction rounds to an integer",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal Infinity",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal largest finite",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal rounds past max safe",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal max safe",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal long zero padding",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from signed hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from hexadecimal fraction",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from bare prefix",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from bad binary digit",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from numeric separator",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from bare exponent",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from exponent without digits",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from double sign",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from Infinity suffix",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from lower-case infinity",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from NBSP and line separator trimmed",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from BOM and ideographic space trimmed",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from tab newline vertical tab trimmed",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from zero-width space is not whitespace",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from NEL is not whitespace",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from only whitespace is zero",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from malformed escape kept raw",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from invalid UTF-8 kept raw",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "from full-width digits",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "to hexadecimal with from exponent",
+    "accept": false
+  },
+  {
+    "suite": "history",
+    "group": "query",
+    "name": "id malformed escape kept raw",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days padded with spaces",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days plus as space",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days encoded plus sign",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days trailing dot",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days point zero",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days exponent",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days negative exponent",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days 365 as exponent",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days upper-case hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days octal",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days binary",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days rounds to 7 from above",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days rounds to 7 from below",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days near 7 is not 7",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days NBSP and line separator trimmed",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days BOM and ideographic space trimmed",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days tab newline trimmed",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days zero-width space is not whitespace",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "days",
+    "name": "days long fraction",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days negative",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days fraction",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days empty",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days only whitespace",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days flag without value",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days repeated",
+    "accept": true,
+    "values": {
+      "id": "spl:So11111111111111111111111111111111111111112",
+      "days": "7"
+    }
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days Infinity",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days NaN",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days overflow",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days suffix",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days two numbers",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days signed hexadecimal",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days hexadecimal fraction",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days numeric separator",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days malformed escape kept raw",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days full-width digit",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "days Arabic-Indic digit",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "bad-days",
+    "name": "fiat repeated",
+    "accept": true,
+    "values": {
+      "id": "spl:So11111111111111111111111111111111111111112",
+      "days": "7",
+      "fiat": "usd"
+    }
+  },
+  {
+    "suite": "ohlc",
+    "group": "id",
+    "name": "id repeated",
+    "accept": true,
+    "values": {
+      "id": "spl:So11111111111111111111111111111111111111112",
+      "days": "7"
+    }
+  },
+  {
+    "suite": "ohlc",
+    "group": "id",
+    "name": "id malformed escape kept raw",
+    "accept": false
+  },
+  {
+    "suite": "ohlc",
+    "group": "slug",
+    "name": "days coerced to the same key",
+    "accept": false
+  }
+]

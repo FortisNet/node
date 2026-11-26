@@ -1,0 +1,363 @@
+{
+  "schema": 1,
+  "modules": {
+    "ai": {
+      "public": [
+        "ai/ai_config.h",
+        "ai/ai_proof.h",
+        "ai/ai_reply.h",
+        "ai/ai_service.h",
+        "ai/ai_snapshot.h",
+        "ai/ai_stats.h",
+        "ai/ai_store.h"
+      ],
+      "private": [
+        "ai/conversation_components_internal.h"
+      ]
+    },
+    "app": {
+      "public": [
+        "app/application.h",
+        "app/composition_hooks.h",
+        "app/http_listener.h",
+        "app/https_listener.h",
+        "app/module_configs.h",
+        "app/probe_routes.h",
+        "app/service_wiring.h",
+        "app/shutdown_signal.h"
+      ],
+      "private": [
+        "app/app_support.h",
+        "app/https_listener_internal.h",
+        "app/service_composition.h"
+      ]
+    },
+    "auth": {
+      "public": [
+        "auth/apple_app_attest.h",
+        "auth/device_auth.h",
+        "auth/device_challenge.h",
+        "auth/device_enrollment.h",
+        "auth/device_policy_step.h",
+        "auth/evm_proof.h",
+        "auth/play_integrity.h",
+        "auth/play_integrity_enrollment.h",
+        "auth/play_integrity_google.h"
+      ],
+      "private": []
+    },
+    "base": {
+      "public": [
+        "base/clock.h",
+        "base/error_reporter.h",
+        "base/exception_boundary.h",
+        "base/factory.h",
+        "base/file_descriptor.h",
+        "base/fixed_string.h",
+        "base/function_ref.h",
+        "base/log.h",
+        "base/ownership.h",
+        "base/seams.h",
+        "base/status.h",
+        "base/stdlib_check.h",
+        "base/threading.h"
+      ],
+      "private": []
+    },
+    "chains": {
+      "public": [
+        "chains/chain_asset_index.h",
+        "chains/chain_core.h",
+        "chains/chain_driver.h",
+        "chains/chain_family_drivers.h",
+        "chains/chain_id_set.h",
+        "chains/chain_registry.h",
+        "chains/chain_transport.h",
+        "chains/chain_transport_policy.h",
+        "chains/chain_tron_token.h",
+        "chains/transport_config.h"
+      ],
+      "private": []
+    },
+    "codec": {
+      "public": [
+        "codec/bounded_json.h",
+        "codec/crash_report_codec.h",
+        "codec/json_lex.h",
+        "codec/price_history_batch_codec.h",
+        "codec/proto_wire.h",
+        "codec/protobuf_probe.h",
+        "codec/token_json.h",
+        "codec/utf8.h",
+        "codec/sandbox_wire.h"
+      ],
+      "private": []
+    },
+    "compat": {
+      "public": [
+        "compat/diagnostic_redaction.h",
+        "compat/hourly_windows.h",
+        "compat/idna.h",
+        "compat/js_case.h",
+        "compat/js_date_parse.h",
+        "compat/js_json.h",
+        "compat/js_regex.h",
+        "compat/redaction_tables.h",
+        "compat/text_sanitize.h",
+        "compat/token_text.h",
+        "compat/whatwg_url.h",
+        "compat/sandbox_socket.h"
+      ],
+      "private": []
+    },
+    "config": {
+      "public": [
+        "config/config_environment.h",
+        "config/native_config.h",
+        "config/provider_runtime_config.h"
+      ],
+      "private": []
+    },
+    "crypto": {
+      "public": [
+        "crypto/fortis_mbedtls_config.h"
+      ],
+      "private": []
+    },
+    "discovery": {
+      "public": [
+        "discovery/bittensor_route.h",
+        "discovery/coin_popularity.h",
+        "discovery/discovery_cache.h",
+        "discovery/discovery_provider_owner.h",
+        "discovery/discovery_route_support.h",
+        "discovery/discovery_service.h",
+        "discovery/market_view.h",
+        "discovery/media_registry.h",
+        "discovery/ohlc_cache_policy.h",
+        "discovery/price_markets_route.h",
+        "discovery/token_search_route.h"
+      ],
+      "private": []
+    },
+    "exchange": {
+      "public": [
+        "exchange/cross_chain_components.h",
+        "exchange/cross_chain_providers.h",
+        "exchange/cross_chain_service.h",
+        "exchange/dashpay_client.h",
+        "exchange/dashpay_proof.h",
+        "exchange/dashpay_service.h",
+        "exchange/exchange_config.h",
+        "exchange/robinhood_markets.h",
+        "exchange/robinhood_policy.h",
+        "exchange/robinhood_service.h",
+        "exchange/robinhood_tickets.h"
+      ],
+      "private": [
+        "exchange/cross_chain_deposit_internal.h",
+        "exchange/cross_chain_internal.h",
+        "exchange/cross_chain_support.h",
+        "exchange/robinhood_service_internal.h"
+      ]
+    },
+    "http": {
+      "public": [
+        "http/http_middleware.h",
+        "http/http_request.h",
+        "http/http_server.h",
+        "http/http_session.h",
+        "http/http_transport.h",
+        "http/outbound_https.h",
+        "http/query_string.h",
+        "http/tls_probe.h",
+        "http/upstream_redirect.h"
+      ],
+      "private": []
+    },
+    "networks": {
+      "public": [
+        "networks/network_registry.h",
+        "networks/token_ref.h"
+      ],
+      "private": []
+    },
+    "news": {
+      "public": [
+        "news/feed_query_service.h",
+        "news/media_service.h",
+        "news/news_ingest.h",
+        "news/news_json.h",
+        "news/news_routes.h",
+        "news/news_service.h",
+        "news/news_store.h",
+        "news/news_text.h"
+      ],
+      "private": [
+        "news/media_components_internal.h",
+        "news/news_routes_internal.h"
+      ]
+    },
+    "operations": {
+      "public": [
+        "operations/api_docs_generated.h",
+        "operations/api_telemetry.h",
+        "operations/resource_snapshot.h",
+        "operations/cache_explorer_page.h",
+        "operations/cache_explorer_route.h",
+        "operations/crash_report_route.h",
+        "operations/error_board.h",
+        "operations/guest_allocator_metrics.h",
+        "operations/guest_allocator_stats.h",
+        "operations/guest_cpu_stats.h",
+        "operations/guest_socket_stats.h",
+        "operations/landing_background.h",
+        "operations/metrics_auth.h",
+        "operations/network_preview_page.h",
+        "operations/network_preview_route.h",
+        "operations/network_route.h",
+        "operations/operations_pages.h",
+        "operations/operations_routes.h",
+        "operations/token_prices_page.h",
+        "operations/token_prices_route.h",
+        "operations/release_routes.h",
+        "operations/sandbox_control.h"
+      ],
+      "private": [
+        "operations/benchmark_reports.inc",
+        "operations/dashboard_page.inc",
+        "operations/telemetry_aggregate.h",
+        "operations/node_home.inc",
+        "operations/node_assets.inc",
+        "operations/release_page.inc"
+      ]
+    },
+    "prices": {
+      "public": [
+        "prices/coin_price_scheduler.h",
+        "prices/history_query_service.h",
+        "prices/ohlc_provider_owner.h",
+        "prices/price_core_ids.h",
+        "prices/price_diagnostics.h",
+        "prices/price_history_backfill.h",
+        "prices/price_history_backfill_owner.h",
+        "prices/price_history_coverage.h",
+        "prices/price_history_query.h",
+        "prices/price_history_route.h",
+        "prices/price_history_service.h",
+        "prices/price_history_view.h",
+        "prices/price_ohlc_query.h",
+        "prices/price_series_repository.h",
+        "prices/price_series_store.h",
+        "prices/price_snapshot.h",
+        "prices/price_spot_cache.h",
+        "prices/price_spot_query.h",
+        "prices/price_spot_route.h",
+        "prices/price_spot_service.h",
+        "prices/spot_provider_owner.h",
+        "prices/spot_resolution.h",
+        "prices/spot_response_serializer.h"
+      ],
+      "private": [
+        "prices/spot_provider_owner_internal.h"
+      ]
+    },
+    "providers": {
+      "public": [
+        "providers/coingecko_contract_price.h",
+        "providers/coingecko_price.h",
+        "providers/coingecko_request.h",
+        "providers/jupiter_price.h",
+        "providers/jupiter_request.h",
+        "providers/kraken_price.h",
+        "providers/defillama_price.h",
+        "providers/mexc_price.h",
+        "providers/price_id_parser.h",
+        "providers/provider_diagnostics.h",
+        "providers/provider_execution.h",
+        "providers/provider_execution_coordinator.h",
+        "providers/provider_lane.h",
+        "providers/robinhood_price.h",
+        "providers/token_provider.h",
+        "providers/tronscan_price.h",
+        "providers/tronscan_request.h",
+        "providers/upstream_access.h",
+        "providers/vestige_price.h",
+        "providers/vestige_request.h"
+      ],
+      "private": []
+    },
+    "storage": {
+      "public": [
+        "storage/kv_expiry_sweeper.h",
+        "storage/kv_probe.h",
+        "storage/kv_runtime.h",
+        "storage/kv_store.h",
+        "storage/storage_probe.h"
+      ],
+      "private": [
+        "storage/kv_checksum.h",
+        "storage/kv_store_internal.h"
+      ]
+    },
+    "tokens": {
+      "public": [
+        "tokens/price_jobs.h",
+        "tokens/token_bittensor.h",
+        "tokens/token_comparison.h",
+        "tokens/token_comparison_route.h",
+        "tokens/token_comparison_store.h",
+        "tokens/token_contract.h",
+        "tokens/token_data.h",
+        "tokens/token_evm.h",
+        "tokens/token_facet_fetcher.h",
+        "tokens/token_facet_planner.h",
+        "tokens/token_fact_writer.h",
+        "tokens/token_facts.h",
+        "tokens/token_facts_service.h",
+        "tokens/token_fetchers.h",
+        "tokens/token_history.h",
+        "tokens/token_identity_resolver.h",
+        "tokens/token_jobs.h",
+        "tokens/token_ledger.h",
+        "tokens/token_liquidity.h",
+        "tokens/token_page.h",
+        "tokens/token_queue.h",
+        "tokens/token_robinhood.h",
+        "tokens/token_runtime.h",
+        "tokens/token_saucerswap.h",
+        "tokens/token_service.h",
+        "tokens/token_swr.h",
+        "tokens/token_tron.h",
+        "tokens/token_views.h",
+        "tokens/token_writes.h"
+      ],
+      "private": [
+        "tokens/token_facts_internal.h",
+        "tokens/token_service_internal.h"
+      ]
+    },
+    "wallet": {
+      "public": [
+        "wallet/address_facets.h",
+        "wallet/address_jobs.h",
+        "wallet/address_overview.h",
+        "wallet/address_records.h",
+        "wallet/address_service.h",
+        "wallet/address_store.h",
+        "wallet/repair_candidates.h",
+        "wallet/sync_journal.h",
+        "wallet/sync_request.h",
+        "wallet/sync_route.h",
+        "wallet/sync_scope.h",
+        "wallet/wallet_components.h",
+        "wallet/wallet_price_access.h",
+        "wallet/wallet_readers.h"
+      ],
+      "private": [
+        "wallet/address_facets_internal.h",
+        "wallet/address_service_internal.h"
+      ]
+    }
+  }
+}

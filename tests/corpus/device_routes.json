@@ -1,0 +1,779 @@
+{
+  "source": {
+    "typescriptSourceCommit": "f2a426e5c7bd0665db42cd3018c896749889a982",
+    "routes": "server/intelligence/src/api/devices.ts",
+    "middleware": "server/intelligence/src/api/plugin.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/devices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "requests": {
+    "enrollProtobuf": {
+      "json": {
+        "platform": "android",
+        "appVersion": "4.5.6",
+        "attestation": {
+          "provider": "development",
+          "challenge": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+        }
+      },
+      "wireHex": "0a07616e64726f69641205342e352e361a3a0a0b646576656c6f706d656e74122b42424242424242424242424242424242424242424242424242424242424242424242424242424242424242"
+    }
+  },
+  "responses": {
+    "challengeJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "75",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "challenge": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresIn": 300
+      }
+    },
+    "challengeProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "48",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "challenge": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresIn": 300
+      },
+      "wireHex": "0a2b4141414141414141414141414141414141414141414141414141414141414141414141414141414141414110ac02"
+    },
+    "enrollJson": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "151",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+        "deviceToken": "fintel_dev_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresAt": "2026-01-02T04:04:05.000Z"
+      }
+    },
+    "enrollProtobuf": {
+      "status": 201,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "110",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "deviceId": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+        "deviceToken": "fintel_dev_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresAt": "2026-01-02T04:04:05.000Z"
+      },
+      "wireHex": "0a1a303141525a334e44454b54535634525246465136394735464156123666696e74656c5f6465765f414141414141414141414141414141414141414141414141414141414141414141414141414141414141411a18323032362d30312d30325430343a30343a30352e3030305a"
+    },
+    "rotateJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "111",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "deviceToken": "fintel_dev_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresAt": "2026-01-02T04:04:05.000Z"
+      }
+    },
+    "rotateProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "82",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "deviceToken": "fintel_dev_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "expiresAt": "2026-01-02T04:04:05.000Z"
+      },
+      "wireHex": "0a3666696e74656c5f6465765f414141414141414141414141414141414141414141414141414141414141414141414141414141414141411218323032362d30312d30325430343a30343a30352e3030305a"
+    }
+  },
+  "behavior": {
+    "invalidEnrollmentBody": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "228",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": [
+          {
+            "code": "invalid_value",
+            "values": [
+              "ios",
+              "android",
+              "macos",
+              "windows",
+              "linux"
+            ],
+            "path": [
+              "platform"
+            ],
+            "message": "Invalid option: expected one of \"ios\"|\"android\"|\"macos\"|\"windows\"|\"linux\""
+          }
+        ]
+      }
+    },
+    "missingBearer": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      }
+    },
+    "malformedBearer": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      }
+    },
+    "unknownBearer": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      }
+    },
+    "browserOrigin": {
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "BROWSER_ORIGIN_FORBIDDEN"
+      }
+    },
+    "expiredToken": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "SESSION_EXPIRED"
+      }
+    },
+    "revokedToken": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "SESSION_EXPIRED"
+      }
+    },
+    "oldTokenAfterRotation": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      }
+    },
+    "freshTokenAfterRotation": {
+      "status": 200
+    },
+    "challengeConsumption": {
+      "firstStatus": 201,
+      "replay": {
+        "status": 401,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "31",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        },
+        "body": {
+          "error": "ATTESTATION_EXPIRED"
+        }
+      }
+    },
+    "unsupportedAttestationProvider": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "31",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "ATTESTATION_INVALID"
+      }
+    },
+    "requiredAttestationMode": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "ATTESTATION_REQUIRED"
+      }
+    },
+    "requiredModeDevelopmentBearer": {
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "ATTESTATION_REQUIRED"
+      }
+    },
+    "payloadBounds": {
+      "appVersion50": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "151",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        }
+      },
+      "appVersion51": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "184",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        },
+        "body": {
+          "error": "BAD_REQUEST",
+          "detail": [
+            {
+              "origin": "string",
+              "code": "too_big",
+              "maximum": 50,
+              "inclusive": true,
+              "path": [
+                "appVersion"
+              ],
+              "message": "Too big: expected string to have <=50 characters"
+            }
+          ]
+        }
+      },
+      "challenge16": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "151",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        }
+      },
+      "challenge200": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "151",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        }
+      },
+      "challenge15": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "201",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        },
+        "body": {
+          "error": "BAD_REQUEST",
+          "detail": [
+            {
+              "origin": "string",
+              "code": "too_small",
+              "minimum": 16,
+              "inclusive": true,
+              "path": [
+                "attestation",
+                "challenge"
+              ],
+              "message": "Too small: expected string to have >=16 characters"
+            }
+          ]
+        }
+      },
+      "challenge201": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "199",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        },
+        "body": {
+          "error": "BAD_REQUEST",
+          "detail": [
+            {
+              "origin": "string",
+              "code": "too_big",
+              "maximum": 200,
+              "inclusive": true,
+              "path": [
+                "attestation",
+                "challenge"
+              ],
+              "message": "Too big: expected string to have <=200 characters"
+            }
+          ]
+        }
+      },
+      "attestationToken32000": {
+        "status": 201,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "151",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        }
+      },
+      "attestationToken32001": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "199",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        },
+        "body": {
+          "error": "BAD_REQUEST",
+          "detail": [
+            {
+              "origin": "string",
+              "code": "too_big",
+              "maximum": 32000,
+              "inclusive": true,
+              "path": [
+                "attestation",
+                "token"
+              ],
+              "message": "Too big: expected string to have <=32000 characters"
+            }
+          ]
+        }
+      },
+      "globalBodyLimitDefaultBytes": 524288,
+      "oneByteOverGlobalBodyLimit": {
+        "status": 413,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "120",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()"
+        }
+      }
+    },
+    "developmentAddressPolicy": {
+      "private": [
+        {
+          "address": "127.0.0.1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "::1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "10.1.2.3",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "172.16.0.1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "172.31.255.254",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "192.168.1.2",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "fc00::1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "fd12::1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "fe80::1",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        },
+        {
+          "address": "::ffff:192.168.1.2",
+          "status": 201,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "151",
+            "vary": "Accept",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          }
+        }
+      ],
+      "public": [
+        {
+          "address": "8.8.8.8",
+          "status": 403,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          },
+          "body": {
+            "error": "DEVELOPMENT_ATTESTATION_LOCAL_ONLY"
+          }
+        },
+        {
+          "address": "172.32.0.1",
+          "status": 403,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          },
+          "body": {
+            "error": "DEVELOPMENT_ATTESTATION_LOCAL_ONLY"
+          }
+        },
+        {
+          "address": "192.167.1.1",
+          "status": 403,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          },
+          "body": {
+            "error": "DEVELOPMENT_ATTESTATION_LOCAL_ONLY"
+          }
+        },
+        {
+          "address": "2001:4860:4860::8888",
+          "status": 403,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          },
+          "body": {
+            "error": "DEVELOPMENT_ATTESTATION_LOCAL_ONLY"
+          }
+        },
+        {
+          "address": "fe90::1",
+          "status": 403,
+          "headers": {
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "46",
+            "cache-control": "no-store",
+            "x-content-type-options": "nosniff",
+            "referrer-policy": "no-referrer",
+            "permissions-policy": "camera=(), microphone=(), geolocation=()"
+          },
+          "body": {
+            "error": "DEVELOPMENT_ATTESTATION_LOCAL_ONLY"
+          }
+        }
+      ]
+    },
+    "publicIpQuota": {
+      "limitPerMinute": 10,
+      "acceptedStatuses": [
+        200,
+        201,
+        200,
+        201,
+        200,
+        201,
+        200,
+        201,
+        200,
+        201
+      ],
+      "limited": {
+        "status": 429,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "24",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()",
+          "retry-after": "60"
+        },
+        "body": {
+          "error": "RATE_LIMITED"
+        }
+      }
+    },
+    "developmentDeviceQuota": {
+      "limitPerMinute": 240,
+      "first": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "15557",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()",
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "239"
+        }
+      },
+      "atLimit": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "15557",
+          "vary": "Accept",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()",
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "0"
+        }
+      },
+      "overLimit": {
+        "status": 429,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "24",
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "permissions-policy": "camera=(), microphone=(), geolocation=()",
+          "retry-after": "60",
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "0"
+        },
+        "body": {
+          "error": "RATE_LIMITED"
+        }
+      }
+    }
+  }
+}

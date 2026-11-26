@@ -1,0 +1,1637 @@
+{
+  "source": {
+    "routes": [
+      "server/intelligence/src/api/errors_page.ts",
+      "server/intelligence/src/api/home.ts"
+    ],
+    "telemetry": "server/intelligence/src/telemetry/stats.ts"
+  },
+  "services": {
+    "/": "API",
+    "/admin/tickets": "API",
+    "/assets/background.jpg": "API",
+    "/errors": "API",
+    "/errorsz": "API",
+    "/healthz": "API",
+    "/metrics": "API",
+    "/statusz": "API",
+    "/v1/ai/conversations/{id}/messages": "API",
+    "/v1/dashpay/names/resolve": "API",
+    "/v1/exchange/cross-chain/providers": "Exchange",
+    "/v1/gems": "API",
+    "/v1/media/{key}": "API",
+    "/v1/networks": "Networks",
+    "/v1/networks/robinhood/sponsored-trades/capabilities": "Networks",
+    "/v1/networks/robinhood/stock-tokens": "Networks",
+    "/v1/networks/robinhood/stock-tokens/{address}": "Networks",
+    "/v1/networks/{network}/address/{address}/balances": "Address Data",
+    "/v1/networks/{network}/address/{address}/insight": "Address Data",
+    "/v1/networks/{network}/address/{address}/nfts": "Address Data",
+    "/v1/networks/{network}/address/{address}/token-holdings": "Address Data",
+    "/v1/networks/{network}/address/{address}/transfers": "Address Data",
+    "/v1/networks/{network}/overview": "Networks",
+    "/v1/networks/{network}/token/{tokenId}": "Token 360",
+    "/v1/networks/{network}/token/{tokenId}/holders/history": "Token 360",
+    "/v1/networks/{network}/token/{tokenId}/liquidity/history": "Token 360",
+    "/v1/networks/{network}/token/{tokenId}/liquidity/pools": "Token 360",
+    "/v1/networks/{network}/token/{tokenId}/liquidity/summary": "Token 360",
+    "/v1/networks/{network}/token/{tokenId}/page": "Token 360",
+    "/v1/networks/{network}/tokens/search": "Token Discovery",
+    "/v1/networks/{network}/tx/{hash}": "Networks",
+    "/v1/networks/{network}/tx/{hash}/view": "Networks",
+    "/v1/news": "API",
+    "/v1/news/{id}": "API",
+    "/v1/news/{id}/reactions": "API",
+    "/v1/prices": "Prices",
+    "/v1/prices/history": "Prices",
+    "/v1/prices/ohlc": "Prices",
+    "/v1/support/tickets": "API",
+    "/v1/support/tickets/{id}": "API",
+    "/admin/tickets/{id}/reply": "API",
+    "/admin/tickets/{id}/status": "API",
+    "/v1/ai/conversations": "API",
+    "/v1/bittensor/analytics": "Bittensor",
+    "/v1/crash-reports": "Crash Reports",
+    "/v1/devices": "Devices",
+    "/v1/devices/challenge": "Devices",
+    "/v1/devices/rotate": "Devices",
+    "/v1/exchange/cross-chain/quotes": "Exchange",
+    "/v1/exchange/cross-chain/status": "Exchange",
+    "/v1/networks/robinhood/sponsored-trades/prepare": "Networks",
+    "/v1/networks/robinhood/sponsored-trades/submit": "Networks",
+    "/v1/networks/robinhood/transactions/diagnose": "Networks",
+    "/v1/prices/markets": "Prices",
+    "/v1/support/auth/refresh": "API",
+    "/v1/support/auth/verify": "API",
+    "/v1/support/tickets/{id}/messages": "API",
+    "/v1/sync": "Sync",
+    "/v1/tokens/compare": "API",
+    "unmatched": "API",
+    "/v1/prices/markets/extra": "Prices",
+    "/v1/networks/:network/token/:tokenId/holders": "Token 360",
+    "/v1/devicesx": "Devices",
+    "/v1/crash-reportsz": "Crash Reports",
+    "/v1/bittensor": "Bittensor",
+    "/v1/exchange": "Exchange"
+  },
+  "samples": [
+    {
+      "atMs": 1767322810000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767322870000,
+      "route": "/v1/prices/history",
+      "status": 400,
+      "deviceId": "device-2",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767322877000,
+      "route": "/v1/prices",
+      "status": 202,
+      "deviceId": "device-5",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767322930000,
+      "route": "/v1/networks",
+      "status": 504,
+      "deviceId": "device-4",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767322937000,
+      "route": "/v1/prices/history",
+      "status": 200,
+      "deviceId": "device-7",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767322944000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323050000,
+      "route": "/v1/crash-reports",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323057000,
+      "route": "/v1/devices/challenge",
+      "status": 400,
+      "deviceId": "device-2",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767323064000,
+      "route": "/v1/networks",
+      "status": 202,
+      "deviceId": "device-5",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767323071000,
+      "route": "/v1/prices/history",
+      "status": 502,
+      "deviceId": "device-8",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767323078000,
+      "route": "/v1/prices",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323110000,
+      "route": "/v1/sync",
+      "status": 429,
+      "deviceId": "device-1",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767323117000,
+      "route": "/v1/crash-reports",
+      "status": 504,
+      "deviceId": "device-4",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323124000,
+      "route": "/v1/devices/challenge",
+      "status": 200,
+      "deviceId": "device-7",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767323131000,
+      "route": "/v1/networks",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323138000,
+      "route": "/v1/prices/history",
+      "status": 429,
+      "deviceId": "device-4",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767323145000,
+      "route": "/v1/prices",
+      "status": 504,
+      "deviceId": "device-7",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323170000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": "device-3",
+      "durationMs": 120.5
+    },
+    {
+      "atMs": 1767323230000,
+      "route": "/v1/prices",
+      "status": 502,
+      "deviceId": "device-5",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767323237000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323350000,
+      "route": "/v1/networks",
+      "status": 500,
+      "deviceId": "device-0",
+      "durationMs": 12.75
+    },
+    {
+      "atMs": 1767323357000,
+      "route": "/v1/prices/history",
+      "status": 200,
+      "deviceId": "device-3",
+      "durationMs": 120.5
+    },
+    {
+      "atMs": 1767323364000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": "device-6",
+      "durationMs": 1000
+    },
+    {
+      "atMs": 1767323371000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767323410000,
+      "route": "/v1/devices/challenge",
+      "status": 202,
+      "deviceId": "device-2",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767323417000,
+      "route": "/v1/networks",
+      "status": 502,
+      "deviceId": "device-5",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767323424000,
+      "route": "/v1/prices/history",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323431000,
+      "route": "/v1/prices",
+      "status": 400,
+      "deviceId": "device-2",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767323438000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 202,
+      "deviceId": "device-5",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767323470000,
+      "route": "/v1/crash-reports",
+      "status": 200,
+      "deviceId": "device-4",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767323477000,
+      "route": "/v1/devices/challenge",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323484000,
+      "route": "/v1/networks",
+      "status": 429,
+      "deviceId": "device-1",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767323491000,
+      "route": "/v1/prices/history",
+      "status": 504,
+      "deviceId": "device-4",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323498000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": "device-7",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767323505000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323530000,
+      "route": "/v1/sync",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767323650000,
+      "route": "/v1/prices",
+      "status": 504,
+      "deviceId": "device-1",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323657000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": "device-4",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767323664000,
+      "route": "/v1/sync",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323710000,
+      "route": "/v1/prices/history",
+      "status": 200,
+      "deviceId": "device-3",
+      "durationMs": 1000
+    },
+    {
+      "atMs": 1767323717000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767323724000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 500,
+      "deviceId": "device-0",
+      "durationMs": 12.75
+    },
+    {
+      "atMs": 1767323731000,
+      "route": "/v1/sync",
+      "status": 200,
+      "deviceId": "device-3",
+      "durationMs": 120.5
+    },
+    {
+      "atMs": 1767323770000,
+      "route": "/v1/networks",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323777000,
+      "route": "/v1/prices/history",
+      "status": 400,
+      "deviceId": "device-8",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767323784000,
+      "route": "/v1/prices",
+      "status": 202,
+      "deviceId": "device-2",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767323791000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 502,
+      "deviceId": "device-5",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767323798000,
+      "route": "/v1/sync",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767323830000,
+      "route": "/v1/devices/challenge",
+      "status": 429,
+      "deviceId": "device-7",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767323837000,
+      "route": "/v1/networks",
+      "status": 504,
+      "deviceId": "device-1",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323844000,
+      "route": "/v1/prices/history",
+      "status": 200,
+      "deviceId": "device-4",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767323851000,
+      "route": "/v1/prices",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767323858000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 429,
+      "deviceId": "device-1",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767323865000,
+      "route": "/v1/sync",
+      "status": 504,
+      "deviceId": "device-4",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767323950000,
+      "route": "/v1/sync",
+      "status": 502,
+      "deviceId": "device-2",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767323957000,
+      "route": "/v1/crash-reports",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767324010000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767324017000,
+      "route": "/v1/sync",
+      "status": 429,
+      "deviceId": "device-7",
+      "durationMs": 260
+    },
+    {
+      "atMs": 1767324024000,
+      "route": "/v1/crash-reports",
+      "status": 504,
+      "deviceId": "device-1",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767324070000,
+      "route": "/v1/prices",
+      "status": 500,
+      "deviceId": "device-6",
+      "durationMs": 12.75
+    },
+    {
+      "atMs": 1767324077000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": "device-0",
+      "durationMs": 120.5
+    },
+    {
+      "atMs": 1767324084000,
+      "route": "/v1/sync",
+      "status": 200,
+      "deviceId": "device-3",
+      "durationMs": 1000
+    },
+    {
+      "atMs": 1767324091000,
+      "route": "/v1/crash-reports",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767324130000,
+      "route": "/v1/prices/history",
+      "status": 202,
+      "deviceId": "device-8",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767324137000,
+      "route": "/v1/prices",
+      "status": 502,
+      "deviceId": "device-2",
+      "durationMs": 49.9
+    },
+    {
+      "atMs": 1767324144000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 503,
+      "deviceId": null,
+      "durationMs": 999.75
+    },
+    {
+      "atMs": 1767324151000,
+      "route": "/v1/sync",
+      "status": 400,
+      "deviceId": "device-8",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767324158000,
+      "route": "/v1/crash-reports",
+      "status": 202,
+      "deviceId": "device-2",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767324250000,
+      "route": "/v1/devices/challenge",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767324310000,
+      "route": "/v1/crash-reports",
+      "status": 400,
+      "deviceId": "device-5",
+      "durationMs": 7300
+    },
+    {
+      "atMs": 1767324317000,
+      "route": "/v1/devices/challenge",
+      "status": 202,
+      "deviceId": "device-8",
+      "durationMs": 7.125
+    },
+    {
+      "atMs": 1767324370000,
+      "route": "/v1/sync",
+      "status": 504,
+      "deviceId": "device-7",
+      "durationMs": 2600.25
+    },
+    {
+      "atMs": 1767324377000,
+      "route": "/v1/crash-reports",
+      "status": 200,
+      "deviceId": "device-1",
+      "durationMs": 3.5
+    },
+    {
+      "atMs": 1767324384000,
+      "route": "/v1/devices/challenge",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.1
+    },
+    {
+      "atMs": 1767324430000,
+      "route": "/v1/networks/:network/address/:address/balances",
+      "status": 200,
+      "deviceId": "device-0",
+      "durationMs": 1000
+    },
+    {
+      "atMs": 1767324437000,
+      "route": "/v1/sync",
+      "status": 200,
+      "deviceId": null,
+      "durationMs": 0.25
+    },
+    {
+      "atMs": 1767324444000,
+      "route": "/v1/crash-reports",
+      "status": 500,
+      "deviceId": "device-6",
+      "durationMs": 12.75
+    },
+    {
+      "atMs": 1767324451000,
+      "route": "/v1/devices/challenge",
+      "status": 200,
+      "deviceId": "device-0",
+      "durationMs": 120.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    },
+    {
+      "atMs": 1767324470000,
+      "route": "/v1/sync",
+      "status": 500,
+      "deviceId": "device-burst",
+      "durationMs": 1.5
+    }
+  ],
+  "checkpoints": [
+    {
+      "label": "after sample 9",
+      "nowMs": 1767323071000,
+      "revision": 10,
+      "errorsz": "{\"ok\":true,\"threshold\":5,\"windowMinutes\":15,\"totalErrors\":3,\"totalRequests\":10,\"routes\":[{\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"requests\":3,\"errors\":1,\"overThreshold\":false},{\"service\":\"Networks\",\"route\":\"/v1/networks\",\"requests\":2,\"errors\":1,\"overThreshold\":false},{\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"requests\":1,\"errors\":1,\"overThreshold\":false}],\"recent\":[{\"sec\":1767323071,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":502},{\"sec\":1767323050,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767322930,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504}]}",
+      "statsJson": "{\"window5m\":{\"clients\":5,\"requests\":10,\"errors\":3},\"window10m\":{\"clients\":5,\"requests\":10,\"errors\":3},\"topRoutes10m\":[{\"route\":\"/v1/prices/history\",\"requests\":3,\"errors\":1,\"durationMs\":7353.4,\"maxDurationMs\":7300,\"durationP95Ms\":7300,\"durationBuckets\":[1,0,0,1,0,0,0,0,0,0,1]},{\"route\":\"/v1/prices\",\"requests\":3,\"errors\":0,\"durationMs\":7.475,\"maxDurationMs\":7.125,\"durationP95Ms\":10,\"durationBuckets\":[2,1,0,0,0,0,0,0,0,0,0]},{\"route\":\"/v1/networks\",\"requests\":2,\"errors\":1,\"durationMs\":2607.375,\"maxDurationMs\":2600.25,\"durationP95Ms\":5000,\"durationBuckets\":[0,1,0,0,0,0,0,0,0,1,0]},{\"route\":\"/v1/crash-reports\",\"requests\":1,\"errors\":1,\"durationMs\":999.75,\"maxDurationMs\":999.75,\"durationP95Ms\":1000,\"durationBuckets\":[0,0,0,0,0,0,0,1,0,0,0]},{\"route\":\"/v1/devices/challenge\",\"requests\":1,\"errors\":0,\"durationMs\":7300,\"maxDurationMs\":7300,\"durationP95Ms\":7300,\"durationBuckets\":[0,0,0,0,0,0,0,0,0,0,1]}],\"databaseOperations10m\":[],\"perMinute\":[{\"startSec\":1767322200,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322260,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322320,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322380,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322440,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322500,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322560,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322620,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322680,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322740,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767322800,\"requests\":1,\"errors\":0,\"clients\":0},{\"startSec\":1767322860,\"requests\":2,\"errors\":0,\"clients\":2},{\"startSec\":1767322920,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767322980,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323040,\"requests\":4,\"errors\":2,\"clients\":3}]}",
+      "stats": {
+        "window5m": {
+          "clients": 5,
+          "requests": 10,
+          "errors": 3
+        },
+        "window10m": {
+          "clients": 5,
+          "requests": 10,
+          "errors": 3
+        },
+        "topRoutes10m": [
+          {
+            "route": "/v1/prices/history",
+            "requests": 3,
+            "errors": 1,
+            "durationMs": 7353.4,
+            "maxDurationMs": 7300,
+            "durationP95Ms": 7300,
+            "durationBuckets": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "route": "/v1/prices",
+            "requests": 3,
+            "errors": 0,
+            "durationMs": 7.475,
+            "maxDurationMs": 7.125,
+            "durationP95Ms": 10,
+            "durationBuckets": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/networks",
+            "requests": 2,
+            "errors": 1,
+            "durationMs": 2607.375,
+            "maxDurationMs": 2600.25,
+            "durationP95Ms": 5000,
+            "durationBuckets": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "route": "/v1/crash-reports",
+            "requests": 1,
+            "errors": 1,
+            "durationMs": 999.75,
+            "maxDurationMs": 999.75,
+            "durationP95Ms": 1000,
+            "durationBuckets": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/devices/challenge",
+            "requests": 1,
+            "errors": 0,
+            "durationMs": 7300,
+            "maxDurationMs": 7300,
+            "durationP95Ms": 7300,
+            "durationBuckets": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "databaseOperations10m": [],
+        "perMinute": [
+          {
+            "startSec": 1767322200,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322260,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322320,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322380,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322440,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322500,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322560,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322620,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322680,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322740,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322800,
+            "requests": 1,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767322860,
+            "requests": 2,
+            "errors": 0,
+            "clients": 2
+          },
+          {
+            "startSec": 1767322920,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767322980,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323040,
+            "requests": 4,
+            "errors": 2,
+            "clients": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "after sample 40",
+      "nowMs": 1767323717000,
+      "revision": 41,
+      "errorsz": "{\"ok\":true,\"threshold\":5,\"windowMinutes\":15,\"totalErrors\":13,\"totalRequests\":40,\"routes\":[{\"service\":\"Prices\",\"route\":\"/v1/prices\",\"requests\":10,\"errors\":4,\"overThreshold\":false},{\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"requests\":8,\"errors\":3,\"overThreshold\":false},{\"service\":\"Networks\",\"route\":\"/v1/networks\",\"requests\":6,\"errors\":3,\"overThreshold\":false},{\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"requests\":3,\"errors\":2,\"overThreshold\":false},{\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":6,\"errors\":1,\"overThreshold\":false}],\"recent\":[{\"sec\":1767323650,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323491,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":504},{\"sec\":1767323424,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":503},{\"sec\":1767323417,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":502},{\"sec\":1767323350,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":500},{\"sec\":1767323237,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767323230,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767323145,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323117,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323078,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":503},{\"sec\":1767323071,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":502},{\"sec\":1767323050,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767322930,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504}]}",
+      "statsJson": "{\"window5m\":{\"clients\":4,\"requests\":12,\"errors\":2},\"window10m\":{\"clients\":8,\"requests\":24,\"errors\":7},\"topRoutes10m\":[{\"route\":\"/v1/prices\",\"requests\":6,\"errors\":2,\"durationMs\":10953.9,\"maxDurationMs\":7300,\"durationP95Ms\":7300,\"durationBuckets\":[2,0,0,1,0,0,0,1,0,1,1]},{\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":6,\"errors\":1,\"durationMs\":1131.225,\"maxDurationMs\":999.75,\"durationP95Ms\":1000,\"durationBuckets\":[3,1,0,0,0,1,0,1,0,0,0]},{\"route\":\"/v1/prices/history\",\"requests\":4,\"errors\":2,\"durationMs\":4720.5,\"maxDurationMs\":2600.25,\"durationP95Ms\":5000,\"durationBuckets\":[0,0,0,0,0,1,0,2,0,1,0]},{\"route\":\"/v1/networks\",\"requests\":3,\"errors\":2,\"durationMs\":322.65,\"maxDurationMs\":260,\"durationP95Ms\":500,\"durationBuckets\":[0,0,1,1,0,0,1,0,0,0,0]},{\"route\":\"/v1/sync\",\"requests\":2,\"errors\":0,\"durationMs\":0.35,\"maxDurationMs\":0.25,\"durationP95Ms\":5,\"durationBuckets\":[2,0,0,0,0,0,0,0,0,0,0]}],\"databaseOperations10m\":[],\"perMinute\":[{\"startSec\":1767322860,\"requests\":2,\"errors\":0,\"clients\":2},{\"startSec\":1767322920,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767322980,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323040,\"requests\":5,\"errors\":3,\"clients\":3},{\"startSec\":1767323100,\"requests\":6,\"errors\":2,\"clients\":3},{\"startSec\":1767323160,\"requests\":1,\"errors\":0,\"clients\":1},{\"startSec\":1767323220,\"requests\":2,\"errors\":2,\"clients\":1},{\"startSec\":1767323280,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323340,\"requests\":4,\"errors\":1,\"clients\":3},{\"startSec\":1767323400,\"requests\":5,\"errors\":2,\"clients\":2},{\"startSec\":1767323460,\"requests\":6,\"errors\":1,\"clients\":3},{\"startSec\":1767323520,\"requests\":1,\"errors\":0,\"clients\":0},{\"startSec\":1767323580,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323640,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767323700,\"requests\":2,\"errors\":0,\"clients\":1}]}",
+      "stats": {
+        "window5m": {
+          "clients": 4,
+          "requests": 12,
+          "errors": 2
+        },
+        "window10m": {
+          "clients": 8,
+          "requests": 24,
+          "errors": 7
+        },
+        "topRoutes10m": [
+          {
+            "route": "/v1/prices",
+            "requests": 6,
+            "errors": 2,
+            "durationMs": 10953.9,
+            "maxDurationMs": 7300,
+            "durationP95Ms": 7300,
+            "durationBuckets": [
+              2,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "route": "/v1/networks/:network/address/:address/balances",
+            "requests": 6,
+            "errors": 1,
+            "durationMs": 1131.225,
+            "maxDurationMs": 999.75,
+            "durationP95Ms": 1000,
+            "durationBuckets": [
+              3,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/prices/history",
+            "requests": 4,
+            "errors": 2,
+            "durationMs": 4720.5,
+            "maxDurationMs": 2600.25,
+            "durationP95Ms": 5000,
+            "durationBuckets": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "route": "/v1/networks",
+            "requests": 3,
+            "errors": 2,
+            "durationMs": 322.65,
+            "maxDurationMs": 260,
+            "durationP95Ms": 500,
+            "durationBuckets": [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/sync",
+            "requests": 2,
+            "errors": 0,
+            "durationMs": 0.35,
+            "maxDurationMs": 0.25,
+            "durationP95Ms": 5,
+            "durationBuckets": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "databaseOperations10m": [],
+        "perMinute": [
+          {
+            "startSec": 1767322860,
+            "requests": 2,
+            "errors": 0,
+            "clients": 2
+          },
+          {
+            "startSec": 1767322920,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767322980,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323040,
+            "requests": 5,
+            "errors": 3,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323100,
+            "requests": 6,
+            "errors": 2,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323160,
+            "requests": 1,
+            "errors": 0,
+            "clients": 1
+          },
+          {
+            "startSec": 1767323220,
+            "requests": 2,
+            "errors": 2,
+            "clients": 1
+          },
+          {
+            "startSec": 1767323280,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323340,
+            "requests": 4,
+            "errors": 1,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323400,
+            "requests": 5,
+            "errors": 2,
+            "clients": 2
+          },
+          {
+            "startSec": 1767323460,
+            "requests": 6,
+            "errors": 1,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323520,
+            "requests": 1,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323580,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323640,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767323700,
+            "requests": 2,
+            "errors": 0,
+            "clients": 1
+          }
+        ]
+      }
+    },
+    {
+      "label": "after all samples",
+      "nowMs": 1767324470000,
+      "revision": 84,
+      "errorsz": "{\"ok\":true,\"threshold\":5,\"windowMinutes\":15,\"totalErrors\":21,\"totalRequests\":48,\"routes\":[{\"service\":\"Sync\",\"route\":\"/v1/sync\",\"requests\":16,\"errors\":10,\"overThreshold\":true},{\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":8,\"errors\":3,\"overThreshold\":false},{\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"requests\":7,\"errors\":3,\"overThreshold\":false},{\"service\":\"Prices\",\"route\":\"/v1/prices\",\"requests\":6,\"errors\":3,\"overThreshold\":false},{\"service\":\"Networks\",\"route\":\"/v1/networks\",\"requests\":2,\"errors\":2,\"overThreshold\":false}],\"recent\":[{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324444,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":500},{\"sec\":1767324370,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767324144,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767324137,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767324070,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":500},{\"sec\":1767324024,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323957,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767323950,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":502},{\"sec\":1767323865,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767323837,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504},{\"sec\":1767323798,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":503},{\"sec\":1767323791,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":502},{\"sec\":1767323770,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":503},{\"sec\":1767323724,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":500},{\"sec\":1767323650,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323491,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":504},{\"sec\":1767323424,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":503},{\"sec\":1767323417,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":502},{\"sec\":1767323350,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":500},{\"sec\":1767323237,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767323230,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767323145,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323117,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323078,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":503},{\"sec\":1767323071,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":502},{\"sec\":1767323050,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767322930,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504}]}",
+      "statsJson": "{\"window5m\":{\"clients\":7,\"requests\":16,\"errors\":8},\"window10m\":{\"clients\":9,\"requests\":30,\"errors\":14},\"topRoutes10m\":[{\"route\":\"/v1/sync\",\"requests\":12,\"errors\":8,\"durationMs\":11219.4,\"maxDurationMs\":7300,\"durationP95Ms\":7300,\"durationBuckets\":[7,0,0,1,0,0,1,1,0,1,1]},{\"route\":\"/v1/crash-reports\",\"requests\":7,\"errors\":3,\"durationMs\":10923.625,\"maxDurationMs\":7300,\"durationP95Ms\":7300,\"durationBuckets\":[2,1,1,0,0,0,0,1,0,1,1]},{\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":4,\"errors\":1,\"durationMs\":2120.35,\"maxDurationMs\":1000,\"durationP95Ms\":1000,\"durationBuckets\":[1,0,0,0,0,1,0,2,0,0,0]},{\"route\":\"/v1/devices/challenge\",\"requests\":4,\"errors\":0,\"durationMs\":127.975,\"maxDurationMs\":120.5,\"durationP95Ms\":250,\"durationBuckets\":[2,1,0,0,0,1,0,0,0,0,0]},{\"route\":\"/v1/prices\",\"requests\":2,\"errors\":2,\"durationMs\":62.65,\"maxDurationMs\":49.9,\"durationP95Ms\":50,\"durationBuckets\":[0,0,1,1,0,0,0,0,0,0,0]}],\"databaseOperations10m\":[],\"perMinute\":[{\"startSec\":1767323580,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323640,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767323700,\"requests\":4,\"errors\":1,\"clients\":2},{\"startSec\":1767323760,\"requests\":5,\"errors\":3,\"clients\":3},{\"startSec\":1767323820,\"requests\":6,\"errors\":2,\"clients\":3},{\"startSec\":1767323880,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767323940,\"requests\":2,\"errors\":2,\"clients\":1},{\"startSec\":1767324000,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767324060,\"requests\":4,\"errors\":1,\"clients\":3},{\"startSec\":1767324120,\"requests\":5,\"errors\":2,\"clients\":2},{\"startSec\":1767324180,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324240,\"requests\":1,\"errors\":0,\"clients\":0},{\"startSec\":1767324300,\"requests\":2,\"errors\":0,\"clients\":2},{\"startSec\":1767324360,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767324420,\"requests\":10,\"errors\":7,\"clients\":3}]}",
+      "stats": {
+        "window5m": {
+          "clients": 7,
+          "requests": 16,
+          "errors": 8
+        },
+        "window10m": {
+          "clients": 9,
+          "requests": 30,
+          "errors": 14
+        },
+        "topRoutes10m": [
+          {
+            "route": "/v1/sync",
+            "requests": 12,
+            "errors": 8,
+            "durationMs": 11219.4,
+            "maxDurationMs": 7300,
+            "durationP95Ms": 7300,
+            "durationBuckets": [
+              7,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "route": "/v1/crash-reports",
+            "requests": 7,
+            "errors": 3,
+            "durationMs": 10923.625,
+            "maxDurationMs": 7300,
+            "durationP95Ms": 7300,
+            "durationBuckets": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "route": "/v1/networks/:network/address/:address/balances",
+            "requests": 4,
+            "errors": 1,
+            "durationMs": 2120.35,
+            "maxDurationMs": 1000,
+            "durationP95Ms": 1000,
+            "durationBuckets": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/devices/challenge",
+            "requests": 4,
+            "errors": 0,
+            "durationMs": 127.975,
+            "maxDurationMs": 120.5,
+            "durationP95Ms": 250,
+            "durationBuckets": [
+              2,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/prices",
+            "requests": 2,
+            "errors": 2,
+            "durationMs": 62.65,
+            "maxDurationMs": 49.9,
+            "durationP95Ms": 50,
+            "durationBuckets": [
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "databaseOperations10m": [],
+        "perMinute": [
+          {
+            "startSec": 1767323580,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323640,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767323700,
+            "requests": 4,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767323760,
+            "requests": 5,
+            "errors": 3,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323820,
+            "requests": 6,
+            "errors": 2,
+            "clients": 3
+          },
+          {
+            "startSec": 1767323880,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767323940,
+            "requests": 2,
+            "errors": 2,
+            "clients": 1
+          },
+          {
+            "startSec": 1767324000,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324060,
+            "requests": 4,
+            "errors": 1,
+            "clients": 3
+          },
+          {
+            "startSec": 1767324120,
+            "requests": 5,
+            "errors": 2,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324180,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324240,
+            "requests": 1,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324300,
+            "requests": 2,
+            "errors": 0,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324360,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324420,
+            "requests": 10,
+            "errors": 7,
+            "clients": 3
+          }
+        ]
+      }
+    },
+    {
+      "label": "nine quiet minutes later",
+      "nowMs": 1767324960000,
+      "revision": 84,
+      "errorsz": "{\"ok\":true,\"threshold\":5,\"windowMinutes\":15,\"totalErrors\":10,\"totalRequests\":21,\"routes\":[{\"service\":\"Sync\",\"route\":\"/v1/sync\",\"requests\":9,\"errors\":7,\"overThreshold\":true},{\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"requests\":4,\"errors\":1,\"overThreshold\":false},{\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":2,\"errors\":1,\"overThreshold\":false},{\"service\":\"Prices\",\"route\":\"/v1/prices\",\"requests\":1,\"errors\":1,\"overThreshold\":false}],\"recent\":[{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324444,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":500},{\"sec\":1767324370,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767324144,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767324137,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767324070,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":500},{\"sec\":1767324024,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323957,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767323950,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":502},{\"sec\":1767323865,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767323837,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504},{\"sec\":1767323798,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":503},{\"sec\":1767323791,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":502},{\"sec\":1767323770,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":503},{\"sec\":1767323724,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":500},{\"sec\":1767323650,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323491,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":504},{\"sec\":1767323424,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":503},{\"sec\":1767323417,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":502},{\"sec\":1767323350,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":500},{\"sec\":1767323237,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767323230,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767323145,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323117,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323078,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":503},{\"sec\":1767323071,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":502},{\"sec\":1767323050,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767322930,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504}]}",
+      "statsJson": "{\"window5m\":{\"clients\":0,\"requests\":0,\"errors\":0},\"window10m\":{\"clients\":3,\"requests\":10,\"errors\":7},\"topRoutes10m\":[{\"route\":\"/v1/sync\",\"requests\":7,\"errors\":6,\"durationMs\":9.25,\"maxDurationMs\":1.5,\"durationP95Ms\":5,\"durationBuckets\":[7,0,0,0,0,0,0,0,0,0,0]},{\"route\":\"/v1/networks/:network/address/:address/balances\",\"requests\":1,\"errors\":0,\"durationMs\":1000,\"maxDurationMs\":1000,\"durationP95Ms\":1000,\"durationBuckets\":[0,0,0,0,0,0,0,1,0,0,0]},{\"route\":\"/v1/crash-reports\",\"requests\":1,\"errors\":1,\"durationMs\":12.75,\"maxDurationMs\":12.75,\"durationP95Ms\":25,\"durationBuckets\":[0,0,1,0,0,0,0,0,0,0,0]},{\"route\":\"/v1/devices/challenge\",\"requests\":1,\"errors\":0,\"durationMs\":120.5,\"maxDurationMs\":120.5,\"durationP95Ms\":250,\"durationBuckets\":[0,0,0,0,0,1,0,0,0,0,0]}],\"databaseOperations10m\":[],\"perMinute\":[{\"startSec\":1767324120,\"requests\":5,\"errors\":2,\"clients\":2},{\"startSec\":1767324180,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324240,\"requests\":1,\"errors\":0,\"clients\":0},{\"startSec\":1767324300,\"requests\":2,\"errors\":0,\"clients\":2},{\"startSec\":1767324360,\"requests\":3,\"errors\":1,\"clients\":2},{\"startSec\":1767324420,\"requests\":10,\"errors\":7,\"clients\":3},{\"startSec\":1767324480,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324540,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324600,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324660,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324720,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324780,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324840,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324900,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767324960,\"requests\":0,\"errors\":0,\"clients\":0}]}",
+      "stats": {
+        "window5m": {
+          "clients": 0,
+          "requests": 0,
+          "errors": 0
+        },
+        "window10m": {
+          "clients": 3,
+          "requests": 10,
+          "errors": 7
+        },
+        "topRoutes10m": [
+          {
+            "route": "/v1/sync",
+            "requests": 7,
+            "errors": 6,
+            "durationMs": 9.25,
+            "maxDurationMs": 1.5,
+            "durationP95Ms": 5,
+            "durationBuckets": [
+              7,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/networks/:network/address/:address/balances",
+            "requests": 1,
+            "errors": 0,
+            "durationMs": 1000,
+            "maxDurationMs": 1000,
+            "durationP95Ms": 1000,
+            "durationBuckets": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/crash-reports",
+            "requests": 1,
+            "errors": 1,
+            "durationMs": 12.75,
+            "maxDurationMs": 12.75,
+            "durationP95Ms": 25,
+            "durationBuckets": [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "route": "/v1/devices/challenge",
+            "requests": 1,
+            "errors": 0,
+            "durationMs": 120.5,
+            "maxDurationMs": 120.5,
+            "durationP95Ms": 250,
+            "durationBuckets": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "databaseOperations10m": [],
+        "perMinute": [
+          {
+            "startSec": 1767324120,
+            "requests": 5,
+            "errors": 2,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324180,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324240,
+            "requests": 1,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324300,
+            "requests": 2,
+            "errors": 0,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324360,
+            "requests": 3,
+            "errors": 1,
+            "clients": 2
+          },
+          {
+            "startSec": 1767324420,
+            "requests": 10,
+            "errors": 7,
+            "clients": 3
+          },
+          {
+            "startSec": 1767324480,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324540,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324600,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324660,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324720,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324780,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324840,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324900,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767324960,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          }
+        ]
+      }
+    },
+    {
+      "label": "after the window drained",
+      "nowMs": 1767326400000,
+      "revision": 84,
+      "errorsz": "{\"ok\":true,\"threshold\":5,\"windowMinutes\":15,\"totalErrors\":0,\"totalRequests\":0,\"routes\":[],\"recent\":[{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324470,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":500},{\"sec\":1767324444,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":500},{\"sec\":1767324370,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767324144,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767324137,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767324070,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":500},{\"sec\":1767324024,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323957,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767323950,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":502},{\"sec\":1767323865,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":504},{\"sec\":1767323837,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504},{\"sec\":1767323798,\"service\":\"Sync\",\"route\":\"/v1/sync\",\"status\":503},{\"sec\":1767323791,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":502},{\"sec\":1767323770,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":503},{\"sec\":1767323724,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":500},{\"sec\":1767323650,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323491,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":504},{\"sec\":1767323424,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":503},{\"sec\":1767323417,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":502},{\"sec\":1767323350,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":500},{\"sec\":1767323237,\"service\":\"Address Data\",\"route\":\"/v1/networks/:network/address/:address/balances\",\"status\":503},{\"sec\":1767323230,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":502},{\"sec\":1767323145,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":504},{\"sec\":1767323117,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":504},{\"sec\":1767323078,\"service\":\"Prices\",\"route\":\"/v1/prices\",\"status\":503},{\"sec\":1767323071,\"service\":\"Prices\",\"route\":\"/v1/prices/history\",\"status\":502},{\"sec\":1767323050,\"service\":\"Crash Reports\",\"route\":\"/v1/crash-reports\",\"status\":503},{\"sec\":1767322930,\"service\":\"Networks\",\"route\":\"/v1/networks\",\"status\":504}]}",
+      "statsJson": "{\"window5m\":{\"clients\":0,\"requests\":0,\"errors\":0},\"window10m\":{\"clients\":0,\"requests\":0,\"errors\":0},\"topRoutes10m\":[],\"databaseOperations10m\":[],\"perMinute\":[{\"startSec\":1767325560,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325620,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325680,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325740,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325800,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325860,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325920,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767325980,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326040,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326100,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326160,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326220,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326280,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326340,\"requests\":0,\"errors\":0,\"clients\":0},{\"startSec\":1767326400,\"requests\":0,\"errors\":0,\"clients\":0}]}",
+      "stats": {
+        "window5m": {
+          "clients": 0,
+          "requests": 0,
+          "errors": 0
+        },
+        "window10m": {
+          "clients": 0,
+          "requests": 0,
+          "errors": 0
+        },
+        "topRoutes10m": [],
+        "databaseOperations10m": [],
+        "perMinute": [
+          {
+            "startSec": 1767325560,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325620,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325680,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325740,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325800,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325860,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325920,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767325980,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326040,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326100,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326160,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326220,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326280,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326340,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          },
+          {
+            "startSec": 1767326400,
+            "requests": 0,
+            "errors": 0,
+            "clients": 0
+          }
+        ]
+      }
+    }
+  ]
+}

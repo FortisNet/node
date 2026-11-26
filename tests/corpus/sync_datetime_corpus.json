@@ -1,0 +1,3119 @@
+{
+ "schemaVersion": 1,
+ "corpus": [
+  {
+   "input": "2026-01-02T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045000
+  },
+  {
+   "input": "2026-01-02T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767323040000
+  },
+  {
+   "input": "2026-01-02T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767398399000
+  },
+  {
+   "input": "2026-01-02T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2024-02-29T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1709175845000
+  },
+  {
+   "input": "2024-02-29T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1709175840000
+  },
+  {
+   "input": "2024-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2024-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2024-02-29T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1709251199000
+  },
+  {
+   "input": "2024-02-29T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2023-02-29T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1900-02-29T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2000-02-29T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 951793445000
+  },
+  {
+   "input": "2000-02-29T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 951793440000
+  },
+  {
+   "input": "2000-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2000-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2000-02-29T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 951868799000
+  },
+  {
+   "input": "2000-02-29T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-02-29T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -62162110555000
+  },
+  {
+   "input": "0000-02-29T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": -62162110560000
+  },
+  {
+   "input": "0000-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-02-29T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -62162035201000
+  },
+  {
+   "input": "0000-02-29T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2100-02-29T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1904-02-29T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -2077736155000
+  },
+  {
+   "input": "1904-02-29T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": -2077736160000
+  },
+  {
+   "input": "1904-02-29T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1904-02-29T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "1904-02-29T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -2077660801000
+  },
+  {
+   "input": "1904-02-29T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-31T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-30T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1777518245000
+  },
+  {
+   "input": "2026-04-30T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1777518240000
+  },
+  {
+   "input": "2026-04-30T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-30T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-04-30T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1777593599000
+  },
+  {
+   "input": "2026-04-30T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-12-31T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1798686245000
+  },
+  {
+   "input": "2026-12-31T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1798686240000
+  },
+  {
+   "input": "2026-12-31T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-12-31T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-12-31T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1798761599000
+  },
+  {
+   "input": "2026-12-31T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-13-01T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-00-10T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-00T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-1-02T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "26-01-02T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "20260102T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T03:04Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T23:59:59Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-32T23:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "9999-12-31T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 253402225445000
+  },
+  {
+   "input": "9999-12-31T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 253402225440000
+  },
+  {
+   "input": "9999-12-31T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "9999-12-31T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "9999-12-31T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 253402300799000
+  },
+  {
+   "input": "9999-12-31T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-01-01T03:04:05Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -62167208155000
+  },
+  {
+   "input": "0000-01-01T03:04Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": -62167208160000
+  },
+  {
+   "input": "0000-01-01T03:04:5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-01-01T3:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "0000-01-01T23:59:59Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": -62167132801000
+  },
+  {
+   "input": "0000-01-01T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05+01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767319445000
+  },
+  {
+   "input": "2026-01-02T03:04:05-01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767326645000
+  },
+  {
+   "input": "2026-01-02T03:04:05+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05-23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767409385000
+  },
+  {
+   "input": "2026-01-02T03:04:05+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05+00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045000
+  },
+  {
+   "input": "2026-01-02T03:04:05-00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045000
+  },
+  {
+   "input": "2026-01-02T03:04:05+05:30",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767303245000
+  },
+  {
+   "input": "2026-01-02T03:04:05+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04+01:00",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767319440000
+  },
+  {
+   "input": "2026-01-02T03:04-01:00",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767326640000
+  },
+  {
+   "input": "2026-01-02T03:04+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04-23:59",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767409380000
+  },
+  {
+   "input": "2026-01-02T03:04+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04+00:00",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767323040000
+  },
+  {
+   "input": "2026-01-02T03:04-00:00",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767323040000
+  },
+  {
+   "input": "2026-01-02T03:04+05:30",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767303240000
+  },
+  {
+   "input": "2026-01-02T03:04+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:5UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T3:04:05UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59+01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767394799000
+  },
+  {
+   "input": "2026-01-02T23:59:59-01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767401999000
+  },
+  {
+   "input": "2026-01-02T23:59:59+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59-23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767484739000
+  },
+  {
+   "input": "2026-01-02T23:59:59+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59+00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767398399000
+  },
+  {
+   "input": "2026-01-02T23:59:59-00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767398399000
+  },
+  {
+   "input": "2026-01-02T23:59:59+05:30",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767378599000
+  },
+  {
+   "input": "2026-01-02T23:59:59+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:59UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60-00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60-01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T22:59:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T24:00:00UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:60:00UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T12:00:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767319445100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1-01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767326645100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1-23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767409385100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1-00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+05:30",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767303245100
+  },
+  {
+   "input": "2026-01-02T03:04:05.1+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.1UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767319445123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789-01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767326645123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789-23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767409385123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789-00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+05:30",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767303245123
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.123456789UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05. Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04.5UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767312000000
+  },
+  {
+   "input": "2026-01-02T00:00:00z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00+01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767308400000
+  },
+  {
+   "input": "2026-01-02T00:00:00-01:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767315600000
+  },
+  {
+   "input": "2026-01-02T00:00:00+0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00+01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00-23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767398340000
+  },
+  {
+   "input": "2026-01-02T00:00:00+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00+00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767312000000
+  },
+  {
+   "input": "2026-01-02T00:00:00-00:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767312000000
+  },
+  {
+   "input": "2026-01-02T00:00:00+05:30",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767292200000
+  },
+  {
+   "input": "2026-01-02T00:00:00+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:00:00UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60-00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T19:59:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999-00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T23:59:60.999UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02t03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02t03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02t03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\t03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\t03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\t03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\n03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\n03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02\n03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02　03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02　03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02　03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05+01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02x03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02x03:04:05+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02x03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-0203:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-0203:04:05+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-0203:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02TT03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02TT03:04:05+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02TT03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 T03:04:05+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02 T03:04:05",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60Z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60z",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60-23:59",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+24:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+23:60",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60-00:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+05:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60+1:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60 Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60Z ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:59:60UTC",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60+01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60-01:00",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60-01:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60+0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60-0100",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60-0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60-0100",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60+01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60-01",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60-01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60-01",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60+00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60+00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60+00:30",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60+00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:59:60-00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T22:59:60-00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T00:29:60-00:30",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-01T23:29:60-00:30",
+   "ajv": true,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "yesterday",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05Z\u0000",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "\u00002026-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": " 2026-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "２０２６-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05ZZ",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05+01:00:00",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05,5Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "+002026-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "-2026-01-02T03:04:05Z",
+   "ajv": false,
+   "zod": false,
+   "dateMs": null
+  },
+  {
+   "input": "2026-01-02T03:04:05.11111111111111111111111111111111111111111111111111111111111111111111111111111111Z",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767323045111
+  },
+  {
+   "input": "2026-01-02T03:04:59.9999999999999999999999999999999999999999Z",
+   "ajv": false,
+   "zod": true,
+   "dateMs": 1767323099999
+  },
+  {
+   "input": "2026-01-02T03:04:05.000000000000000000001+14:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767272645000
+  },
+  {
+   "input": "2026-01-02T03:04:05-12:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767366245000
+  },
+  {
+   "input": "2026-01-02T03:04:05+14:00",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767272645000
+  },
+  {
+   "input": "2026-01-02T03:04:05+23:59",
+   "ajv": true,
+   "zod": true,
+   "dateMs": 1767236705000
+  }
+ ]
+}

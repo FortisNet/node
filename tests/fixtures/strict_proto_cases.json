@@ -1,0 +1,53 @@
+{
+  "comparison": [
+    "protobufFiatBom"
+  ],
+  "quotes": [
+    "pb-amount-bom",
+    "pb-provider-bom",
+    "pb-slippage-uint32-wrap",
+    "pb-amount-wire-varint",
+    "pb-slippage-wire-ld",
+    "pb-from-wire-fixed32",
+    "pb-endpoint-overrun"
+  ],
+  "status": [
+    "pb-provider-bom",
+    "pb-decimals-uint32-wrap",
+    "pb-provider-wire-varint",
+    "pb-decimals-wire-ld",
+    "pb-tx-wire-fixed64",
+    "pb-unknown-11-byte-varint"
+  ],
+  "R43": [
+    "pb-from-bom",
+    "pb-to-bom",
+    "pb-data-bom",
+    "pb-value-bom",
+    "pb-call-overrun",
+    "pb-from-varint-wire",
+    "pb-call-fixed32-wire",
+    "pb-unknown-varint-long",
+    "pb-varint-11-bytes"
+  ],
+  "R44": [
+    "pb-ticket-bom",
+    "pb-signature-bom",
+    "pb-unknown-fields",
+    "pb-ticket-varint-wire"
+  ],
+  "R45": [
+    "pb-from-bom",
+    "pb-gas-bom",
+    "pb-call-overrun"
+  ],
+  "bittensor": [
+    "pb-path-wire-fixed32",
+    "pb-unknown-long-varint",
+    "pb-entry-unknown-before-key"
+  ],
+  "markets": [
+    "pb-fiat-bom",
+    "pb-unknown-long-varint"
+  ]
+}

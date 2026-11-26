@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "fortisnet/intelligence/v1/prices.proto";
+import "google/protobuf/struct.proto";
+
+message MarketBatchRequest {
+  repeated string ids = 1;
+  optional string fiat = 2;
+}
+
+message MarketBatchResponse {
+  // Provider market attributes are extensible; the envelope is typed while
+  // each market row retains its full provider-specific shape.
+  repeated google.protobuf.Struct markets = 1;
+  repeated string pending = 2;
+  CacheInfo cache = 3;
+}
+
+message OhlcPoint {
+  int64 unix_millis = 1;
+  double open = 2;
+  double high = 3;
+  double low = 4;
+  double close = 5;
+}
+
+message OhlcResponse {
+  repeated OhlcPoint points = 1;
+  CacheInfo cache = 2;
+}

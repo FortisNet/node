@@ -1,0 +1,1255 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "provider": "server/intelligence/src/upstream/tronscan.ts",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "maxIds": 100,
+    "apiKeyHeader": "TRON-PRO-API-KEY"
+  },
+  "ids": {
+    "A": "1001",
+    "B": "1002",
+    "C": "1003",
+    "D": "1004",
+    "E": "1005",
+    "F": "1006",
+    "G": "1007",
+    "H": "1008"
+  },
+  "providerRequests": [
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": true,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": true,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 503
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 503
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 503
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": true,
+      "status": 401
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": true,
+      "status": 403
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": false,
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "keyed": true,
+      "status": 429
+    }
+  ],
+  "cases": {
+    "keyless": {
+      "segment": "keyless",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "keyed": {
+      "segment": "keyed",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "restartCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "expiredRefetch": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "canonicalAliases": {
+      "segment": "canonicalAliases",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:001001",
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:001001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "numericAndStringPrices": {
+      "segment": "numericAndStringPrices",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001",
+          "tron:trc10:1002",
+          "tron:trc10:1007",
+          "tron:trc10:1008"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1002": {
+            "sourceId": "tron:trc10:1002",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1007": {
+            "sourceId": "tron:trc10:1007",
+            "price": 125,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1008": {
+            "sourceId": "tron:trc10:1008",
+            "price": 16,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 5
+    },
+    "zeroNegativeMalformedAndWrongType": {
+      "segment": "zeroNegativeMalformedAndWrongType",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1003",
+          "tron:trc10:1004",
+          "tron:trc10:1005",
+          "tron:trc10:1006"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1003",
+          "tron:trc10:1004",
+          "tron:trc10:1005",
+          "tron:trc10:1006"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "missingRows": {
+      "segment": "missingRows",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1010"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1010"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "malformedData": {
+      "segment": "malformedData",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1011"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1011"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "duplicateRowsLastWins": {
+      "segment": "duplicateRowsLastWins",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 2.75,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 9
+    },
+    "negativeCached": {
+      "segment": "negativeCached",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1003",
+          "tron:trc10:1004"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1003",
+          "tron:trc10:1004"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 10
+    },
+    "negativeRestartHit": {
+      "segment": "negativeRestartHit",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1003"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1003"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 10
+    },
+    "nonUsdNegative": {
+      "segment": "nonUsdNegative",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1001"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 10
+    },
+    "nonUsdNegativeCached": {
+      "segment": "nonUsdNegativeCached",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1001"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 10
+    },
+    "mixedProviders": {
+      "segment": "mixedProviders",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001",
+          "asa:31566705",
+          "spl:So11111111111111111111111111111111111111112",
+          "bitcoin"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 3.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "bitcoin": {
+            "sourceId": "bitcoin",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 14
+    },
+    "hundredIds": {
+      "segment": "hundredIds",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:20000000",
+          "tron:trc10:20000001",
+          "tron:trc10:20000002",
+          "tron:trc10:20000003",
+          "tron:trc10:20000004",
+          "tron:trc10:20000005",
+          "tron:trc10:20000006",
+          "tron:trc10:20000007",
+          "tron:trc10:20000008",
+          "tron:trc10:20000009",
+          "tron:trc10:20000010",
+          "tron:trc10:20000011",
+          "tron:trc10:20000012",
+          "tron:trc10:20000013",
+          "tron:trc10:20000014",
+          "tron:trc10:20000015",
+          "tron:trc10:20000016",
+          "tron:trc10:20000017",
+          "tron:trc10:20000018",
+          "tron:trc10:20000019",
+          "tron:trc10:20000020",
+          "tron:trc10:20000021",
+          "tron:trc10:20000022",
+          "tron:trc10:20000023",
+          "tron:trc10:20000024",
+          "tron:trc10:20000025",
+          "tron:trc10:20000026",
+          "tron:trc10:20000027",
+          "tron:trc10:20000028",
+          "tron:trc10:20000029",
+          "tron:trc10:20000030",
+          "tron:trc10:20000031",
+          "tron:trc10:20000032",
+          "tron:trc10:20000033",
+          "tron:trc10:20000034",
+          "tron:trc10:20000035",
+          "tron:trc10:20000036",
+          "tron:trc10:20000037",
+          "tron:trc10:20000038",
+          "tron:trc10:20000039",
+          "tron:trc10:20000040",
+          "tron:trc10:20000041",
+          "tron:trc10:20000042",
+          "tron:trc10:20000043",
+          "tron:trc10:20000044",
+          "tron:trc10:20000045",
+          "tron:trc10:20000046",
+          "tron:trc10:20000047",
+          "tron:trc10:20000048",
+          "tron:trc10:20000049",
+          "tron:trc10:20000050",
+          "tron:trc10:20000051",
+          "tron:trc10:20000052",
+          "tron:trc10:20000053",
+          "tron:trc10:20000054",
+          "tron:trc10:20000055",
+          "tron:trc10:20000056",
+          "tron:trc10:20000057",
+          "tron:trc10:20000058",
+          "tron:trc10:20000059",
+          "tron:trc10:20000060",
+          "tron:trc10:20000061",
+          "tron:trc10:20000062",
+          "tron:trc10:20000063",
+          "tron:trc10:20000064",
+          "tron:trc10:20000065",
+          "tron:trc10:20000066",
+          "tron:trc10:20000067",
+          "tron:trc10:20000068",
+          "tron:trc10:20000069",
+          "tron:trc10:20000070",
+          "tron:trc10:20000071",
+          "tron:trc10:20000072",
+          "tron:trc10:20000073",
+          "tron:trc10:20000074",
+          "tron:trc10:20000075",
+          "tron:trc10:20000076",
+          "tron:trc10:20000077",
+          "tron:trc10:20000078",
+          "tron:trc10:20000079",
+          "tron:trc10:20000080",
+          "tron:trc10:20000081",
+          "tron:trc10:20000082",
+          "tron:trc10:20000083",
+          "tron:trc10:20000084",
+          "tron:trc10:20000085",
+          "tron:trc10:20000086",
+          "tron:trc10:20000087",
+          "tron:trc10:20000088",
+          "tron:trc10:20000089",
+          "tron:trc10:20000090",
+          "tron:trc10:20000091",
+          "tron:trc10:20000092",
+          "tron:trc10:20000093",
+          "tron:trc10:20000094",
+          "tron:trc10:20000095",
+          "tron:trc10:20000096",
+          "tron:trc10:20000097",
+          "tron:trc10:20000098",
+          "tron:trc10:20000099"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:20000000",
+          "tron:trc10:20000001",
+          "tron:trc10:20000002",
+          "tron:trc10:20000003",
+          "tron:trc10:20000004",
+          "tron:trc10:20000005",
+          "tron:trc10:20000006",
+          "tron:trc10:20000007",
+          "tron:trc10:20000008",
+          "tron:trc10:20000009",
+          "tron:trc10:20000010",
+          "tron:trc10:20000011",
+          "tron:trc10:20000012",
+          "tron:trc10:20000013",
+          "tron:trc10:20000014",
+          "tron:trc10:20000015",
+          "tron:trc10:20000016",
+          "tron:trc10:20000017",
+          "tron:trc10:20000018",
+          "tron:trc10:20000019",
+          "tron:trc10:20000020",
+          "tron:trc10:20000021",
+          "tron:trc10:20000022",
+          "tron:trc10:20000023",
+          "tron:trc10:20000024",
+          "tron:trc10:20000025",
+          "tron:trc10:20000026",
+          "tron:trc10:20000027",
+          "tron:trc10:20000028",
+          "tron:trc10:20000029",
+          "tron:trc10:20000030",
+          "tron:trc10:20000031",
+          "tron:trc10:20000032",
+          "tron:trc10:20000033",
+          "tron:trc10:20000034",
+          "tron:trc10:20000035",
+          "tron:trc10:20000036",
+          "tron:trc10:20000037",
+          "tron:trc10:20000038",
+          "tron:trc10:20000039",
+          "tron:trc10:20000040",
+          "tron:trc10:20000041",
+          "tron:trc10:20000042",
+          "tron:trc10:20000043",
+          "tron:trc10:20000044",
+          "tron:trc10:20000045",
+          "tron:trc10:20000046",
+          "tron:trc10:20000047",
+          "tron:trc10:20000048",
+          "tron:trc10:20000049",
+          "tron:trc10:20000050",
+          "tron:trc10:20000051",
+          "tron:trc10:20000052",
+          "tron:trc10:20000053",
+          "tron:trc10:20000054",
+          "tron:trc10:20000055",
+          "tron:trc10:20000056",
+          "tron:trc10:20000057",
+          "tron:trc10:20000058",
+          "tron:trc10:20000059",
+          "tron:trc10:20000060",
+          "tron:trc10:20000061",
+          "tron:trc10:20000062",
+          "tron:trc10:20000063",
+          "tron:trc10:20000064",
+          "tron:trc10:20000065",
+          "tron:trc10:20000066",
+          "tron:trc10:20000067",
+          "tron:trc10:20000068",
+          "tron:trc10:20000069",
+          "tron:trc10:20000070",
+          "tron:trc10:20000071",
+          "tron:trc10:20000072",
+          "tron:trc10:20000073",
+          "tron:trc10:20000074",
+          "tron:trc10:20000075",
+          "tron:trc10:20000076",
+          "tron:trc10:20000077",
+          "tron:trc10:20000078",
+          "tron:trc10:20000079",
+          "tron:trc10:20000080",
+          "tron:trc10:20000081",
+          "tron:trc10:20000082",
+          "tron:trc10:20000083",
+          "tron:trc10:20000084",
+          "tron:trc10:20000085",
+          "tron:trc10:20000086",
+          "tron:trc10:20000087",
+          "tron:trc10:20000088",
+          "tron:trc10:20000089",
+          "tron:trc10:20000090",
+          "tron:trc10:20000091",
+          "tron:trc10:20000092",
+          "tron:trc10:20000093",
+          "tron:trc10:20000094",
+          "tron:trc10:20000095",
+          "tron:trc10:20000096",
+          "tron:trc10:20000097",
+          "tron:trc10:20000098",
+          "tron:trc10:20000099"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 15
+    },
+    "protobuf": {
+      "segment": "protobuf",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1002"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "tron:trc10:1002": {
+              "sourceId": "tron:trc10:1002",
+              "price": 2.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "tronscan",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a0375736412530a0f74726f6e3a74726331303a3130303212400a0f74726f6e3a74726331303a313030321100000000000004402218323032362d30312d30325430333a30343a30352e3030305a320874726f6e7363616e3a00"
+      },
+      "providerCalls": 16
+    },
+    "providerFailure": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1001"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 19
+    },
+    "providerRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 20
+    },
+    "cachedAfterRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 20
+    },
+    "retry401": {
+      "segment": "retry401",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 22
+    },
+    "retry403": {
+      "segment": "retry403",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc10:1001": {
+            "sourceId": "tron:trc10:1001",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "retry429": {
+      "segment": "retry429",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc10:1001"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "tron:trc10:1001"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 25
+    }
+  }
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "google/protobuf/struct.proto";
+import "fortisnet/intelligence/v1/prices.proto";
+
+message BittensorAnalyticsRequest {
+  string path = 1;
+  google.protobuf.Struct query = 2;
+}
+
+message BittensorAnalyticsResponse {
+  google.protobuf.Value payload = 1;
+  CacheInfo cache = 2;
+}

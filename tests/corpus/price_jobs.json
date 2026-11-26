@@ -1,0 +1,4300 @@
+{
+  "source": {
+    "job": "server/intelligence/src/index.ts main() RecurringJob 2 and the 10 s maintenance timer",
+    "facet": "server/intelligence/src/facets/prices.ts PricesFacet.refreshActive",
+    "store": "server/intelligence/src/db/price_series_store.ts recentSpots / sealDue / sealDueYielding",
+    "policy": "server/intelligence/src/policy/token_workloads.ts TOKEN_WORKLOADS.price",
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "policy": {
+    "intervalMs": 300000,
+    "cap": 200,
+    "tier1DueMs": 900000
+  },
+  "schedule": {
+    "job": {
+      "intervalMs": 300000,
+      "initialDelay": "random() * intervalMs",
+      "jitterPct": 0.1,
+      "completionScheduled": true
+    },
+    "timer": {
+      "intervalMs": 10000,
+      "sweepLimit": 256,
+      "sealLimit": 1024,
+      "skipWhileRunning": true
+    }
+  },
+  "scenarios": [
+    {
+      "name": "ordering",
+      "cap": 200,
+      "seed": {
+        "demand": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "native",
+            "sourceId": "ethereum",
+            "priceTier": 1,
+            "priceScore": "5",
+            "lastRefreshedAt": -1200000
+          },
+          {
+            "network": "bitcoin",
+            "tokenId": "native",
+            "sourceId": "bitcoin",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": -60000
+          },
+          {
+            "network": "solana",
+            "tokenId": "native",
+            "sourceId": "solana",
+            "priceTier": 1,
+            "priceScore": "9",
+            "lastRefreshedAt": -600000
+          },
+          {
+            "network": "dogecoin",
+            "tokenId": "native",
+            "sourceId": "dogecoin",
+            "priceTier": 2,
+            "priceScore": "100",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "cardano",
+            "tokenId": "native",
+            "sourceId": "cardano",
+            "priceTier": 1,
+            "priceScore": "7",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "polygon",
+            "tokenId": "native",
+            "sourceId": "matic-network",
+            "priceTier": 1,
+            "priceScore": "7",
+            "lastRefreshedAt": -900000
+          },
+          {
+            "network": "tron",
+            "tokenId": "native",
+            "sourceId": "tron",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "base",
+            "tokenId": "native",
+            "sourceId": "ethereum",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": -1800000
+          },
+          {
+            "network": "noprice",
+            "tokenId": "native",
+            "sourceId": null,
+            "priceTier": 0,
+            "priceScore": "50",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "avalanche",
+            "tokenId": "native",
+            "sourceId": "avalanche-2",
+            "priceTier": 1,
+            "priceScore": "abc",
+            "lastRefreshedAt": -1200000
+          },
+          {
+            "network": "near",
+            "tokenId": "native",
+            "sourceId": "near",
+            "priceTier": 1,
+            "priceScore": "6",
+            "lastRefreshedAt": -899999
+          },
+          {
+            "network": "litecoin",
+            "tokenId": "native",
+            "sourceId": "litecoin",
+            "priceTier": 3,
+            "priceScore": "80",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "arbitrum",
+            "tokenId": "eth",
+            "sourceId": "ethereum",
+            "priceTier": 3,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          }
+        ],
+        "spots": [
+          {
+            "fiat": "usd",
+            "sourceId": "ripple",
+            "price": 0.5,
+            "asOf": -3600000
+          }
+        ],
+        "prewarm": []
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "tron": 1,
+            "ethereum": 2,
+            "bitcoin": 3,
+            "cardano": 4,
+            "avalanche-2": 5,
+            "matic-network": 6,
+            "ripple": 7,
+            "solana": 8,
+            "near": 9
+          }
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "tron",
+            "ethereum",
+            "bitcoin",
+            "cardano",
+            "avalanche-2",
+            "matic-network",
+            "ripple"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "tron",
+            "ethereum",
+            "bitcoin",
+            "cardano",
+            "avalanche-2",
+            "matic-network",
+            "ripple"
+          ]
+        }
+      ],
+      "refreshed": 7,
+      "demand": [
+        {
+          "network": "eth-mainnet",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "bitcoin",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "solana",
+          "tokenId": "native",
+          "lastRefreshedAt": -600000
+        },
+        {
+          "network": "dogecoin",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "cardano",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "polygon",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "tron",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "base",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "noprice",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "avalanche",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "near",
+          "tokenId": "native",
+          "lastRefreshedAt": -899999
+        },
+        {
+          "network": "litecoin",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "arbitrum",
+          "tokenId": "eth",
+          "lastRefreshedAt": 0
+        }
+      ]
+    },
+    {
+      "name": "cap",
+      "cap": 200,
+      "seed": {
+        "demand": [
+          {
+            "network": "net-000",
+            "tokenId": "native",
+            "sourceId": "coin-000",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-001",
+            "tokenId": "native",
+            "sourceId": "coin-001",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-002",
+            "tokenId": "native",
+            "sourceId": "coin-002",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-003",
+            "tokenId": "native",
+            "sourceId": "coin-003",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-004",
+            "tokenId": "native",
+            "sourceId": "coin-004",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-005",
+            "tokenId": "native",
+            "sourceId": "coin-005",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-006",
+            "tokenId": "native",
+            "sourceId": "coin-006",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-007",
+            "tokenId": "native",
+            "sourceId": "coin-007",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-008",
+            "tokenId": "native",
+            "sourceId": "coin-008",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-009",
+            "tokenId": "native",
+            "sourceId": "coin-009",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-010",
+            "tokenId": "native",
+            "sourceId": "coin-010",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-011",
+            "tokenId": "native",
+            "sourceId": "coin-011",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-012",
+            "tokenId": "native",
+            "sourceId": "coin-012",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-013",
+            "tokenId": "native",
+            "sourceId": "coin-013",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-014",
+            "tokenId": "native",
+            "sourceId": "coin-014",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-015",
+            "tokenId": "native",
+            "sourceId": "coin-015",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-016",
+            "tokenId": "native",
+            "sourceId": "coin-016",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-017",
+            "tokenId": "native",
+            "sourceId": "coin-017",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-018",
+            "tokenId": "native",
+            "sourceId": "coin-018",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-019",
+            "tokenId": "native",
+            "sourceId": "coin-019",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-020",
+            "tokenId": "native",
+            "sourceId": "coin-020",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-021",
+            "tokenId": "native",
+            "sourceId": "coin-021",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-022",
+            "tokenId": "native",
+            "sourceId": "coin-022",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-023",
+            "tokenId": "native",
+            "sourceId": "coin-023",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-024",
+            "tokenId": "native",
+            "sourceId": "coin-024",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-025",
+            "tokenId": "native",
+            "sourceId": "coin-025",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-026",
+            "tokenId": "native",
+            "sourceId": "coin-026",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-027",
+            "tokenId": "native",
+            "sourceId": "coin-027",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-028",
+            "tokenId": "native",
+            "sourceId": "coin-028",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-029",
+            "tokenId": "native",
+            "sourceId": "coin-029",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-030",
+            "tokenId": "native",
+            "sourceId": "coin-030",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-031",
+            "tokenId": "native",
+            "sourceId": "coin-031",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-032",
+            "tokenId": "native",
+            "sourceId": "coin-032",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-033",
+            "tokenId": "native",
+            "sourceId": "coin-033",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-034",
+            "tokenId": "native",
+            "sourceId": "coin-034",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-035",
+            "tokenId": "native",
+            "sourceId": "coin-035",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-036",
+            "tokenId": "native",
+            "sourceId": "coin-036",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-037",
+            "tokenId": "native",
+            "sourceId": "coin-037",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-038",
+            "tokenId": "native",
+            "sourceId": "coin-038",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-039",
+            "tokenId": "native",
+            "sourceId": "coin-039",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-040",
+            "tokenId": "native",
+            "sourceId": "coin-040",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-041",
+            "tokenId": "native",
+            "sourceId": "coin-041",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-042",
+            "tokenId": "native",
+            "sourceId": "coin-042",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-043",
+            "tokenId": "native",
+            "sourceId": "coin-043",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-044",
+            "tokenId": "native",
+            "sourceId": "coin-044",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-045",
+            "tokenId": "native",
+            "sourceId": "coin-045",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-046",
+            "tokenId": "native",
+            "sourceId": "coin-046",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-047",
+            "tokenId": "native",
+            "sourceId": "coin-047",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-048",
+            "tokenId": "native",
+            "sourceId": "coin-048",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-049",
+            "tokenId": "native",
+            "sourceId": "coin-049",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-050",
+            "tokenId": "native",
+            "sourceId": "coin-050",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-051",
+            "tokenId": "native",
+            "sourceId": "coin-051",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-052",
+            "tokenId": "native",
+            "sourceId": "coin-052",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-053",
+            "tokenId": "native",
+            "sourceId": "coin-053",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-054",
+            "tokenId": "native",
+            "sourceId": "coin-054",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-055",
+            "tokenId": "native",
+            "sourceId": "coin-055",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-056",
+            "tokenId": "native",
+            "sourceId": "coin-056",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-057",
+            "tokenId": "native",
+            "sourceId": "coin-057",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-058",
+            "tokenId": "native",
+            "sourceId": "coin-058",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-059",
+            "tokenId": "native",
+            "sourceId": "coin-059",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-060",
+            "tokenId": "native",
+            "sourceId": "coin-060",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-061",
+            "tokenId": "native",
+            "sourceId": "coin-061",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-062",
+            "tokenId": "native",
+            "sourceId": "coin-062",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-063",
+            "tokenId": "native",
+            "sourceId": "coin-063",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-064",
+            "tokenId": "native",
+            "sourceId": "coin-064",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-065",
+            "tokenId": "native",
+            "sourceId": "coin-065",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-066",
+            "tokenId": "native",
+            "sourceId": "coin-066",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-067",
+            "tokenId": "native",
+            "sourceId": "coin-067",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-068",
+            "tokenId": "native",
+            "sourceId": "coin-068",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-069",
+            "tokenId": "native",
+            "sourceId": "coin-069",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-070",
+            "tokenId": "native",
+            "sourceId": "coin-070",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-071",
+            "tokenId": "native",
+            "sourceId": "coin-071",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-072",
+            "tokenId": "native",
+            "sourceId": "coin-072",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-073",
+            "tokenId": "native",
+            "sourceId": "coin-073",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-074",
+            "tokenId": "native",
+            "sourceId": "coin-074",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-075",
+            "tokenId": "native",
+            "sourceId": "coin-075",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-076",
+            "tokenId": "native",
+            "sourceId": "coin-076",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-077",
+            "tokenId": "native",
+            "sourceId": "coin-077",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-078",
+            "tokenId": "native",
+            "sourceId": "coin-078",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-079",
+            "tokenId": "native",
+            "sourceId": "coin-079",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-080",
+            "tokenId": "native",
+            "sourceId": "coin-080",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-081",
+            "tokenId": "native",
+            "sourceId": "coin-081",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-082",
+            "tokenId": "native",
+            "sourceId": "coin-082",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-083",
+            "tokenId": "native",
+            "sourceId": "coin-083",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-084",
+            "tokenId": "native",
+            "sourceId": "coin-084",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-085",
+            "tokenId": "native",
+            "sourceId": "coin-085",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-086",
+            "tokenId": "native",
+            "sourceId": "coin-086",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-087",
+            "tokenId": "native",
+            "sourceId": "coin-087",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-088",
+            "tokenId": "native",
+            "sourceId": "coin-088",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-089",
+            "tokenId": "native",
+            "sourceId": "coin-089",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-090",
+            "tokenId": "native",
+            "sourceId": "coin-090",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-091",
+            "tokenId": "native",
+            "sourceId": "coin-091",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-092",
+            "tokenId": "native",
+            "sourceId": "coin-092",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-093",
+            "tokenId": "native",
+            "sourceId": "coin-093",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-094",
+            "tokenId": "native",
+            "sourceId": "coin-094",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-095",
+            "tokenId": "native",
+            "sourceId": "coin-095",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-096",
+            "tokenId": "native",
+            "sourceId": "coin-096",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-097",
+            "tokenId": "native",
+            "sourceId": "coin-097",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-098",
+            "tokenId": "native",
+            "sourceId": "coin-098",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-099",
+            "tokenId": "native",
+            "sourceId": "coin-099",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-100",
+            "tokenId": "native",
+            "sourceId": "coin-100",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-101",
+            "tokenId": "native",
+            "sourceId": "coin-101",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-102",
+            "tokenId": "native",
+            "sourceId": "coin-102",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-103",
+            "tokenId": "native",
+            "sourceId": "coin-103",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-104",
+            "tokenId": "native",
+            "sourceId": "coin-104",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-105",
+            "tokenId": "native",
+            "sourceId": "coin-105",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-106",
+            "tokenId": "native",
+            "sourceId": "coin-106",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-107",
+            "tokenId": "native",
+            "sourceId": "coin-107",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-108",
+            "tokenId": "native",
+            "sourceId": "coin-108",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-109",
+            "tokenId": "native",
+            "sourceId": "coin-109",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-110",
+            "tokenId": "native",
+            "sourceId": "coin-110",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-111",
+            "tokenId": "native",
+            "sourceId": "coin-111",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-112",
+            "tokenId": "native",
+            "sourceId": "coin-112",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-113",
+            "tokenId": "native",
+            "sourceId": "coin-113",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-114",
+            "tokenId": "native",
+            "sourceId": "coin-114",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-115",
+            "tokenId": "native",
+            "sourceId": "coin-115",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-116",
+            "tokenId": "native",
+            "sourceId": "coin-116",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-117",
+            "tokenId": "native",
+            "sourceId": "coin-117",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-118",
+            "tokenId": "native",
+            "sourceId": "coin-118",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-119",
+            "tokenId": "native",
+            "sourceId": "coin-119",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-120",
+            "tokenId": "native",
+            "sourceId": "coin-120",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-121",
+            "tokenId": "native",
+            "sourceId": "coin-121",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-122",
+            "tokenId": "native",
+            "sourceId": "coin-122",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-123",
+            "tokenId": "native",
+            "sourceId": "coin-123",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-124",
+            "tokenId": "native",
+            "sourceId": "coin-124",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-125",
+            "tokenId": "native",
+            "sourceId": "coin-125",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-126",
+            "tokenId": "native",
+            "sourceId": "coin-126",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-127",
+            "tokenId": "native",
+            "sourceId": "coin-127",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-128",
+            "tokenId": "native",
+            "sourceId": "coin-128",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-129",
+            "tokenId": "native",
+            "sourceId": "coin-129",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-130",
+            "tokenId": "native",
+            "sourceId": "coin-130",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-131",
+            "tokenId": "native",
+            "sourceId": "coin-131",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-132",
+            "tokenId": "native",
+            "sourceId": "coin-132",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-133",
+            "tokenId": "native",
+            "sourceId": "coin-133",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-134",
+            "tokenId": "native",
+            "sourceId": "coin-134",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-135",
+            "tokenId": "native",
+            "sourceId": "coin-135",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-136",
+            "tokenId": "native",
+            "sourceId": "coin-136",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-137",
+            "tokenId": "native",
+            "sourceId": "coin-137",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-138",
+            "tokenId": "native",
+            "sourceId": "coin-138",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-139",
+            "tokenId": "native",
+            "sourceId": "coin-139",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-140",
+            "tokenId": "native",
+            "sourceId": "coin-140",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-141",
+            "tokenId": "native",
+            "sourceId": "coin-141",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-142",
+            "tokenId": "native",
+            "sourceId": "coin-142",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-143",
+            "tokenId": "native",
+            "sourceId": "coin-143",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-144",
+            "tokenId": "native",
+            "sourceId": "coin-144",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-145",
+            "tokenId": "native",
+            "sourceId": "coin-145",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-146",
+            "tokenId": "native",
+            "sourceId": "coin-146",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-147",
+            "tokenId": "native",
+            "sourceId": "coin-147",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-148",
+            "tokenId": "native",
+            "sourceId": "coin-148",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-149",
+            "tokenId": "native",
+            "sourceId": "coin-149",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-150",
+            "tokenId": "native",
+            "sourceId": "coin-150",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-151",
+            "tokenId": "native",
+            "sourceId": "coin-151",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-152",
+            "tokenId": "native",
+            "sourceId": "coin-152",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-153",
+            "tokenId": "native",
+            "sourceId": "coin-153",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-154",
+            "tokenId": "native",
+            "sourceId": "coin-154",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-155",
+            "tokenId": "native",
+            "sourceId": "coin-155",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-156",
+            "tokenId": "native",
+            "sourceId": "coin-156",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-157",
+            "tokenId": "native",
+            "sourceId": "coin-157",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-158",
+            "tokenId": "native",
+            "sourceId": "coin-158",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-159",
+            "tokenId": "native",
+            "sourceId": "coin-159",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-160",
+            "tokenId": "native",
+            "sourceId": "coin-160",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-161",
+            "tokenId": "native",
+            "sourceId": "coin-161",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-162",
+            "tokenId": "native",
+            "sourceId": "coin-162",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-163",
+            "tokenId": "native",
+            "sourceId": "coin-163",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-164",
+            "tokenId": "native",
+            "sourceId": "coin-164",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-165",
+            "tokenId": "native",
+            "sourceId": "coin-165",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-166",
+            "tokenId": "native",
+            "sourceId": "coin-166",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-167",
+            "tokenId": "native",
+            "sourceId": "coin-167",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-168",
+            "tokenId": "native",
+            "sourceId": "coin-168",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-169",
+            "tokenId": "native",
+            "sourceId": "coin-169",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-170",
+            "tokenId": "native",
+            "sourceId": "coin-170",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-171",
+            "tokenId": "native",
+            "sourceId": "coin-171",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-172",
+            "tokenId": "native",
+            "sourceId": "coin-172",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-173",
+            "tokenId": "native",
+            "sourceId": "coin-173",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-174",
+            "tokenId": "native",
+            "sourceId": "coin-174",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-175",
+            "tokenId": "native",
+            "sourceId": "coin-175",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-176",
+            "tokenId": "native",
+            "sourceId": "coin-176",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-177",
+            "tokenId": "native",
+            "sourceId": "coin-177",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-178",
+            "tokenId": "native",
+            "sourceId": "coin-178",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-179",
+            "tokenId": "native",
+            "sourceId": "coin-179",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-180",
+            "tokenId": "native",
+            "sourceId": "coin-180",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-181",
+            "tokenId": "native",
+            "sourceId": "coin-181",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-182",
+            "tokenId": "native",
+            "sourceId": "coin-182",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-183",
+            "tokenId": "native",
+            "sourceId": "coin-183",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-184",
+            "tokenId": "native",
+            "sourceId": "coin-184",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-185",
+            "tokenId": "native",
+            "sourceId": "coin-185",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-186",
+            "tokenId": "native",
+            "sourceId": "coin-186",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-187",
+            "tokenId": "native",
+            "sourceId": "coin-187",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-188",
+            "tokenId": "native",
+            "sourceId": "coin-188",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-189",
+            "tokenId": "native",
+            "sourceId": "coin-189",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-190",
+            "tokenId": "native",
+            "sourceId": "coin-190",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-191",
+            "tokenId": "native",
+            "sourceId": "coin-191",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-192",
+            "tokenId": "native",
+            "sourceId": "coin-192",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-193",
+            "tokenId": "native",
+            "sourceId": "coin-193",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-194",
+            "tokenId": "native",
+            "sourceId": "coin-194",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-195",
+            "tokenId": "native",
+            "sourceId": "coin-195",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-196",
+            "tokenId": "native",
+            "sourceId": "coin-196",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-197",
+            "tokenId": "native",
+            "sourceId": "coin-197",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-198",
+            "tokenId": "native",
+            "sourceId": "coin-198",
+            "priceTier": 0,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-199",
+            "tokenId": "native",
+            "sourceId": "coin-199",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-200",
+            "tokenId": "native",
+            "sourceId": "coin-200",
+            "priceTier": 0,
+            "priceScore": "4",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-201",
+            "tokenId": "native",
+            "sourceId": "coin-201",
+            "priceTier": 0,
+            "priceScore": "5",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-202",
+            "tokenId": "native",
+            "sourceId": "coin-202",
+            "priceTier": 0,
+            "priceScore": "6",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-203",
+            "tokenId": "native",
+            "sourceId": "coin-203",
+            "priceTier": 0,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "net-204",
+            "tokenId": "native",
+            "sourceId": "coin-204",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          }
+        ],
+        "spots": [
+          {
+            "fiat": "usd",
+            "sourceId": "recent-a",
+            "price": 1,
+            "asOf": -3600000
+          },
+          {
+            "fiat": "eur",
+            "sourceId": "recent-b",
+            "price": 1,
+            "asOf": -7200000
+          }
+        ],
+        "prewarm": []
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "coin-000": 1,
+            "coin-001": 2,
+            "coin-002": 3,
+            "coin-003": 4,
+            "coin-004": 5,
+            "coin-005": 6,
+            "coin-006": 7,
+            "coin-007": 8,
+            "coin-008": 9,
+            "coin-009": 10,
+            "coin-010": 11,
+            "coin-011": 12,
+            "coin-012": 13,
+            "coin-013": 14,
+            "coin-014": 15,
+            "coin-015": 16,
+            "coin-016": 17,
+            "coin-017": 18,
+            "coin-018": 19,
+            "coin-019": 20,
+            "coin-020": 21,
+            "coin-021": 22,
+            "coin-022": 23,
+            "coin-023": 24,
+            "coin-024": 25,
+            "coin-025": 26,
+            "coin-026": 27,
+            "coin-027": 28,
+            "coin-028": 29,
+            "coin-029": 30,
+            "coin-030": 31,
+            "coin-031": 32,
+            "coin-032": 33,
+            "coin-033": 34,
+            "coin-034": 35,
+            "coin-035": 36,
+            "coin-036": 37,
+            "coin-037": 38,
+            "coin-038": 39,
+            "coin-039": 40,
+            "coin-040": 41,
+            "coin-041": 42,
+            "coin-042": 43,
+            "coin-043": 44,
+            "coin-044": 45,
+            "coin-045": 46,
+            "coin-046": 47,
+            "coin-047": 48,
+            "coin-048": 49,
+            "coin-049": 50,
+            "coin-050": 51,
+            "coin-051": 52,
+            "coin-052": 53,
+            "coin-053": 54,
+            "coin-054": 55,
+            "coin-055": 56,
+            "coin-056": 57,
+            "coin-057": 58,
+            "coin-058": 59,
+            "coin-059": 60,
+            "coin-060": 61,
+            "coin-061": 62,
+            "coin-062": 63,
+            "coin-063": 64,
+            "coin-064": 65,
+            "coin-065": 66,
+            "coin-066": 67,
+            "coin-067": 68,
+            "coin-068": 69,
+            "coin-069": 70,
+            "coin-070": 71,
+            "coin-071": 72,
+            "coin-072": 73,
+            "coin-073": 74,
+            "coin-074": 75,
+            "coin-075": 76,
+            "coin-076": 77,
+            "coin-077": 78,
+            "coin-078": 79,
+            "coin-079": 80,
+            "coin-080": 81,
+            "coin-081": 82,
+            "coin-082": 83,
+            "coin-083": 84,
+            "coin-084": 85,
+            "coin-085": 86,
+            "coin-086": 87,
+            "coin-087": 88,
+            "coin-088": 89,
+            "coin-089": 90,
+            "coin-090": 91,
+            "coin-091": 92,
+            "coin-092": 93,
+            "coin-093": 94,
+            "coin-094": 95,
+            "coin-095": 96,
+            "coin-096": 97,
+            "coin-097": 98,
+            "coin-098": 99,
+            "coin-099": 100,
+            "coin-100": 101,
+            "coin-101": 102,
+            "coin-102": 103,
+            "coin-103": 104,
+            "coin-104": 105,
+            "coin-105": 106,
+            "coin-106": 107,
+            "coin-107": 108,
+            "coin-108": 109,
+            "coin-109": 110,
+            "coin-110": 111,
+            "coin-111": 112,
+            "coin-112": 113,
+            "coin-113": 114,
+            "coin-114": 115,
+            "coin-115": 116,
+            "coin-116": 117,
+            "coin-117": 118,
+            "coin-118": 119,
+            "coin-119": 120,
+            "coin-120": 121,
+            "coin-121": 122,
+            "coin-122": 123,
+            "coin-123": 124,
+            "coin-124": 125,
+            "coin-125": 126,
+            "coin-126": 127,
+            "coin-127": 128,
+            "coin-128": 129,
+            "coin-129": 130,
+            "coin-130": 131,
+            "coin-131": 132,
+            "coin-132": 133,
+            "coin-133": 134,
+            "coin-134": 135,
+            "coin-135": 136,
+            "coin-136": 137,
+            "coin-137": 138,
+            "coin-138": 139,
+            "coin-139": 140,
+            "coin-140": 141,
+            "coin-141": 142,
+            "coin-142": 143,
+            "coin-143": 144,
+            "coin-144": 145,
+            "coin-145": 146,
+            "coin-146": 147,
+            "coin-147": 148,
+            "coin-148": 149,
+            "coin-149": 150,
+            "coin-150": 151,
+            "coin-151": 152,
+            "coin-152": 153,
+            "coin-153": 154,
+            "coin-154": 155,
+            "coin-155": 156,
+            "coin-156": 157,
+            "coin-157": 158,
+            "coin-158": 159,
+            "coin-159": 160,
+            "coin-160": 161,
+            "coin-161": 162,
+            "coin-162": 163,
+            "coin-163": 164,
+            "coin-164": 165,
+            "coin-165": 166,
+            "coin-166": 167,
+            "coin-167": 168,
+            "coin-168": 169,
+            "coin-169": 170,
+            "coin-170": 171,
+            "coin-171": 172,
+            "coin-172": 173,
+            "coin-173": 174,
+            "coin-174": 175,
+            "coin-175": 176,
+            "coin-176": 177,
+            "coin-177": 178,
+            "coin-178": 179,
+            "coin-179": 180,
+            "coin-180": 181,
+            "coin-181": 182,
+            "coin-182": 183,
+            "coin-183": 184,
+            "coin-184": 185,
+            "coin-185": 186,
+            "coin-186": 187,
+            "coin-187": 188,
+            "coin-188": 189,
+            "coin-189": 190,
+            "coin-190": 191,
+            "coin-191": 192,
+            "coin-192": 193,
+            "coin-193": 194,
+            "coin-194": 195,
+            "coin-195": 196,
+            "coin-196": 197,
+            "coin-197": 198,
+            "coin-198": 199,
+            "coin-199": 200,
+            "coin-200": 201,
+            "coin-201": 202,
+            "coin-202": 203,
+            "coin-203": 204,
+            "coin-204": 205
+          }
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "coin-006",
+            "coin-013",
+            "coin-020",
+            "coin-027",
+            "coin-034",
+            "coin-041",
+            "coin-048",
+            "coin-055",
+            "coin-062",
+            "coin-069",
+            "coin-076",
+            "coin-083",
+            "coin-090",
+            "coin-097",
+            "coin-104",
+            "coin-111",
+            "coin-118",
+            "coin-125",
+            "coin-132",
+            "coin-139",
+            "coin-146",
+            "coin-153",
+            "coin-160",
+            "coin-167",
+            "coin-174",
+            "coin-181",
+            "coin-188",
+            "coin-195",
+            "coin-202",
+            "coin-005",
+            "coin-012",
+            "coin-019",
+            "coin-026",
+            "coin-033",
+            "coin-040",
+            "coin-047",
+            "coin-054",
+            "coin-061",
+            "coin-068",
+            "coin-075",
+            "coin-082",
+            "coin-089",
+            "coin-096",
+            "coin-103",
+            "coin-110",
+            "coin-117",
+            "coin-124",
+            "coin-131",
+            "coin-138",
+            "coin-145",
+            "coin-152",
+            "coin-159",
+            "coin-166",
+            "coin-173",
+            "coin-180",
+            "coin-187",
+            "coin-194",
+            "coin-201",
+            "coin-004",
+            "coin-011",
+            "coin-018",
+            "coin-025",
+            "coin-032",
+            "coin-039",
+            "coin-046",
+            "coin-053",
+            "coin-060",
+            "coin-067",
+            "coin-074",
+            "coin-081",
+            "coin-088",
+            "coin-095",
+            "coin-102",
+            "coin-109",
+            "coin-116",
+            "coin-123",
+            "coin-130",
+            "coin-137",
+            "coin-144",
+            "coin-151",
+            "coin-158",
+            "coin-165",
+            "coin-172",
+            "coin-179",
+            "coin-186",
+            "coin-193",
+            "coin-200",
+            "coin-003",
+            "coin-010",
+            "coin-017",
+            "coin-024",
+            "coin-031",
+            "coin-038",
+            "coin-045",
+            "coin-052",
+            "coin-059",
+            "coin-066",
+            "coin-073",
+            "coin-080",
+            "coin-087",
+            "coin-094",
+            "coin-101",
+            "coin-108",
+            "coin-115",
+            "coin-122",
+            "coin-129",
+            "coin-136",
+            "coin-143",
+            "coin-150",
+            "coin-157",
+            "coin-164",
+            "coin-171",
+            "coin-178",
+            "coin-185",
+            "coin-192",
+            "coin-199",
+            "coin-002",
+            "coin-009",
+            "coin-016",
+            "coin-023",
+            "coin-030",
+            "coin-037",
+            "coin-044",
+            "coin-051",
+            "coin-058",
+            "coin-065",
+            "coin-072",
+            "coin-079",
+            "coin-086",
+            "coin-093",
+            "coin-100",
+            "coin-107",
+            "coin-114",
+            "coin-121",
+            "coin-128",
+            "coin-135",
+            "coin-142",
+            "coin-149",
+            "coin-156",
+            "coin-163",
+            "coin-170",
+            "coin-177",
+            "coin-184",
+            "coin-191",
+            "coin-198",
+            "coin-001",
+            "coin-008",
+            "coin-015",
+            "coin-022",
+            "coin-029",
+            "coin-036",
+            "coin-043",
+            "coin-050",
+            "coin-057",
+            "coin-064",
+            "coin-071",
+            "coin-078",
+            "coin-085",
+            "coin-092",
+            "coin-099",
+            "coin-106",
+            "coin-113",
+            "coin-120",
+            "coin-127",
+            "coin-134",
+            "coin-141",
+            "coin-148",
+            "coin-155",
+            "coin-162",
+            "coin-169",
+            "coin-176",
+            "coin-183",
+            "coin-190",
+            "coin-197",
+            "coin-204",
+            "coin-000",
+            "coin-007",
+            "coin-014",
+            "coin-021",
+            "coin-028",
+            "coin-035",
+            "coin-042",
+            "coin-049",
+            "coin-056",
+            "coin-063",
+            "coin-070",
+            "coin-077",
+            "coin-084",
+            "coin-091",
+            "coin-098",
+            "coin-105",
+            "coin-112",
+            "coin-119",
+            "coin-126",
+            "coin-133",
+            "coin-140",
+            "coin-147",
+            "coin-154",
+            "coin-161",
+            "coin-168"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "coin-006",
+            "coin-013",
+            "coin-020",
+            "coin-027",
+            "coin-034",
+            "coin-041",
+            "coin-048",
+            "coin-055",
+            "coin-062",
+            "coin-069",
+            "coin-076",
+            "coin-083",
+            "coin-090",
+            "coin-097",
+            "coin-104",
+            "coin-111",
+            "coin-118",
+            "coin-125",
+            "coin-132",
+            "coin-139",
+            "coin-146",
+            "coin-153",
+            "coin-160",
+            "coin-167",
+            "coin-174",
+            "coin-181",
+            "coin-188",
+            "coin-195",
+            "coin-202",
+            "coin-005",
+            "coin-012",
+            "coin-019",
+            "coin-026",
+            "coin-033",
+            "coin-040",
+            "coin-047",
+            "coin-054",
+            "coin-061",
+            "coin-068",
+            "coin-075",
+            "coin-082",
+            "coin-089",
+            "coin-096",
+            "coin-103",
+            "coin-110",
+            "coin-117",
+            "coin-124",
+            "coin-131",
+            "coin-138",
+            "coin-145",
+            "coin-152",
+            "coin-159",
+            "coin-166",
+            "coin-173",
+            "coin-180",
+            "coin-187",
+            "coin-194",
+            "coin-201",
+            "coin-004",
+            "coin-011",
+            "coin-018",
+            "coin-025",
+            "coin-032",
+            "coin-039",
+            "coin-046",
+            "coin-053",
+            "coin-060",
+            "coin-067",
+            "coin-074",
+            "coin-081",
+            "coin-088",
+            "coin-095",
+            "coin-102",
+            "coin-109",
+            "coin-116",
+            "coin-123",
+            "coin-130",
+            "coin-137",
+            "coin-144",
+            "coin-151",
+            "coin-158",
+            "coin-165",
+            "coin-172",
+            "coin-179",
+            "coin-186",
+            "coin-193",
+            "coin-200",
+            "coin-003",
+            "coin-010",
+            "coin-017",
+            "coin-024",
+            "coin-031",
+            "coin-038",
+            "coin-045",
+            "coin-052",
+            "coin-059",
+            "coin-066",
+            "coin-073",
+            "coin-080",
+            "coin-087",
+            "coin-094",
+            "coin-101",
+            "coin-108",
+            "coin-115",
+            "coin-122",
+            "coin-129",
+            "coin-136",
+            "coin-143",
+            "coin-150",
+            "coin-157",
+            "coin-164",
+            "coin-171",
+            "coin-178",
+            "coin-185",
+            "coin-192",
+            "coin-199",
+            "coin-002",
+            "coin-009",
+            "coin-016",
+            "coin-023",
+            "coin-030",
+            "coin-037",
+            "coin-044",
+            "coin-051",
+            "coin-058",
+            "coin-065",
+            "coin-072",
+            "coin-079",
+            "coin-086",
+            "coin-093",
+            "coin-100",
+            "coin-107",
+            "coin-114",
+            "coin-121",
+            "coin-128",
+            "coin-135",
+            "coin-142",
+            "coin-149",
+            "coin-156",
+            "coin-163",
+            "coin-170",
+            "coin-177",
+            "coin-184",
+            "coin-191",
+            "coin-198",
+            "coin-001",
+            "coin-008",
+            "coin-015",
+            "coin-022",
+            "coin-029",
+            "coin-036",
+            "coin-043",
+            "coin-050",
+            "coin-057",
+            "coin-064",
+            "coin-071",
+            "coin-078",
+            "coin-085",
+            "coin-092",
+            "coin-099",
+            "coin-106",
+            "coin-113",
+            "coin-120",
+            "coin-127",
+            "coin-134",
+            "coin-141",
+            "coin-148",
+            "coin-155",
+            "coin-162",
+            "coin-169",
+            "coin-176",
+            "coin-183",
+            "coin-190",
+            "coin-197",
+            "coin-204",
+            "coin-000",
+            "coin-007",
+            "coin-014",
+            "coin-021",
+            "coin-028",
+            "coin-035",
+            "coin-042",
+            "coin-049",
+            "coin-056",
+            "coin-063",
+            "coin-070",
+            "coin-077",
+            "coin-084",
+            "coin-091",
+            "coin-098",
+            "coin-105",
+            "coin-112",
+            "coin-119",
+            "coin-126",
+            "coin-133",
+            "coin-140",
+            "coin-147",
+            "coin-154",
+            "coin-161",
+            "coin-168"
+          ]
+        }
+      ],
+      "refreshed": 200,
+      "demand": [
+        {
+          "network": "net-000",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-001",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-002",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-003",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-004",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-005",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-006",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-007",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-008",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-009",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-010",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-011",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-012",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-013",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-014",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-015",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-016",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-017",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-018",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-019",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-020",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-021",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-022",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-023",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-024",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-025",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-026",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-027",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-028",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-029",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-030",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-031",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-032",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-033",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-034",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-035",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-036",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-037",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-038",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-039",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-040",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-041",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-042",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-043",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-044",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-045",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-046",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-047",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-048",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-049",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-050",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-051",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-052",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-053",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-054",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-055",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-056",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-057",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-058",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-059",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-060",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-061",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-062",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-063",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-064",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-065",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-066",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-067",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-068",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-069",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-070",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-071",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-072",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-073",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-074",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-075",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-076",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-077",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-078",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-079",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-080",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-081",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-082",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-083",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-084",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-085",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-086",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-087",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-088",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-089",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-090",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-091",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-092",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-093",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-094",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-095",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-096",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-097",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-098",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-099",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-100",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-101",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-102",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-103",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-104",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-105",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-106",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-107",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-108",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-109",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-110",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-111",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-112",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-113",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-114",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-115",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-116",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-117",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-118",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-119",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-120",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-121",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-122",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-123",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-124",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-125",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-126",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-127",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-128",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-129",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-130",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-131",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-132",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-133",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-134",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-135",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-136",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-137",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-138",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-139",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-140",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-141",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-142",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-143",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-144",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-145",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-146",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-147",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-148",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-149",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-150",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-151",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-152",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-153",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-154",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-155",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-156",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-157",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-158",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-159",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-160",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-161",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-162",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-163",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-164",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-165",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-166",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-167",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-168",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-169",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-170",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-171",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-172",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-173",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-174",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-175",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "net-176",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-177",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-178",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-179",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-180",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-181",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-182",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "net-183",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-184",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-185",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-186",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-187",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-188",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-189",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "net-190",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-191",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-192",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-193",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-194",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-195",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-196",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "net-197",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-198",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-199",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-200",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-201",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-202",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "net-203",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "net-204",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        }
+      ]
+    },
+    {
+      "name": "recentFallback",
+      "cap": 200,
+      "seed": {
+        "demand": [],
+        "spots": [
+          {
+            "fiat": "usd",
+            "sourceId": "bitcoin",
+            "price": 90000,
+            "asOf": -3600000
+          },
+          {
+            "fiat": "eur",
+            "sourceId": "bitcoin",
+            "price": 80000,
+            "asOf": -7200000
+          },
+          {
+            "fiat": "usd",
+            "sourceId": "ethereum",
+            "price": 3000,
+            "asOf": -86340000
+          },
+          {
+            "fiat": "usd",
+            "sourceId": "old-coin",
+            "price": 1,
+            "asOf": -86400001
+          },
+          {
+            "fiat": "usd",
+            "sourceId": "edge-coin",
+            "price": 1,
+            "asOf": -86400000
+          },
+          {
+            "fiat": "gbp",
+            "sourceId": "ripple",
+            "price": 0.4,
+            "asOf": -1800000
+          },
+          {
+            "fiat": "usd",
+            "sourceId": "a-coin",
+            "price": 2,
+            "asOf": -3600000
+          },
+          {
+            "fiat": "eur",
+            "sourceId": "solana",
+            "price": 150,
+            "asOf": -18000000
+          }
+        ],
+        "prewarm": []
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "ethereum": 3100,
+            "a-coin": 2.5,
+            "bitcoin": 91000
+          },
+          "eur": {
+            "solana": 151,
+            "bitcoin": 81000
+          },
+          "gbp": {
+            "ripple": 0.41
+          }
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "edge-coin",
+            "ethereum",
+            "a-coin"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana",
+            "bitcoin"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        },
+        {
+          "fiat": "gbp",
+          "ids": [
+            "ripple"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "edge-coin",
+            "ethereum",
+            "a-coin"
+          ]
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana",
+            "bitcoin"
+          ]
+        },
+        {
+          "fiat": "gbp",
+          "ids": [
+            "ripple"
+          ]
+        }
+      ],
+      "refreshed": 5,
+      "demand": []
+    },
+    {
+      "name": "mixed",
+      "cap": 4,
+      "seed": {
+        "demand": [
+          {
+            "network": "bitcoin",
+            "tokenId": "native",
+            "sourceId": "bitcoin",
+            "priceTier": 0,
+            "priceScore": "10",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "native",
+            "sourceId": "ethereum",
+            "priceTier": 1,
+            "priceScore": "9",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "mystery",
+            "tokenId": "native",
+            "sourceId": "unknown-coin",
+            "priceTier": 0,
+            "priceScore": "8",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "wrapped",
+            "tokenId": "wbtc",
+            "sourceId": "bitcoin",
+            "priceTier": 3,
+            "priceScore": "0",
+            "lastRefreshedAt": null
+          }
+        ],
+        "spots": [
+          {
+            "fiat": "eur",
+            "sourceId": "bitcoin",
+            "price": 80000,
+            "asOf": -3600000
+          },
+          {
+            "fiat": "eur",
+            "sourceId": "cardano",
+            "price": 0.5,
+            "asOf": -7200000
+          },
+          {
+            "fiat": "eur",
+            "sourceId": "polkadot",
+            "price": 5,
+            "asOf": -1800000
+          }
+        ],
+        "prewarm": [
+          {
+            "fiat": "usd",
+            "ids": [
+              "ethereum"
+            ]
+          }
+        ]
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "bitcoin": 90000,
+            "ethereum": 3000
+          },
+          "eur": {
+            "cardano": 0.51,
+            "polkadot": 5.1
+          }
+        }
+      },
+      "prewarmRequests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "ethereum"
+          ]
+        }
+      ],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "unknown-coin",
+            "ethereum"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "cardano"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "unknown-coin"
+          ]
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "cardano"
+          ]
+        }
+      ],
+      "refreshed": 2,
+      "demand": [
+        {
+          "network": "bitcoin",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        },
+        {
+          "network": "eth-mainnet",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "mystery",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "wrapped",
+          "tokenId": "wbtc",
+          "lastRefreshedAt": 0
+        }
+      ]
+    },
+    {
+      "name": "emptyDemand",
+      "cap": 200,
+      "seed": {
+        "demand": [],
+        "spots": [
+          {
+            "fiat": "usd",
+            "sourceId": "stale-coin",
+            "price": 1,
+            "asOf": -90000000
+          }
+        ],
+        "prewarm": []
+      },
+      "reply": {
+        "prices": {
+          "usd": {}
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [],
+      "requests": [],
+      "refreshed": 0,
+      "demand": []
+    },
+    {
+      "name": "outage",
+      "cap": 200,
+      "seed": {
+        "demand": [
+          {
+            "network": "bitcoin",
+            "tokenId": "native",
+            "sourceId": "bitcoin",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "native",
+            "sourceId": "ethereum",
+            "priceTier": 1,
+            "priceScore": "1",
+            "lastRefreshedAt": -3600000
+          }
+        ],
+        "spots": [],
+        "prewarm": []
+      },
+      "reply": {
+        "outage": {
+          "usd": 503
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "ethereum"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "ethereum"
+          ]
+        },
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "ethereum"
+          ]
+        },
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin",
+            "ethereum"
+          ]
+        }
+      ],
+      "refreshed": 0,
+      "demand": [
+        {
+          "network": "bitcoin",
+          "tokenId": "native",
+          "lastRefreshedAt": null
+        },
+        {
+          "network": "eth-mainnet",
+          "tokenId": "native",
+          "lastRefreshedAt": -3600000
+        }
+      ]
+    },
+    {
+      "name": "partialOutage",
+      "cap": 200,
+      "seed": {
+        "demand": [
+          {
+            "network": "bitcoin",
+            "tokenId": "native",
+            "sourceId": "bitcoin",
+            "priceTier": 0,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          }
+        ],
+        "spots": [
+          {
+            "fiat": "eur",
+            "sourceId": "solana",
+            "price": 150,
+            "asOf": -3600000
+          }
+        ],
+        "prewarm": []
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "bitcoin": 90000
+          }
+        },
+        "outage": {
+          "eur": 503
+        }
+      },
+      "prewarmRequests": [],
+      "plan": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana"
+          ],
+          "options": {
+            "foreground": false,
+            "background": true
+          }
+        }
+      ],
+      "requests": [
+        {
+          "fiat": "usd",
+          "ids": [
+            "bitcoin"
+          ]
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana"
+          ]
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana"
+          ]
+        },
+        {
+          "fiat": "eur",
+          "ids": [
+            "solana"
+          ]
+        }
+      ],
+      "refreshed": 1,
+      "demand": [
+        {
+          "network": "bitcoin",
+          "tokenId": "native",
+          "lastRefreshedAt": 0
+        }
+      ]
+    },
+    {
+      "name": "restart",
+      "seed": {
+        "demand": [
+          {
+            "network": "bitcoin",
+            "tokenId": "native",
+            "sourceId": "bitcoin",
+            "priceTier": 0,
+            "priceScore": "3",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "native",
+            "sourceId": "ethereum",
+            "priceTier": 1,
+            "priceScore": "2",
+            "lastRefreshedAt": null
+          },
+          {
+            "network": "cardano",
+            "tokenId": "native",
+            "sourceId": "cardano",
+            "priceTier": 1,
+            "priceScore": "1",
+            "lastRefreshedAt": null
+          }
+        ]
+      },
+      "reply": {
+        "prices": {
+          "usd": {
+            "bitcoin": 1,
+            "ethereum": 2,
+            "cardano": 3
+          }
+        }
+      },
+      "phases": [
+        {
+          "at": 0,
+          "plan": [
+            {
+              "fiat": "usd",
+              "ids": [
+                "bitcoin",
+                "ethereum",
+                "cardano"
+              ],
+              "options": {
+                "foreground": false,
+                "background": true
+              }
+            }
+          ],
+          "requests": [
+            {
+              "fiat": "usd",
+              "ids": [
+                "bitcoin",
+                "ethereum",
+                "cardano"
+              ]
+            }
+          ],
+          "refreshed": 3,
+          "demand": [
+            {
+              "network": "bitcoin",
+              "tokenId": "native",
+              "lastRefreshedAt": 0
+            },
+            {
+              "network": "eth-mainnet",
+              "tokenId": "native",
+              "lastRefreshedAt": 0
+            },
+            {
+              "network": "cardano",
+              "tokenId": "native",
+              "lastRefreshedAt": 0
+            }
+          ]
+        },
+        {
+          "at": 960000,
+          "bootRequests": 0,
+          "plan": [
+            {
+              "fiat": "usd",
+              "ids": [
+                "bitcoin",
+                "ethereum",
+                "cardano"
+              ],
+              "options": {
+                "foreground": false,
+                "background": true
+              }
+            }
+          ],
+          "requests": [
+            {
+              "fiat": "usd",
+              "ids": [
+                "bitcoin",
+                "ethereum",
+                "cardano"
+              ]
+            }
+          ],
+          "refreshed": 3,
+          "demand": [
+            {
+              "network": "bitcoin",
+              "tokenId": "native",
+              "lastRefreshedAt": 960000
+            },
+            {
+              "network": "eth-mainnet",
+              "tokenId": "native",
+              "lastRefreshedAt": 960000
+            },
+            {
+              "network": "cardano",
+              "tokenId": "native",
+              "lastRefreshedAt": 960000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seal",
+      "sources": 400,
+      "asOf": -172800000,
+      "limit": 1024,
+      "passes": [
+        1024,
+        176,
+        0
+      ],
+      "openPass": 0,
+      "sample": "seal-007",
+      "before": [
+        {
+          "interval": "5m",
+          "candles": [
+            {
+              "ts": 1767150000000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        },
+        {
+          "interval": "1h",
+          "candles": [
+            {
+              "ts": 1767150000000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        },
+        {
+          "interval": "1d",
+          "candles": [
+            {
+              "ts": 1767139200000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "interval": "5m",
+          "candles": [
+            {
+              "ts": 1767150000000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        },
+        {
+          "interval": "1h",
+          "candles": [
+            {
+              "ts": 1767150000000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        },
+        {
+          "interval": "1d",
+          "candles": [
+            {
+              "ts": 1767139200000,
+              "open": "107",
+              "high": "107",
+              "low": "107",
+              "close": "107",
+              "volume": "17"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

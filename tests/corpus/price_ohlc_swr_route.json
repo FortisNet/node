@@ -1,0 +1,489 @@
+{
+  "source": {
+    "facet": "TokenDiscoveryFacet.ohlc",
+    "provider": "CoinGecko /ohlc",
+    "freshMs": 300000,
+    "staleMs": 3600000,
+    "ttlJitterPct": 0.1,
+    "revalidateFailureBackoffMs": 30000,
+    "missFailureHoldMs": 10000,
+    "fixtureTime": "2026-01-02T03:04:05.123Z",
+    "providerUrls": [
+      "https://api.coingecko.com/api/v3/coins/revalidate-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/revalidate-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/failing-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/failing-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/failing-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/jitter-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/jitter-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/jitter-high-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/jitter-high-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/backoff-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/backoff-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/backoff-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/backoff-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/replay-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/replay-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/replay-coin/ohlc?vs_currency=usd&days=1",
+      "https://api.coingecko.com/api/v3/coins/replay-coin/ohlc?vs_currency=usd&days=1"
+    ]
+  },
+  "cases": {
+    "cold": {
+      "at": "2026-01-02T03:04:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "providerCalls": 1
+    },
+    "cached": {
+      "at": "2026-01-02T03:04:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:04:05.123Z"
+        }
+      },
+      "providerCalls": 1
+    },
+    "stale": {
+      "at": "2026-01-02T03:14:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:04:05.123Z"
+        }
+      },
+      "providerCalls": 2
+    },
+    "revalidated": {
+      "at": "2026-01-02T03:14:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045124,
+            101,
+            111,
+            91,
+            106
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:14:05.123Z"
+        }
+      },
+      "providerCalls": 2
+    },
+    "providerError": {
+      "at": "2026-01-02T03:14:05.123Z",
+      "rand": 0.5,
+      "status": 502,
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "providerCalls": 5
+    },
+    "jitterLowCold": {
+      "at": "2026-01-02T03:20:45.123Z",
+      "rand": 0,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "providerCalls": 6
+    },
+    "jitterLowFreshEdge": {
+      "at": "2026-01-02T03:25:15.122Z",
+      "rand": 0,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.123Z"
+        }
+      },
+      "providerCalls": 6
+    },
+    "jitterLowStaleEdge": {
+      "at": "2026-01-02T03:25:15.123Z",
+      "rand": 0,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.123Z"
+        }
+      },
+      "providerCalls": 7
+    },
+    "jitterLowRevalidated": {
+      "at": "2026-01-02T03:25:15.124Z",
+      "rand": 0,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045124,
+            101,
+            111,
+            91,
+            106
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:25:15.123Z"
+        }
+      },
+      "providerCalls": 7
+    },
+    "jitterHighCold": {
+      "at": "2026-01-02T03:37:25.123Z",
+      "rand": 1,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "providerCalls": 8
+    },
+    "jitterHighFreshEdge": {
+      "at": "2026-01-02T03:42:55.122Z",
+      "rand": 1,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:37:25.123Z"
+        }
+      },
+      "providerCalls": 8
+    },
+    "jitterHighStaleEdge": {
+      "at": "2026-01-02T03:42:55.123Z",
+      "rand": 1,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:37:25.123Z"
+        }
+      },
+      "providerCalls": 9
+    },
+    "backoffCold": {
+      "at": "2026-01-02T03:54:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "providerCalls": 10
+    },
+    "backoffStaleRefreshFails": {
+      "at": "2026-01-02T03:59:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:54:05.123Z"
+        }
+      },
+      "providerCalls": 11
+    },
+    "backoffHeld": {
+      "at": "2026-01-02T03:59:05.124Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:54:05.123Z"
+        }
+      },
+      "providerCalls": 11
+    },
+    "backoffHeldEdge": {
+      "at": "2026-01-02T03:59:35.122Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:54:05.123Z"
+        }
+      },
+      "providerCalls": 11
+    },
+    "backoffRetryFails": {
+      "at": "2026-01-02T03:59:35.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:54:05.123Z"
+        }
+      },
+      "providerCalls": 12
+    },
+    "backoffRecovered": {
+      "at": "2026-01-02T04:00:05.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:54:05.123Z"
+        }
+      },
+      "providerCalls": 13
+    },
+    "backoffFresh": {
+      "at": "2026-01-02T04:00:05.124Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045124,
+            101,
+            111,
+            91,
+            106
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T04:00:05.123Z"
+        }
+      },
+      "providerCalls": 13
+    },
+    "replayCold": {
+      "at": "2026-01-02T04:27:25.123Z",
+      "rand": 0.5,
+      "status": 502,
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "providerCalls": 16
+    },
+    "replayHeld": {
+      "at": "2026-01-02T04:27:25.124Z",
+      "rand": 0.5,
+      "status": 502,
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "providerCalls": 16
+    },
+    "replayHeldEdge": {
+      "at": "2026-01-02T04:27:35.122Z",
+      "rand": 0.5,
+      "status": 502,
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "providerCalls": 16
+    },
+    "replayRecovered": {
+      "at": "2026-01-02T04:27:35.123Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "providerCalls": 17
+    },
+    "replayCached": {
+      "at": "2026-01-02T04:27:35.124Z",
+      "rand": 0.5,
+      "status": 200,
+      "body": {
+        "points": [
+          [
+            1767323045123,
+            100,
+            110,
+            90,
+            105
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T04:27:35.123Z"
+        }
+      },
+      "providerCalls": 17
+    }
+  }
+}

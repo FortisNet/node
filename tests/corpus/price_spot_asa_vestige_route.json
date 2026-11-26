@@ -1,0 +1,986 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "provider": "server/intelligence/src/upstream/vestige.ts",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "maxIds": 100
+  },
+  "ids": {
+    "A": "31566705",
+    "B": "31566706",
+    "C": "31566707",
+    "D": "31566708"
+  },
+  "providerRequests": [
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705%2C031566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566706%2C31566707&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566708%2C31566709&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705%2C31566708&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31600000%2C31600001%2C31600002%2C31600003%2C31600004%2C31600005%2C31600006%2C31600007%2C31600008%2C31600009%2C31600010%2C31600011%2C31600012%2C31600013%2C31600014%2C31600015%2C31600016%2C31600017%2C31600018%2C31600019%2C31600020%2C31600021%2C31600022%2C31600023%2C31600024%2C31600025%2C31600026%2C31600027%2C31600028%2C31600029%2C31600030%2C31600031%2C31600032%2C31600033%2C31600034%2C31600035%2C31600036%2C31600037%2C31600038%2C31600039%2C31600040%2C31600041%2C31600042%2C31600043%2C31600044%2C31600045%2C31600046%2C31600047%2C31600048%2C31600049%2C31600050%2C31600051%2C31600052%2C31600053%2C31600054%2C31600055%2C31600056%2C31600057%2C31600058%2C31600059%2C31600060%2C31600061%2C31600062%2C31600063%2C31600064%2C31600065%2C31600066%2C31600067%2C31600068%2C31600069%2C31600070%2C31600071%2C31600072%2C31600073%2C31600074%2C31600075%2C31600076%2C31600077%2C31600078%2C31600079%2C31600080%2C31600081%2C31600082%2C31600083%2C31600084%2C31600085%2C31600086%2C31600087%2C31600088%2C31600089%2C31600090%2C31600091%2C31600092%2C31600093%2C31600094%2C31600095%2C31600096%2C31600097%2C31600098%2C31600099&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566706&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+    "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704"
+  ],
+  "cases": {
+    "single": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "duplicateRequestedAndPaddedAlias": {
+      "segment": "duplicateRequestedAndPaddedAlias",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705",
+          "asa:31566705",
+          "asa:031566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "asa:031566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "multipleIncludingZeroAndNegative": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705",
+          "asa:31566706",
+          "asa:31566707"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "asa:31566706": {
+            "sourceId": "asa:31566706",
+            "price": 0,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "asa:31566707": {
+            "sourceId": "asa:31566707",
+            "price": -2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "cached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705",
+          "asa:31566706"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "asa:31566706": {
+            "sourceId": "asa:31566706",
+            "price": 0,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "restartCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "expiredRefetch": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "missingAndNumericString": {
+      "segment": "missingAndNumericString",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566708",
+          "asa:31566709"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "asa:31566708",
+          "asa:31566709"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 5
+    },
+    "duplicateRowsLastWins": {
+      "segment": "duplicateRowsLastWins",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 0,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "malformedRows": {
+      "segment": "malformedRows",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705",
+          "asa:31566708"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "asa:31566708"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "nonFiniteNumericPrice": {
+      "segment": "nonFinite",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": null,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "nonFiniteSecondRead": {
+      "segment": "nonFinite",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "asa:31566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "nonUsdNoWrite": {
+      "segment": "nonUsdNoWrite",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "asa:31566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "nonUsdRepeatedNoNegative": {
+      "segment": "nonUsdRepeatedNoNegative",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "asa:31566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "mixedProviders": {
+      "segment": "mixedProviders",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705",
+          "spl:So11111111111111111111111111111111111111112"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 10
+    },
+    "hundredIds": {
+      "segment": "hundredIds",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31600000",
+          "asa:31600001",
+          "asa:31600002",
+          "asa:31600003",
+          "asa:31600004",
+          "asa:31600005",
+          "asa:31600006",
+          "asa:31600007",
+          "asa:31600008",
+          "asa:31600009",
+          "asa:31600010",
+          "asa:31600011",
+          "asa:31600012",
+          "asa:31600013",
+          "asa:31600014",
+          "asa:31600015",
+          "asa:31600016",
+          "asa:31600017",
+          "asa:31600018",
+          "asa:31600019",
+          "asa:31600020",
+          "asa:31600021",
+          "asa:31600022",
+          "asa:31600023",
+          "asa:31600024",
+          "asa:31600025",
+          "asa:31600026",
+          "asa:31600027",
+          "asa:31600028",
+          "asa:31600029",
+          "asa:31600030",
+          "asa:31600031",
+          "asa:31600032",
+          "asa:31600033",
+          "asa:31600034",
+          "asa:31600035",
+          "asa:31600036",
+          "asa:31600037",
+          "asa:31600038",
+          "asa:31600039",
+          "asa:31600040",
+          "asa:31600041",
+          "asa:31600042",
+          "asa:31600043",
+          "asa:31600044",
+          "asa:31600045",
+          "asa:31600046",
+          "asa:31600047",
+          "asa:31600048",
+          "asa:31600049",
+          "asa:31600050",
+          "asa:31600051",
+          "asa:31600052",
+          "asa:31600053",
+          "asa:31600054",
+          "asa:31600055",
+          "asa:31600056",
+          "asa:31600057",
+          "asa:31600058",
+          "asa:31600059",
+          "asa:31600060",
+          "asa:31600061",
+          "asa:31600062",
+          "asa:31600063",
+          "asa:31600064",
+          "asa:31600065",
+          "asa:31600066",
+          "asa:31600067",
+          "asa:31600068",
+          "asa:31600069",
+          "asa:31600070",
+          "asa:31600071",
+          "asa:31600072",
+          "asa:31600073",
+          "asa:31600074",
+          "asa:31600075",
+          "asa:31600076",
+          "asa:31600077",
+          "asa:31600078",
+          "asa:31600079",
+          "asa:31600080",
+          "asa:31600081",
+          "asa:31600082",
+          "asa:31600083",
+          "asa:31600084",
+          "asa:31600085",
+          "asa:31600086",
+          "asa:31600087",
+          "asa:31600088",
+          "asa:31600089",
+          "asa:31600090",
+          "asa:31600091",
+          "asa:31600092",
+          "asa:31600093",
+          "asa:31600094",
+          "asa:31600095",
+          "asa:31600096",
+          "asa:31600097",
+          "asa:31600098",
+          "asa:31600099"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "asa:31600000",
+          "asa:31600001",
+          "asa:31600002",
+          "asa:31600003",
+          "asa:31600004",
+          "asa:31600005",
+          "asa:31600006",
+          "asa:31600007",
+          "asa:31600008",
+          "asa:31600009",
+          "asa:31600010",
+          "asa:31600011",
+          "asa:31600012",
+          "asa:31600013",
+          "asa:31600014",
+          "asa:31600015",
+          "asa:31600016",
+          "asa:31600017",
+          "asa:31600018",
+          "asa:31600019",
+          "asa:31600020",
+          "asa:31600021",
+          "asa:31600022",
+          "asa:31600023",
+          "asa:31600024",
+          "asa:31600025",
+          "asa:31600026",
+          "asa:31600027",
+          "asa:31600028",
+          "asa:31600029",
+          "asa:31600030",
+          "asa:31600031",
+          "asa:31600032",
+          "asa:31600033",
+          "asa:31600034",
+          "asa:31600035",
+          "asa:31600036",
+          "asa:31600037",
+          "asa:31600038",
+          "asa:31600039",
+          "asa:31600040",
+          "asa:31600041",
+          "asa:31600042",
+          "asa:31600043",
+          "asa:31600044",
+          "asa:31600045",
+          "asa:31600046",
+          "asa:31600047",
+          "asa:31600048",
+          "asa:31600049",
+          "asa:31600050",
+          "asa:31600051",
+          "asa:31600052",
+          "asa:31600053",
+          "asa:31600054",
+          "asa:31600055",
+          "asa:31600056",
+          "asa:31600057",
+          "asa:31600058",
+          "asa:31600059",
+          "asa:31600060",
+          "asa:31600061",
+          "asa:31600062",
+          "asa:31600063",
+          "asa:31600064",
+          "asa:31600065",
+          "asa:31600066",
+          "asa:31600067",
+          "asa:31600068",
+          "asa:31600069",
+          "asa:31600070",
+          "asa:31600071",
+          "asa:31600072",
+          "asa:31600073",
+          "asa:31600074",
+          "asa:31600075",
+          "asa:31600076",
+          "asa:31600077",
+          "asa:31600078",
+          "asa:31600079",
+          "asa:31600080",
+          "asa:31600081",
+          "asa:31600082",
+          "asa:31600083",
+          "asa:31600084",
+          "asa:31600085",
+          "asa:31600086",
+          "asa:31600087",
+          "asa:31600088",
+          "asa:31600089",
+          "asa:31600090",
+          "asa:31600091",
+          "asa:31600092",
+          "asa:31600093",
+          "asa:31600094",
+          "asa:31600095",
+          "asa:31600096",
+          "asa:31600097",
+          "asa:31600098",
+          "asa:31600099"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 11
+    },
+    "protobuf": {
+      "segment": "protobuf",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566706"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "asa:31566706": {
+              "sourceId": "asa:31566706",
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "vestige",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a0375736412430a0c6173613a333135363637303612330a0c6173613a33313536363730362218323032362d30312d30325430333a30343a30352e3030305a3207766573746967653a00"
+      },
+      "providerCalls": 12
+    },
+    "providerFailure": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "asa:31566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 15
+    },
+    "providerRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 16
+    },
+    "cachedAfterRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "asa:31566705"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 1.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 16
+    }
+  }
+}

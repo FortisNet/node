@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "google/protobuf/struct.proto";
+
+message SupportVerifyRequest {
+  string address = 1;
+  string nonce = 2;
+  string timestamp = 3;
+  string signature = 4;
+}
+
+message SupportRefreshRequest {
+  string refresh_token = 1;
+}
+
+message SupportAuthResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+  string access_expires_at = 3;
+  string refresh_expires_at = 4;
+  optional string wallet_address = 5;
+}
+
+message SupportAttachmentDraft {
+  string kind = 1;
+  string name = 2;
+  optional string content_type = 3;
+  google.protobuf.Struct data = 4;
+}
+
+message OpenSupportTicketRequest {
+  string topic = 1;
+  string subject = 2;
+  string body = 3;
+  optional string os_version = 4;
+  optional string locale = 5;
+  optional string build_mode = 6;
+  optional string app_version = 7;
+  google.protobuf.Struct context = 8;
+  repeated SupportAttachmentDraft attachments = 9;
+}
+
+message SupportTicketMessage {
+  string id = 1;
+  string author = 2;
+  string body = 3;
+  string created_at = 4;
+}
+
+message SupportTicket {
+  string id = 1;
+  string topic = 2;
+  string subject = 3;
+  string status = 4;
+  bool has_attachment = 5;
+  bool has_unread_reply = 6;
+  string last_message_at = 7;
+  string created_at = 8;
+}
+
+message SupportTicketAttachment {
+  string id = 1;
+  string kind = 2;
+  string name = 3;
+  string content_type = 4;
+  uint64 byte_size = 5;
+  google.protobuf.Struct data = 6;
+  string created_at = 7;
+}
+
+message SupportThreadResponse {
+  SupportTicket ticket = 1;
+  repeated SupportTicketMessage messages = 2;
+  repeated SupportTicketAttachment attachments = 3;
+  bool secret_removed = 4;
+}
+
+message SupportTicketsResponse {
+  repeated SupportTicket tickets = 1;
+  uint32 unread_count = 2;
+}
+
+message PostSupportMessageRequest {
+  string body = 1;
+}
+
+message PostSupportMessageResponse {
+  SupportTicketMessage message = 1;
+  bool secret_removed = 2;
+}

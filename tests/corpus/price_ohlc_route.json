@@ -1,0 +1,381 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/discovery.ts",
+    "storeFacet": "server/intelligence/src/facets/candle_history.ts",
+    "slugFacet": "server/intelligence/src/facets/token_discovery.ts",
+    "provider": "server/intelligence/src/upstream/coingecko.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/markets.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "dispatch": {
+      "slug": "CoinGecko /ohlc through SWR",
+      "nonSlug": "PriceSeriesStore read"
+    },
+    "providerCalls": 1,
+    "providerUrls": [
+      "https://api.coingecko.com/api/v3/coins/ethereum/ohlc?vs_currency=usd&days=365"
+    ]
+  },
+  "cases": {
+    "days1": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "points": [
+          [
+            1767319200000,
+            100,
+            108,
+            99,
+            106
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T02:00:00.000Z"
+        }
+      }
+    },
+    "days90": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "131",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "230"
+      },
+      "body": {
+        "points": [
+          [
+            1759665600000,
+            70,
+            75,
+            68,
+            74
+          ],
+          [
+            1767319200000,
+            100,
+            108,
+            99,
+            106
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T02:00:00.000Z"
+        }
+      }
+    },
+    "days180": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "104",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "225"
+      },
+      "body": {
+        "points": [
+          [
+            1766448000000,
+            200,
+            215,
+            195,
+            210
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2025-12-23T00:00:00.000Z"
+        }
+      }
+    },
+    "days365": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "132",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "220"
+      },
+      "body": {
+        "points": [
+          [
+            1750032000000,
+            80,
+            90,
+            78,
+            88
+          ],
+          [
+            1766448000000,
+            200,
+            215,
+            195,
+            210
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2025-12-23T00:00:00.000Z"
+        }
+      }
+    },
+    "days365Protobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "120",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "215"
+      },
+      "body": {
+        "points": [
+          {
+            "unixMillis": "1750032000000",
+            "open": 80,
+            "high": 90,
+            "low": 78,
+            "close": 88
+          },
+          {
+            "unixMillis": "1766448000000",
+            "open": 200,
+            "high": 215,
+            "low": 195,
+            "close": 210
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2025-12-23T00:00:00.000Z"
+        }
+      },
+      "wireHex": "0a2b0880c8a4b0f7321100000000000054401900000000008056402100000000008053402900000000000056400a2b0880d885c4b433110000000000006940190000000000e06a40210000000000606840290000000000406a40121c08011218323032352d31322d32335430303a30303a30302e3030305a"
+    },
+    "empty": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "210"
+      },
+      "body": {
+        "points": [],
+        "cache": {
+          "hit": true,
+          "timestamp": null
+        }
+      }
+    },
+    "head": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "205"
+      },
+      "body": null
+    },
+    "slugLive": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "113",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "200"
+      },
+      "body": {
+        "points": [
+          [
+            1767236645000,
+            100,
+            110,
+            90,
+            105
+          ],
+          [
+            1767323045000,
+            105,
+            115,
+            95,
+            110
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      }
+    },
+    "slugCached": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "134",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "195"
+      },
+      "body": {
+        "points": [
+          [
+            1767236645000,
+            100,
+            110,
+            90,
+            105
+          ],
+          [
+            1767323045000,
+            105,
+            115,
+            95,
+            110
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:04:05.000Z"
+        }
+      }
+    },
+    "uppercaseSlugStore": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "190"
+      },
+      "body": {
+        "points": [],
+        "cache": {
+          "hit": true,
+          "timestamp": null
+        }
+      }
+    },
+    "invalidId": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "55",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "185"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported price id"
+      }
+    },
+    "invalidDays": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "180"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      }
+    },
+    "missingDays": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "175"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      }
+    },
+    "invalidFiat": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "x-rate-limit-remaining": "170"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      }
+    }
+  }
+}

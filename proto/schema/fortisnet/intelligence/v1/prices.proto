@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+// First typed HTTP slice. The endpoint registry maps these messages to the
+// existing REST paths; GET query parameters stay in the URL.
+message CacheInfo {
+  bool hit = 1;
+  optional string timestamp = 2;
+  bool partial = 3;
+}
+
+message SpotPrice {
+  string source_id = 1;
+  double price = 2;
+  optional double change_24h_pct = 3;
+  string as_of = 4;
+  bool stale = 5;
+  string source = 6;
+  CacheInfo cache = 7;
+}
+
+message SpotPriceResponse {
+  string fiat = 1;
+  map<string, SpotPrice> prices = 2;
+  repeated string missing = 3;
+  repeated string invalid = 4;
+}
+
+message PricePoint {
+  int64 unix_seconds = 1;
+  double value = 2;
+}
+
+message PriceResolutionAvailability {
+  string interval = 1;
+  int64 from = 2;
+  int64 to = 3;
+  double days = 4;
+}
+
+message PriceAvailability {
+  optional int64 from = 1;
+  optional int64 to = 2;
+  double days = 3;
+  repeated PriceResolutionAvailability resolutions = 4;
+}
+
+message PriceCoverage {
+  uint32 cached_points = 1;
+  uint32 fetched_points = 2;
+}
+
+message PriceWindow {
+  optional int64 from = 1;
+  optional int64 to = 2;
+  double days = 3;
+}
+
+message PriceHistory {
+  string id = 1;
+  string interval = 2;
+  repeated PricePoint points = 3;
+  repeated PricePoint volumes = 4;
+  CacheInfo cache = 5;
+  PriceCoverage coverage = 6;
+  PriceWindow window = 7;
+  PriceAvailability availability = 8;
+}
+
+message PriceHistoryBatchRequest {
+  repeated string ids = 1;
+  int64 from = 2;
+  int64 to = 3;
+  optional string interval = 4;
+}
+
+message PriceHistoryFailure {
+  string error = 1;
+  PriceAvailability availability = 2;
+}
+
+message PriceHistoryBatchEntry {
+  string id = 1;
+  oneof result {
+    PriceHistory history = 2;
+    PriceHistoryFailure failure = 3;
+  }
+}
+
+message PriceHistoryBatchResponse {
+  int64 from = 1;
+  int64 to = 2;
+  string interval = 3;
+  repeated PriceHistoryBatchEntry series = 4;
+  CacheInfo cache = 5;
+}

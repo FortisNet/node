@@ -1,0 +1,920 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "provider": "server/intelligence/src/upstream/robinhood.ts",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "maxIds": 100
+  },
+  "ids": {
+    "A": "0x1111111111111111111111111111111111111111",
+    "B": "0x2222222222222222222222222222222222222222"
+  },
+  "providerRequests": [
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x1111111111111111111111111111111111111111&vs_currencies=usd&include_24hr_change=true",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/BRK.B%2FUS",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/BRK.B%2FUS",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/BRK.B%2FUS",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 503
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 503
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 503
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TSLA",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "status": 200
+    }
+  ],
+  "cases": {
+    "coldMembershipAndQuote": {
+      "segment": "coldMembershipAndQuote",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "persistentCacheHit": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "hundredIds": {
+      "segment": "hundredIds",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000064",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000065",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000066",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000067",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000068",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000069",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000070",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000071",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000072",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000073",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000074",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000075",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000076",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000077",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000078",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000079",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000080",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000081",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000082",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000083",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000084",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000085",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000086",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000087",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000088",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000089",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000090",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000091",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000092",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000093",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000094",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000095"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000064",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000065",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000066",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000067",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000068",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000069",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000006f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000070",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000071",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000072",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000073",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000074",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000075",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000076",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000077",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000078",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000079",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000007f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000080",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000081",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000082",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000083",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000084",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000085",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000086",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000087",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000088",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000089",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008a",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008b",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008c",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008d",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008e",
+          "eip155:4663:erc20:0x000000000000000000000000000000000000008f",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000090",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000091",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000092",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000093",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000094",
+          "eip155:4663:erc20:0x0000000000000000000000000000000000000095"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "symbolCannotOptIn": {
+      "segment": "symbolCannotOptIn",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "robinhoodAliasMembershipProbe": {
+      "segment": "robinhoodAliasMembershipProbe",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "robinhood:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "robinhood:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "robinhood:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "otherContractCannotOptIn": {
+      "segment": "otherContractCannotOptIn",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x3333333333333333333333333333333333333333"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x3333333333333333333333333333333333333333"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "encodedSymbol": {
+      "segment": "encodedSymbol",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 404,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 9
+    },
+    "parallelTwoSymbols": {
+      "segment": "parallelTwoSymbols",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 404,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 12
+    },
+    "haltedStillHasMidpoint": {
+      "segment": "haltedStillHasMidpoint",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 14
+    },
+    "missingQuote": {
+      "segment": "missingQuote",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 16
+    },
+    "invalidGeneratedAt": {
+      "segment": "invalidGeneratedAt",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 18
+    },
+    "duplicateMatchingQuoteFirstWins": {
+      "segment": "duplicateMatchingQuoteFirstWins",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 20
+    },
+    "nonUsd": {
+      "segment": "nonUsd",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 20
+    },
+    "mixedProviders": {
+      "segment": "mixedProviders",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+          "bitcoin",
+          "spl:So11111111111111111111111111111111111111112"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "bitcoin",
+          "spl:So11111111111111111111111111111111111111112"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "protobuf": {
+      "segment": "protobuf",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+              "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+              "price": 404,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "robinhood-assets",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a0375736412b5010a3c6569703135353a343636333a65726332303a30783232323232323232323232323232323232323232323232323232323232323232323232323232323212750a3c6569703135353a343636333a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232321100000000004079402218323032362d30312d30325430333a30343a30352e3030305a3210726f62696e686f6f642d6173736574733a00"
+      },
+      "providerCalls": 26
+    },
+    "providerFailure": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 29
+    },
+    "providerRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 31
+    },
+    "cachedAfterRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:4663:erc20:0x1111111111111111111111111111111111111111",
+            "price": 101,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 31
+    },
+    "malformedAssets": {
+      "segment": "malformedAssets",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:4663:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 32
+    }
+  }
+}

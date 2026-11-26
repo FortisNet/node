@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message CrashReportRequest {
+  string platform = 1;
+  optional string app_version = 2;
+  string build_mode = 3;
+  string source = 4;
+  bool fatal = 5;
+  string error_type = 6;
+  string message = 7;
+  string stack = 8;
+  string occurred_at = 9;
+}
+
+message CrashReportResponse {
+  bool accepted = 1;
+  string id = 2;
+}

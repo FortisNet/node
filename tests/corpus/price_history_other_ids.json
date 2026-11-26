@@ -1,0 +1,1397 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "server/intelligence/src/facets/candle_history.ts",
+    "parser": "server/intelligence/src/normalize/token.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "first": 1767225600,
+    "seed": [
+      {
+        "sourceId": "spl:So11111111111111111111111111111111111111112",
+        "interval": "1h",
+        "count": 6,
+        "open": 1,
+        "high": 1.5,
+        "low": 0.5,
+        "close": 1.25,
+        "volume": 100,
+        "oddVolumeNull": false
+      },
+      {
+        "sourceId": "spl:So11111111111111111111111111111111111111112",
+        "interval": "1d",
+        "count": 6,
+        "open": 2,
+        "high": 3,
+        "low": 1,
+        "close": 2.5,
+        "volume": 200,
+        "oddVolumeNull": true
+      },
+      {
+        "sourceId": "tron:trc10:1002000",
+        "interval": "1d",
+        "count": 4,
+        "open": 0.125,
+        "high": 0.25,
+        "low": 0.0625,
+        "close": 0.1875,
+        "volume": 5000,
+        "oddVolumeNull": false
+      },
+      {
+        "sourceId": "aptos:0x1::aptos_coin::AptosCoin",
+        "interval": "1h",
+        "count": 3,
+        "open": 8,
+        "high": 8.5,
+        "low": 7.5,
+        "close": 8.25,
+        "volume": null,
+        "oddVolumeNull": false
+      },
+      {
+        "sourceId": "eth-mainnet:erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "interval": "1h",
+        "count": 4,
+        "open": 0.75,
+        "high": 1,
+        "low": 0.5,
+        "close": 0.875,
+        "volume": 42,
+        "oddVolumeNull": false
+      }
+    ],
+    "corruptSourceId": "spl:CorruptMint11111111111111111111111111111"
+  },
+  "order": [
+    "splSeededHourlyJson",
+    "splSeededDailyProtobuf",
+    "splOutsideWindowJson",
+    "asaColdHourlyJson",
+    "asaColdDailyProtobuf",
+    "trc10AliasSeededDailyJson",
+    "aptosAliasSeededHourlyProtobuf",
+    "evmMixedCasePartialHourlyJson",
+    "robinhoodColdHourlyJson",
+    "robinhoodColdDailyProtobuf",
+    "trc20ColdDailyJson",
+    "unstorableNetworkColdJson",
+    "headSeededHourlyJson",
+    "headColdDailyProtobuf",
+    "unknownStockId",
+    "unknownAsaId",
+    "unauthenticated",
+    "storeFailureJson",
+    "beforeRestartSeededJson",
+    "beforeRestartColdJson",
+    "afterRestartSeededProtobuf",
+    "afterRestartColdJson"
+  ],
+  "cases": {
+    "splSeededHourlyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=spl%3ASo11111111111111111111111111111111111111112&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:So11111111111111111111111111111111111111112"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "665",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "text": "{\"id\":\"spl:So11111111111111111111111111111111111111112\",\"interval\":\"1h\",\"points\":[[1767225600,1.25],[1767229200,2.25],[1767232800,3.25],[1767236400,4.25],[1767240000,5.25],[1767243600,6.25]],\"volumes\":[[1767225600,100],[1767229200,101],[1767232800,102],[1767236400,103],[1767240000,104],[1767243600,105]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\"},\"coverage\":{\"cachedPoints\":6,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767243600,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}}",
+        "decoded": {
+          "id": "spl:So11111111111111111111111111111111111111112",
+          "interval": "1h",
+          "points": [
+            [
+              1767225600,
+              1.25
+            ],
+            [
+              1767229200,
+              2.25
+            ],
+            [
+              1767232800,
+              3.25
+            ],
+            [
+              1767236400,
+              4.25
+            ],
+            [
+              1767240000,
+              5.25
+            ],
+            [
+              1767243600,
+              6.25
+            ]
+          ],
+          "volumes": [
+            [
+              1767225600,
+              100
+            ],
+            [
+              1767229200,
+              101
+            ],
+            [
+              1767232800,
+              102
+            ],
+            [
+              1767236400,
+              103
+            ],
+            [
+              1767240000,
+              104
+            ],
+            [
+              1767243600,
+              105
+            ]
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T05:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 6,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1767225600,
+            "to": 1767243600,
+            "days": 2
+          },
+          "availability": {
+            "from": 1767225600,
+            "to": 1767657600,
+            "days": 6,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6
+              },
+              {
+                "interval": "1h",
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "splSeededDailyProtobuf": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=spl%3ASo11111111111111111111111111111111111111112&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:So11111111111111111111111111111111111111112"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "340",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "wireHex": "0a2f73706c3a536f3131313131313131313131313131313131313131313131313131313131313131313131313131313132120231641a0f0880f2d6ca061100000000000004401a0f088095dcca06110000000000000c401a0f0880b8e1ca061100000000000012401a0f0880dbe6ca061100000000000016401a0f0880feebca06110000000000001a401a0f0880a1f1ca06110000000000001e40220f0880f2d6ca06110000000000006940220f0880b8e1ca06110000000000406940220f0880feebca061100000000008069402a1c08011218323032362d30312d30365430303a30303a30302e3030305a320208063a150880f2d6ca061080a1f1ca06190000000000001840424b0880f2d6ca061080a1f1ca0619000000000000184022190a0231641080f2d6ca061880a1f1ca0621000000000000184022190a0231681080f2d6ca0618d0fed7ca06210000000000000040",
+        "decoded": {
+          "id": "spl:So11111111111111111111111111111111111111112",
+          "interval": "1d",
+          "points": [
+            {
+              "unixSeconds": "1767225600",
+              "value": 2.5
+            },
+            {
+              "unixSeconds": "1767312000",
+              "value": 3.5
+            },
+            {
+              "unixSeconds": "1767398400",
+              "value": 4.5
+            },
+            {
+              "unixSeconds": "1767484800",
+              "value": 5.5
+            },
+            {
+              "unixSeconds": "1767571200",
+              "value": 6.5
+            },
+            {
+              "unixSeconds": "1767657600",
+              "value": 7.5
+            }
+          ],
+          "volumes": [
+            {
+              "unixSeconds": "1767225600",
+              "value": 200
+            },
+            {
+              "unixSeconds": "1767398400",
+              "value": 202
+            },
+            {
+              "unixSeconds": "1767571200",
+              "value": 204
+            }
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-06T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 6
+          },
+          "window": {
+            "from": "1767225600",
+            "to": "1767657600",
+            "days": 6
+          },
+          "availability": {
+            "from": "1767225600",
+            "to": "1767657600",
+            "days": 6,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1767225600",
+                "to": "1767657600",
+                "days": 6
+              },
+              {
+                "interval": "1h",
+                "from": "1767225600",
+                "to": "1767243600",
+                "days": 2
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "splOutsideWindowJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=spl%3ASo11111111111111111111111111111111111111112&from=1766361600&to=1766448000&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:So11111111111111111111111111111111111111112"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "423",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "text": "{\"id\":\"spl:So11111111111111111111111111111111111111112\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}}",
+        "decoded": {
+          "id": "spl:So11111111111111111111111111111111111111112",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": 1767225600,
+            "to": 1767657600,
+            "days": 6,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6
+              },
+              {
+                "interval": "1h",
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "asaColdHourlyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=asa%3A31566704&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "asa",
+          "sourceId": "asa:31566704"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "255",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "text": "{\"id\":\"asa:31566704\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "asa:31566704",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "asaColdDailyProtobuf": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=asa%3A31566704&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "asa",
+          "sourceId": "asa:31566704"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "28",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "wireHex": "0a0c6173613a3331353636373034120231642a02080132003a004200",
+        "decoded": {
+          "id": "asa:31566704",
+          "interval": "1d",
+          "cache": {
+            "hit": true
+          },
+          "coverage": {},
+          "window": {},
+          "availability": {}
+        }
+      },
+      "providerCalls": 0
+    },
+    "trc10AliasSeededDailyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=tron%3Atrc10%3A0001002000&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "trc10",
+          "sourceId": "tron:trc10:1002000"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "517",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "body": {
+        "text": "{\"id\":\"tron:trc10:1002000\",\"interval\":\"1d\",\"points\":[[1767225600,0.1875],[1767312000,1.1875],[1767398400,2.1875],[1767484800,3.1875]],\"volumes\":[[1767225600,5000],[1767312000,5001],[1767398400,5002],[1767484800,5003]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-04T00:00:00.000Z\"},\"coverage\":{\"cachedPoints\":4,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767484800,\"days\":4},\"availability\":{\"from\":1767225600,\"to\":1767484800,\"days\":4,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767484800,\"days\":4}]}}",
+        "decoded": {
+          "id": "tron:trc10:1002000",
+          "interval": "1d",
+          "points": [
+            [
+              1767225600,
+              0.1875
+            ],
+            [
+              1767312000,
+              1.1875
+            ],
+            [
+              1767398400,
+              2.1875
+            ],
+            [
+              1767484800,
+              3.1875
+            ]
+          ],
+          "volumes": [
+            [
+              1767225600,
+              5000
+            ],
+            [
+              1767312000,
+              5001
+            ],
+            [
+              1767398400,
+              5002
+            ],
+            [
+              1767484800,
+              5003
+            ]
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-04T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 4,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1767225600,
+            "to": 1767484800,
+            "days": 4
+          },
+          "availability": {
+            "from": 1767225600,
+            "to": 1767484800,
+            "days": 4,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1767225600,
+                "to": 1767484800,
+                "days": 4
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "aptosAliasSeededHourlyProtobuf": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=aptos%3A0x0001%3A%3Aaptos_coin%3A%3AAptosCoin&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "aptos:0x1::aptos_coin::AptosCoin"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "196",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "233"
+      },
+      "body": {
+        "wireHex": "0a206170746f733a3078313a3a6170746f735f636f696e3a3a4170746f73436f696e120231681a0f0880f2d6ca061100000000008020401a0f08908ed7ca061100000000008022401a0f08a0aad7ca061100000000008024402a1c08011218323032362d30312d30315430323a30303a30302e3030305a320208033a150880f2d6ca0610a0aad7ca0619000000000000004042300880f2d6ca0610a0aad7ca0619000000000000004022190a0231681080f2d6ca0618a0aad7ca06210000000000000040",
+        "decoded": {
+          "id": "aptos:0x1::aptos_coin::AptosCoin",
+          "interval": "1h",
+          "points": [
+            {
+              "unixSeconds": "1767225600",
+              "value": 8.25
+            },
+            {
+              "unixSeconds": "1767229200",
+              "value": 9.25
+            },
+            {
+              "unixSeconds": "1767232800",
+              "value": 10.25
+            }
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T02:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 3
+          },
+          "window": {
+            "from": "1767225600",
+            "to": "1767232800",
+            "days": 2
+          },
+          "availability": {
+            "from": "1767225600",
+            "to": "1767232800",
+            "days": 2,
+            "resolutions": [
+              {
+                "interval": "1h",
+                "from": "1767225600",
+                "to": "1767232800",
+                "days": 2
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "evmMixedCasePartialHourlyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=ETH-Mainnet%3Aerc20%3A0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48&from=1767214800&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "eth-mainnet:erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "547",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "232"
+      },
+      "body": {
+        "text": "{\"id\":\"eth-mainnet:erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"interval\":\"1h\",\"points\":[[1767225600,0.875],[1767229200,1.875],[1767232800,2.875],[1767236400,3.875]],\"volumes\":[[1767225600,42],[1767229200,43],[1767232800,44],[1767236400,45]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T03:00:00.000Z\"},\"coverage\":{\"cachedPoints\":4,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767236400,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767236400,\"days\":2,\"resolutions\":[{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767236400,\"days\":2}]}}",
+        "decoded": {
+          "id": "eth-mainnet:erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "interval": "1h",
+          "points": [
+            [
+              1767225600,
+              0.875
+            ],
+            [
+              1767229200,
+              1.875
+            ],
+            [
+              1767232800,
+              2.875
+            ],
+            [
+              1767236400,
+              3.875
+            ]
+          ],
+          "volumes": [
+            [
+              1767225600,
+              42
+            ],
+            [
+              1767229200,
+              43
+            ],
+            [
+              1767232800,
+              44
+            ],
+            [
+              1767236400,
+              45
+            ]
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T03:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 4,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1767225600,
+            "to": 1767236400,
+            "days": 2
+          },
+          "availability": {
+            "from": 1767225600,
+            "to": 1767236400,
+            "days": 2,
+            "resolutions": [
+              {
+                "interval": "1h",
+                "from": 1767225600,
+                "to": 1767236400,
+                "days": 2
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "robinhoodColdHourlyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=robinhood%3Aerc20%3A0x1111111111111111111111111111111111111111&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "robinhood:erc20:0x1111111111111111111111111111111111111111"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "301",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "231"
+      },
+      "body": {
+        "text": "{\"id\":\"robinhood:erc20:0x1111111111111111111111111111111111111111\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "robinhood:erc20:0x1111111111111111111111111111111111111111",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "robinhoodColdDailyProtobuf": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=robinhood%3Aerc20%3A0x1111111111111111111111111111111111111111&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "robinhood:erc20:0x1111111111111111111111111111111111111111"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "74",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "230"
+      },
+      "body": {
+        "wireHex": "0a3a726f62696e686f6f643a65726332303a307831313131313131313131313131313131313131313131313131313131313131313131313131313131120231642a02080132003a004200",
+        "decoded": {
+          "id": "robinhood:erc20:0x1111111111111111111111111111111111111111",
+          "interval": "1d",
+          "cache": {
+            "hit": true
+          },
+          "coverage": {},
+          "window": {},
+          "availability": {}
+        }
+      },
+      "providerCalls": 0
+    },
+    "trc20ColdDailyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=tron%3Atrc20%3ATR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "tron:trc20:TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "288",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "229"
+      },
+      "body": {
+        "text": "{\"id\":\"tron:trc20:TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"interval\":\"1d\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "tron:trc20:TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
+          "interval": "1d",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "unstorableNetworkColdJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=custom%20chain%3Aerc20%3A0x2222222222222222222222222222222222222222&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "contract",
+          "sourceId": "custom chain:erc20:0x2222222222222222222222222222222222222222"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "304",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "228"
+      },
+      "body": {
+        "text": "{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "headSeededHourlyJson": {
+      "segment": "ids",
+      "request": {
+        "method": "HEAD",
+        "url": "/v1/prices/history?id=spl%3ASo11111111111111111111111111111111111111112&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:So11111111111111111111111111111111111111112"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "665",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "227"
+      },
+      "body": {
+        "text": ""
+      },
+      "providerCalls": 0
+    },
+    "headColdDailyProtobuf": {
+      "segment": "ids",
+      "request": {
+        "method": "HEAD",
+        "url": "/v1/prices/history?id=asa%3A31566704&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "asa",
+          "sourceId": "asa:31566704"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "28",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "226"
+      },
+      "body": {
+        "wireHex": ""
+      },
+      "providerCalls": 0
+    },
+    "unknownStockId": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=stock%3AAAPL&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": null
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "50",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "225"
+      },
+      "body": {
+        "text": "{\"error\":\"BAD_REQUEST\",\"detail\":\"unrecognized id\"}"
+      },
+      "providerCalls": 0
+    },
+    "unknownAsaId": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=asa%3A12x&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": null
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "50",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "224"
+      },
+      "body": {
+        "text": "{\"error\":\"BAD_REQUEST\",\"detail\":\"unrecognized id\"}"
+      },
+      "providerCalls": 0
+    },
+    "unauthenticated": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=spl%3ASo11111111111111111111111111111111111111112&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": false,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:So11111111111111111111111111111111111111112"
+        }
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "text": "{\"error\":\"UNAUTHORIZED\"}"
+      },
+      "providerCalls": 0
+    },
+    "storeFailureJson": {
+      "segment": "ids",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=spl%3ACorruptMint11111111111111111111111111111&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "spl",
+          "sourceId": "spl:CorruptMint11111111111111111111111111111"
+        }
+      },
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "20",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "223"
+      },
+      "body": {
+        "text": "{\"error\":\"INTERNAL\"}"
+      },
+      "providerCalls": 0
+    },
+    "beforeRestartSeededJson": {
+      "segment": "restart",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=tron%3Atrc10%3A1002000&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "trc10",
+          "sourceId": "tron:trc10:1002000"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "517",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "text": "{\"id\":\"tron:trc10:1002000\",\"interval\":\"1d\",\"points\":[[1767225600,0.1875],[1767312000,1.1875],[1767398400,2.1875],[1767484800,3.1875]],\"volumes\":[[1767225600,5000],[1767312000,5001],[1767398400,5002],[1767484800,5003]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-04T00:00:00.000Z\"},\"coverage\":{\"cachedPoints\":4,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767484800,\"days\":4},\"availability\":{\"from\":1767225600,\"to\":1767484800,\"days\":4,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767484800,\"days\":4}]}}",
+        "decoded": {
+          "id": "tron:trc10:1002000",
+          "interval": "1d",
+          "points": [
+            [
+              1767225600,
+              0.1875
+            ],
+            [
+              1767312000,
+              1.1875
+            ],
+            [
+              1767398400,
+              2.1875
+            ],
+            [
+              1767484800,
+              3.1875
+            ]
+          ],
+          "volumes": [
+            [
+              1767225600,
+              5000
+            ],
+            [
+              1767312000,
+              5001
+            ],
+            [
+              1767398400,
+              5002
+            ],
+            [
+              1767484800,
+              5003
+            ]
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-04T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 4,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": 1767225600,
+            "to": 1767484800,
+            "days": 4
+          },
+          "availability": {
+            "from": 1767225600,
+            "to": 1767484800,
+            "days": 4,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": 1767225600,
+                "to": 1767484800,
+                "days": 4
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "beforeRestartColdJson": {
+      "segment": "restart",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=asa%3A31566704&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "asa",
+          "sourceId": "asa:31566704"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "255",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "text": "{\"id\":\"asa:31566704\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "asa:31566704",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "afterRestartSeededProtobuf": {
+      "segment": "restartAfter",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=tron%3Atrc10%3A0001002000&from=1767225600&to=1767744000&interval=1d",
+        "accept": "application/protobuf",
+        "auth": true,
+        "parsed": {
+          "kind": "trc10",
+          "sourceId": "tron:trc10:1002000"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "267",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "wireHex": "0a1274726f6e3a74726331303a31303032303030120231641a0f0880f2d6ca0611000000000000c83f1a0f088095dcca0611000000000000f33f1a0f0880b8e1ca061100000000008001401a0f0880dbe6ca06110000000000800940220f0880f2d6ca0611000000000088b340220f088095dcca0611000000000089b340220f0880b8e1ca061100000000008ab340220f0880dbe6ca061100000000008bb3402a1c08011218323032362d30312d30345430303a30303a30302e3030305a320208043a150880f2d6ca061080dbe6ca0619000000000000104042300880f2d6ca061080dbe6ca0619000000000000104022190a0231641080f2d6ca061880dbe6ca06210000000000001040",
+        "decoded": {
+          "id": "tron:trc10:1002000",
+          "interval": "1d",
+          "points": [
+            {
+              "unixSeconds": "1767225600",
+              "value": 0.1875
+            },
+            {
+              "unixSeconds": "1767312000",
+              "value": 1.1875
+            },
+            {
+              "unixSeconds": "1767398400",
+              "value": 2.1875
+            },
+            {
+              "unixSeconds": "1767484800",
+              "value": 3.1875
+            }
+          ],
+          "volumes": [
+            {
+              "unixSeconds": "1767225600",
+              "value": 5000
+            },
+            {
+              "unixSeconds": "1767312000",
+              "value": 5001
+            },
+            {
+              "unixSeconds": "1767398400",
+              "value": 5002
+            },
+            {
+              "unixSeconds": "1767484800",
+              "value": 5003
+            }
+          ],
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-04T00:00:00.000Z"
+          },
+          "coverage": {
+            "cachedPoints": 4
+          },
+          "window": {
+            "from": "1767225600",
+            "to": "1767484800",
+            "days": 4
+          },
+          "availability": {
+            "from": "1767225600",
+            "to": "1767484800",
+            "days": 4,
+            "resolutions": [
+              {
+                "interval": "1d",
+                "from": "1767225600",
+                "to": "1767484800",
+                "days": 4
+              }
+            ]
+          }
+        }
+      },
+      "providerCalls": 0
+    },
+    "afterRestartColdJson": {
+      "segment": "restartAfter",
+      "request": {
+        "method": "GET",
+        "url": "/v1/prices/history?id=asa%3A31566704&from=1767225600&to=1767247200&interval=1h",
+        "accept": "application/json",
+        "auth": true,
+        "parsed": {
+          "kind": "asa",
+          "sourceId": "asa:31566704"
+        }
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "255",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "text": "{\"id\":\"asa:31566704\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}",
+        "decoded": {
+          "id": "asa:31566704",
+          "interval": "1h",
+          "points": [],
+          "volumes": [],
+          "cache": {
+            "hit": true,
+            "timestamp": null
+          },
+          "coverage": {
+            "cachedPoints": 0,
+            "fetchedPoints": 0
+          },
+          "window": {
+            "from": null,
+            "to": null,
+            "days": 0
+          },
+          "availability": {
+            "from": null,
+            "to": null,
+            "days": 0,
+            "resolutions": []
+          }
+        }
+      },
+      "providerCalls": 0
+    }
+  }
+}

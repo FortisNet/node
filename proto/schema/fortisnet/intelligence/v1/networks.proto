@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "fortisnet/intelligence/v1/news.proto";
+
+message NetworkNativeCoin {
+  string symbol = 1;
+  uint32 decimals = 2;
+  optional string coingecko_id = 3;
+}
+
+message NetworkCapabilityInfo {
+  string id = 1;
+  string family = 2;
+  optional uint32 evm_chain_id = 3;
+  bool testnet = 4;
+  optional uint32 required_confirmations = 5;
+  repeated string rpc_urls = 6;
+  repeated string graphql_urls = 7;
+  NetworkNativeCoin native = 8;
+  map<string, string> capabilities = 9;
+}
+
+message PriceCapabilityInfo {
+  bool spot = 1;
+  bool history = 2;
+  map<string, string> sources = 3;
+}
+
+message NetworksResponse {
+  repeated NetworkCapabilityInfo networks = 1;
+  PriceCapabilityInfo prices = 2;
+}
+
+message NetworkOverviewNetwork {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  optional string website_url = 4;
+}
+
+message NetworkOverviewNews {
+  bool available = 1;
+  repeated NewsItem items = 2;
+  optional string as_of = 3;
+  bool stale = 4;
+}
+
+message PopularNetworkToken {
+  string token_id = 1;
+  string address = 2;
+  string symbol = 3;
+  string name = 4;
+  uint32 decimals = 5;
+  optional string logo_media_key = 6;
+  optional string logo_url = 7;
+  optional string coin_gecko_id = 8;
+  double market_cap_usd = 9;
+  optional uint64 holder_count = 10;
+  bool holder_count_at_least = 11;
+  optional double price_usd = 12;
+  optional double change_24h_pct = 13;
+  uint32 rank = 14;
+  string source = 15;
+}
+
+message NetworkOverviewPopularTokens {
+  bool available = 1;
+  repeated PopularNetworkToken items = 2;
+  optional string as_of = 3;
+  bool stale = 4;
+  string metric = 5;
+  optional string source = 6;
+}
+
+message NetworkOverviewResponse {
+  NetworkOverviewNetwork network = 1;
+  NetworkOverviewNews news = 2;
+  NetworkOverviewPopularTokens popular_tokens = 3;
+}

@@ -1,0 +1,7 @@
+fortisnet.intelligence.v1.CacheInfo.timestamp max_size:32
+fortisnet.intelligence.v1.PriceHistory.id max_size:513
+fortisnet.intelligence.v1.PriceHistory.interval max_size:4
+fortisnet.intelligence.v1.PriceHistory.points max_count:2500
+fortisnet.intelligence.v1.PriceHistory.volumes max_count:2500
+fortisnet.intelligence.v1.PriceResolutionAvailability.interval max_size:4
+fortisnet.intelligence.v1.PriceAvailability.resolutions max_count:2

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message AttestationChallengeResponse {
+  string challenge = 1;
+  uint32 expires_in = 2;
+}
+
+message DeviceAttestation {
+  string provider = 1;
+  string challenge = 2;
+  optional string token = 3;
+}
+
+message EnrollDeviceRequest {
+  string platform = 1;
+  optional string app_version = 2;
+  DeviceAttestation attestation = 3;
+}
+
+message EnrollDeviceResponse {
+  string device_id = 1;
+  string device_token = 2;
+  string expires_at = 3;
+}
+
+message RotateDeviceTokenResponse {
+  string device_token = 1;
+  string expires_at = 2;
+}

@@ -1,0 +1,15 @@
+fortisnet.intelligence.v1.NetworkNativeCoin.symbol max_size:9
+fortisnet.intelligence.v1.NetworkNativeCoin.coingecko_id max_size:65
+fortisnet.intelligence.v1.NetworkCapabilityInfo.id max_size:65
+fortisnet.intelligence.v1.NetworkCapabilityInfo.family max_size:24
+fortisnet.intelligence.v1.NetworkCapabilityInfo.rpc_urls max_count:5
+fortisnet.intelligence.v1.NetworkCapabilityInfo.rpc_urls max_size:256
+fortisnet.intelligence.v1.NetworkCapabilityInfo.graphql_urls max_count:3
+fortisnet.intelligence.v1.NetworkCapabilityInfo.graphql_urls max_size:256
+fortisnet.intelligence.v1.NetworkCapabilityInfo.capabilities max_count:10
+fortisnet.intelligence.v1.NetworkCapabilityInfo.CapabilitiesEntry.key max_size:16
+fortisnet.intelligence.v1.NetworkCapabilityInfo.CapabilitiesEntry.value max_size:5
+fortisnet.intelligence.v1.PriceCapabilityInfo.sources max_count:3
+fortisnet.intelligence.v1.PriceCapabilityInfo.SourcesEntry.key max_size:16
+fortisnet.intelligence.v1.PriceCapabilityInfo.SourcesEntry.value max_size:16
+fortisnet.intelligence.v1.NetworksResponse.networks max_count:43

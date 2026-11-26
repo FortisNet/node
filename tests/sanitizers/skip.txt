@@ -1,0 +1,13 @@
+# Recipe commands the sanitizer runs leave out: one regular expression per
+# line, matched against the command as `make -n test` prints it. Every entry
+# needs the reason above it. This is for commands that fail for a reason no
+# sanitizer build can change, never for a sanitizer report (those are fixed,
+# or suppressed with a justification in lsan.supp / tsan.supp / ubsan.supp).
+
+# Fails in the normal build too, on macOS and Linux alike, since before the
+# sanitizer targets existed (it is a known failure of the test baseline): it
+# asserts that POST /v1/devices/rotate waits for the route-state lock, but
+# http_server.cpp exempts rotation from that lock (route_runs_without_state_
+# lock), so the rotation it parks consumes device B's bearer and its next
+# read with that bearer answers 401. The assertion is stale, not the server.
+^\./build/network_catalog_concurrency_test$

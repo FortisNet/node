@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message DashPayNameResponse {
+  string name = 1;
+  optional string identity_id = 2;
+}

@@ -1,0 +1,396 @@
+# Native-only public operations added to the shared Intelligence contract.
+# Helpdesk and Gems now live in the wallet service and are absent from C++.
+excludedPaths:
+  - /v1/gems
+  - /admin/tickets
+  - /admin/tickets/{id}/reply
+  - /admin/tickets/{id}/status
+  - /v1/support/auth/verify
+  - /v1/support/auth/refresh
+  - /v1/support/tickets
+  - /v1/support/tickets/{id}
+  - /v1/support/tickets/{id}/messages
+excludedSecuritySchemes: [supportSession, supportAdminBasic]
+excludedSchemas:
+  - GemsFeed
+  - GemItem
+  - SupportAuthSession
+  - OpenTicketRequest
+  - SupportAttachmentInput
+  - SupportAttachment
+  - SupportTicket
+  - SupportMessage
+  - TicketThread
+paths:
+  /error:
+    get:
+      tags: [System]
+      operationId: getNativeErrorPageAlias
+      summary: View the public node error board (alias of /errors)
+      security: []
+      responses:
+        '200':
+          description: Aggregate operational errors without private request or provider contents.
+          content:
+            text/html:
+              schema: { type: string }
+  /v1/prices/missing-identifiers:
+    post:
+      tags: [Prices]
+      operationId: reportMissingNativePriceIdentifiers
+      summary: Report missing client ticker mappings
+      description: Device-authenticated and quota-limited. Only catalogued native symbols are displayed publicly; other inputs become an aggregate count. Reports are persisted before acknowledgement.
+      security: [{ deviceBearer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [symbols]
+              properties:
+                symbols:
+                  type: array
+                  minItems: 1
+                  maxItems: 16
+                  items: { type: string, pattern: '^[A-Z0-9.]{1,16}$' }
+      responses:
+        '204': { description: Missing mappings recorded durably. }
+        '400': { description: Invalid report. }
+        '401': { description: Device authentication or attestation failed. }
+        '403': { description: Browser Origin is forbidden. }
+        '413': { description: Report exceeds the body limit. }
+        '415': { description: JSON content type required. }
+        '429': { description: Device quota exhausted. }
+        '503': { description: Diagnostic persistence unavailable. }
+  /benchmark:
+    get:
+      tags: [System]
+      operationId: getNativeBenchmarkStatsPage
+      summary: View live node timings and open saved benchmark results
+      security: []
+      responses:
+        '200':
+          description: Read-only HTML dashboard. Report files are read in the browser.
+          content:
+            text/html:
+              schema: { type: string }
+  /v1/devices/revoke:
+    post:
+      tags: [Device authentication]
+      operationId: revokeNativeDevice
+      summary: Revoke the authenticated device credential
+      description: Revocation commits before the response and costs one device quota unit.
+      security: [{ deviceBearer: [] }]
+      responses:
+        '204': { description: The credential has been revoked. }
+        '401': { description: Device authentication or attestation failed. }
+        '403': { description: Browser Origin is forbidden. }
+        '429': { description: Device quota exhausted. }
+        '500': { description: Revocation could not be committed. }
+  /v1/prices/snapshot:
+    get:
+      tags: [Prices]
+      operationId: getNativePriceSnapshot
+      summary: Read shared cached USD prices for the default wallet assets
+      description: Available when FORTIS_PRICE_SNAPSHOT_ENABLED is enabled. No query parameters. Requests cost one device quota unit, including conditional requests. Responses are private and require revalidation. Provider observation and server receipt times are optional.
+      security: [{ deviceBearer: [] }]
+      parameters:
+        - { name: If-None-Match, in: header, schema: { type: string } }
+      responses:
+        '200':
+          description: Cached prices and explicit coverage; unavailable prices are listed in missing.
+          headers:
+            ETag: { schema: { type: string } }
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schemaVersion, fiat, quotes, missing, coverage]
+                properties:
+                  schemaVersion: { type: integer, enum: [1] }
+                  fiat: { type: string, enum: [usd] }
+                  quotes:
+                    type: array
+                    maxItems: 6
+                    items:
+                      type: object
+                      required: [id, price, source, receivedAtMs, providerObservedAtMs, cacheAsOfMs, freshUntilMs, stale]
+                      properties:
+                        id: { type: string }
+                        price: { type: number }
+                        source: { type: string }
+                        receivedAtMs: { type: integer, nullable: true, format: int64 }
+                        providerObservedAtMs: { type: integer, nullable: true, format: int64 }
+                        cacheAsOfMs: { type: integer, format: int64 }
+                        freshUntilMs: { type: integer, format: int64 }
+                        stale: { type: boolean }
+                  missing: { type: array, maxItems: 6, items: { type: string } }
+                  coverage:
+                    type: object
+                    required: [available, requested]
+                    properties:
+                      available: { type: integer, minimum: 0, maximum: 6 }
+                      requested: { type: integer, enum: [6] }
+        '304': { description: The snapshot matches the supplied ETag. }
+        '400': { description: The request included query parameters. }
+        '401': { description: Device authentication or attestation failed. }
+        '403': { description: Browser Origin is forbidden. }
+        '406': { description: The request does not accept JSON. }
+        '429': { description: Device quota exhausted. }
+        '503': { description: The cached snapshot is temporarily unavailable. }
+    head:
+      tags: [Prices]
+      operationId: headNativePriceSnapshot
+      summary: Check the cached USD snapshot without downloading it
+      description: Uses the same authentication, quota, conditional handling and status codes as GET, without a response body.
+      security: [{ deviceBearer: [] }]
+      parameters:
+        - { name: If-None-Match, in: header, schema: { type: string } }
+      responses:
+        '200': { description: Snapshot headers only. }
+        '304': { description: The snapshot matches the supplied ETag. }
+        '400': { description: The request included query parameters. }
+        '401': { description: Device authentication or attestation failed. }
+        '403': { description: Browser Origin is forbidden. }
+        '406': { description: The request does not accept JSON. }
+        '429': { description: Device quota exhausted. }
+        '503': { description: The cached snapshot is temporarily unavailable. }
+  /v1/ai/conversations/{id}/messages/{messageId}/retry:
+    post:
+      tags: [AI]
+      operationId: retryIntelligenceMessage
+      summary: Retry a failed saved AI reply
+      description: Marks a failed user message pending so the AI worker can try again.
+      security:
+        - deviceBearer: []
+          intelligenceConversation: []
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string } }
+        - { name: messageId, in: path, required: true, schema: { type: string } }
+      responses:
+        '202': { description: The saved message is pending retry. }
+        '404': { description: No failed message is available to retry in this conversation. }
+  /doc:
+    get:
+      tags: [System]
+      operationId: apiDocumentation
+      summary: Interactive API reference (native C++ server)
+      description: Public HTML documentation generated from this OpenAPI specification. The native server also serves the same page at `/documentation` and the source at `/openapi.yaml`.
+      security: []
+      responses:
+        '200':
+          description: API reference HTML.
+          content:
+            text/html:
+              schema:
+                type: string
+  /documentation:
+    get:
+      tags: [System]
+      operationId: apiDocumentationAlias
+      summary: Alias of /doc (native C++ server)
+      description: Public HTML reference with the same response as `/doc`.
+      security: []
+      responses:
+        '200':
+          description: API reference HTML.
+          content:
+            text/html:
+              schema:
+                type: string
+  /openapi.yaml:
+    get:
+      tags: [System]
+      operationId: openApiSource
+      summary: Download the native OpenAPI specification
+      description: Public YAML contract used to generate `/doc`, including the native-only operations.
+      security: []
+      responses:
+        '200':
+          description: OpenAPI YAML document.
+          content:
+            application/yaml:
+              schema:
+                type: string
+  /stats:
+    get:
+      tags: [System]
+      operationId: requestStatisticsPage
+      summary: Human-readable API performance dashboard
+      description: >-
+        Public dashboard with API groups, individual registered route templates,
+        estimated percentiles, errors, platform attribution and lifetime admission
+        counters. Includes a resource view and a plain-language measurement guide.
+      security: []
+      responses:
+        '200':
+          description: Embedded dashboard HTML; GET and HEAD are supported.
+          content:
+            text/html:
+              schema: {type: string}
+  /statsz:
+    get:
+      tags: [System]
+      operationId: requestStatistics
+      summary: Public aggregate API group and route performance
+      description: >-
+        Fifteen one-minute buckets including the partial current minute. API
+        completions only; public dashboard, health and root-scoped media reads
+        are excluded. Group histograms are merged before calculating percentile
+        estimates, never averaged from route percentiles. Zero requests means
+        no latency samples. Platform totals include samples omitted from sparse
+        route tracking; omittedRouteSamples discloses this undercount. Admission
+        counts are since process start and may overlap. Counters reset on restart.
+        Only templates and aggregates appear, never device IDs or request bodies.
+      security: []
+      responses:
+        '200':
+          description: Bounded process-local statistics.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [windowMinutes, omittedRouteSamples, admissionSinceBoot, routes, groups, platforms]
+                properties:
+                  windowMinutes: {type: integer, enum: [15]}
+                  omittedRouteSamples: {type: integer, minimum: 0}
+                  admissionSinceBoot:
+                    type: object
+                    additionalProperties: {type: integer, minimum: 0}
+                  routes:
+                    type: array
+                    items:
+                      allOf:
+                        - $ref: '#/components/schemas/RequestPerformance'
+                        - type: object
+                          required: [route, method, service]
+                          properties:
+                            route: {type: string, description: Registered route template.}
+                            method: {type: string}
+                            service: {type: string}
+                  groups:
+                    type: array
+                    items:
+                      allOf:
+                        - $ref: '#/components/schemas/RequestPerformance'
+                        - type: object
+                          required: [service]
+                          properties:
+                            service: {type: string}
+                  platforms:
+                    type: array
+                    items:
+                      allOf:
+                        - $ref: '#/components/schemas/RequestPerformance'
+                        - type: object
+                          required: [os]
+                          properties:
+                            os: {type: string, description: Enrolled platform attribution or unknown.}
+  /status-history:
+    get:
+      tags: [System]
+      operationId: statusHistory
+      summary: Eight hours of aggregate process and API traffic history (native C++ server)
+      description: >-
+        Public, process-local ring of exactly 480 chronological one-minute
+        slots. A background thread samples CPU and memory every five seconds
+        even with no page open. Request counts cover API-scope `/v1` responses;
+        status and documentation reads are excluded. Missing measurements are
+        null, observed quiet request minutes are zero, unobserved slots have observed=false, and a server restart starts a
+        fresh ring. No device identifiers, addresses or request bodies appear.
+      security: []
+      responses:
+        '200':
+          description: Bounded aggregate history.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [slotDurationSec, maxMinutes, slots]
+                properties:
+                  slotDurationSec:
+                    type: integer
+                    enum: [60]
+                  maxMinutes:
+                    type: integer
+                    enum: [480]
+                  slots:
+                    type: array
+                    minItems: 480
+                    maxItems: 480
+                    items:
+                      type: object
+                      required: [created, duration, observed, memoryMb, cpuPercent, diskScope, diskUsedMb, requests]
+                      properties:
+                        created:
+                          type: integer
+                          description: UTC epoch seconds at the start of the slot.
+                        duration:
+                          type: integer
+                          enum: [60]
+                        observed:
+                          type: boolean
+                          description: False means the process did not observe this minute; do not infer zero traffic.
+                        diskScope:
+                          type: string
+                          nullable: true
+                          enum: [filesystem, data-tree, null]
+                          description: Disk history samples must only be compared with the same scope.
+                        diskUsedMb:
+                          nullable: true
+                          allOf:
+                            - $ref: '#/components/schemas/ResourceRange'
+                        memoryMb:
+                          nullable: true
+                          allOf:
+                            - $ref: '#/components/schemas/ResourceRange'
+                        cpuPercent:
+                          nullable: true
+                          allOf:
+                            - $ref: '#/components/schemas/ResourceRange'
+                        requests:
+                          type: object
+                          required: [total, errors, avgDurationMs, maxDurationMs]
+                          properties:
+                            total: {type: integer}
+                            errors: {type: integer}
+                            avgDurationMs: {type: number}
+                            maxDurationMs: {type: number}
+components:
+  schemas:
+    RequestPerformance:
+      type: object
+      description: >-
+        Server-side response completion timings in ms, including error responses.
+        Percentiles estimate histogram boundaries (5, 10, 25, 50, 100, 250, 500,
+        1000, 2500, 5000 ms; final bucket uses observed max). They exclude client
+        network/setup/rendering overhead. Empty aggregates serialize zero timings
+        for compatibility; readers must show no sample when requests is zero.
+        Queue and owner timings overlap other phases and must not be added.
+      required: [requests, errors5xx, errors4xx, rateLimited, avgMs, p50Ms, p95Ms, p99Ms, maxMs, avgQueueMs, maxQueueMs, ownerSamples, avgOwnerMs, maxOwnerMs]
+      properties:
+        requests: {type: integer, minimum: 0}
+        errors5xx: {type: integer, minimum: 0}
+        errors4xx: {type: integer, minimum: 0}
+        rateLimited: {type: integer, minimum: 0}
+        avgMs: {type: number, minimum: 0}
+        p50Ms: {type: number, minimum: 0}
+        p95Ms: {type: number, minimum: 0}
+        p99Ms: {type: number, minimum: 0}
+        maxMs: {type: number, minimum: 0}
+        avgQueueMs: {type: number, minimum: 0}
+        maxQueueMs: {type: number, minimum: 0}
+        ownerSamples: {type: integer, minimum: 0}
+        avgOwnerMs: {type: number, minimum: 0}
+        maxOwnerMs: {type: number, minimum: 0}
+    ResourceRange:
+      type: object
+      description: Min, average and max of the samples taken within one minute.
+      required: [min, avg, max, samples]
+      properties:
+        min: {type: number}
+        avg: {type: number}
+        max: {type: number}
+        samples: {type: integer}

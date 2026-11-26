@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message ComparisonTokenKey {
+  string network = 1;
+  string token_id = 2;
+}
+
+message TokenComparisonRequest {
+  repeated ComparisonTokenKey tokens = 1;
+  optional string fiat = 2;
+}
+
+message ComparisonMetric {
+  optional double value = 1;
+  optional string as_of = 2;
+  optional string source = 3;
+  string status = 4;
+}
+
+message ComparisonIdentity {
+  optional string symbol = 1;
+  optional string name = 2;
+  optional string logo_media_key = 3;
+  optional string market_id = 4;
+}
+
+message ComparisonMetrics {
+  ComparisonMetric price_usd = 1;
+  ComparisonMetric market_cap_usd = 2;
+  ComparisonMetric volume_24h_usd = 3;
+  ComparisonMetric liquidity_usd = 4;
+}
+
+message ComparisonChanges {
+  optional double price_1h_pct = 1;
+  optional double price_24h_pct = 2;
+  optional double price_7d_pct = 3;
+  optional double price_30d_pct = 4;
+}
+
+message ComparisonLiquidityQuality {
+  optional double spread_pct = 1;
+  optional double top_pool_share = 2;
+  optional uint32 pool_count = 3;
+}
+
+message ComparisonDerived {
+  optional double turnover_pct = 1;
+  optional double liquidity_to_market_cap_pct = 2;
+  optional double volume_to_liquidity_ratio = 3;
+}
+
+message ComparisonRanks {
+  optional uint32 market_cap = 1;
+  optional uint32 volume_24h = 2;
+  optional uint32 liquidity = 3;
+}
+
+message TokenComparisonItem {
+  string network = 1;
+  string token_id = 2;
+  ComparisonIdentity identity = 3;
+  ComparisonMetrics metrics = 4;
+  ComparisonChanges changes = 5;
+  ComparisonLiquidityQuality liquidity_quality = 6;
+  ComparisonDerived derived = 7;
+  ComparisonRanks ranks = 8;
+  repeated string warnings = 9;
+}
+
+message TokenComparisonError {
+  uint32 input_index = 1;
+  string network = 2;
+  string token_id = 3;
+  string code = 4;
+}
+
+message TokenComparisonResponse {
+  string fiat = 1;
+  string computed_at = 2;
+  repeated TokenComparisonItem items = 3;
+  repeated TokenComparisonError errors = 4;
+}

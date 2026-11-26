@@ -1,0 +1,122 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/discovery.ts",
+    "facet": "TokenDiscoveryFacet.ohlc",
+    "lanes": "server/intelligence/src/upstream/lanes.ts",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "token": "fintel_dev_OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+  },
+  "cases": [
+    {
+      "name": "throttled",
+      "slug": "throttled-coin",
+      "at": 1767323045000,
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/throttled-coin/ohlc?vs_currency=usd&days=1",
+          "status": 429
+        }
+      ]
+    },
+    {
+      "name": "breakerOpen",
+      "slug": "blocked-coin",
+      "at": 1767323045000,
+      "accept": "application/json",
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "retry-after": "30"
+      },
+      "body": {
+        "error": "RATE_LIMITED",
+        "detail": "Upstream data is temporarily busy; retained data remains available."
+      },
+      "upstream": []
+    },
+    {
+      "name": "breakerOpenProtobuf",
+      "slug": "other-blocked-coin",
+      "at": 1767323045000,
+      "accept": "application/protobuf",
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "retry-after": "30"
+      },
+      "body": {
+        "error": "RATE_LIMITED",
+        "detail": "Upstream data is temporarily busy; retained data remains available."
+      },
+      "upstream": []
+    },
+    {
+      "name": "busyReplay",
+      "slug": "blocked-coin",
+      "at": 1767323045001,
+      "accept": "application/json",
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5",
+        "retry-after": "30"
+      },
+      "body": {
+        "error": "RATE_LIMITED",
+        "detail": "Upstream data is temporarily busy; retained data remains available."
+      },
+      "upstream": []
+    },
+    {
+      "name": "throttledReplay",
+      "slug": "throttled-coin",
+      "at": 1767323045002,
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "5"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    }
+  ]
+}

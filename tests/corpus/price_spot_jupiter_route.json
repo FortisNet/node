@@ -1,0 +1,5439 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "provider": "server/intelligence/src/upstream/jupiter.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "expiredTime": "2026-01-02T03:15:45.000Z",
+    "liteHost": "https://lite-api.jup.ag",
+    "keyedHost": "https://api.jup.ag",
+    "jupiterApiKey": "fixture-jupiter-key",
+    "batchLimit": 50,
+    "groupLimit": 250,
+    "transportAttempts": 3,
+    "spotFreshMs": 30000,
+    "spotStaleMs": 600000,
+    "spotMissingMs": 300000
+  },
+  "mints": {
+    "usdc": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "sol": "So11111111111111111111111111111111111111112",
+    "bonk": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "jup": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+    "msol": "mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+    "unlisted": "Un1isted111111111111111111111111",
+    "stringPrice": "BadStringPrice111111111111111111",
+    "nullRow": "BadNu11Row1111111111111111111111",
+    "noPrice": "BadNoPrice1111111111111111111111",
+    "stringChange": "BadChange11111111111111111111111",
+    "arrayReply": "ArrayRep1y1111111111111111111111",
+    "nullReply": "Nu11Rep1y11111111111111111111111",
+    "notFound": "NotFound111111111111111111111111",
+    "serverError": "Fai1ServerError11111111111111111",
+    "malformed": "Ma1formedJson1111111111111111111",
+    "batch": [
+      "Batch111111111111111111111111111",
+      "Batch211111111111111111111111111",
+      "Batch311111111111111111111111111",
+      "Batch411111111111111111111111111",
+      "Batch511111111111111111111111111",
+      "Batch611111111111111111111111111",
+      "Batch711111111111111111111111111",
+      "Batch811111111111111111111111111",
+      "Batch911111111111111111111111111",
+      "BatchA11111111111111111111111111",
+      "BatchB11111111111111111111111111",
+      "BatchC11111111111111111111111111",
+      "BatchD11111111111111111111111111",
+      "BatchE11111111111111111111111111",
+      "BatchF11111111111111111111111111",
+      "BatchG11111111111111111111111111",
+      "BatchH11111111111111111111111111",
+      "BatchJ11111111111111111111111111",
+      "BatchK11111111111111111111111111",
+      "BatchL11111111111111111111111111",
+      "BatchM11111111111111111111111111",
+      "BatchN11111111111111111111111111",
+      "BatchP11111111111111111111111111",
+      "BatchQ11111111111111111111111111",
+      "BatchR11111111111111111111111111",
+      "BatchS11111111111111111111111111",
+      "BatchT11111111111111111111111111",
+      "BatchU11111111111111111111111111",
+      "BatchV11111111111111111111111111",
+      "BatchW11111111111111111111111111",
+      "BatchX11111111111111111111111111",
+      "BatchY11111111111111111111111111",
+      "BatchZ11111111111111111111111111",
+      "Batcha11111111111111111111111111",
+      "Batchb11111111111111111111111111",
+      "Batchc11111111111111111111111111",
+      "Batchd11111111111111111111111111",
+      "Batche11111111111111111111111111",
+      "Batchf11111111111111111111111111",
+      "Batchg11111111111111111111111111",
+      "Batchh11111111111111111111111111",
+      "Batchi11111111111111111111111111",
+      "Batchj11111111111111111111111111",
+      "Batchk11111111111111111111111111",
+      "Batchm11111111111111111111111111",
+      "Batchn11111111111111111111111111",
+      "Batcho11111111111111111111111111",
+      "Batchp11111111111111111111111111",
+      "Batchq11111111111111111111111111",
+      "Batchr11111111111111111111111111",
+      "Batchs11111111111111111111111111"
+    ],
+    "batchMissing": "BatchB11111111111111111111111111",
+    "batchSecond": "Batchs11111111111111111111111111"
+  },
+  "providerRequests": [
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112%2CDezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263%2CJUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Un1isted111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=BadStringPrice111111111111111111%2CBadNu11Row1111111111111111111111%2CBadNoPrice1111111111111111111111%2CBadChange11111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=ArrayRep1y1111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Nu11Rep1y11111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Nu11Rep1y11111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=NotFound111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=NotFound111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Ma1formedJson1111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=eur&include_24hr_change=true&include_24hr_vol=true",
+      "apiKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum%2Cbitcoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+      "apiKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Fai1ServerError11111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Fai1ServerError11111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Fai1ServerError11111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batch111111111111111111111111111%2CBatch211111111111111111111111111%2CBatch311111111111111111111111111%2CBatch411111111111111111111111111%2CBatch511111111111111111111111111%2CBatch611111111111111111111111111%2CBatch711111111111111111111111111%2CBatch811111111111111111111111111%2CBatch911111111111111111111111111%2CBatchA11111111111111111111111111%2CBatchB11111111111111111111111111%2CBatchC11111111111111111111111111%2CBatchD11111111111111111111111111%2CBatchE11111111111111111111111111%2CBatchF11111111111111111111111111%2CBatchG11111111111111111111111111%2CBatchH11111111111111111111111111%2CBatchJ11111111111111111111111111%2CBatchK11111111111111111111111111%2CBatchL11111111111111111111111111%2CBatchM11111111111111111111111111%2CBatchN11111111111111111111111111%2CBatchP11111111111111111111111111%2CBatchQ11111111111111111111111111%2CBatchR11111111111111111111111111%2CBatchS11111111111111111111111111%2CBatchT11111111111111111111111111%2CBatchU11111111111111111111111111%2CBatchV11111111111111111111111111%2CBatchW11111111111111111111111111%2CBatchX11111111111111111111111111%2CBatchY11111111111111111111111111%2CBatchZ11111111111111111111111111%2CBatcha11111111111111111111111111%2CBatchb11111111111111111111111111%2CBatchc11111111111111111111111111%2CBatchd11111111111111111111111111%2CBatche11111111111111111111111111%2CBatchf11111111111111111111111111%2CBatchg11111111111111111111111111%2CBatchh11111111111111111111111111%2CBatchi11111111111111111111111111%2CBatchj11111111111111111111111111%2CBatchk11111111111111111111111111%2CBatchm11111111111111111111111111%2CBatchn11111111111111111111111111%2CBatcho11111111111111111111111111%2CBatchp11111111111111111111111111%2CBatchq11111111111111111111111111%2CBatchr11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batch111111111111111111111111111%2CBatch211111111111111111111111111%2CBatch311111111111111111111111111%2CBatch411111111111111111111111111%2CBatch511111111111111111111111111%2CBatch611111111111111111111111111%2CBatch711111111111111111111111111%2CBatch811111111111111111111111111%2CBatch911111111111111111111111111%2CBatchA11111111111111111111111111%2CBatchB11111111111111111111111111%2CBatchC11111111111111111111111111%2CBatchD11111111111111111111111111%2CBatchE11111111111111111111111111%2CBatchF11111111111111111111111111%2CBatchG11111111111111111111111111%2CBatchH11111111111111111111111111%2CBatchJ11111111111111111111111111%2CBatchK11111111111111111111111111%2CBatchL11111111111111111111111111%2CBatchM11111111111111111111111111%2CBatchN11111111111111111111111111%2CBatchP11111111111111111111111111%2CBatchQ11111111111111111111111111%2CBatchR11111111111111111111111111%2CBatchS11111111111111111111111111%2CBatchT11111111111111111111111111%2CBatchU11111111111111111111111111%2CBatchV11111111111111111111111111%2CBatchW11111111111111111111111111%2CBatchX11111111111111111111111111%2CBatchY11111111111111111111111111%2CBatchZ11111111111111111111111111%2CBatcha11111111111111111111111111%2CBatchb11111111111111111111111111%2CBatchc11111111111111111111111111%2CBatchd11111111111111111111111111%2CBatche11111111111111111111111111%2CBatchf11111111111111111111111111%2CBatchg11111111111111111111111111%2CBatchh11111111111111111111111111%2CBatchi11111111111111111111111111%2CBatchj11111111111111111111111111%2CBatchk11111111111111111111111111%2CBatchm11111111111111111111111111%2CBatchn11111111111111111111111111%2CBatcho11111111111111111111111111%2CBatchp11111111111111111111111111%2CBatchq11111111111111111111111111%2CBatchr11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batch111111111111111111111111111%2CBatch211111111111111111111111111%2CBatch311111111111111111111111111%2CBatch411111111111111111111111111%2CBatch511111111111111111111111111%2CBatch611111111111111111111111111%2CBatch711111111111111111111111111%2CBatch811111111111111111111111111%2CBatch911111111111111111111111111%2CBatchA11111111111111111111111111%2CBatchB11111111111111111111111111%2CBatchC11111111111111111111111111%2CBatchD11111111111111111111111111%2CBatchE11111111111111111111111111%2CBatchF11111111111111111111111111%2CBatchG11111111111111111111111111%2CBatchH11111111111111111111111111%2CBatchJ11111111111111111111111111%2CBatchK11111111111111111111111111%2CBatchL11111111111111111111111111%2CBatchM11111111111111111111111111%2CBatchN11111111111111111111111111%2CBatchP11111111111111111111111111%2CBatchQ11111111111111111111111111%2CBatchR11111111111111111111111111%2CBatchS11111111111111111111111111%2CBatchT11111111111111111111111111%2CBatchU11111111111111111111111111%2CBatchV11111111111111111111111111%2CBatchW11111111111111111111111111%2CBatchX11111111111111111111111111%2CBatchY11111111111111111111111111%2CBatchZ11111111111111111111111111%2CBatcha11111111111111111111111111%2CBatchb11111111111111111111111111%2CBatchc11111111111111111111111111%2CBatchd11111111111111111111111111%2CBatche11111111111111111111111111%2CBatchf11111111111111111111111111%2CBatchg11111111111111111111111111%2CBatchh11111111111111111111111111%2CBatchi11111111111111111111111111%2CBatchj11111111111111111111111111%2CBatchk11111111111111111111111111%2CBatchm11111111111111111111111111%2CBatchn11111111111111111111111111%2CBatcho11111111111111111111111111%2CBatchp11111111111111111111111111%2CBatchq11111111111111111111111111%2CBatchr11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batch111111111111111111111111111%2CBatch211111111111111111111111111%2CBatch311111111111111111111111111%2CBatch411111111111111111111111111%2CBatch511111111111111111111111111%2CBatch611111111111111111111111111%2CBatch711111111111111111111111111%2CBatch811111111111111111111111111%2CBatch911111111111111111111111111%2CBatchA11111111111111111111111111%2CBatchB11111111111111111111111111%2CBatchC11111111111111111111111111%2CBatchD11111111111111111111111111%2CBatchE11111111111111111111111111%2CBatchF11111111111111111111111111%2CBatchG11111111111111111111111111%2CBatchH11111111111111111111111111%2CBatchJ11111111111111111111111111%2CBatchK11111111111111111111111111%2CBatchL11111111111111111111111111%2CBatchM11111111111111111111111111%2CBatchN11111111111111111111111111%2CBatchP11111111111111111111111111%2CBatchQ11111111111111111111111111%2CBatchR11111111111111111111111111%2CBatchS11111111111111111111111111%2CBatchT11111111111111111111111111%2CBatchU11111111111111111111111111%2CBatchV11111111111111111111111111%2CBatchW11111111111111111111111111%2CBatchX11111111111111111111111111%2CBatchY11111111111111111111111111%2CBatchZ11111111111111111111111111%2CBatcha11111111111111111111111111%2CBatchb11111111111111111111111111%2CBatchc11111111111111111111111111%2CBatchd11111111111111111111111111%2CBatche11111111111111111111111111%2CBatchf11111111111111111111111111%2CBatchg11111111111111111111111111%2CBatchh11111111111111111111111111%2CBatchi11111111111111111111111111%2CBatchj11111111111111111111111111%2CBatchk11111111111111111111111111%2CBatchm11111111111111111111111111%2CBatchn11111111111111111111111111%2CBatcho11111111111111111111111111%2CBatchp11111111111111111111111111%2CBatchq11111111111111111111111111%2CBatchr11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=Batchs11111111111111111111111111",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "apiKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "apiKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+      "apiKey": null
+    },
+    {
+      "url": "https://api.jup.ag/price/v3?ids=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      "apiKey": "fixture-jupiter-key"
+    }
+  ],
+  "cases": {
+    "unauthorized": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "authorization": null
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      },
+      "providerCalls": 0
+    },
+    "oneMint": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "310",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+            "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "price": 0.9998,
+            "change24hPct": -0.0125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "oneMintCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "331",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+            "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "price": 0.9998,
+            "change24hPct": -0.0125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "multipleMints": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:So11111111111111111111111111111111111111112",
+          "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+          "spl:JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "818",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 182.37,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263": {
+            "sourceId": "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+            "price": 0.0000213,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN": {
+            "sourceId": "spl:JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+            "price": 0.7421,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "missingQuote": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Un1isted111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Un1isted111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "missingQuoteCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Un1isted111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Un1isted111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "badReplies": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:BadStringPrice111111111111111111",
+          "spl:BadNu11Row1111111111111111111111",
+          "spl:BadNoPrice1111111111111111111111",
+          "spl:BadChange11111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "397",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:BadChange11111111111111111111111": {
+            "sourceId": "spl:BadChange11111111111111111111111",
+            "price": 3.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "spl:BadStringPrice111111111111111111",
+          "spl:BadNu11Row1111111111111111111111",
+          "spl:BadNoPrice1111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "badRepliesCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:BadStringPrice111111111111111111",
+          "spl:BadNu11Row1111111111111111111111",
+          "spl:BadNoPrice1111111111111111111111",
+          "spl:BadChange11111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "418",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "233"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:BadChange11111111111111111111111": {
+            "sourceId": "spl:BadChange11111111111111111111111",
+            "price": 3.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [
+          "spl:BadStringPrice111111111111111111",
+          "spl:BadNu11Row1111111111111111111111",
+          "spl:BadNoPrice1111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "arrayReply": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:ArrayRep1y1111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "232"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:ArrayRep1y1111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 5
+    },
+    "arrayReplyCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:ArrayRep1y1111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "231"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:ArrayRep1y1111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 5
+    },
+    "nullReply": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Nu11Rep1y11111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "230"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Nu11Rep1y11111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "nullReplyRetried": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Nu11Rep1y11111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "229"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Nu11Rep1y11111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "notFound": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:NotFound111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "228"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:NotFound111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "notFoundRetried": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:NotFound111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "227"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:NotFound111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 9
+    },
+    "malformedReply": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Ma1formedJson1111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "226"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Ma1formedJson1111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 12
+    },
+    "malformedReplyRetried": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Ma1formedJson1111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "225"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Ma1formedJson1111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 15
+    },
+    "nonUsdFiat": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "102",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "224"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {},
+        "missing": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 15
+    },
+    "nonUsdFiatMixed": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "280",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "223"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 2790.15,
+            "change24hPct": -1.1,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 16
+    },
+    "mixed": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "spl:So11111111111111111111111111111111111111112",
+          "bitcoin",
+          "spl:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "934",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "222"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 182.37,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "bitcoin": {
+            "sourceId": "bitcoin",
+            "price": 97000.5,
+            "change24hPct": 0.8,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So": {
+            "sourceId": "spl:mSoLzYCxHdYgdzU16g5QSh3i5K3z3KZK7ytfqcJm7So",
+            "price": 221.9,
+            "change24hPct": -0.75,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 18
+    },
+    "mixedPartialFailure": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "litecoin",
+          "spl:Fai1ServerError11111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "263",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "221"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "litecoin": {
+            "sourceId": "litecoin",
+            "price": 88.25,
+            "change24hPct": 2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "spl:Fai1ServerError11111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 22
+    },
+    "batch": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "11578",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "220"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "batchCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "12628",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "219"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "restartCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "331",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "218"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+            "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "price": 0.9998,
+            "change24hPct": -0.0125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "restartNegativeCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:Un1isted111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "90",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "217"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "spl:Un1isted111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "restartMixedCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "spl:So11111111111111111111111111111111111111112"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "525",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "216"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 182.37,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "expiredBatchSecondFails": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "12578",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 28
+    },
+    "expiredSharedFlightJoin": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch211111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "302",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 28
+    },
+    "expiredBatchStillFailing": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "12578",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": true,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 32
+    },
+    "expiredBatchRetrySucceeds": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "11578",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 34
+    },
+    "expiredBatchRetryCached": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:Batch111111111111111111111111111",
+          "spl:Batch211111111111111111111111111",
+          "spl:Batch311111111111111111111111111",
+          "spl:Batch411111111111111111111111111",
+          "spl:Batch511111111111111111111111111",
+          "spl:Batch611111111111111111111111111",
+          "spl:Batch711111111111111111111111111",
+          "spl:Batch811111111111111111111111111",
+          "spl:Batch911111111111111111111111111",
+          "spl:BatchA11111111111111111111111111",
+          "spl:BatchB11111111111111111111111111",
+          "spl:BatchC11111111111111111111111111",
+          "spl:BatchD11111111111111111111111111",
+          "spl:BatchE11111111111111111111111111",
+          "spl:BatchF11111111111111111111111111",
+          "spl:BatchG11111111111111111111111111",
+          "spl:BatchH11111111111111111111111111",
+          "spl:BatchJ11111111111111111111111111",
+          "spl:BatchK11111111111111111111111111",
+          "spl:BatchL11111111111111111111111111",
+          "spl:BatchM11111111111111111111111111",
+          "spl:BatchN11111111111111111111111111",
+          "spl:BatchP11111111111111111111111111",
+          "spl:BatchQ11111111111111111111111111",
+          "spl:BatchR11111111111111111111111111",
+          "spl:BatchS11111111111111111111111111",
+          "spl:BatchT11111111111111111111111111",
+          "spl:BatchU11111111111111111111111111",
+          "spl:BatchV11111111111111111111111111",
+          "spl:BatchW11111111111111111111111111",
+          "spl:BatchX11111111111111111111111111",
+          "spl:BatchY11111111111111111111111111",
+          "spl:BatchZ11111111111111111111111111",
+          "spl:Batcha11111111111111111111111111",
+          "spl:Batchb11111111111111111111111111",
+          "spl:Batchc11111111111111111111111111",
+          "spl:Batchd11111111111111111111111111",
+          "spl:Batche11111111111111111111111111",
+          "spl:Batchf11111111111111111111111111",
+          "spl:Batchg11111111111111111111111111",
+          "spl:Batchh11111111111111111111111111",
+          "spl:Batchi11111111111111111111111111",
+          "spl:Batchj11111111111111111111111111",
+          "spl:Batchk11111111111111111111111111",
+          "spl:Batchm11111111111111111111111111",
+          "spl:Batchn11111111111111111111111111",
+          "spl:Batcho11111111111111111111111111",
+          "spl:Batchp11111111111111111111111111",
+          "spl:Batchq11111111111111111111111111",
+          "spl:Batchr11111111111111111111111111",
+          "spl:Batchs11111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "12628",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:Batch111111111111111111111111111": {
+            "sourceId": "spl:Batch111111111111111111111111111",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch211111111111111111111111111": {
+            "sourceId": "spl:Batch211111111111111111111111111",
+            "price": 1.25,
+            "change24hPct": 0.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch311111111111111111111111111": {
+            "sourceId": "spl:Batch311111111111111111111111111",
+            "price": 1.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch411111111111111111111111111": {
+            "sourceId": "spl:Batch411111111111111111111111111",
+            "price": 1.75,
+            "change24hPct": 0.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch511111111111111111111111111": {
+            "sourceId": "spl:Batch511111111111111111111111111",
+            "price": 2,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch611111111111111111111111111": {
+            "sourceId": "spl:Batch611111111111111111111111111",
+            "price": 2.25,
+            "change24hPct": 0.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch711111111111111111111111111": {
+            "sourceId": "spl:Batch711111111111111111111111111",
+            "price": 2.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch811111111111111111111111111": {
+            "sourceId": "spl:Batch811111111111111111111111111",
+            "price": 2.75,
+            "change24hPct": 0.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batch911111111111111111111111111": {
+            "sourceId": "spl:Batch911111111111111111111111111",
+            "price": 3,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchA11111111111111111111111111": {
+            "sourceId": "spl:BatchA11111111111111111111111111",
+            "price": 3.25,
+            "change24hPct": 1.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchC11111111111111111111111111": {
+            "sourceId": "spl:BatchC11111111111111111111111111",
+            "price": 3.75,
+            "change24hPct": 1.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchD11111111111111111111111111": {
+            "sourceId": "spl:BatchD11111111111111111111111111",
+            "price": 4,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchE11111111111111111111111111": {
+            "sourceId": "spl:BatchE11111111111111111111111111",
+            "price": 4.25,
+            "change24hPct": 1.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchF11111111111111111111111111": {
+            "sourceId": "spl:BatchF11111111111111111111111111",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchG11111111111111111111111111": {
+            "sourceId": "spl:BatchG11111111111111111111111111",
+            "price": 4.75,
+            "change24hPct": 1.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchH11111111111111111111111111": {
+            "sourceId": "spl:BatchH11111111111111111111111111",
+            "price": 5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchJ11111111111111111111111111": {
+            "sourceId": "spl:BatchJ11111111111111111111111111",
+            "price": 5.25,
+            "change24hPct": 2.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchK11111111111111111111111111": {
+            "sourceId": "spl:BatchK11111111111111111111111111",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchL11111111111111111111111111": {
+            "sourceId": "spl:BatchL11111111111111111111111111",
+            "price": 5.75,
+            "change24hPct": 2.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchM11111111111111111111111111": {
+            "sourceId": "spl:BatchM11111111111111111111111111",
+            "price": 6,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchN11111111111111111111111111": {
+            "sourceId": "spl:BatchN11111111111111111111111111",
+            "price": 6.25,
+            "change24hPct": 2.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchP11111111111111111111111111": {
+            "sourceId": "spl:BatchP11111111111111111111111111",
+            "price": 6.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchQ11111111111111111111111111": {
+            "sourceId": "spl:BatchQ11111111111111111111111111",
+            "price": 6.75,
+            "change24hPct": 2.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchR11111111111111111111111111": {
+            "sourceId": "spl:BatchR11111111111111111111111111",
+            "price": 7,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchS11111111111111111111111111": {
+            "sourceId": "spl:BatchS11111111111111111111111111",
+            "price": 7.25,
+            "change24hPct": 3.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchT11111111111111111111111111": {
+            "sourceId": "spl:BatchT11111111111111111111111111",
+            "price": 7.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchU11111111111111111111111111": {
+            "sourceId": "spl:BatchU11111111111111111111111111",
+            "price": 7.75,
+            "change24hPct": 3.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchV11111111111111111111111111": {
+            "sourceId": "spl:BatchV11111111111111111111111111",
+            "price": 8,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchW11111111111111111111111111": {
+            "sourceId": "spl:BatchW11111111111111111111111111",
+            "price": 8.25,
+            "change24hPct": 3.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchX11111111111111111111111111": {
+            "sourceId": "spl:BatchX11111111111111111111111111",
+            "price": 8.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchY11111111111111111111111111": {
+            "sourceId": "spl:BatchY11111111111111111111111111",
+            "price": 8.75,
+            "change24hPct": 3.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:BatchZ11111111111111111111111111": {
+            "sourceId": "spl:BatchZ11111111111111111111111111",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batcha11111111111111111111111111": {
+            "sourceId": "spl:Batcha11111111111111111111111111",
+            "price": 9.25,
+            "change24hPct": 4.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchb11111111111111111111111111": {
+            "sourceId": "spl:Batchb11111111111111111111111111",
+            "price": 9.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchc11111111111111111111111111": {
+            "sourceId": "spl:Batchc11111111111111111111111111",
+            "price": 9.75,
+            "change24hPct": 4.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchd11111111111111111111111111": {
+            "sourceId": "spl:Batchd11111111111111111111111111",
+            "price": 10,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batche11111111111111111111111111": {
+            "sourceId": "spl:Batche11111111111111111111111111",
+            "price": 10.25,
+            "change24hPct": 4.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchf11111111111111111111111111": {
+            "sourceId": "spl:Batchf11111111111111111111111111",
+            "price": 10.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchg11111111111111111111111111": {
+            "sourceId": "spl:Batchg11111111111111111111111111",
+            "price": 10.75,
+            "change24hPct": 4.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchh11111111111111111111111111": {
+            "sourceId": "spl:Batchh11111111111111111111111111",
+            "price": 11,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchi11111111111111111111111111": {
+            "sourceId": "spl:Batchi11111111111111111111111111",
+            "price": 11.25,
+            "change24hPct": 5.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchj11111111111111111111111111": {
+            "sourceId": "spl:Batchj11111111111111111111111111",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchk11111111111111111111111111": {
+            "sourceId": "spl:Batchk11111111111111111111111111",
+            "price": 11.75,
+            "change24hPct": 5.375,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchm11111111111111111111111111": {
+            "sourceId": "spl:Batchm11111111111111111111111111",
+            "price": 12,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchn11111111111111111111111111": {
+            "sourceId": "spl:Batchn11111111111111111111111111",
+            "price": 12.25,
+            "change24hPct": 5.625,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batcho11111111111111111111111111": {
+            "sourceId": "spl:Batcho11111111111111111111111111",
+            "price": 12.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchp11111111111111111111111111": {
+            "sourceId": "spl:Batchp11111111111111111111111111",
+            "price": 12.75,
+            "change24hPct": 5.875,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchq11111111111111111111111111": {
+            "sourceId": "spl:Batchq11111111111111111111111111",
+            "price": 13,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchr11111111111111111111111111": {
+            "sourceId": "spl:Batchr11111111111111111111111111",
+            "price": 13.25,
+            "change24hPct": 6.125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          },
+          "spl:Batchs11111111111111111111111111": {
+            "sourceId": "spl:Batchs11111111111111111111111111",
+            "price": 13.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:15:45.000Z"
+            }
+          }
+        },
+        "missing": [
+          "spl:BatchB11111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 34
+    },
+    "expiredOneMintRefetched": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "310",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+            "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "price": 0.9998,
+            "change24hPct": -0.0125,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 35
+    },
+    "protobufOneMint": {
+      "segment": "protobuf",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "165",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+              "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+              "price": 0.9998,
+              "change24hPct": -0.0125,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "jupiter",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a03757364129d010a3073706c3a45506a465764643541756671535371654d32714e31787a7962617043384734774547476b5a7779544474317612690a3073706c3a45506a465764643541756671535371654d32714e31787a7962617043384734774547476b5a77795444743176113c4ed1915cfeef3f199a999999999989bf2218323032362d30312d30325430333a30343a30352e3030305a32076a7570697465723a00"
+      },
+      "providerCalls": 36
+    },
+    "protobufMixed": {
+      "segment": "protobuf",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "237",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "ethereum": {
+              "sourceId": "ethereum",
+              "price": 3012.44,
+              "change24hPct": -1.2,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "coingecko",
+              "cache": {}
+            },
+            "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263": {
+              "sourceId": "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+              "price": 0.0000213,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "jupiter",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a03757364124f0a08657468657265756d12430a08657468657265756d117b14ae47e188a74019333333333333f3bf2218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a001294010a3073706c3a44657a58415a387a37506e726e524a6a7a337758426f52676978436136786a6e42375961423170504232363312600a3073706c3a44657a58415a387a37506e726e524a6a7a337758426f52676978436136786a6e42375961423170504232363311d7fdbedaac55f63e2218323032362d30312d30325430333a30343a30352e3030305a32076a7570697465723a00"
+      },
+      "providerCalls": 38
+    },
+    "keyedOneMint": {
+      "segment": "keyed",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "310",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+            "sourceId": "spl:EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+            "price": 0.9998,
+            "change24hPct": -0.0125,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 39
+    }
+  }
+}

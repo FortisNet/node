@@ -1,0 +1,2114 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/discovery.ts",
+    "facet": "server/intelligence/src/facets/token_discovery.ts",
+    "providers": [
+      "server/intelligence/src/upstream/coingecko.ts",
+      "server/intelligence/src/upstream/jupiter.ts",
+      "server/intelligence/src/upstream/robinhood.ts"
+    ],
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/discovery.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "token": "fintel_dev_QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+    "jitterSample": 0.5
+  },
+  "cases": [
+    {
+      "name": "coingeckoWarmA",
+      "group": "coingeckoA",
+      "at": 1767323045000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd-a",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "622",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd-a",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usd\",\"name\":\"usd-coin\"},{\"id\":\"tether\",\"symbol\":\"tet\",\"name\":\"tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mis\",\"name\":\"missing-coin\"}]}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/usd-coin?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"image\":{\"small\":\"https://img.example.com/usd-coin.png\"},\"platforms\":{\"ethereum\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"solana\":\"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v\",\"base\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":6,\"contract_address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\"},\"solana\":{\"decimal_place\":6,\"contract_address\":\"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v\"},\"base\":{\"decimal_place\":6,\"contract_address\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\"}}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/tether?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"tether\",\"symbol\":\"usdt\\u0000‮\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"image\":{\"small\":\"missing_small.png\"},\"platforms\":{\"ethereum\":\"  0xdAC17F958D2ee523a2206206994597C13D831ec7\\n\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":6,\"contract_address\":\"  0xdAC17F958D2ee523a2206206994597C13D831ec7\\n\"}}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/missing-coin?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 404,
+          "body": "{\"error\":\"coin not found\"}"
+        }
+      ]
+    },
+    {
+      "name": "coingeckoWarmB",
+      "group": "coingeckoB",
+      "at": 1767323065000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd-b",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "331",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "symbol": "😀😀😀😀😀😀😀\ud83d…",
+            "name": "Bridged USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"symbol\":\"😀😀😀😀😀😀😀\\ud83d…\",\"name\":\"Bridged USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd-b",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin-bridged\",\"symbol\":\"usd\",\"name\":\"usd-coin-bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"bad-address\"}]}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/usd-coin-bridged?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"usd-coin-bridged\",\"symbol\":\"😀😀😀😀😀😀😀😀😀\",\"name\":\"Bridged `USDC`\",\"image\":null,\"platforms\":{\"ethereum\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":6,\"contract_address\":\"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\"}}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/dai?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\",\"image\":{\"small\":\"https://img.example.com/dai.png\"},\"platforms\":{\"ethereum\":\"0x6B175474E89094C44Da98b954EedeAC495271d0F\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/bad-address?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\",\"image\":{\"small\":\"https://img.example.com/bad-address.png\"},\"platforms\":{\"ethereum\":\"not-an-address\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":18,\"contract_address\":\"not-an-address\"}}}"
+        }
+      ]
+    },
+    {
+      "name": "coingeckoWarmC",
+      "group": "coingeckoC",
+      "at": 1767323085000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd-c",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "312",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0x3333333333333333333333333333333333333333",
+            "address": "0x3333333333333333333333333333333333333333",
+            "symbol": "",
+            "name": "",
+            "decimals": 0,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "91c1fcd3a0bf6a233aff4bfca67af9df"
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0x3333333333333333333333333333333333333333\",\"address\":\"0x3333333333333333333333333333333333333333\",\"symbol\":\"\",\"name\":\"\",\"decimals\":0,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"91c1fcd3a0bf6a233aff4bfca67af9df\"}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd-c",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"huge-decimals\",\"symbol\":\"hug\",\"name\":\"huge-decimals\"},{\"id\":\"float-decimals\",\"symbol\":\"flo\",\"name\":\"float-decimals\"},{\"id\":\"string-symbol\",\"symbol\":\"str\",\"name\":\"string-symbol\"}]}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/huge-decimals?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"huge-decimals\",\"symbol\":\"h\",\"name\":\"H\",\"image\":{\"small\":\"https://img.example.com/huge-decimals.png\"},\"platforms\":{\"ethereum\":\"0x1111111111111111111111111111111111111111\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":256,\"contract_address\":\"0x1111111111111111111111111111111111111111\"}}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/float-decimals?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"float-decimals\",\"symbol\":\"f\",\"name\":\"F\",\"image\":{\"small\":\"https://img.example.com/float-decimals.png\"},\"platforms\":{\"ethereum\":\"0x2222222222222222222222222222222222222222\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":6.5,\"contract_address\":\"0x2222222222222222222222222222222222222222\"}}}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/string-symbol?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"string-symbol\",\"symbol\":7,\"name\":null,\"image\":{\"small\":\"http://img.example.com/plain.png\"},\"platforms\":{\"ethereum\":\"0x3333333333333333333333333333333333333333\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":0,\"contract_address\":\"0x3333333333333333333333333333333333333333\"}}}"
+        }
+      ]
+    },
+    {
+      "name": "coingeckoCold",
+      "group": "coingecko",
+      "at": 1767323105000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=%20USD%20",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "622",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "coingeckoWarm",
+      "group": "coingecko",
+      "at": 1767323106000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "643",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:05.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "coingeckoProtobuf",
+      "group": "coingecko",
+      "at": 1767323107000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=USD",
+      "accept": "application/protobuf",
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "378",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "wireHex": "0a9d010a0b6574682d6d61696e6e6574123065726332303a3078613062383639393163363231386233366331643139643461326539656230636533363036656234381a2a3078413062383639393163363231386233366331643139443461326539456230634533363036654234382204757364632a0455534443300638014a2034373833653963343639356636623835376135326263336530393965616634640ab9010a0b6574682d6d61696e6e6574123065726332303a3078646163313766393538643265653532336132323036323036393934353937633133643833316563371a2a3078644143313746393538443265653532336132323036323036393934353937433133443833316563372204757364742a42546574686572207878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878e280a630063801121c08011218323032362d30312d30325430333a30353a30352e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "coingeckoAlias",
+      "group": "coingecko",
+      "at": 1767323108000,
+      "url": "/v1/networks/eip155%3A1/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "643",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:05.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "coingeckoProtobufC",
+      "group": "coingecko",
+      "at": 1767323109000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd-c",
+      "accept": "application/protobuf",
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "178",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0x3333333333333333333333333333333333333333",
+            "address": "0x3333333333333333333333333333333333333333",
+            "decimals": 0,
+            "verified": true,
+            "logoMediaKey": "91c1fcd3a0bf6a233aff4bfca67af9df"
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:04:45.000Z"
+        }
+      },
+      "wireHex": "0a91010a0b6574682d6d61696e6e6574123065726332303a3078333333333333333333333333333333333333333333333333333333333333333333333333333333331a2a307833333333333333333333333333333333333333333333333333333333333333333333333333333333300038014a203931633166636433613062663661323333616666346266636136376166396466121c08011218323032362d30312d30325430333a30343a34352e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "coingeckoUnknownNetwork",
+      "group": "coingecko",
+      "at": 1767323110000,
+      "url": "/v1/networks/solana-unused/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "65",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unknown network: solana-unused"
+      },
+      "upstream": []
+    },
+    {
+      "name": "partialNotStored",
+      "group": "partial",
+      "at": 1767323145000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=partial",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "320",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=partial",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"flaky\",\"symbol\":\"fl\",\"name\":\"Flaky\"}]}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/flaky?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/flaky?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/flaky?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 503,
+          "body": "unavailable"
+        }
+      ]
+    },
+    {
+      "name": "partialRetried",
+      "group": "partial",
+      "at": 1767323156000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=partial",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "589",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0x4444444444444444444444444444444444444444",
+            "address": "0x4444444444444444444444444444444444444444",
+            "symbol": "fl",
+            "name": "Flaky",
+            "decimals": 8,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "980183737086df1c3f82a14035857334"
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0x4444444444444444444444444444444444444444\",\"address\":\"0x4444444444444444444444444444444444444444\",\"symbol\":\"fl\",\"name\":\"Flaky\",\"decimals\":8,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"980183737086df1c3f82a14035857334\"}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=partial",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"flaky\",\"symbol\":\"fl\",\"name\":\"Flaky\"}]}"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/coins/flaky?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false",
+          "status": 200,
+          "body": "{\"id\":\"flaky\",\"symbol\":\"fl\",\"name\":\"Flaky\",\"image\":{\"small\":\"https://img.example.com/flaky.png\"},\"platforms\":{\"ethereum\":\"0x4444444444444444444444444444444444444444\"},\"description\":{\"en\":\"long text\"},\"detail_platforms\":{\"ethereum\":{\"decimal_place\":8,\"contract_address\":\"0x4444444444444444444444444444444444444444\"}}}"
+        }
+      ]
+    },
+    {
+      "name": "partialStored",
+      "group": "partial",
+      "at": 1767323157000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=partial",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "610",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0x4444444444444444444444444444444444444444",
+            "address": "0x4444444444444444444444444444444444444444",
+            "symbol": "fl",
+            "name": "Flaky",
+            "decimals": 8,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "980183737086df1c3f82a14035857334"
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:56.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0x4444444444444444444444444444444444444444\",\"address\":\"0x4444444444444444444444444444444444444444\",\"symbol\":\"fl\",\"name\":\"Flaky\",\"decimals\":8,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"980183737086df1c3f82a14035857334\"}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:56.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "searchEmpty",
+      "group": "empty",
+      "at": 1767323165000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=empty",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=empty",
+          "status": 200,
+          "body": "{\"categories\":[]}"
+        }
+      ]
+    },
+    {
+      "name": "searchDown",
+      "group": "failure",
+      "at": 1767323245000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=down",
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        }
+      ]
+    },
+    {
+      "name": "searchDownReplay",
+      "group": "failure",
+      "at": 1767323250000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=down",
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    },
+    {
+      "name": "noPlatform",
+      "group": "failure",
+      "at": 1767323251000,
+      "url": "/v1/networks/bitcoin/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": []
+    },
+    {
+      "name": "genericEvm",
+      "group": "failure",
+      "at": 1767323252000,
+      "url": "/v1/networks/eip155%3A999999/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": []
+    },
+    {
+      "name": "staleSeed",
+      "group": "stale",
+      "at": 1767323345000,
+      "url": "/v1/networks/base/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "313",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "base",
+            "tokenId": "erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"base\",\"tokenId\":\"erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"address\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "staleServed",
+      "group": "stale",
+      "at": 1767323645000,
+      "url": "/v1/networks/base/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "334",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "base",
+            "tokenId": "erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:09:05.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"base\",\"tokenId\":\"erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\",\"address\":\"0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:09:05.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "staleRefreshed",
+      "group": "stale",
+      "at": 1767323646000,
+      "url": "/v1/networks/base/tokens/search?q=usd",
+      "accept": "application/protobuf",
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "183",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "base",
+            "tokenId": "erc20:0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:14:05.000Z"
+        }
+      },
+      "wireHex": "0a96010a0462617365123065726332303a3078383333353839666364366564623665303866346337633332643466373162353462646130323931331a2a3078383333353839664344366544623645303866346337433332443466373162353462644130323931332204757364632a0455534443300638014a203437383365396334363935663662383537613532626333653039396561663464121c08011218323032362d30312d30325430333a31343a30352e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "jupiterCold",
+      "group": "jupiter",
+      "at": 1767324045000,
+      "url": "/v1/networks/solana/tokens/search?q=Bonk",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "4541",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "solana",
+            "tokenId": "spl:So11111111111111111111111111111111111111112",
+            "address": "So11111111111111111111111111111111111111112",
+            "symbol": "SOL",
+            "name": "Wrapped SOL",
+            "decimals": 9,
+            "verified": true,
+            "holderCount": 2000000,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+            "address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+            "symbol": "Bonk",
+            "name": "Bonk",
+            "decimals": 5,
+            "verified": true,
+            "holderCount": 900000,
+            "logoMediaKey": "0642579dec57d5c5d128492cd95b99e9"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler21111111111111111111111111111111111",
+            "address": "Filler21111111111111111111111111111111111",
+            "symbol": "F21",
+            "name": "Filler 21",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 210,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler18111111111111111111111111111111111",
+            "address": "Filler18111111111111111111111111111111111",
+            "symbol": "F18",
+            "name": "Filler 18",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 180,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler15111111111111111111111111111111111",
+            "address": "Filler15111111111111111111111111111111111",
+            "symbol": "F15",
+            "name": "Filler 15",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 150,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler12111111111111111111111111111111111",
+            "address": "Filler12111111111111111111111111111111111",
+            "symbol": "F12",
+            "name": "Filler 12",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 120,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler09111111111111111111111111111111111",
+            "address": "Filler09111111111111111111111111111111111",
+            "symbol": "F9",
+            "name": "Filler 9",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 90,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler06111111111111111111111111111111111",
+            "address": "Filler06111111111111111111111111111111111",
+            "symbol": "F6",
+            "name": "Filler 6",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 60,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler03111111111111111111111111111111111",
+            "address": "Filler03111111111111111111111111111111111",
+            "symbol": "F3",
+            "name": "Filler 3",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 30,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler00111111111111111111111111111111111",
+            "address": "Filler00111111111111111111111111111111111",
+            "symbol": "F0",
+            "name": "Filler 0",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": 0,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:BonkFake1111111111111111111111111111111111",
+            "address": "BonkFake1111111111111111111111111111111111",
+            "symbol": "BONK2",
+            "name": "Fake",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 99999999,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler20111111111111111111111111111111111",
+            "address": "Filler20111111111111111111111111111111111",
+            "symbol": "F20",
+            "name": "Filler 20",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 200,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler19111111111111111111111111111111111",
+            "address": "Filler19111111111111111111111111111111111",
+            "symbol": "F19",
+            "name": "Filler 19",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 190,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler17111111111111111111111111111111111",
+            "address": "Filler17111111111111111111111111111111111",
+            "symbol": "F17",
+            "name": "Filler 17",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 170,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler16111111111111111111111111111111111",
+            "address": "Filler16111111111111111111111111111111111",
+            "symbol": "F16",
+            "name": "Filler 16",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 160,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler14111111111111111111111111111111111",
+            "address": "Filler14111111111111111111111111111111111",
+            "symbol": "F14",
+            "name": "Filler 14",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 140,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler13111111111111111111111111111111111",
+            "address": "Filler13111111111111111111111111111111111",
+            "symbol": "F13",
+            "name": "Filler 13",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 130,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler11111111111111111111111111111111111",
+            "address": "Filler11111111111111111111111111111111111",
+            "symbol": "F11",
+            "name": "Filler 11",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 110,
+            "logoMediaKey": null
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler10111111111111111111111111111111111",
+            "address": "Filler10111111111111111111111111111111111",
+            "symbol": "F10",
+            "name": "Filler 10",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 100,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"solana\",\"tokenId\":\"spl:So11111111111111111111111111111111111111112\",\"address\":\"So11111111111111111111111111111111111111112\",\"symbol\":\"SOL\",\"name\":\"Wrapped SOL\",\"decimals\":9,\"verified\":true,\"holderCount\":2000000,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263\",\"address\":\"DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263\",\"symbol\":\"Bonk\",\"name\":\"Bonk\",\"decimals\":5,\"verified\":true,\"holderCount\":900000,\"logoMediaKey\":\"0642579dec57d5c5d128492cd95b99e9\"},{\"network\":\"solana\",\"tokenId\":\"spl:Filler21111111111111111111111111111111111\",\"address\":\"Filler21111111111111111111111111111111111\",\"symbol\":\"F21\",\"name\":\"Filler 21\",\"decimals\":6,\"verified\":true,\"holderCount\":210,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler18111111111111111111111111111111111\",\"address\":\"Filler18111111111111111111111111111111111\",\"symbol\":\"F18\",\"name\":\"Filler 18\",\"decimals\":6,\"verified\":true,\"holderCount\":180,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler15111111111111111111111111111111111\",\"address\":\"Filler15111111111111111111111111111111111\",\"symbol\":\"F15\",\"name\":\"Filler 15\",\"decimals\":6,\"verified\":true,\"holderCount\":150,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler12111111111111111111111111111111111\",\"address\":\"Filler12111111111111111111111111111111111\",\"symbol\":\"F12\",\"name\":\"Filler 12\",\"decimals\":6,\"verified\":true,\"holderCount\":120,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler09111111111111111111111111111111111\",\"address\":\"Filler09111111111111111111111111111111111\",\"symbol\":\"F9\",\"name\":\"Filler 9\",\"decimals\":6,\"verified\":true,\"holderCount\":90,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler06111111111111111111111111111111111\",\"address\":\"Filler06111111111111111111111111111111111\",\"symbol\":\"F6\",\"name\":\"Filler 6\",\"decimals\":6,\"verified\":true,\"holderCount\":60,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler03111111111111111111111111111111111\",\"address\":\"Filler03111111111111111111111111111111111\",\"symbol\":\"F3\",\"name\":\"Filler 3\",\"decimals\":6,\"verified\":true,\"holderCount\":30,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler00111111111111111111111111111111111\",\"address\":\"Filler00111111111111111111111111111111111\",\"symbol\":\"F0\",\"name\":\"Filler 0\",\"decimals\":6,\"verified\":true,\"holderCount\":0,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:BonkFake1111111111111111111111111111111111\",\"address\":\"BonkFake1111111111111111111111111111111111\",\"symbol\":\"BONK2\",\"name\":\"Fake\",\"decimals\":6,\"verified\":false,\"holderCount\":99999999,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler20111111111111111111111111111111111\",\"address\":\"Filler20111111111111111111111111111111111\",\"symbol\":\"F20\",\"name\":\"Filler 20\",\"decimals\":6,\"verified\":false,\"holderCount\":200,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler19111111111111111111111111111111111\",\"address\":\"Filler19111111111111111111111111111111111\",\"symbol\":\"F19\",\"name\":\"Filler 19\",\"decimals\":6,\"verified\":false,\"holderCount\":190,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler17111111111111111111111111111111111\",\"address\":\"Filler17111111111111111111111111111111111\",\"symbol\":\"F17\",\"name\":\"Filler 17\",\"decimals\":6,\"verified\":false,\"holderCount\":170,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler16111111111111111111111111111111111\",\"address\":\"Filler16111111111111111111111111111111111\",\"symbol\":\"F16\",\"name\":\"Filler 16\",\"decimals\":6,\"verified\":false,\"holderCount\":160,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler14111111111111111111111111111111111\",\"address\":\"Filler14111111111111111111111111111111111\",\"symbol\":\"F14\",\"name\":\"Filler 14\",\"decimals\":6,\"verified\":false,\"holderCount\":140,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler13111111111111111111111111111111111\",\"address\":\"Filler13111111111111111111111111111111111\",\"symbol\":\"F13\",\"name\":\"Filler 13\",\"decimals\":6,\"verified\":false,\"holderCount\":130,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler11111111111111111111111111111111111\",\"address\":\"Filler11111111111111111111111111111111111\",\"symbol\":\"F11\",\"name\":\"Filler 11\",\"decimals\":6,\"verified\":false,\"holderCount\":110,\"logoMediaKey\":null},{\"network\":\"solana\",\"tokenId\":\"spl:Filler10111111111111111111111111111111111\",\"address\":\"Filler10111111111111111111111111111111111\",\"symbol\":\"F10\",\"name\":\"Filler 10\",\"decimals\":6,\"verified\":false,\"holderCount\":100,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=bonk",
+          "status": 200,
+          "body": "[{\"id\":\"DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263\",\"symbol\":\"Bonk\",\"name\":\"Bonk\",\"decimals\":5,\"isVerified\":true,\"holderCount\":900000,\"icon\":\"https://img.example.com/bonk.png\"},{\"id\":\"  So11111111111111111111111111111111111111112  \",\"symbol\":\"SOL\",\"name\":\"Wrapped SOL\",\"decimals\":9,\"isVerified\":true,\"holderCount\":2000000},{\"id\":\"BonkFake1111111111111111111111111111111111\",\"symbol\":\"BONK2\",\"name\":\"Fake\",\"decimals\":6,\"isVerified\":false,\"holderCount\":99999999,\"icon\":\"missing.png\"},{\"id\":\"NoDecimals111111111111111111111111111111111\",\"symbol\":\"ND\",\"name\":\"No decimals\",\"isVerified\":true},{\"id\":\"FloatDecimals11111111111111111111111111111\",\"symbol\":\"FD\",\"name\":\"Float\",\"decimals\":1.5},{\"id\":\"NoHolders1111111111111111111111111111111111\",\"symbol\":\"NH\",\"name\":\"No holders\",\"decimals\":0,\"isVerified\":\"yes\",\"holderCount\":\"many\"},{\"id\":\"\",\"symbol\":\"EMPTY\",\"name\":\"Empty\",\"decimals\":6},{\"id\":\"Filler00111111111111111111111111111111111\",\"symbol\":\"F0\",\"name\":\"Filler 0\",\"decimals\":6,\"isVerified\":true,\"holderCount\":0},{\"id\":\"Filler01111111111111111111111111111111111\",\"symbol\":\"F1\",\"name\":\"Filler 1\",\"decimals\":6,\"isVerified\":false,\"holderCount\":10},{\"id\":\"Filler02111111111111111111111111111111111\",\"symbol\":\"F2\",\"name\":\"Filler 2\",\"decimals\":6,\"isVerified\":false,\"holderCount\":20},{\"id\":\"Filler03111111111111111111111111111111111\",\"symbol\":\"F3\",\"name\":\"Filler 3\",\"decimals\":6,\"isVerified\":true,\"holderCount\":30},{\"id\":\"Filler04111111111111111111111111111111111\",\"symbol\":\"F4\",\"name\":\"Filler 4\",\"decimals\":6,\"isVerified\":false,\"holderCount\":40},{\"id\":\"Filler05111111111111111111111111111111111\",\"symbol\":\"F5\",\"name\":\"Filler 5\",\"decimals\":6,\"isVerified\":false,\"holderCount\":50},{\"id\":\"Filler06111111111111111111111111111111111\",\"symbol\":\"F6\",\"name\":\"Filler 6\",\"decimals\":6,\"isVerified\":true,\"holderCount\":60},{\"id\":\"Filler07111111111111111111111111111111111\",\"symbol\":\"F7\",\"name\":\"Filler 7\",\"decimals\":6,\"isVerified\":false,\"holderCount\":70},{\"id\":\"Filler08111111111111111111111111111111111\",\"symbol\":\"F8\",\"name\":\"Filler 8\",\"decimals\":6,\"isVerified\":false,\"holderCount\":80},{\"id\":\"Filler09111111111111111111111111111111111\",\"symbol\":\"F9\",\"name\":\"Filler 9\",\"decimals\":6,\"isVerified\":true,\"holderCount\":90},{\"id\":\"Filler10111111111111111111111111111111111\",\"symbol\":\"F10\",\"name\":\"Filler 10\",\"decimals\":6,\"isVerified\":false,\"holderCount\":100},{\"id\":\"Filler11111111111111111111111111111111111\",\"symbol\":\"F11\",\"name\":\"Filler 11\",\"decimals\":6,\"isVerified\":false,\"holderCount\":110},{\"id\":\"Filler12111111111111111111111111111111111\",\"symbol\":\"F12\",\"name\":\"Filler 12\",\"decimals\":6,\"isVerified\":true,\"holderCount\":120},{\"id\":\"Filler13111111111111111111111111111111111\",\"symbol\":\"F13\",\"name\":\"Filler 13\",\"decimals\":6,\"isVerified\":false,\"holderCount\":130},{\"id\":\"Filler14111111111111111111111111111111111\",\"symbol\":\"F14\",\"name\":\"Filler 14\",\"decimals\":6,\"isVerified\":false,\"holderCount\":140},{\"id\":\"Filler15111111111111111111111111111111111\",\"symbol\":\"F15\",\"name\":\"Filler 15\",\"decimals\":6,\"isVerified\":true,\"holderCount\":150},{\"id\":\"Filler16111111111111111111111111111111111\",\"symbol\":\"F16\",\"name\":\"Filler 16\",\"decimals\":6,\"isVerified\":false,\"holderCount\":160},{\"id\":\"Filler17111111111111111111111111111111111\",\"symbol\":\"F17\",\"name\":\"Filler 17\",\"decimals\":6,\"isVerified\":false,\"holderCount\":170},{\"id\":\"Filler18111111111111111111111111111111111\",\"symbol\":\"F18\",\"name\":\"Filler 18\",\"decimals\":6,\"isVerified\":true,\"holderCount\":180},{\"id\":\"Filler19111111111111111111111111111111111\",\"symbol\":\"F19\",\"name\":\"Filler 19\",\"decimals\":6,\"isVerified\":false,\"holderCount\":190},{\"id\":\"Filler20111111111111111111111111111111111\",\"symbol\":\"F20\",\"name\":\"Filler 20\",\"decimals\":6,\"isVerified\":false,\"holderCount\":200},{\"id\":\"Filler21111111111111111111111111111111111\",\"symbol\":\"F21\",\"name\":\"Filler 21\",\"decimals\":6,\"isVerified\":true,\"holderCount\":210}]"
+        }
+      ]
+    },
+    {
+      "name": "jupiterProtobuf",
+      "group": "jupiter",
+      "at": 1767324046000,
+      "url": "/v1/networks/solana/tokens/search?q=bonk",
+      "accept": "application/protobuf",
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "2381",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "solana",
+            "tokenId": "spl:So11111111111111111111111111111111111111112",
+            "address": "So11111111111111111111111111111111111111112",
+            "symbol": "SOL",
+            "name": "Wrapped SOL",
+            "decimals": 9,
+            "verified": true,
+            "holderCount": "2000000"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+            "address": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+            "symbol": "Bonk",
+            "name": "Bonk",
+            "decimals": 5,
+            "verified": true,
+            "holderCount": "900000",
+            "logoMediaKey": "0642579dec57d5c5d128492cd95b99e9"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler21111111111111111111111111111111111",
+            "address": "Filler21111111111111111111111111111111111",
+            "symbol": "F21",
+            "name": "Filler 21",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "210"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler18111111111111111111111111111111111",
+            "address": "Filler18111111111111111111111111111111111",
+            "symbol": "F18",
+            "name": "Filler 18",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "180"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler15111111111111111111111111111111111",
+            "address": "Filler15111111111111111111111111111111111",
+            "symbol": "F15",
+            "name": "Filler 15",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "150"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler12111111111111111111111111111111111",
+            "address": "Filler12111111111111111111111111111111111",
+            "symbol": "F12",
+            "name": "Filler 12",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "120"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler09111111111111111111111111111111111",
+            "address": "Filler09111111111111111111111111111111111",
+            "symbol": "F9",
+            "name": "Filler 9",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "90"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler06111111111111111111111111111111111",
+            "address": "Filler06111111111111111111111111111111111",
+            "symbol": "F6",
+            "name": "Filler 6",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "60"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler03111111111111111111111111111111111",
+            "address": "Filler03111111111111111111111111111111111",
+            "symbol": "F3",
+            "name": "Filler 3",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "30"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler00111111111111111111111111111111111",
+            "address": "Filler00111111111111111111111111111111111",
+            "symbol": "F0",
+            "name": "Filler 0",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": "0"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:BonkFake1111111111111111111111111111111111",
+            "address": "BonkFake1111111111111111111111111111111111",
+            "symbol": "BONK2",
+            "name": "Fake",
+            "decimals": 6,
+            "holderCount": "99999999"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler20111111111111111111111111111111111",
+            "address": "Filler20111111111111111111111111111111111",
+            "symbol": "F20",
+            "name": "Filler 20",
+            "decimals": 6,
+            "holderCount": "200"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler19111111111111111111111111111111111",
+            "address": "Filler19111111111111111111111111111111111",
+            "symbol": "F19",
+            "name": "Filler 19",
+            "decimals": 6,
+            "holderCount": "190"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler17111111111111111111111111111111111",
+            "address": "Filler17111111111111111111111111111111111",
+            "symbol": "F17",
+            "name": "Filler 17",
+            "decimals": 6,
+            "holderCount": "170"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler16111111111111111111111111111111111",
+            "address": "Filler16111111111111111111111111111111111",
+            "symbol": "F16",
+            "name": "Filler 16",
+            "decimals": 6,
+            "holderCount": "160"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler14111111111111111111111111111111111",
+            "address": "Filler14111111111111111111111111111111111",
+            "symbol": "F14",
+            "name": "Filler 14",
+            "decimals": 6,
+            "holderCount": "140"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler13111111111111111111111111111111111",
+            "address": "Filler13111111111111111111111111111111111",
+            "symbol": "F13",
+            "name": "Filler 13",
+            "decimals": 6,
+            "holderCount": "130"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler11111111111111111111111111111111111",
+            "address": "Filler11111111111111111111111111111111111",
+            "symbol": "F11",
+            "name": "Filler 11",
+            "decimals": 6,
+            "holderCount": "110"
+          },
+          {
+            "network": "solana",
+            "tokenId": "spl:Filler10111111111111111111111111111111111",
+            "address": "Filler10111111111111111111111111111111111",
+            "symbol": "F10",
+            "name": "Filler 10",
+            "decimals": 6,
+            "holderCount": "100"
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.000Z"
+        }
+      },
+      "wireHex": "0a80010a06736f6c616e61122f73706c3a536f31313131313131313131313131313131313131313131313131313131313131313131313131313131321a2b536f31313131313131313131313131313131313131313131313131313131313131313131313131313131322203534f4c2a0b5772617070656420534f4c300938014080897a0a9e010a06736f6c616e61123073706c3a44657a58415a387a37506e726e524a6a7a337758426f52676978436136786a6e4237596142317050423236331a2c44657a58415a387a37506e726e524a6a7a337758426f52676978436136786a6e4237596142317050423236332204426f6e6b2a04426f6e6b3005380140a0f7364a2030363432353739646563353764356335643132383439326364393562393965390a790a06736f6c616e61122d73706c3a46696c6c657232313131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572323131313131313131313131313131313131313131313131313131313131313131313122034632312a0946696c6c65722032313006380140d2010a790a06736f6c616e61122d73706c3a46696c6c657231383131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313831313131313131313131313131313131313131313131313131313131313131313122034631382a0946696c6c65722031383006380140b4010a790a06736f6c616e61122d73706c3a46696c6c657231353131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313531313131313131313131313131313131313131313131313131313131313131313122034631352a0946696c6c6572203135300638014096010a780a06736f6c616e61122d73706c3a46696c6c657231323131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313231313131313131313131313131313131313131313131313131313131313131313122034631322a0946696c6c65722031323006380140780a760a06736f6c616e61122d73706c3a46696c6c657230393131313131313131313131313131313131313131313131313131313131313131311a2946696c6c65723039313131313131313131313131313131313131313131313131313131313131313131220246392a0846696c6c6572203930063801405a0a760a06736f6c616e61122d73706c3a46696c6c657230363131313131313131313131313131313131313131313131313131313131313131311a2946696c6c65723036313131313131313131313131313131313131313131313131313131313131313131220246362a0846696c6c6572203630063801403c0a760a06736f6c616e61122d73706c3a46696c6c657230333131313131313131313131313131313131313131313131313131313131313131311a2946696c6c65723033313131313131313131313131313131313131313131313131313131313131313131220246332a0846696c6c6572203330063801401e0a760a06736f6c616e61122d73706c3a46696c6c657230303131313131313131313131313131313131313131313131313131313131313131311a2946696c6c65723030313131313131313131313131313131313131313131313131313131313131313131220246302a0846696c6c657220303006380140000a780a06736f6c616e61122e73706c3a426f6e6b46616b65313131313131313131313131313131313131313131313131313131313131313131311a2a426f6e6b46616b65313131313131313131313131313131313131313131313131313131313131313131312205424f4e4b322a0446616b65300640ffc1d72f0a770a06736f6c616e61122d73706c3a46696c6c657232303131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572323031313131313131313131313131313131313131313131313131313131313131313122034632302a0946696c6c6572203230300640c8010a770a06736f6c616e61122d73706c3a46696c6c657231393131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313931313131313131313131313131313131313131313131313131313131313131313122034631392a0946696c6c6572203139300640be010a770a06736f6c616e61122d73706c3a46696c6c657231373131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313731313131313131313131313131313131313131313131313131313131313131313122034631372a0946696c6c6572203137300640aa010a770a06736f6c616e61122d73706c3a46696c6c657231363131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313631313131313131313131313131313131313131313131313131313131313131313122034631362a0946696c6c6572203136300640a0010a770a06736f6c616e61122d73706c3a46696c6c657231343131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313431313131313131313131313131313131313131313131313131313131313131313122034631342a0946696c6c65722031343006408c010a770a06736f6c616e61122d73706c3a46696c6c657231333131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313331313131313131313131313131313131313131313131313131313131313131313122034631332a0946696c6c657220313330064082010a760a06736f6c616e61122d73706c3a46696c6c657231313131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313131313131313131313131313131313131313131313131313131313131313131313122034631312a0946696c6c65722031313006406e0a760a06736f6c616e61122d73706c3a46696c6c657231303131313131313131313131313131313131313131313131313131313131313131311a2946696c6c6572313031313131313131313131313131313131313131313131313131313131313131313122034631302a0946696c6c657220313030064064121c08011218323032362d30312d30325430333a32303a34352e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "jupiterBroken",
+      "group": "jupiter",
+      "at": 1767324047000,
+      "url": "/v1/networks/solana/tokens/search?q=broken",
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=broken",
+          "status": 200,
+          "body": "[{\"id\":\"DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263\",\"symbol\":\"Bonk\",\"name\":\"Bonk\",\"decimals\":5,\"isVerified\":true,\"holderCount\":900000,\"icon\":\"https://img.example.com/bonk.png\"},null]"
+        }
+      ]
+    },
+    {
+      "name": "jupiterObject",
+      "group": "jupiter",
+      "at": 1767324048000,
+      "url": "/v1/networks/solana/tokens/search?q=object",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "51",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=object",
+          "status": 200,
+          "body": "{\"tokens\":[]}"
+        }
+      ]
+    },
+    {
+      "name": "jupiterDown",
+      "group": "jupiter",
+      "at": 1767324049000,
+      "url": "/v1/networks/solana/tokens/search?q=down",
+      "accept": "application/json",
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        },
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=down",
+          "status": 503,
+          "body": "unavailable"
+        }
+      ]
+    },
+    {
+      "name": "jupiterHoldersJson",
+      "group": "jupiter",
+      "at": 1767324050000,
+      "url": "/v1/networks/solana/tokens/search?q=holders",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "287",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "solana",
+            "tokenId": "spl:Frac111111111111111111111111111111111111111",
+            "address": "Frac111111111111111111111111111111111111111",
+            "symbol": "FR",
+            "name": "Fraction",
+            "decimals": 6,
+            "verified": false,
+            "holderCount": 2.5,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"solana\",\"tokenId\":\"spl:Frac111111111111111111111111111111111111111\",\"address\":\"Frac111111111111111111111111111111111111111\",\"symbol\":\"FR\",\"name\":\"Fraction\",\"decimals\":6,\"verified\":false,\"holderCount\":2.5,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://lite-api.jup.ag/tokens/v2/search?query=holders",
+          "status": 200,
+          "body": "[{\"id\":\"Frac111111111111111111111111111111111111111\",\"symbol\":\"FR\",\"name\":\"Fraction\",\"decimals\":6,\"holderCount\":2.5}]"
+        }
+      ]
+    },
+    {
+      "name": "jupiterHoldersProtobuf",
+      "group": "jupiter",
+      "at": 1767324051000,
+      "url": "/v1/networks/solana/tokens/search?q=holders",
+      "accept": "application/protobuf",
+      "status": 500,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "20",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "INTERNAL"
+      },
+      "upstream": []
+    },
+    {
+      "name": "robinhoodSymbol",
+      "group": "robinhood",
+      "at": 1767324245000,
+      "url": "/v1/networks/robinhood/tokens/search?q=ts",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "580",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+            "address": "0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+            "symbol": "TSLA",
+            "name": "Tesla, Inc.",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "ef9df55837d99ffa8e0447c3343c87b7"
+          },
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+            "address": "0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+            "symbol": "TSM",
+            "name": "Taiwan Semiconductor",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1\",\"address\":\"0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1\",\"symbol\":\"TSLA\",\"name\":\"Tesla, Inc.\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"ef9df55837d99ffa8e0447c3343c87b7\"},{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5\",\"address\":\"0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5\",\"symbol\":\"TSM\",\"name\":\"Taiwan Semiconductor\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.robinhood.com/rhj/assets",
+          "status": 200,
+          "body": "{\"assets\":[{\"id\":\"0x2ff6985a9799a3a91cd0e3be08a6eb6962ae3b64d6021177f923fa8618fa13e3\",\"tokenSymbol\":\"TSLA\",\"tokenName\":\"Tesla, Inc.\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/TSLA.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1\"}]},{\"id\":\"0x1eb44d625271a4eb75016f276d13783617c012685cb598f20ae93249164c0121\",\"tokenSymbol\":\"AAPL\",\"tokenName\":\"Apple Inc.\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/AAPL.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2\"}]},{\"id\":\"0x0907abf5bc1da7c7edc537eb2eb5282d4d01ab3f22c3aeaa13c21f5126c24c7c\",\"tokenSymbol\":\"BRK.B\",\"tokenName\":\"Berkshire Hathaway\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"http://insecure.example/brk.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3\"}]},{\"id\":\"0x9a8494733f0b99d505b0b0716d5aa63be1259172d939ed23d8608dfa8faebcb2\",\"tokenSymbol\":\"BRKA\",\"tokenName\":\"Berkshire A\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_INACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/BRKA.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xd4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4\"}]},{\"id\":\"0xcb15b056a5ad5c98a0aa8f5d53b67be6d050b8baed3957ae6a8a921056b3bd80\",\"tokenSymbol\":\"TSM\",\"tokenName\":\"Taiwan Semiconductor\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":null,\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5\"}]},{\"id\":\"0x43b171f257af6f47a6f88b75d24f516b2c097ee143613529d273fdf54f157fad\",\"tokenSymbol\":\"NOCHAIN\",\"tokenName\":\"Wrong chain\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/NOCHAIN.png\",\"deployments\":[{\"chainId\":1,\"contractAddress\":\"0xf6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6\"}]},{\"id\":\"bad-uid\",\"tokenSymbol\":\"BAD\",\"tokenName\":\"Bad uid\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0x1717171717171717171717171717171717171717\"}]},{\"id\":\"0xbee4be1e75ef5ec13f41ecbffd640e197d96307b577e2f8c0ffed1bad5c41246\",\"tokenSymbol\":\"DUP\",\"tokenName\":\"Duplicate of Tesla\",\"currentMultiplier\":\"1\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/DUP.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0xA1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1\"}]},{\"id\":\"0x5ee4dbc448038773705898f86a1f955843b64ac7c1f5a15c447f32694dc55c37\",\"tokenSymbol\":\"TSLAX\",\"tokenName\":\"Tesla tracker\",\"currentMultiplier\":\"0\",\"status\":\"ASSET_STATUS_ACTIVE\",\"logoUrl\":\"https://cdn.robinhood.example/TSLAX.png\",\"deployments\":[{\"chainId\":4663,\"contractAddress\":\"0x2828282828282828282828282828282828282828\"}]}]}"
+        }
+      ]
+    },
+    {
+      "name": "robinhoodName",
+      "group": "robinhood",
+      "at": 1767324246000,
+      "url": "/v1/networks/robinhood/tokens/search?q=BERKSHIRE",
+      "accept": "application/protobuf",
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "141",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+            "address": "0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+            "symbol": "BRK.B",
+            "name": "Berkshire Hathaway",
+            "decimals": 18,
+            "verified": true
+          }
+        ],
+        "cache": {}
+      },
+      "wireHex": "0a88010a09726f62696e686f6f64123065726332303a3078633363336333633363336333633363336333633363336333633363336333633363336333633363331a2a307863336333633363336333633363336333633363336333633363336333633363336333633363336333220542524b2e422a124265726b7368697265204861746861776179301238011200",
+      "upstream": []
+    },
+    {
+      "name": "robinhoodAll",
+      "group": "robinhood",
+      "at": 1767324247000,
+      "url": "/v1/networks/robinhood/tokens/search?q=a",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "1115",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+            "address": "0xB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2",
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "c54681ef07b0ff646907c10a5573c9cc"
+          },
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+            "address": "0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+            "symbol": "BRK.B",
+            "name": "Berkshire Hathaway",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          },
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+            "address": "0xA1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1",
+            "symbol": "DUP",
+            "name": "Duplicate of Tesla",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "afa2ff531c770a9522c4225b44c97062"
+          },
+          {
+            "network": "robinhood",
+            "tokenId": "erc20:0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+            "address": "0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+            "symbol": "TSM",
+            "name": "Taiwan Semiconductor",
+            "decimals": 18,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2\",\"address\":\"0xB2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2\",\"symbol\":\"AAPL\",\"name\":\"Apple Inc.\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"c54681ef07b0ff646907c10a5573c9cc\"},{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3\",\"address\":\"0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3\",\"symbol\":\"BRK.B\",\"name\":\"Berkshire Hathaway\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null},{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1\",\"address\":\"0xA1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1\",\"symbol\":\"DUP\",\"name\":\"Duplicate of Tesla\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"afa2ff531c770a9522c4225b44c97062\"},{\"network\":\"robinhood\",\"tokenId\":\"erc20:0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5\",\"address\":\"0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5\",\"symbol\":\"TSM\",\"name\":\"Taiwan Semiconductor\",\"decimals\":18,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": []
+    },
+    {
+      "name": "unknownNetwork",
+      "group": "validation",
+      "at": 1767324445000,
+      "url": "/v1/networks/not-a-network/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "65",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unknown network: not-a-network"
+      },
+      "upstream": []
+    },
+    {
+      "name": "qMissing",
+      "group": "validation",
+      "at": 1767324446000,
+      "url": "/v1/networks/eth-mainnet/tokens/search",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "qEmpty",
+      "group": "validation",
+      "at": 1767324447000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "qBlank",
+      "group": "validation",
+      "at": 1767324448000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=%20%20%20",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "q101",
+      "group": "validation",
+      "at": 1767324449000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "q100Units",
+      "group": "validation",
+      "at": 1767324450000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "622",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "qRepeated",
+      "group": "validation",
+      "at": 1767324451000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=a&q=b",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "qPlusSpace",
+      "group": "validation",
+      "at": 1767324452000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=+usd+",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "643",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:05.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=usd",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "qBadPercent",
+      "group": "validation",
+      "at": 1767324453000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=%zz",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "622",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=%25zz",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    },
+    {
+      "name": "qOtherParam",
+      "group": "validation",
+      "at": 1767324454000,
+      "url": "/v1/networks/eth-mainnet/tokens/search?q=usd&limit=5",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "643",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:27:32.000Z"
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:27:32.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "network65",
+      "group": "validation",
+      "at": 1767324455000,
+      "url": "/v1/networks/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn/tokens/search?q=usd",
+      "accept": "application/json",
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "networkEncodedAlias",
+      "group": "validation",
+      "at": 1767324456000,
+      "url": "/v1/networks/eip155%3A1/tokens/search?q=dai",
+      "accept": "application/json",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "622",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "items": [
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "symbol": "usdc",
+            "name": "USDC",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": "4783e9c4695f6b857a52bc3e099eaf4d"
+          },
+          {
+            "network": "eth-mainnet",
+            "tokenId": "erc20:0xdac17f958d2ee523a2206206994597c13d831ec7",
+            "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "symbol": "usdt",
+            "name": "Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+            "decimals": 6,
+            "verified": true,
+            "holderCount": null,
+            "logoMediaKey": null
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"items\":[{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48\",\"address\":\"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\"symbol\":\"usdc\",\"name\":\"USDC\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":\"4783e9c4695f6b857a52bc3e099eaf4d\"},{\"network\":\"eth-mainnet\",\"tokenId\":\"erc20:0xdac17f958d2ee523a2206206994597c13d831ec7\",\"address\":\"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\"symbol\":\"usdt\",\"name\":\"Tether xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…\",\"decimals\":6,\"verified\":true,\"holderCount\":null,\"logoMediaKey\":null}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.coingecko.com/api/v3/search?query=dai",
+          "status": 200,
+          "body": "{\"coins\":[{\"id\":\"usd-coin\",\"symbol\":\"usdc\",\"name\":\"USDC\"},{\"id\":\"tether\",\"symbol\":\"usdt\",\"name\":\"Tether\"},{\"id\":\"missing-coin\",\"symbol\":\"mc\",\"name\":\"Missing\"},{\"id\":\"usd-coin-bridged\",\"symbol\":\"usdc.e\",\"name\":\"Bridged\"},{\"id\":\"dai\",\"symbol\":\"dai\",\"name\":\"Dai\"},{\"id\":\"bad-address\",\"symbol\":\"bad\",\"name\":\"Bad\"},{\"id\":7,\"symbol\":\"x\",\"name\":\"not an id\"}]}"
+        }
+      ]
+    }
+  ]
+}

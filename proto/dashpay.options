@@ -1,0 +1,3 @@
+# Limit the one generated message used by the guest's protobuf feasibility probe.
+fortisnet.intelligence.v1.DashPayNameResponse.name max_size:255
+fortisnet.intelligence.v1.DashPayNameResponse.identity_id max_size:128

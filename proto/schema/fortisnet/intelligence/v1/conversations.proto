@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message OpenConversationRequest {
+  string address = 1;
+  string nonce = 2;
+  string timestamp = 3;
+  string snapshot_hash = 4;
+  string access_token = 5;
+  string access_token_hash = 6;
+  string snapshot_json = 7;
+  string signature = 8;
+  string first_message = 9;
+  string client_message_id = 10;
+}
+
+message PostConversationMessageRequest {
+  string client_message_id = 1;
+  string body = 2;
+  // Together these form a portfolio_snapshot attachment on the user message.
+  // The server validates the payload and stores it by SHA-256, separately
+  // from the paged text history.
+  optional string snapshot_json = 3;
+  optional string snapshot_hash = 4;
+}
+
+message ConversationMessage {
+  string id = 1;
+  string role = 2;
+  string body = 3;
+  string created_at = 4;
+}
+
+message OpenConversationResponse {
+  string id = 1;
+  string access_token = 2;
+  string expires_at = 3;
+  ConversationMessage message = 4;
+  ConversationMessage assistant = 5;
+}
+
+message ConversationMessagesResponse {
+  repeated ConversationMessage messages = 1;
+}
+
+message PostConversationMessageResponse {
+  ConversationMessage message = 1;
+  ConversationMessage assistant = 2;
+}

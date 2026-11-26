@@ -1,0 +1,237 @@
+{
+ "schemaVersion": 1,
+ "location": [
+  {
+   "segment": "01JZ0000000000000000000001",
+   "sent": "open",
+   "status": 303,
+   "id": "01JZ0000000000000000000001",
+   "value": "open",
+   "location": "/admin/tickets?open=01JZ0000000000000000000001"
+  },
+  {
+   "segment": "a%20b",
+   "sent": "pending",
+   "status": 303,
+   "id": "a b",
+   "value": "pending",
+   "location": "/admin/tickets?open=a%20b"
+  },
+  {
+   "segment": "a+b",
+   "sent": "resolved",
+   "status": 303,
+   "id": "a+b",
+   "value": "resolved",
+   "location": "/admin/tickets?open=a%2Bb"
+  },
+  {
+   "segment": "a%2Bb",
+   "sent": "closed",
+   "status": 303,
+   "id": "a+b",
+   "value": "closed",
+   "location": "/admin/tickets?open=a%2Bb"
+  },
+  {
+   "segment": "a%2Fb",
+   "sent": "open",
+   "status": 303,
+   "id": "a/b",
+   "value": "open",
+   "location": "/admin/tickets?open=a%2Fb"
+  },
+  {
+   "segment": "a%3Fb",
+   "sent": "pending",
+   "status": 303,
+   "id": "a?b",
+   "value": "pending",
+   "location": "/admin/tickets?open=a%3Fb"
+  },
+  {
+   "segment": "a%23b",
+   "sent": "resolved",
+   "status": 303,
+   "id": "a#b",
+   "value": "resolved",
+   "location": "/admin/tickets?open=a%23b"
+  },
+  {
+   "segment": "a%26b",
+   "sent": "closed",
+   "status": 303,
+   "id": "a&b",
+   "value": "closed",
+   "location": "/admin/tickets?open=a%26b"
+  },
+  {
+   "segment": "a%3Db",
+   "sent": "open",
+   "status": 303,
+   "id": "a=b",
+   "value": "open",
+   "location": "/admin/tickets?open=a%3Db"
+  },
+  {
+   "segment": "a%25b",
+   "sent": "pending",
+   "status": 303,
+   "id": "a%b",
+   "value": "pending",
+   "location": "/admin/tickets?open=a%25b"
+  },
+  {
+   "segment": "-_.!~*'()",
+   "sent": "resolved",
+   "status": 303,
+   "id": "-_.!~*'()",
+   "value": "resolved",
+   "location": "/admin/tickets?open=-_.!~*'()"
+  },
+  {
+   "segment": "%C3%A9",
+   "sent": "closed",
+   "status": 303,
+   "id": "é",
+   "value": "closed",
+   "location": "/admin/tickets?open=%C3%A9"
+  },
+  {
+   "segment": "%F0%9F%98%80",
+   "sent": "open",
+   "status": 303,
+   "id": "😀",
+   "value": "open",
+   "location": "/admin/tickets?open=%F0%9F%98%80"
+  },
+  {
+   "segment": "%E2%80%A8",
+   "sent": "pending",
+   "status": 303,
+   "id": " ",
+   "value": "pending",
+   "location": "/admin/tickets?open=%E2%80%A8"
+  },
+  {
+   "segment": "a;b",
+   "sent": "resolved",
+   "status": 303,
+   "id": "a;b",
+   "value": "resolved",
+   "location": "/admin/tickets?open=a%3Bb"
+  },
+  {
+   "segment": "a,b",
+   "sent": "closed",
+   "status": 303,
+   "id": "a,b",
+   "value": "closed",
+   "location": "/admin/tickets?open=a%2Cb"
+  },
+  {
+   "segment": "a:b",
+   "sent": "open",
+   "status": 303,
+   "id": "a:b",
+   "value": "open",
+   "location": "/admin/tickets?open=a%3Ab"
+  },
+  {
+   "segment": "a@b",
+   "sent": "pending",
+   "status": 303,
+   "id": "a@b",
+   "value": "pending",
+   "location": "/admin/tickets?open=a%40b"
+  },
+  {
+   "segment": "a$b",
+   "sent": "resolved",
+   "status": 303,
+   "id": "a$b",
+   "value": "resolved",
+   "location": "/admin/tickets?open=a%24b"
+  },
+  {
+   "segment": "%22%3C%3E",
+   "sent": "closed",
+   "status": 303,
+   "id": "\"<>",
+   "value": "closed",
+   "location": "/admin/tickets?open=%22%3C%3E"
+  },
+  {
+   "segment": "%5B%5D",
+   "sent": "open",
+   "status": 303,
+   "id": "[]",
+   "value": "open",
+   "location": "/admin/tickets?open=%5B%5D"
+  },
+  {
+   "segment": "%7B%7D",
+   "sent": "pending",
+   "status": 303,
+   "id": "{}",
+   "value": "pending",
+   "location": "/admin/tickets?open=%7B%7D"
+  },
+  {
+   "segment": "%5C",
+   "sent": "resolved",
+   "status": 303,
+   "id": "\\",
+   "value": "resolved",
+   "location": "/admin/tickets?open=%5C"
+  },
+  {
+   "segment": "%60",
+   "sent": "closed",
+   "status": 303,
+   "id": "`",
+   "value": "closed",
+   "location": "/admin/tickets?open=%60"
+  },
+  {
+   "segment": "%5E%7C",
+   "sent": "open",
+   "status": 303,
+   "id": "^|",
+   "value": "open",
+   "location": "/admin/tickets?open=%5E%7C"
+  },
+  {
+   "segment": "A%42c",
+   "sent": "pending",
+   "status": 303,
+   "id": "ABc",
+   "value": "pending",
+   "location": "/admin/tickets?open=ABc"
+  },
+  {
+   "segment": "%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41",
+   "sent": "resolved",
+   "status": 303,
+   "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "value": "resolved",
+   "location": "/admin/tickets?open=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  {
+   "segment": "%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD",
+   "sent": "closed",
+   "status": 303,
+   "id": "中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中",
+   "value": "closed",
+   "location": "/admin/tickets?open=%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD"
+  },
+  {
+   "segment": "%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80",
+   "sent": "open",
+   "status": 303,
+   "id": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+   "value": "open",
+   "location": "/admin/tickets?open=%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80"
+  }
+ ]
+}

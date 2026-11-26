@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "google/protobuf/struct.proto";
+
+message SyncRequest {
+  optional string cursor = 1;
+  optional string after = 2;
+  repeated string models = 3;
+  optional uint32 limit = 4;
+}
+
+message SyncChange {
+  string model = 1;
+  google.protobuf.Struct key = 2;
+  string operation = 3;
+  string version = 4;
+  string changed_at = 5;
+  google.protobuf.Struct fields = 6;
+}
+
+message SyncResponse {
+  uint32 schema = 1;
+  string cursor = 2;
+  bool has_more = 3;
+  bool reset = 4;
+  string as_of = 5;
+  repeated string supported_models = 6;
+  repeated SyncChange changes = 7;
+}

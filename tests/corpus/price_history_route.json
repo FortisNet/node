@@ -1,0 +1,709 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "cases": {
+    "hourlyJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "620",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "id": "ethereum",
+        "interval": "1h",
+        "points": [
+          [
+            1767225600,
+            101
+          ],
+          [
+            1767229200,
+            102
+          ],
+          [
+            1767232800,
+            103
+          ],
+          [
+            1767236400,
+            104
+          ],
+          [
+            1767240000,
+            105
+          ],
+          [
+            1767243600,
+            106
+          ]
+        ],
+        "volumes": [
+          [
+            1767225600,
+            0.5
+          ],
+          [
+            1767229200,
+            1.5
+          ],
+          [
+            1767232800,
+            2.5
+          ],
+          [
+            1767236400,
+            3.5
+          ],
+          [
+            1767240000,
+            4.5
+          ],
+          [
+            1767243600,
+            5.5
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-01T05:00:00.000Z"
+        },
+        "coverage": {
+          "cachedPoints": 6,
+          "fetchedPoints": 0
+        },
+        "window": {
+          "from": 1767225600,
+          "to": 1767243600,
+          "days": 2
+        },
+        "availability": {
+          "from": 1767225600,
+          "to": 1767657600,
+          "days": 6,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": 1767225600,
+              "to": 1767657600,
+              "days": 6
+            },
+            {
+              "interval": "1h",
+              "from": 1767225600,
+              "to": 1767243600,
+              "days": 2
+            }
+          ]
+        }
+      }
+    },
+    "hourlyProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "352",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "id": "ethereum",
+        "interval": "1h",
+        "points": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 101
+          },
+          {
+            "unixSeconds": "1767229200",
+            "value": 102
+          },
+          {
+            "unixSeconds": "1767232800",
+            "value": 103
+          },
+          {
+            "unixSeconds": "1767236400",
+            "value": 104
+          },
+          {
+            "unixSeconds": "1767240000",
+            "value": 105
+          },
+          {
+            "unixSeconds": "1767243600",
+            "value": 106
+          }
+        ],
+        "volumes": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 0.5
+          },
+          {
+            "unixSeconds": "1767229200",
+            "value": 1.5
+          },
+          {
+            "unixSeconds": "1767232800",
+            "value": 2.5
+          },
+          {
+            "unixSeconds": "1767236400",
+            "value": 3.5
+          },
+          {
+            "unixSeconds": "1767240000",
+            "value": 4.5
+          },
+          {
+            "unixSeconds": "1767243600",
+            "value": 5.5
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-01T05:00:00.000Z"
+        },
+        "coverage": {
+          "cachedPoints": 6
+        },
+        "window": {
+          "from": "1767225600",
+          "to": "1767243600",
+          "days": 2
+        },
+        "availability": {
+          "from": "1767225600",
+          "to": "1767657600",
+          "days": 6,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": "1767225600",
+              "to": "1767657600",
+              "days": 6
+            },
+            {
+              "interval": "1h",
+              "from": "1767225600",
+              "to": "1767243600",
+              "days": 2
+            }
+          ]
+        }
+      },
+      "wireHex": "0a08657468657265756d120231681a0f0880f2d6ca061100000000004059401a0f08908ed7ca061100000000008059401a0f08a0aad7ca06110000000000c059401a0f08b0c6d7ca06110000000000005a401a0f08c0e2d7ca06110000000000405a401a0f08d0fed7ca06110000000000805a40220f0880f2d6ca0611000000000000e03f220f08908ed7ca0611000000000000f83f220f08a0aad7ca06110000000000000440220f08b0c6d7ca06110000000000000c40220f08c0e2d7ca06110000000000001240220f08d0fed7ca061100000000000016402a1c08011218323032362d30312d30315430353a30303a30302e3030305a320208063a150880f2d6ca0610d0fed7ca06190000000000000040424b0880f2d6ca061080a1f1ca0619000000000000184022190a0231641080f2d6ca061880a1f1ca0621000000000000184022190a0231681080f2d6ca0618d0fed7ca06210000000000000040"
+    },
+    "dailyJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "614",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "id": "ethereum",
+        "interval": "1d",
+        "points": [
+          [
+            1767225600,
+            203
+          ],
+          [
+            1767312000,
+            204
+          ],
+          [
+            1767398400,
+            205
+          ],
+          [
+            1767484800,
+            206
+          ],
+          [
+            1767571200,
+            207
+          ],
+          [
+            1767657600,
+            208
+          ]
+        ],
+        "volumes": [
+          [
+            1767225600,
+            10
+          ],
+          [
+            1767312000,
+            11
+          ],
+          [
+            1767398400,
+            12
+          ],
+          [
+            1767484800,
+            13
+          ],
+          [
+            1767571200,
+            14
+          ],
+          [
+            1767657600,
+            15
+          ]
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-06T00:00:00.000Z"
+        },
+        "coverage": {
+          "cachedPoints": 6,
+          "fetchedPoints": 0
+        },
+        "window": {
+          "from": 1767225600,
+          "to": 1767657600,
+          "days": 6
+        },
+        "availability": {
+          "from": 1767225600,
+          "to": 1767657600,
+          "days": 6,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": 1767225600,
+              "to": 1767657600,
+              "days": 6
+            },
+            {
+              "interval": "1h",
+              "from": 1767225600,
+              "to": 1767243600,
+              "days": 2
+            }
+          ]
+        }
+      }
+    },
+    "dailyProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "352",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "body": {
+        "id": "ethereum",
+        "interval": "1d",
+        "points": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 203
+          },
+          {
+            "unixSeconds": "1767312000",
+            "value": 204
+          },
+          {
+            "unixSeconds": "1767398400",
+            "value": 205
+          },
+          {
+            "unixSeconds": "1767484800",
+            "value": 206
+          },
+          {
+            "unixSeconds": "1767571200",
+            "value": 207
+          },
+          {
+            "unixSeconds": "1767657600",
+            "value": 208
+          }
+        ],
+        "volumes": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 10
+          },
+          {
+            "unixSeconds": "1767312000",
+            "value": 11
+          },
+          {
+            "unixSeconds": "1767398400",
+            "value": 12
+          },
+          {
+            "unixSeconds": "1767484800",
+            "value": 13
+          },
+          {
+            "unixSeconds": "1767571200",
+            "value": 14
+          },
+          {
+            "unixSeconds": "1767657600",
+            "value": 15
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-06T00:00:00.000Z"
+        },
+        "coverage": {
+          "cachedPoints": 6
+        },
+        "window": {
+          "from": "1767225600",
+          "to": "1767657600",
+          "days": 6
+        },
+        "availability": {
+          "from": "1767225600",
+          "to": "1767657600",
+          "days": 6,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": "1767225600",
+              "to": "1767657600",
+              "days": 6
+            },
+            {
+              "interval": "1h",
+              "from": "1767225600",
+              "to": "1767243600",
+              "days": 2
+            }
+          ]
+        }
+      },
+      "wireHex": "0a08657468657265756d120231641a0f0880f2d6ca061100000000006069401a0f088095dcca061100000000008069401a0f0880b8e1ca06110000000000a069401a0f0880dbe6ca06110000000000c069401a0f0880feebca06110000000000e069401a0f0880a1f1ca06110000000000006a40220f0880f2d6ca06110000000000002440220f088095dcca06110000000000002640220f0880b8e1ca06110000000000002840220f0880dbe6ca06110000000000002a40220f0880feebca06110000000000002c40220f0880a1f1ca06110000000000002e402a1c08011218323032362d30312d30365430303a30303a30302e3030305a320208063a150880f2d6ca061080a1f1ca06190000000000001840424b0880f2d6ca061080a1f1ca0619000000000000184022190a0231641080f2d6ca061880a1f1ca0621000000000000184022190a0231681080f2d6ca0618d0fed7ca06210000000000000040"
+    },
+    "headJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "620",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": null
+    },
+    "headProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "352",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "body": null
+    },
+    "queryError": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "168",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "233"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": [
+          {
+            "expected": "number",
+            "code": "invalid_type",
+            "received": "NaN",
+            "path": [
+              "from"
+            ],
+            "message": "Invalid input: expected number, received NaN"
+          }
+        ]
+      }
+    },
+    "rangeError": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "69",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "232"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "range for 1h must be 1s–7776000s"
+      }
+    },
+    "unknownId": {
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "50",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "231"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unrecognized id"
+      }
+    },
+    "coldJson": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "598",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "id": "bitcoin",
+        "interval": "1h",
+        "points": [
+          [
+            1767225600,
+            100
+          ],
+          [
+            1767229200,
+            101
+          ],
+          [
+            1767232800,
+            102
+          ],
+          [
+            1767236400,
+            103
+          ],
+          [
+            1767240000,
+            104
+          ],
+          [
+            1767243600,
+            105
+          ]
+        ],
+        "volumes": [
+          [
+            1767225600,
+            0.5
+          ],
+          [
+            1767229200,
+            1.5
+          ],
+          [
+            1767232800,
+            2.5
+          ],
+          [
+            1767236400,
+            3.5
+          ],
+          [
+            1767240000,
+            4.5
+          ],
+          [
+            1767243600,
+            5.5
+          ]
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        },
+        "coverage": {
+          "cachedPoints": 0,
+          "fetchedPoints": 6
+        },
+        "window": {
+          "from": 1767225600,
+          "to": 1767243600,
+          "days": 2
+        },
+        "availability": {
+          "from": 1767225600,
+          "to": 1767243600,
+          "days": 2,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": 1767225600,
+              "to": 1767225600,
+              "days": 1
+            },
+            {
+              "interval": "1h",
+              "from": 1767225600,
+              "to": 1767243600,
+              "days": 2
+            }
+          ]
+        }
+      }
+    },
+    "coldProtobuf": {
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "323",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "id": "bitcoin",
+        "interval": "1h",
+        "points": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 100
+          },
+          {
+            "unixSeconds": "1767229200",
+            "value": 101
+          },
+          {
+            "unixSeconds": "1767232800",
+            "value": 102
+          },
+          {
+            "unixSeconds": "1767236400",
+            "value": 103
+          },
+          {
+            "unixSeconds": "1767240000",
+            "value": 104
+          },
+          {
+            "unixSeconds": "1767243600",
+            "value": 105
+          }
+        ],
+        "volumes": [
+          {
+            "unixSeconds": "1767225600",
+            "value": 0.5
+          },
+          {
+            "unixSeconds": "1767229200",
+            "value": 1.5
+          },
+          {
+            "unixSeconds": "1767232800",
+            "value": 2.5
+          },
+          {
+            "unixSeconds": "1767236400",
+            "value": 3.5
+          },
+          {
+            "unixSeconds": "1767240000",
+            "value": 4.5
+          },
+          {
+            "unixSeconds": "1767243600",
+            "value": 5.5
+          }
+        ],
+        "cache": {},
+        "coverage": {
+          "fetchedPoints": 6
+        },
+        "window": {
+          "from": "1767225600",
+          "to": "1767243600",
+          "days": 2
+        },
+        "availability": {
+          "from": "1767225600",
+          "to": "1767243600",
+          "days": 2,
+          "resolutions": [
+            {
+              "interval": "1d",
+              "from": "1767225600",
+              "to": "1767225600",
+              "days": 1
+            },
+            {
+              "interval": "1h",
+              "from": "1767225600",
+              "to": "1767243600",
+              "days": 2
+            }
+          ]
+        }
+      },
+      "wireHex": "0a07626974636f696e120231681a0f0880f2d6ca061100000000000059401a0f08908ed7ca061100000000004059401a0f08a0aad7ca061100000000008059401a0f08b0c6d7ca06110000000000c059401a0f08c0e2d7ca06110000000000005a401a0f08d0fed7ca06110000000000405a40220f0880f2d6ca0611000000000000e03f220f08908ed7ca0611000000000000f83f220f08a0aad7ca06110000000000000440220f08b0c6d7ca06110000000000000c40220f08c0e2d7ca06110000000000001240220f08d0fed7ca061100000000000016402a00320210063a150880f2d6ca0610d0fed7ca06190000000000000040424b0880f2d6ca0610d0fed7ca0619000000000000004022190a0231641080f2d6ca061880f2d6ca0621000000000000f03f22190a0231681080f2d6ca0618d0fed7ca06210000000000000040"
+    }
+  }
+}

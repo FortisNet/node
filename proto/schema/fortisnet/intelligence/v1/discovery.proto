@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "fortisnet/intelligence/v1/prices.proto";
+
+message TokenSearchItem {
+  string network = 1;
+  string token_id = 2;
+  string address = 3;
+  string symbol = 4;
+  string name = 5;
+  optional uint32 decimals = 6;
+  bool verified = 7;
+  optional uint64 holder_count = 8;
+  optional string logo_media_key = 9;
+}
+
+message TokenSearchResponse {
+  repeated TokenSearchItem items = 1;
+  CacheInfo cache = 2;
+}

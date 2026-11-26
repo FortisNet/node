@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+message NewsTicker {
+  string symbol = 1;
+  optional string coin_id = 2;
+  optional double change_24h_pct = 3;
+}
+
+message NewsItem {
+  string id = 1;
+  string headline = 2;
+  string summary = 3;
+  repeated string topics = 4;
+  string impact = 5;
+  repeated NewsTicker tickers = 6;
+  string publisher = 7;
+  string url = 8;
+  optional string image_media_key = 9;
+  string published_at = 10;
+  uint32 source_count = 11;
+}
+
+message NewsSource {
+  string publisher = 1;
+  string url = 2;
+  string title = 3;
+  string published_at = 4;
+  optional string subtitle = 5;
+  optional string abstract = 6;
+  optional string body = 7;
+  optional string summary = 8;
+  optional string image_media_key = 9;
+}
+
+message NewsFeedResponse {
+  repeated NewsItem items = 1;
+  optional string as_of = 2;
+  bool stale = 3;
+}
+
+message NewsItemDetailResponse {
+  NewsItem item = 1;
+  repeated NewsSource sources = 2;
+}
+
+message NewsPriceSample {
+  int64 unix_millis = 1;
+  double usd = 2;
+}
+
+message NewsReactionWindow {
+  uint32 seconds = 1;
+  string status = 2;
+  optional double return_pct = 3;
+  NewsPriceSample baseline = 4;
+  NewsPriceSample endpoint = 5;
+  optional double benchmark_return_pct = 6;
+  NewsPriceSample benchmark_baseline = 7;
+  NewsPriceSample benchmark_endpoint = 8;
+  optional double difference_pp = 9;
+}
+
+message NewsReactionAsset {
+  optional string coin_id = 1;
+  string symbol = 2;
+  repeated NewsPriceSample points = 3;
+  repeated NewsReactionWindow windows = 4;
+}
+
+message NewsReactionsResponse {
+  string event_id = 1;
+  optional string published_at = 2;
+  optional string as_of = 3;
+  optional string currency = 4;
+  optional string source = 5;
+  bool unavailable = 6;
+  NewsReactionAsset benchmark = 7;
+  repeated NewsReactionAsset assets = 8;
+}

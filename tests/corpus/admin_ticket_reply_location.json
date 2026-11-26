@@ -1,0 +1,179 @@
+{
+ "schemaVersion": 1,
+ "location": [
+  {
+   "segment": "01JZ0000000000000000000001",
+   "status": 303,
+   "id": "01JZ0000000000000000000001",
+   "location": "/admin/tickets?open=01JZ0000000000000000000001"
+  },
+  {
+   "segment": "a%20b",
+   "status": 303,
+   "id": "a b",
+   "location": "/admin/tickets?open=a%20b"
+  },
+  {
+   "segment": "a+b",
+   "status": 303,
+   "id": "a+b",
+   "location": "/admin/tickets?open=a%2Bb"
+  },
+  {
+   "segment": "a%2Bb",
+   "status": 303,
+   "id": "a+b",
+   "location": "/admin/tickets?open=a%2Bb"
+  },
+  {
+   "segment": "a%2Fb",
+   "status": 303,
+   "id": "a/b",
+   "location": "/admin/tickets?open=a%2Fb"
+  },
+  {
+   "segment": "a%3Fb",
+   "status": 303,
+   "id": "a?b",
+   "location": "/admin/tickets?open=a%3Fb"
+  },
+  {
+   "segment": "a%23b",
+   "status": 303,
+   "id": "a#b",
+   "location": "/admin/tickets?open=a%23b"
+  },
+  {
+   "segment": "a%26b",
+   "status": 303,
+   "id": "a&b",
+   "location": "/admin/tickets?open=a%26b"
+  },
+  {
+   "segment": "a%3Db",
+   "status": 303,
+   "id": "a=b",
+   "location": "/admin/tickets?open=a%3Db"
+  },
+  {
+   "segment": "a%25b",
+   "status": 303,
+   "id": "a%b",
+   "location": "/admin/tickets?open=a%25b"
+  },
+  {
+   "segment": "-_.!~*'()",
+   "status": 303,
+   "id": "-_.!~*'()",
+   "location": "/admin/tickets?open=-_.!~*'()"
+  },
+  {
+   "segment": "%C3%A9",
+   "status": 303,
+   "id": "é",
+   "location": "/admin/tickets?open=%C3%A9"
+  },
+  {
+   "segment": "%F0%9F%98%80",
+   "status": 303,
+   "id": "😀",
+   "location": "/admin/tickets?open=%F0%9F%98%80"
+  },
+  {
+   "segment": "%E2%80%A8",
+   "status": 303,
+   "id": " ",
+   "location": "/admin/tickets?open=%E2%80%A8"
+  },
+  {
+   "segment": "a;b",
+   "status": 303,
+   "id": "a;b",
+   "location": "/admin/tickets?open=a%3Bb"
+  },
+  {
+   "segment": "a,b",
+   "status": 303,
+   "id": "a,b",
+   "location": "/admin/tickets?open=a%2Cb"
+  },
+  {
+   "segment": "a:b",
+   "status": 303,
+   "id": "a:b",
+   "location": "/admin/tickets?open=a%3Ab"
+  },
+  {
+   "segment": "a@b",
+   "status": 303,
+   "id": "a@b",
+   "location": "/admin/tickets?open=a%40b"
+  },
+  {
+   "segment": "a$b",
+   "status": 303,
+   "id": "a$b",
+   "location": "/admin/tickets?open=a%24b"
+  },
+  {
+   "segment": "%22%3C%3E",
+   "status": 303,
+   "id": "\"<>",
+   "location": "/admin/tickets?open=%22%3C%3E"
+  },
+  {
+   "segment": "%5B%5D",
+   "status": 303,
+   "id": "[]",
+   "location": "/admin/tickets?open=%5B%5D"
+  },
+  {
+   "segment": "%7B%7D",
+   "status": 303,
+   "id": "{}",
+   "location": "/admin/tickets?open=%7B%7D"
+  },
+  {
+   "segment": "%5C",
+   "status": 303,
+   "id": "\\",
+   "location": "/admin/tickets?open=%5C"
+  },
+  {
+   "segment": "%60",
+   "status": 303,
+   "id": "`",
+   "location": "/admin/tickets?open=%60"
+  },
+  {
+   "segment": "%5E%7C",
+   "status": 303,
+   "id": "^|",
+   "location": "/admin/tickets?open=%5E%7C"
+  },
+  {
+   "segment": "A%42c",
+   "status": 303,
+   "id": "ABc",
+   "location": "/admin/tickets?open=ABc"
+  },
+  {
+   "segment": "%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41%41",
+   "status": 303,
+   "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "location": "/admin/tickets?open=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  },
+  {
+   "segment": "%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD",
+   "status": 303,
+   "id": "中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中",
+   "location": "/admin/tickets?open=%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD%E4%B8%AD"
+  },
+  {
+   "segment": "%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80",
+   "status": 303,
+   "id": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀",
+   "location": "/admin/tickets?open=%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80"
+  }
+ ]
+}

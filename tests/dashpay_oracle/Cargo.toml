@@ -1,0 +1,22 @@
+# Independent oracle for the native DashPay proof verifier: the official
+# Dash Platform v4.1.1 proof verifier (the code the TypeScript route runs
+# through @dashevo/evo-sdk 4.1.1). Not part of the native build. Build with
+# `cargo build --release` (needs protoc on PATH or PROTOC set); see
+# tests/dashpay_corpus_build.py.
+[package]
+name = "dashpay-oracle"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+drive-proof-verifier = { git = "https://github.com/dashpay/platform", tag = "v4.1.1" }
+drive = { git = "https://github.com/dashpay/platform", tag = "v4.1.1", default-features = false, features = ["verify"] }
+dpp = { git = "https://github.com/dashpay/platform", tag = "v4.1.1", default-features = false, features = ["dpns-contract", "system_contracts", "bls-signatures", "core-types-serialization"] }
+dapi-grpc = { git = "https://github.com/dashpay/platform", tag = "v4.1.1", default-features = false, features = ["platform", "client"] }
+dash-context-provider = { git = "https://github.com/dashpay/platform", tag = "v4.1.1", features = ["mocks"] }
+blake3 = "=1.8.7"
+base64 = "0.22"
+bs58 = "0.5"
+hex = "0.4"
+serde_json = "1"

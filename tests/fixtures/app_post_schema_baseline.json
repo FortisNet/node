@@ -1,0 +1,112 @@
+{
+  "requests": [
+    {
+      "path": "/v1/devices/challenge",
+      "status": 200,
+      "error": null,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/v1/devices",
+      "status": 401,
+      "error": "ATTESTATION_EXPIRED",
+      "body_sha256": "0b6ba024f59e168283d24e2f1f08232fe71597a75cb231657fc219accd03c18a"
+    },
+    {
+      "path": "/v1/sync",
+      "status": 200,
+      "error": null,
+      "body_sha256": "853b8ab09bfeafbe120920f1a431b7052b693e9067995a8730801ced00702433"
+    },
+    {
+      "path": "/v1/prices/history",
+      "status": 200,
+      "error": null,
+      "body_sha256": "85c49cbe3961c5dc378e48f5f6b9ef89a61b4c0b2e15aa5b6aa2cc8afacce79c"
+    },
+    {
+      "path": "/v1/prices/markets",
+      "status": 200,
+      "error": null,
+      "body_sha256": "f028ea7221cacc6e65c982adcce75f176589986894c169083bd066ca24ea732f"
+    },
+    {
+      "path": "/v1/tokens/compare",
+      "status": 200,
+      "error": null,
+      "body_sha256": "ec85a503dec62d14eba705bb2235bbe937b886ebad5cccafaff0621f2df35adc"
+    },
+    {
+      "path": "/v1/bittensor/analytics",
+      "status": 400,
+      "error": "BAD_REQUEST",
+      "body_sha256": "9f3ba31a989f33c73e12c485ad35385b4521bf2abde256632ff5e68c519b7fa1"
+    },
+    {
+      "path": "/v1/crash-reports",
+      "status": 202,
+      "error": null,
+      "body_sha256": "9cb12f57b92996de3c44489847eea83af32bf049b629c95474dc7e1895adf7bc"
+    },
+    {
+      "path": "/v1/networks/robinhood/transactions/diagnose",
+      "status": 503,
+      "error": "TRANSACTION_DIAGNOSTICS_UNAVAILABLE",
+      "body_sha256": "ec6f238edd0c124746ea05b90b5cf758547487463fdb469d5abebb0f74868546"
+    },
+    {
+      "path": "/v1/networks/robinhood/sponsored-trades/prepare",
+      "status": 503,
+      "error": "SPONSORED_TRADES_UNAVAILABLE",
+      "body_sha256": "d06dd9f149f1456c2d70d819754f865be681a4eae7d13bdab7eb55966466585c"
+    },
+    {
+      "path": "/v1/networks/robinhood/sponsored-trades/submit",
+      "status": 400,
+      "error": "BAD_REQUEST",
+      "body_sha256": "a04383be5a849ea39d5be8a5f89271f01adb70841d645701b683db5807d9ea60"
+    },
+    {
+      "path": "/v1/exchange/cross-chain/quotes",
+      "status": 200,
+      "error": null,
+      "body_sha256": "735584b55d1c6f75a01a21f8bd23153fcf8cf1b01f26a5d600f640b266ff1a5c"
+    },
+    {
+      "path": "/v1/exchange/cross-chain/status",
+      "status": 503,
+      "error": "PROVIDER_NOT_CONFIGURED",
+      "body_sha256": "76388d481821a04bb20f4fc2265e76a58fb1a956ceb3211902fd450394e89fca"
+    },
+    {
+      "path": "/v1/ai/conversations",
+      "status": 400,
+      "error": "BAD_REQUEST",
+      "body_sha256": "ba43f02c17f3aacd0333ba55258196c3e90c09a30e883ae26eb55ede516fe522"
+    },
+    {
+      "path": "/v1/ai/conversations/01JZ0000000000000000000000/messages",
+      "status": 404,
+      "error": "NOT_FOUND",
+      "body_sha256": "35732ecbde70b98d3d94ae648b180de25e34f45c3820a4ebfc6482edd445090d"
+    },
+    {
+      "path": "/v1/ai/conversations/01JZ0000000000000000000000/messages/01JZ0000000000000000000001/retry",
+      "status": 404,
+      "error": "NOT_FOUND",
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/v1/devices/rotate",
+      "status": 200,
+      "error": null,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/v1/devices/revoke",
+      "status": 204,
+      "error": null,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

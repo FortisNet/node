@@ -1,0 +1,1880 @@
+{
+  "source": {
+    "function": "server/intelligence/src/domain/redaction.ts#redactDiagnosticText",
+    "nodeUnicode": "17.0"
+  },
+  "cases": [
+    {
+      "input": "",
+      "output": ""
+    },
+    {
+      "input": "plain text with nothing secret",
+      "output": "plain text with nothing secret"
+    },
+    {
+      "input": "abandon ability able about above absent absorb abstract absurd abuse access accident",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "my phrase is abandon ability able about above absent absorb, is that a problem?",
+      "output": "my phrase is [redacted — never share this with anyone, including us], is that a problem?"
+    },
+    {
+      "input": "six only: abandon ability able about above absent then stop",
+      "output": "[redacted — never share this with anyone, including us] stop"
+    },
+    {
+      "input": "1. abandon\n2. ability\n3. able\n4. about\n5. above\n6. absent\n7. absorb\n8. abstract",
+      "output": "1. [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "[\"abandon\",\"ability\",\"able\",\"about\",\"above\",\"absent\",\"absorb\",\"abstract\",\"absurd\",\"abuse\",\"access\",\"accident\"]",
+      "output": "[\"[redacted — never share this with anyone, including us]\"]"
+    },
+    {
+      "input": "#1 abandon #2 ability #3 able #4 about #5 above #6 absent #7 absorb",
+      "output": "#1 [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon. ability. able. about. above. absent. absorb.",
+      "output": "[redacted — never share this with anyone, including us]."
+    },
+    {
+      "input": "ABANDON Ability ABLE about Above absent ABSORB abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "аbаndоn ability able about above absent absorb abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "aban​don ability able about above absent absorb abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon<br>ability<br/>able<p>about</p>above absent absorb abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "ａｂａｎｄｏｎ ability able about above absent absorb abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "𝐚𝐛𝐚𝐧𝐝𝐨𝐧 ability able about above absent absorb abstract",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon ability able about above absent absorb abstract absurd abuse access accident action actor actress actual adapt add addict address adjust admit adult advance",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon ability able　about above absent absorb",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon ability able about above absent absorb",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon - ability – able — about | above / absent \\ absorb",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandon 1000 ability able about above absent absorb",
+      "output": "abandon 1000 ability able about above absent absorb"
+    },
+    {
+      "input": "abandon (12) ability [3] able about above absent absorb",
+      "output": "abandon (12) ability [3] able about above absent absorb"
+    },
+    {
+      "input": "é abandon é ability able about above absent absorb abstract",
+      "output": "é abandon é [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "abandoń ability able about above absent absorb abstract absurd",
+      "output": "abandoń [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "key xprv99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 end",
+      "output": "key [redacted — never share this with anyone, including us] end"
+    },
+    {
+      "input": "xpubAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "tpubzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+      "output": "tpubzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+    },
+    {
+      "input": "wif 5HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH done",
+      "output": "wif [redacted — never share this with anyone, including us] done"
+    },
+    {
+      "input": "Lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "c22222222222222222222222222222222222222222222222222x",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "-----BEGIN PRIVATE KEY-----\nMIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEA\n-----END PRIVATE KEY-----",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "x -----BEGIN EC PRIVATE KEY-----abc-----END EC PRIVATE KEY----- y -----BEGIN RSA PRIVATE KEY-----",
+      "output": "x [redacted — never share this with anyone, including us] y -----BEGIN RSA PRIVATE KEY-----"
+    },
+    {
+      "input": "{\"version\":3,\"Crypto\":{\"CipherText\":\"abcd\",\"cipher\":\"aes\"},\"id\":\"x\"} tail",
+      "output": "[redacted — never share this with anyone, including us] tail"
+    },
+    {
+      "input": "{\"crypto\": {\"kdf\":\"scrypt\"}, \"ciphertext\":\"00\"} {\"crypto\":{\"ciphertext\":\"11\"}}",
+      "output": "[redacted — never share this with anyone, including us]}"
+    },
+    {
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "output": "[redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "transaction hash cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc confirmed",
+      "output": "transaction hash [REDACTED_ADDRESS] confirmed"
+    },
+    {
+      "input": "my private key is dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd and tx",
+      "output": "my private key is [redacted — never share this with anyone, including us] and tx"
+    },
+    {
+      "input": "seed eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "output": "seed [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "the block FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+      "output": "the block [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "11111111111111111111111111111111111111111111111111111111111111111",
+      "output": "[REDACTED_ADDRESS]"
+    },
+    {
+      "input": "x2222222222222222222222222222222222222222222222222222222222222222",
+      "output": "[REDACTED_ADDRESS]"
+    },
+    {
+      "input": "_3333333333333333333333333333333333333333333333333333333333333333",
+      "output": "_3333333333333333333333333333333333333333333333333333333333333333"
+    },
+    {
+      "input": "4444444444444444444444444444444444444444444444444444444444444444_",
+      "output": "4444444444444444444444444444444444444444444444444444444444444444_"
+    },
+    {
+      "input": "5555555555555555555555555555555555555555555555555555555555555555 6666666666666666666666666666666666666666666666666666666666666666",
+      "output": "[redacted — never share this with anyone, including us] [redacted — never share this with anyone, including us]"
+    },
+    {
+      "input": "pre xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx sig 7777777777777777777777777777777777777777777777777777777777777777",
+      "output": "pre [REDACTED_ADDRESS] sig [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "ééééééééééééééééééééééééééééééhash 8888888888888888888888888888888888888888888888888888888888888888",
+      "output": "ééééééééééééééééééééééééééééééhash [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀 hash 9999999999999999999999999999999999999999999999999999999999999999",
+      "output": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀 hash [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "token fintel_dev_abcDEF_123-xyz and fintel_dev_",
+      "output": "token [REDACTED_TOKEN] and fintel_dev_"
+    },
+    {
+      "input": "addr 0xa1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1 0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb 0xCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "output": "addr [REDACTED_HEX] 0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb [REDACTED_HEX]"
+    },
+    {
+      "input": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq ltc1qabcdefghijklmnopqrst tb1short",
+      "output": "[REDACTED_ADDRESS] [REDACTED_ADDRESS] tb1short"
+    },
+    {
+      "input": "addr1qx2fxv2umyhttkxyxp8x0dlpdt3k6cwng5pxj3jhsydzer3n0d3vllmyqwsx5wktcd8cc3sq835lu7drv2xwl2wywfgse35a3x",
+      "output": "[REDACTED_ADDRESS]"
+    },
+    {
+      "input": "cosmos1abcdefghijklmnopqrstuvwxyz osmo1abcdefghijklmnopqrst_ inj1abcdefghijklmnopqrst0",
+      "output": "[REDACTED_ADDRESS] osmo1abcdefghijklmnopqrst_ [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa and 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+      "output": "[REDACTED_ADDRESS] and [REDACTED_ADDRESS]"
+    },
+    {
+      "input": "AAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD EEEEEEEEEEEEEEEEEEEEEEEEE0",
+      "output": "AAAAAAAAAAAAAAAAAAAAAAAA [REDACTED_ADDRESS] [REDACTED_ADDRESS] DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD EEEEEEEEEEEEEEEEEEEEEEEEE0"
+    },
+    {
+      "input": "version 1.2.3 and 10.0.0.1 and 1.2 and v2.3.4-beta and 1.2.3a and 4.5.6_",
+      "output": "version [REDACTED_ADDRESS] and [REDACTED_ADDRESS].1 and 1.2 and v2.3.4-beta and 1.2.3a and 4.5.6_"
+    },
+    {
+      "input": "#0 /Users/alice/project/main.dart:1 /Users/ /Users/bob",
+      "output": "#0 /Users/[REDACTED]/project/main.dart:1 /Users/ /Users/[REDACTED]"
+    },
+    {
+      "input": "C:\\Users\\Carol\\AppData and c:\\users\\dave\\x and \\USERS\\eve",
+      "output": "C:\\Users\\[REDACTED]\\AppData and c:\\Users\\[REDACTED]\\x and \\Users\\[REDACTED]"
+    },
+    {
+      "input": "control\u0000chars\u0007here\ttab\nnewline\rcr",
+      "output": "controlcharshere\ttab\nnewline\rcr"
+    },
+    {
+      "input": "soft­hyphen and bidi ‮mark‬ and ﻿bom",
+      "output": "softhyphen and bidi mark and bom"
+    },
+    {
+      "input": "Ⅻ ﬁ ㎏ ½ ² ℌ Ⓐ ｶ ﾟ",
+      "output": "XII fi kg 1⁄2 2 H A カ ゚"
+    },
+    {
+      "input": "Kelvin K and Angstrom Å and ohm Ω",
+      "output": "Kelvin K and Angstrom Å and ohm Ω"
+    },
+    {
+      "input": "mixed: seed abandon ability able about above absent absorb then 0xdeadbeefdeadbeefdeadbeefdeadbeef01 fintel_dev_x",
+      "output": "[redacted — never share this with anyone, including us] [REDACTED_HEX] [REDACTED_TOKEN]"
+    },
+    {
+      "input": "stack:\n#0 main (package:app/main.dart:10:5)\n#1 _run (dart:async/zone.dart:1:1)",
+      "output": "stack:\n#0 main (package:app/main.dart:10:5)\n#1 _run (dart:async/zone.dart:1:1)"
+    },
+    {
+      "input": "emoji 😀 and 𝒳 and 한국어 and 日本語",
+      "output": "emoji 😀 and X and 한국어 and 日本語"
+    },
+    {
+      "input": "한 가 가 각",
+      "output": "한 가 가 각"
+    },
+    {
+      "input": "ậ ậ ȫ",
+      "output": "ậ ậ ȫ"
+    },
+    {
+      "input": "placeholder [redacted — never share this with anyone, including us] reused",
+      "output": "placeholder [redacted — never share this with anyone, including us] reused"
+    },
+    {
+      "input": "<script>alert(1)</script> & \"quotes\" 'single'",
+      "output": " alert(1)  & \"quotes\" 'single'"
+    },
+    {
+      "input": "ཱା①",
+      "output": "ཱା1"
+    },
+    {
+      "input": "ﾟΩᇂㅏ̈½ﬃ̣ㅏN①",
+      "output": "゚Ωᇂᅡ̈1⁄2ffịᅡN1"
+    },
+    {
+      "input": "゙",
+      "output": "゙"
+    },
+    {
+      "input": "es Ⅻ",
+      "output": "es XII"
+    },
+    {
+      "input": "̧Ａ각ᾈ",
+      "output": "̧A각ᾈ"
+    },
+    {
+      "input": "ᅵᆨͅ",
+      "output": "ᅵᆨͅ"
+    },
+    {
+      "input": "①ウάୖّᄀ ",
+      "output": "1ウάୖّᄀ "
+    },
+    {
+      "input": "½はヴ가 ",
+      "output": "1⁄2はヴ가 "
+    },
+    {
+      "input": "ୖĘ่N",
+      "output": "ୖĘ่N"
+    },
+    {
+      "input": "n େ",
+      "output": "n େ"
+    },
+    {
+      "input": "ㄱǄ̴̀ﬃ",
+      "output": "ᄀDŽ̴̀ffi"
+    },
+    {
+      "input": "ㄱᾈ𝔞ậ่̈́",
+      "output": "ᄀᾈaậ่̈́"
+    },
+    {
+      "input": "1̴̛̀ᄀ́Ωﾊ😀ś",
+      "output": "1̴̛̀ᄀ́Ωハ😀ś"
+    },
+    {
+      "input": "़",
+      "output": "़"
+    },
+    {
+      "input": "େạά̧Ａ",
+      "output": "େạά̧A"
+    },
+    {
+      "input": "ṩc1-E𝔞ﾞﬁ𝐀か",
+      "output": "ṩc1-Ea゙fiAか"
+    },
+    {
+      "input": "śＡनّ​άㅏᅡᄀ゙",
+      "output": "śAनّάᅡᅡᄀ゙"
+    },
+    {
+      "input": "ྀ",
+      "output": "ྀ"
+    },
+    {
+      "input": "ᄒ",
+      "output": "ᄒ"
+    },
+    {
+      "input": "KּZ가ạ",
+      "output": "KּZ가ạ"
+    },
+    {
+      "input": "େeϓはUᆨZ",
+      "output": "େeΎはUᆨZ"
+    },
+    {
+      "input": "ウＡᄀEṩǅśᄀ",
+      "output": "ウAᄀEṩDžśᄀ"
+    },
+    {
+      "input": "ﾊ",
+      "output": "ハ"
+    },
+    {
+      "input": "̣̈́ͅ.ǅu",
+      "output": "̣̈́ͅ.Džu"
+    },
+    {
+      "input": "Ǆ",
+      "output": "DŽ"
+    },
+    {
+      "input": " ᆨ̀",
+      "output": " ᆨ̀"
+    },
+    {
+      "input": "ᾈuUzÒάᄀnﾟन𝐀",
+      "output": "ᾈuUzÒάᄀn゚नA"
+    },
+    {
+      "input": "ᄒậ​âcᅡ  ㎏",
+      "output": "ᄒậâcᅡ  kg"
+    },
+    {
+      "input": "①𝐀a",
+      "output": "1Aa"
+    },
+    {
+      "input": "่ṩ",
+      "output": "่ṩ"
+    },
+    {
+      "input": "ẛ😀각C​ϓΏẛ기 ",
+      "output": "ṡ😀각CΎΏṡ기 "
+    },
+    {
+      "input": "ّAㅏ̈́",
+      "output": "ّAᅡ̈́"
+    },
+    {
+      "input": "̧uᅡﾟ",
+      "output": "̧uᅡ゚"
+    },
+    {
+      "input": "n½か",
+      "output": "n1⁄2か"
+    },
+    {
+      "input": "ǄﬁㅏòᾈśZ",
+      "output": "DŽfiᅡòᾈśZ"
+    },
+    {
+      "input": "̛",
+      "output": "̛"
+    },
+    {
+      "input": "a",
+      "output": "a"
+    },
+    {
+      "input": "½´s①はཱིUKㄱ",
+      "output": "1⁄2 ́s1はཱིUKᄀ"
+    },
+    {
+      "input": "ᄀ각①́ṩsϓ´̈́ÅǄか",
+      "output": "ᄀ각1́ṩsΎ ́̈́ÅDŽか"
+    },
+    {
+      "input": "େ.",
+      "output": "େ."
+    },
+    {
+      "input": "ﬃ่ś",
+      "output": "ffi่ś"
+    },
+    {
+      "input": "ạs①𝔞ᄒά",
+      "output": "ạs1aᄒά"
+    },
+    {
+      "input": "ǸKEﬃְ̂Zᅡ",
+      "output": "ǸKEffîְZᅡ"
+    },
+    {
+      "input": "ㄱི ̈ϓ゚𝔞",
+      "output": "ᄀི ̈Ύ゚a"
+    },
+    {
+      "input": "n㎏ّϔÅÙ ϔ़s",
+      "output": "nkgّΫÅÙ Ϋ़s"
+    },
+    {
+      "input": "Ⅻか̨̈́",
+      "output": "XIIか̨̈́"
+    },
+    {
+      "input": "ﾊ",
+      "output": "ハ"
+    },
+    {
+      "input": "´ᄀ½Ωかs",
+      "output": " ́ᄀ1⁄2Ωかs"
+    },
+    {
+      "input": "ཱི Ǆoְཱs̀e่ା",
+      "output": "ཱི DŽoְཱs̀e่ା"
+    },
+    {
+      "input": "̧𝐀̴゙ୖᄀAⅫୖA゙",
+      "output": "̧A̴゙ୖᄀAXIIୖA゙"
+    },
+    {
+      "input": "̈́̀ऩU𝐀",
+      "output": "̈́̀ऩUA"
+    },
+    {
+      "input": "ཱ̀Cୖ̴ི",
+      "output": "ཱ̀Cୖ̴ི"
+    },
+    {
+      "input": "ﬁậ ّིc̣N가",
+      "output": "fiậ ّིc̣N가"
+    },
+    {
+      "input": "½̣ÅoǄか̛̂̀ᇂّ",
+      "output": "1⁄2̣ÅoDŽか̛̂̀ᇂّ"
+    },
+    {
+      "input": "aﾟΩ1ᅵᾈ",
+      "output": "a゚Ω1ᅵᾈ"
+    },
+    {
+      "input": "N1άzǅ̣Eୖ",
+      "output": "N1άzDẓ̌Eୖ"
+    },
+    {
+      "input": "Z",
+      "output": "Z"
+    },
+    {
+      "input": "ㄱ​SΩ",
+      "output": "ᄀSΩ"
+    },
+    {
+      "input": "ᇂ̣a̧ㅏﬃǅّ.𝔞ᄀℌ",
+      "output": "ᇂ̣a̧ᅡffiDžّ.aᄀH"
+    },
+    {
+      "input": "ş̣̇Ⅻ̈́𝐀①ା-e",
+      "output": "ş̣̇XIḮA1ା-e"
+    },
+    {
+      "input": "́はo😀",
+      "output": "́はo😀"
+    },
+    {
+      "input": "̴½Å̈́uSୖ̀ 가̴",
+      "output": "̴1⁄2Å̈́uSୖ̀ 가̴"
+    },
+    {
+      "input": "Óば̈́´",
+      "output": "Óば̈́ ́"
+    },
+    {
+      "input": "Ａ𝐀Zְzᆨᾊऩᾈかୖ",
+      "output": "AAZְzᆨᾊऩᾈかୖ"
+    },
+    {
+      "input": "Ω̨ϔﾊ가ାཱ̃େ",
+      "output": "Ω̨Ϋハ가ାཱ̃େ"
+    },
+    {
+      "input": "ཱིậ̈.̂ᇂ̃.",
+      "output": "ཱིậ̈.̂ᇂ̃."
+    },
+    {
+      "input": "cC①ﾟᆨṩᄀάⅫạÅc",
+      "output": "cC1゚ᆨṩᄀάXIIạÅc"
+    },
+    {
+      "input": "K̨ᄒ̃か़ּ",
+      "output": "K̨ᄒ̃か़ּ"
+    },
+    {
+      "input": "Ⅻśsּ̃c",
+      "output": "XIIśsּ̃c"
+    },
+    {
+      "input": "Ａ゚ᄒّ𝐀𝔞",
+      "output": "A゚ᄒّAa"
+    },
+    {
+      "input": "́Ａ゙́ऩǅᄀּﾟos",
+      "output": "́Á゙ऩDžᄀ゚ּos"
+    },
+    {
+      "input": "ⅫǸᄀ̀N",
+      "output": "XIIǸᄀ̀N"
+    },
+    {
+      "input": "ّe²́- ゙̂´ϓְ̂",
+      "output": "ّe2́- ゙̂ ́Ύְ̂"
+    },
+    {
+      "input": "̈́ᄀ",
+      "output": "̈́ᄀ"
+    },
+    {
+      "input": "̂1Z½େϔ-N",
+      "output": "̂1Z1⁄2େΫ-N"
+    },
+    {
+      "input": "Åcﾟ",
+      "output": "Åc゚"
+    },
+    {
+      "input": "e각e²①ᾈྀ",
+      "output": "e각e21ᾈྀ"
+    },
+    {
+      "input": "̛ṩ가𝔞़ᾈ่",
+      "output": "̛ṩ가a़ᾈ่"
+    },
+    {
+      "input": " cﾊᾈ̈",
+      "output": " cハᾈ̈"
+    },
+    {
+      "input": "😀ϔְ",
+      "output": "😀Ϋְ"
+    },
+    {
+      "input": "ᾈ̨ᆨﾞﾞ가ᄒạ",
+      "output": "ᾈ̨ᆨ゙゙가ᄒạ"
+    },
+    {
+      "input": "ṩ",
+      "output": "ṩ"
+    },
+    {
+      "input": "̛",
+      "output": "̛"
+    },
+    {
+      "input": "̛ﾊୖ",
+      "output": "̛ハୖ"
+    },
+    {
+      "input": "かZs",
+      "output": "かZs"
+    },
+    {
+      "input": "Ａᄀㅏ",
+      "output": "A가"
+    },
+    {
+      "input": "ᅵ",
+      "output": "ᅵ"
+    },
+    {
+      "input": "Cℌְάϔ゙ི̧",
+      "output": "CHְάΫ゙ི̧"
+    },
+    {
+      "input": "가ིua ़ི",
+      "output": "가ིua ़ི"
+    },
+    {
+      "input": "ﾊsཱạㅏ",
+      "output": "ハsཱạᅡ"
+    },
+    {
+      "input": "ّㄱǅᅡάְྀ",
+      "output": "ّᄀDžᅡάְྀ"
+    },
+    {
+      "input": "①Ⅻ่Aᄀ",
+      "output": "1XII่Aᄀ"
+    },
+    {
+      "input": "ᇂuﾟ̀नΩㅏ😀ऩậᅡ̧",
+      "output": "ᇂù゚नΩᅡ😀ऩậᅡ̧"
+    },
+    {
+      "input": "かcﾊ ﾞऩe ",
+      "output": "かcハ ゙ऩe "
+    },
+    {
+      "input": "nᆨऩ´ẛ̨ﬁּ ",
+      "output": "nᆨऩ ́ṡ̨fiּ "
+    },
+    {
+      "input": "ậ̛̣S²1̣ᇂᆨz",
+      "output": "ậ̛̣S21̣ᇂᆨz"
+    },
+    {
+      "input": ".はu①ཱི½̧ᄀＡかᄀ",
+      "output": ".はu1ཱི1⁄2̧ᄀAかᄀ"
+    },
+    {
+      "input": "-ᄀ1A",
+      "output": "-ᄀ1A"
+    },
+    {
+      "input": ".각̣ẹ ̴̂ạAﾟ",
+      "output": ".각̣ẹ ̴̂ạA゚"
+    },
+    {
+      "input": "㎏ᅡㄱ",
+      "output": "kgᅡᄀ"
+    },
+    {
+      "input": "Aウﾟはẛ",
+      "output": "Aウ゚はṡ"
+    },
+    {
+      "input": "Åཱ",
+      "output": "Åཱ"
+    },
+    {
+      "input": "Ucㄱはẛ각CིＡKᄀཱི",
+      "output": "Ucᄀはṡ각CིAKᄀཱི"
+    },
+    {
+      "input": "̈",
+      "output": "̈"
+    },
+    {
+      "input": "ᇂÅúάa",
+      "output": "ᇂÅúάa"
+    },
+    {
+      "input": "eऩﾞّc①่ཱାậ",
+      "output": "eऩ゙ّc1่ཱାậ"
+    },
+    {
+      "input": "ְּ śㅏc",
+      "output": "ְּ śᅡc"
+    },
+    {
+      "input": "N̂𝐀㎏़ི",
+      "output": "N̂Akg़ི"
+    },
+    {
+      "input": "ᇂOÈnᅵ",
+      "output": "ᇂOÈnᅵ"
+    },
+    {
+      "input": "ウ",
+      "output": "ウ"
+    },
+    {
+      "input": "̨",
+      "output": "̨"
+    },
+    {
+      "input": "̂ạか",
+      "output": "̂ạか"
+    },
+    {
+      "input": "​Ćℌͅ",
+      "output": "ĆHͅ"
+    },
+    {
+      "input": "ְNOᇂ̧̣̂u😀①Z",
+      "output": "ְNOᇂ̧̣̂u😀1Z"
+    },
+    {
+      "input": "N​ZﬁℌÅ",
+      "output": "NZfiHÅ"
+    },
+    {
+      "input": "ℌ´ᅡzcAཱིÅ̧",
+      "output": "H ́ᅡzcAཱིÅ̧"
+    },
+    {
+      "input": "ְ่ạ่ཱིウା㎏ウّậu",
+      "output": "ְ่ạ่ཱིウାkgウّậu"
+    },
+    {
+      "input": "゚ϔＡn̈㎏ᄒ1uＡ",
+      "output": "゚ΫAn̈kgᄒ1uA"
+    },
+    {
+      "input": "ᆨ´はﬃzୖ½ ",
+      "output": "ᆨ ́はffizୖ1⁄2 "
+    },
+    {
+      "input": "s゙ིﬁs½ﬃ²̂ㅏ.",
+      "output": "s゙ིfis1⁄2ffi2̂ᅡ."
+    },
+    {
+      "input": "s่ᆨṩ̂ﾞ",
+      "output": "s่ᆨṩ゙̂"
+    },
+    {
+      "input": "̴Ạּ",
+      "output": "̴Ạּ"
+    },
+    {
+      "input": " Ωᄀ",
+      "output": " Ωᄀ"
+    },
+    {
+      "input": "ﬃⅫ̀େ̴ୖ ",
+      "output": "ffiXIÌେ̴ୖ "
+    },
+    {
+      "input": "😀´はN𝐀Õ",
+      "output": "😀 ́はNAÕ"
+    },
+    {
+      "input": "ཱcᾊୖ",
+      "output": "ཱcᾊୖ"
+    },
+    {
+      "input": "ϔཱིCऩୖ",
+      "output": "ΫཱིCऩୖ"
+    },
+    {
+      "input": "½S´ﬃᾈᆨz̃SnU½",
+      "output": "1⁄2S ́ffiᾈᆨz̃SnU1⁄2"
+    },
+    {
+      "input": "ά゚ᄒ𝐀ㅏͅẛ㎏㎏가",
+      "output": "ά゚ᄒAᅡͅṡkgkg가"
+    },
+    {
+      "input": "ậǄかnϓ̨ﬃ",
+      "output": "ậDŽかnΎ̨ffi"
+    },
+    {
+      "input": "EͅC가①ᅵ",
+      "output": "EͅC가1ᅵ"
+    },
+    {
+      "input": ".uOạάK😀",
+      "output": ".uOạάK😀"
+    },
+    {
+      "input": "ᄒẛs̴OAN´",
+      "output": "ᄒṡs̴OAN ́"
+    },
+    {
+      "input": "ﬁା̛ㅏǅK̈ᾈK𝔞ẛ゚",
+      "output": "fiା̛ᅡDžK̈ᾈKaṡ゚"
+    },
+    {
+      "input": "ིﬃ़Zn가śậّ",
+      "output": "ིffi़Zn가śậّ"
+    },
+    {
+      "input": "̴Ⅻּ",
+      "output": "̴XIIּ"
+    },
+    {
+      "input": "-άNṩϓּはΩ",
+      "output": "-άNṩΎּはΩ"
+    },
+    {
+      "input": "²㎏​̛C",
+      "output": "2kg̛C"
+    },
+    {
+      "input": "Aάﾟﾞś゚ᄒs",
+      "output": "Aά゚゙ś゚ᄒs"
+    },
+    {
+      "input": "㎏ạϔ𝔞ְﾞ𝔞oΩ゚ạs",
+      "output": "kgạΫa゙ְaoΩ゚ạs"
+    },
+    {
+      "input": "่ྀ.่ℌ ①",
+      "output": "่ྀ.่H 1"
+    },
+    {
+      "input": "①U",
+      "output": "1U"
+    },
+    {
+      "input": "̴ּはᆨ ྀା",
+      "output": "̴ּはᆨ ྀା"
+    },
+    {
+      "input": "ᆨّﬁ㎏̛",
+      "output": "ᆨّfikg̛"
+    },
+    {
+      "input": "ậྀ𝐀ϓﾞẛ①ẛְା.ᄒ",
+      "output": "ậྀAΎ゙ṡ1ṡְା.ᄒ"
+    },
+    {
+      "input": "Cାウཱ̃ᾈ",
+      "output": "Cାウཱ̃ᾈ"
+    },
+    {
+      "input": "½ΩⅫᄀ㎏ְּΩÅ",
+      "output": "1⁄2ΩXIIᄀkgְּΩÅ"
+    },
+    {
+      "input": "́Ⅻन゙̂KOᇂ가̃େּ",
+      "output": "́XIIन゙̂KOᇂ가̃େּ"
+    },
+    {
+      "input": "ﬃେﬃᆨﾞﬃά",
+      "output": "ffiେffiᆨ゙ffiά"
+    },
+    {
+      "input": "̀ऩ̀",
+      "output": "̀ऩ̀"
+    },
+    {
+      "input": "़̨",
+      "output": "़̨"
+    },
+    {
+      "input": "²ཱ",
+      "output": "2ཱ"
+    },
+    {
+      "input": "ﾞウ-ཱ",
+      "output": "゙ウ-ཱ"
+    },
+    {
+      "input": "゚̨ś́̈ᾈ😀",
+      "output": "゚̨ś́̈ᾈ😀"
+    },
+    {
+      "input": "Ǆनﾟ̈́uậﬃ",
+      "output": "DŽन゚̈́uậffi"
+    },
+    {
+      "input": "̴",
+      "output": "̴"
+    },
+    {
+      "input": "​𝔞ྀ㎏½",
+      "output": "aྀkg1⁄2"
+    },
+    {
+      "input": "़SOẛ가ㅏାãℌﬁ",
+      "output": "़SOṡ가ᅡାãHfi"
+    },
+    {
+      "input": "zạ",
+      "output": "zạ"
+    },
+    {
+      "input": "Åّ ﾟℌ̨NྀᄀEⅫᅵ",
+      "output": "Åّ ゚H̨NྀᄀEXIIᅵ"
+    },
+    {
+      "input": "²​ ऩAＡZKは̛½",
+      "output": "2 ऩAAZKは̛1⁄2"
+    },
+    {
+      "input": "ﬁ.̂́ᅵ´ྀﬃA",
+      "output": "fi.̂́ᅵ ྀ́ffiA"
+    },
+    {
+      "input": "ᄀAạ̀oOＡ",
+      "output": "ᄀAạ̀oOA"
+    },
+    {
+      "input": "n",
+      "output": "n"
+    },
+    {
+      "input": "Aㄱ́̈́ạ̀E각̛가",
+      "output": "Aᄀ́̈́ạ̀E각̛가"
+    },
+    {
+      "input": "㎏",
+      "output": "kg"
+    },
+    {
+      "input": "²½NNﬁ Ａᅡậّᄀ",
+      "output": "21⁄2NNfi Aᅡậّᄀ"
+    },
+    {
+      "input": "ְ̛ e़゚ིάはz",
+      "output": "ְ̛ e़゚ིάはz"
+    },
+    {
+      "input": "ְ½",
+      "output": "ְ1⁄2"
+    },
+    {
+      "input": "゚ẛାㅏ.",
+      "output": "゚ṡାᅡ."
+    },
+    {
+      "input": "Eᄀ̈ାϓϓnϔᄀℌ",
+      "output": "Eᄀ̈ାΎΎnΫᄀH"
+    },
+    {
+      "input": "ᾈ1",
+      "output": "ᾈ1"
+    },
+    {
+      "input": "ϓẐ",
+      "output": "ΎẐ"
+    },
+    {
+      "input": "ཱི",
+      "output": "ཱི"
+    },
+    {
+      "input": "ﾊc①ẛǅ",
+      "output": "ハc1ṡDž"
+    },
+    {
+      "input": "ְはﾟᅵ",
+      "output": "ְぱᅵ"
+    },
+    {
+      "input": "̀ऩ゚",
+      "output": "̀ऩ゚"
+    },
+    {
+      "input": "̛ﬁàﬁ̀òּ",
+      "output": "̛fiàfìòּ"
+    },
+    {
+      "input": "はⅫᄀְְּ̣̀cẛǅ",
+      "output": "はXIIᄀְְּ̣̀cṡDž"
+    },
+    {
+      "input": " ﾊ가ㅏ각",
+      "output": " ハ가ᅡ각"
+    },
+    {
+      "input": "ᇂΩ.ℌǄ-ㅏạ",
+      "output": "ᇂΩ.HDŽ-ᅡạ"
+    },
+    {
+      "input": "゙ﾟﬃ̂ﾟ1̛​ﬃ①",
+      "output": "゙゚ffî゚1̛ffi1"
+    },
+    {
+      "input": "はǄାe㎏़",
+      "output": "はDŽାekg़"
+    },
+    {
+      "input": "̈́ﾟ1-o",
+      "output": "゚̈́1-o"
+    },
+    {
+      "input": "̧ϔﾊּϔᇂིᄒ",
+      "output": "̧ΫハּΫᇂིᄒ"
+    },
+    {
+      "input": "ऩㅏ",
+      "output": "ऩᅡ"
+    },
+    {
+      "input": "zaかϔ각ཱǅS",
+      "output": "zaかΫ각ཱDžS"
+    },
+    {
+      "input": "ǅା̂ ạかạậྀ̧̀",
+      "output": "Džା̂ ạかạậྀ̧̀"
+    },
+    {
+      "input": "AﾞeᇂऩUϓେ",
+      "output": "A゙eᇂऩUΎେ"
+    },
+    {
+      "input": "uﾞﬁはC̀",
+      "output": "u゙fiはC̀"
+    },
+    {
+      "input": "1̂̂ÅÅﬁ.1",
+      "output": "1̂̂ÅÅfi.1"
+    },
+    {
+      "input": "़ϓ½o ",
+      "output": "़Ύ1⁄2o "
+    },
+    {
+      "input": "ᄒ̛𝔞Ḳ̈́EạㄱΩ ",
+      "output": "ᄒ̛aḲ̈́EạᄀΩ "
+    },
+    {
+      "input": "​̀",
+      "output": "̀"
+    },
+    {
+      "input": "eᄒ̂ά-ẛᄀẛϓ",
+      "output": "eᄒ̂ά-ṡᄀṡΎ"
+    },
+    {
+      "input": "A𝔞่ó़①̂",
+      "output": "Aa่ó़1̂"
+    },
+    {
+      "input": "ᇂϔऩ-çǄᆨ´̨",
+      "output": "ᇂΫऩ-çDŽᆨ ̨́"
+    },
+    {
+      "input": "O가EZᄒZﬁ̀ᅡS1̧",
+      "output": "O가EZᄒZfìᅡS1̧"
+    },
+    {
+      "input": "ّ̛",
+      "output": "ّ̛"
+    },
+    {
+      "input": "K่Å ﾞ",
+      "output": "K่Å ゙"
+    },
+    {
+      "input": "ㅏa E1èṩﾞcା",
+      "output": "ᅡa E1èṩ゙cା"
+    },
+    {
+      "input": "はeÅＡ̀ö́",
+      "output": "はeÅÀö́"
+    },
+    {
+      "input": "Ǆ่´̨ﬁّ㎏ㄱ.",
+      "output": "DŽ่ ̨́fiّkgᄀ."
+    },
+    {
+      "input": "Ą゚̊",
+      "output": "Ą゚̊"
+    },
+    {
+      "input": "େậㅏାc̃かﬃ ̃",
+      "output": "େậᅡାc̃かffi ̃"
+    },
+    {
+      "input": "̀ﬁOCEAི가KཱⅫ",
+      "output": "̀fiOCEAི가KཱXII"
+    },
+    {
+      "input": "ﬁ",
+      "output": "fi"
+    },
+    {
+      "input": "́",
+      "output": "́"
+    },
+    {
+      "input": "ậ",
+      "output": "ậ"
+    },
+    {
+      "input": "ϓậǄ̀𝐀",
+      "output": "ΎậDŽ̀A"
+    },
+    {
+      "input": "o-​zSऩ̃ﾞେᄀ",
+      "output": "o-zSऩ゙̃େᄀ"
+    },
+    {
+      "input": "가ིϔạᅵΩ",
+      "output": "가ིΫạᅵΩ"
+    },
+    {
+      "input": "cℌか़ᆨ",
+      "output": "cHか़ᆨ"
+    },
+    {
+      "input": "1ﾊ゚´",
+      "output": "1パ ́"
+    },
+    {
+      "input": "ウ",
+      "output": "ウ"
+    },
+    {
+      "input": "Asཱ",
+      "output": "Asཱ"
+    },
+    {
+      "input": "zzﬁ´aﾊ゚Cᅵϓା",
+      "output": "zzfi ́aパCᅵΎା"
+    },
+    {
+      "input": "゚̨ϓ ᾈᅵ่",
+      "output": "゚̨Ύ ᾈᅵ่"
+    },
+    {
+      "input": "नEś́",
+      "output": "नEś́"
+    },
+    {
+      "input": "KKͅś̂CＡoC´ᄀÅ",
+      "output": "KKͅś̂CAoC ́ᄀÅ"
+    },
+    {
+      "input": "ㄱか̧Z̈かo",
+      "output": "ᄀか̧Z̈かo"
+    },
+    {
+      "input": "ᄀậﬁ",
+      "output": "ᄀậfi"
+    },
+    {
+      "input": "Zℌୖା̧㎏",
+      "output": "ZHୖା̧kg"
+    },
+    {
+      "input": "ᄀ",
+      "output": "ᄀ"
+    },
+    {
+      "input": "̈́😀aＡϔ",
+      "output": "̈́😀aAΫ"
+    },
+    {
+      "input": "1゙Nậeେかạ",
+      "output": "1゙Nậeେかạ"
+    },
+    {
+      "input": "́̂Ω゙ﾟśﾞά",
+      "output": "́̂Ω゙゚ś゙ά"
+    },
+    {
+      "input": "̴ּͅ가่́ℌśか ",
+      "output": "̴ּͅ가่́Hśか "
+    },
+    {
+      "input": "άᄀÅ-a",
+      "output": "άᄀÅ-a"
+    },
+    {
+      "input": "̂はậ가",
+      "output": "̂はậ가"
+    },
+    {
+      "input": "゚ୖ😀ྀͅ각ϔa.ﬁ̀",
+      "output": "゚ୖ😀ྀͅ각Ϋa.fì"
+    },
+    {
+      "input": "ͅzạ1ﾊّⅫﾊśC",
+      "output": "ͅzạ1ハّXIIハśC"
+    },
+    {
+      "input": "Sǅ각नはU",
+      "output": "SDž각नはU"
+    },
+    {
+      "input": "Ⅻsà각ऩּ1ᅡּ",
+      "output": "XIIsà각ऩּ1ᅡּ"
+    },
+    {
+      "input": "Å ᾈ.",
+      "output": "Å ᾈ."
+    },
+    {
+      "input": "ạ ​o ི̨",
+      "output": "ạ o ི̨"
+    },
+    {
+      "input": "ﾟ̀̀각ͅOEୖ",
+      "output": "゚̀̀각ͅOEୖ"
+    },
+    {
+      "input": "େSeǄǅeᅡୖﬃनK",
+      "output": "େSeDŽDžeᅡୖffiनK"
+    },
+    {
+      "input": "Å가 Å㎏",
+      "output": "Å가 Åkg"
+    },
+    {
+      "input": "E",
+      "output": "E"
+    },
+    {
+      "input": " ᄒּ  ạᄀa",
+      "output": " ᄒּ  ạᄀa"
+    },
+    {
+      "input": "̴ᅡ̀̃かëི́ǄU",
+      "output": "̴ᅡ̀̃かëི́DŽU"
+    },
+    {
+      "input": "̧ϔّ ǅ̃େ",
+      "output": "̧Ϋّ Dž̃େ"
+    },
+    {
+      "input": "ཱི̛-ǄᄀZིनά̨Ǆ",
+      "output": "ཱི̛-DŽᄀZིनά̨DŽ"
+    },
+    {
+      "input": " ᄀㄱạ̀sṩ̀",
+      "output": " ᄀᄀạ̀sṩ̀"
+    },
+    {
+      "input": "²ﾊZ̛ͅᇂ̂ウⅫ",
+      "output": "2ハZ̛ͅᇂ̂ウXII"
+    },
+    {
+      "input": "かU",
+      "output": "かU"
+    },
+    {
+      "input": "UㅏZś़ạﾞ²Cּάn",
+      "output": "UᅡZś़ạ゙2Cּάn"
+    },
+    {
+      "input": "ㄱㄱେྀ",
+      "output": "ᄀᄀେྀ"
+    },
+    {
+      "input": "Aǅ゚ϓạÂϓウa",
+      "output": "ADž゚ΎạÂΎウa"
+    },
+    {
+      "input": "ְ",
+      "output": "ְ"
+    },
+    {
+      "input": "😀①̴ּཱ​゚",
+      "output": "😀1̴゚ּཱ"
+    },
+    {
+      "input": "̛²",
+      "output": "̛2"
+    },
+    {
+      "input": "̨̨ͅㄱཱϓ",
+      "output": "̨̨ͅᄀཱΎ"
+    },
+    {
+      "input": "1େㅏְ̧̃नϔ",
+      "output": "1େᅡְ̧̃नΫ"
+    },
+    {
+      "input": "़̧𝔞U²ㅏaṩ",
+      "output": "़̧aU2ᅡaṩ"
+    },
+    {
+      "input": "̴ậo EΩUﾞśṩﬃ",
+      "output": "̴ậo EΩU゙śṩffi"
+    },
+    {
+      "input": "̈́ᆨウN̛",
+      "output": "̈́ᆨウN̛"
+    },
+    {
+      "input": "ㄱ゙​",
+      "output": "ᄀ゙"
+    },
+    {
+      "input": "Ǆᄀ̀ﾟᆨᄒ่ୖe",
+      "output": "DŽᄀ゚̀ᆨᄒ่ୖe"
+    },
+    {
+      "input": "ＡେﾞÅn😀̛̂̈ㄱ",
+      "output": "Aେ゙Ån😀̛̂̈ᄀ"
+    },
+    {
+      "input": "̣ ﾞ̴ᅵẛ゙ྀCऩṩ́",
+      "output": "̣ ̴゙ᅵṡ゙ྀCऩṩ́"
+    },
+    {
+      "input": "Cାℌᄀ㎏",
+      "output": "CାHᄀkg"
+    },
+    {
+      "input": "̛̂̃C.",
+      "output": "̛̂̃C."
+    },
+    {
+      "input": " ①ﬁΩ़NEﬁ O",
+      "output": " 1fiΩ़NEfi O"
+    },
+    {
+      "input": "Zc",
+      "output": "Zc"
+    },
+    {
+      "input": "ᅵ ⅫǄ. ² ̈ Zㅏ",
+      "output": "ᅵ XIIDŽ. 2 ̈ Zᅡ"
+    },
+    {
+      "input": "①ﾞ",
+      "output": "1゙"
+    },
+    {
+      "input": "Sṩは",
+      "output": "Sṩは"
+    },
+    {
+      "input": "़şཱི́",
+      "output": "़şཱི́"
+    },
+    {
+      "input": "1²̈N-ℌ",
+      "output": "12̈N-H"
+    },
+    {
+      "input": "Ωヴ1ְa",
+      "output": "Ωヴ1ְa"
+    },
+    {
+      "input": "ᅡ가각´ᄒ",
+      "output": "ᅡ가각 ́ᄒ"
+    },
+    {
+      "input": "ά𝐀゙",
+      "output": "άA゙"
+    },
+    {
+      "input": "Ａϓྀﬁάᄀ가ㅏ̴゙̀",
+      "output": "AΎྀfiάᄀ가ᅡ̴゙̀"
+    },
+    {
+      "input": "Uϔﬁ²ﾟᄀϓּ̀Ａ̀E",
+      "output": "UΫfi2゚ᄀΎּ̀ÀE"
+    },
+    {
+      "input": "Ω नㅏᄒά가㎏ᅵnେ",
+      "output": "Ω नᅡᄒά가kgᅵnେ"
+    },
+    {
+      "input": "゙ّ²E゚²̃ㄱK 😀̣",
+      "output": "゙ّ2E゚2̃ᄀK 😀̣"
+    },
+    {
+      "input": "Sậṩはେöཱི́ạzّ̈",
+      "output": "Sậṩはେöཱི́ạzّ̈"
+    },
+    {
+      "input": "ﬃǅÅ.άά",
+      "output": "ffiDžÅ.άά"
+    },
+    {
+      "input": "ṣ́Uְྀ½̈ǅ",
+      "output": "ṣ́Uְྀ1⁄2̈Dž"
+    },
+    {
+      "input": "は①̈́かﾊuOs̃Kは̨",
+      "output": "は1̈́かハuOs̃Kは̨"
+    },
+    {
+      "input": "ཱかUᾈ각uّ",
+      "output": "ཱかUᾈ각uّ"
+    },
+    {
+      "input": "ﾊͅ①",
+      "output": "ハͅ1"
+    },
+    {
+      "input": "ⅫﾊǪᄀℌ😀ΩऩO",
+      "output": "XIIハǪᄀH😀ΩऩO"
+    },
+    {
+      "input": "ạ²゚ﾊϔẛ̈́ά́①𝐀",
+      "output": "ạ2゚ハΫṡ̈́ά́1A"
+    },
+    {
+      "input": "ﾟ̈́",
+      "output": "゚̈́"
+    },
+    {
+      "input": "각ᅵO😀Z่ǅℌㅏA",
+      "output": "각ᅵO😀Z่DžHᅡA"
+    },
+    {
+      "input": "ା ZO ᄒcⅫ́",
+      "output": "ା ZO ᄒcXIÍ"
+    },
+    {
+      "input": "sᄀ",
+      "output": "sᄀ"
+    },
+    {
+      "input": "각ཱᾌ",
+      "output": "각ཱᾌ"
+    },
+    {
+      "input": "゚ཱིC1ś",
+      "output": "゚ཱིC1ś"
+    },
+    {
+      "input": "ᄒz㎏̧̛ 1se",
+      "output": "ᄒzkģ̛ 1se"
+    },
+    {
+      "input": "่ϔzྀᅡǅ´ּ̀",
+      "output": "่ΫzྀᅡDž ּ́̀"
+    },
+    {
+      "input": "ⅫǄ゙ 𝔞ୖu",
+      "output": "XIIDŽ゙ aୖu"
+    },
+    {
+      "input": "ᄀeⅫậཱNﾞ ạ",
+      "output": "ᄀeXIIậཱN゙ ạ"
+    },
+    {
+      "input": "𝐀Åsṩା①😀ǅ​",
+      "output": "AÅsṩା1😀Dž"
+    },
+    {
+      "input": "1ℌͅᾈ각ÅAᆨ ᅵ Ω",
+      "output": "1Hͅᾈ각ÅAᆨ ᅵ Ω"
+    },
+    {
+      "input": "न̈O",
+      "output": "न̈O"
+    },
+    {
+      "input": "E😀़각ིS",
+      "output": "E😀़각ིS"
+    },
+    {
+      "input": "ℌ",
+      "output": "H"
+    },
+    {
+      "input": "ཱạẛはś ﾞかᾈᄀ",
+      "output": "ཱạṡはś ゙かᾈᄀ"
+    },
+    {
+      "input": "´각̛ᄀㄱ",
+      "output": " ́각̛ᄀᄀ"
+    },
+    {
+      "input": "ẑ̴ྀ㎏ୖﬃ̃ϔs ",
+      "output": "ẑ̴ྀkgୖffĩΫs "
+    },
+    {
+      "input": "ẛְّ̧ＡÅậّoᇂc",
+      "output": "şְّ̇AÅậّoᇂc"
+    },
+    {
+      "input": "़़ᇂ.ୖ่̀ウཱི̛",
+      "output": "़़ᇂ.ୖ่̀ウཱི̛"
+    },
+    {
+      "input": "̣zᅵℌ่ྀ",
+      "output": "̣zᅵH่ྀ"
+    },
+    {
+      "input": "゙",
+      "output": "゙"
+    },
+    {
+      "input": "ཱᅵec´ㄱά",
+      "output": "ཱᅵec ́ᄀά"
+    },
+    {
+      "input": "は",
+      "output": "は"
+    },
+    {
+      "input": "ᄀ𝔞ᄒ̧̈́cﾊୖ",
+      "output": "ᄀaᄒ̧̈́cハୖ"
+    },
+    {
+      "input": "ℌ̈zẛ",
+      "output": "Ḧzṡ"
+    },
+    {
+      "input": "ậㄱ่̈́́Oﬁℌ-େ´",
+      "output": "ậᄀ่̈́́OfiH-େ ́"
+    },
+    {
+      "input": "AcㅏⅫ̀",
+      "output": "AcᅡXIÌ"
+    },
+    {
+      "input": "Z𝐀½ּ①゚½ϓℌśྀ",
+      "output": "ZA1⁄2ּ1゚1⁄2ΎHśྀ"
+    },
+    {
+      "input": "nְΩǅ",
+      "output": "nְΩDž"
+    },
+    {
+      "input": "ིKﾟC1",
+      "output": "ིK゚C1"
+    },
+    {
+      "input": "ﬃ½ﾞཱིﾞ่eେ",
+      "output": "ffi1⁄2゙゙่ཱིeେ"
+    },
+    {
+      "input": ".´ậᅵ1",
+      "output": ". ́ậᅵ1"
+    },
+    {
+      "input": "ạ",
+      "output": "ạ"
+    },
+    {
+      "input": "Ka1.śǄ",
+      "output": "Ka1.śDŽ"
+    },
+    {
+      "input": "𝐀Ǆ𝐀nनEUﾟ",
+      "output": "ADŽAnनEU゚"
+    },
+    {
+      "input": "ᄀ㎏cﬃuẛୖEϓ",
+      "output": "ᄀkgcffiuṡୖEΎ"
+    },
+    {
+      "input": "̀か̂ାA1ϔ",
+      "output": "̀か̂ାA1Ϋ"
+    },
+    {
+      "input": "Å𝐀̴²𝔞ୖ",
+      "output": "ÅA̴2aୖ"
+    },
+    {
+      "input": "𝐀゚",
+      "output": "A゚"
+    },
+    {
+      "input": "ﾊﾊcᇂa่ᄒ",
+      "output": "ハハcᇂa่ᄒ"
+    },
+    {
+      "input": "ウ.ୖ",
+      "output": "ウ.ୖ"
+    },
+    {
+      "input": "かⅫ",
+      "output": "かXII"
+    },
+    {
+      "input": "ྀͅ각śạ̀",
+      "output": "ྀͅ각śạ̀"
+    },
+    {
+      "input": "Uְིྀㄱ zᄒ1ᅡⅫᄀ",
+      "output": "Uְིྀᄀ zᄒ1ᅡXIIᄀ"
+    },
+    {
+      "input": "Oେśᄒཱིℌﾟﬁ",
+      "output": "OେśᄒཱིH゚fi"
+    },
+    {
+      "input": "ウẛ각Z",
+      "output": "ウṡ각Z"
+    },
+    {
+      "input": "ऩּ가ṩか ྀ̛O´Ư",
+      "output": "ऩּ가ṩか ྀ̛O ́Ư"
+    },
+    {
+      "input": "ְENacǅᅡ",
+      "output": "ְENacDžᅡ"
+    },
+    {
+      "input": "z1नÅάeϔ-",
+      "output": "z1नÅάeΫ-"
+    },
+    {
+      "input": "ϔC1़゙ཱÅcuᅵ",
+      "output": "ΫC1़゙ཱÅcuᅵ"
+    },
+    {
+      "input": "Ωིẛ각𝐀ℌ ᄀ가ﬃ̧",
+      "output": "Ωིṡ각AH ᄀ가ffi̧"
+    },
+    {
+      "input": " ּ ゚ͅ",
+      "output": " ּ ゚ͅ"
+    },
+    {
+      "input": "ϓཱᾈZuウ़śś",
+      "output": "ΎཱᾈZuウ़śś"
+    },
+    {
+      "input": "aかऩﾞ̴Z̴o",
+      "output": "aかऩ̴゙Z̴o"
+    },
+    {
+      "input": "̀a",
+      "output": "̀a"
+    },
+    {
+      "input": "େّ",
+      "output": "େّ"
+    },
+    {
+      "input": "KKི",
+      "output": "KKི"
+    },
+    {
+      "input": "̀가̴̴ﾊÅộְ̃",
+      "output": "̀가̴̴ハÅộְ̃"
+    },
+    {
+      "input": " ּ´",
+      "output": " ּ ́"
+    },
+    {
+      "input": "゚ᾈᆨᄒ̂ﬃ",
+      "output": "゚ᾈᆨᄒ̂ffi"
+    },
+    {
+      "input": "άཱྀིOּ",
+      "output": "άཱྀིOּ"
+    },
+    {
+      "input": "่ﬁ½ﬃ̛ﾞạ ",
+      "output": "่fi1⁄2ffi゙̛ạ "
+    },
+    {
+      "input": "ㅏǄ゚",
+      "output": "ᅡDŽ゚"
+    },
+    {
+      "input": "u",
+      "output": "u"
+    },
+    {
+      "input": "-eウㅏN",
+      "output": "-eウᅡN"
+    },
+    {
+      "input": "ẛnÅ",
+      "output": "ṡnÅ"
+    },
+    {
+      "input": "ְℌKはְᄀ̧ㄱ1ㅏ",
+      "output": "ְHKはְᄀ̧ᄀ1ᅡ"
+    },
+    {
+      "input": ".ÅZE ウ ྀ´ạś",
+      "output": ".ÅZE ウ ྀ ́ạś"
+    },
+    {
+      "input": "Ω่ﾊά1ऩﬁन",
+      "output": "Ω่ハά1ऩfiन"
+    },
+    {
+      "input": "़ﾊ ㄱ",
+      "output": "़ハ ᄀ"
+    },
+    {
+      "input": "ㄱ̧aﬁ",
+      "output": "ᄀ̧afi"
+    },
+    {
+      "input": "̈ SǄ가Sz①่େ",
+      "output": "̈ SDŽ가Sz1่େ"
+    },
+    {
+      "input": "ᄀNᄀÅ㎏़😀​𝐀Esㅏ",
+      "output": "ᄀNᄀÅkg़😀AEsᅡ"
+    },
+    {
+      "input": "ㄱⅫ̴-ạo´ᆨo𝔞",
+      "output": "ᄀXII̴-ạo ́ᆨoa"
+    },
+    {
+      "input": "̂ẛsＡᅵ",
+      "output": "̂ṡsAᅵ"
+    },
+    {
+      "input": "ậୖིUᄀ่Za่ǅK",
+      "output": "ậୖིUᄀ่Za่DžK"
+    },
+    {
+      "input": "ାcaΩ가cuﾞ̀CZO",
+      "output": "ାcaΩ가cù゙CZO"
+    },
+    {
+      "input": "Ⅻaཱᆨά̈́ϔ​̃㎏",
+      "output": "XIIaཱᆨά̈́Ϋ̃kg"
+    },
+    {
+      "input": "S𝐀ea゚-ᅵK",
+      "output": "SAea゚-ᅵK"
+    },
+    {
+      "input": "o①",
+      "output": "o1"
+    },
+    {
+      "input": "-K़ऩe",
+      "output": "-K़ऩe"
+    },
+    {
+      "input": "̧ऩᅵ-ạ①​ཱིś",
+      "output": "̧ऩᅵ-ạ1ཱིś"
+    },
+    {
+      "input": "각",
+      "output": "각"
+    },
+    {
+      "input": "①ㅏେིﬁ½は่①- ᄒ",
+      "output": "1ᅡେིfi1⁄2は่1- ᄒ"
+    },
+    {
+      "input": "cᇂaOི",
+      "output": "cᇂaOི"
+    },
+    {
+      "input": " ²େ̈́̈𝐀ཱϓoⅫཱ̛",
+      "output": " 2େ̈́̈AཱΎoXIIཱ̛"
+    },
+    {
+      "input": "ǅ̈²ǅାÅ²E㎏は̀",
+      "output": "Dž̈2DžାÅ2Ekgは̀"
+    },
+    {
+      "input": "Eା𝐀ᇂ각s",
+      "output": "EାAᇂ각s"
+    },
+    {
+      "input": "̈zǺ",
+      "output": "̈zǺ"
+    },
+    {
+      "input": "ྀ̃1ᇂㅏǅ",
+      "output": "ྀ̃1ᇂᅡDž"
+    },
+    {
+      "input": "ﾞ̧ạﬃन゚̃",
+      "output": "゙̧ạffiन゚̃"
+    },
+    {
+      "input": "न Ạ̊",
+      "output": "न Ạ̊"
+    },
+    {
+      "input": "ś²ㄱAིᆨZ̀ǫ",
+      "output": "ś2ᄀAིᆨZ̀ǫ"
+    },
+    {
+      "input": "ㅏ",
+      "output": "ᅡ"
+    },
+    {
+      "input": "´̈Eཱིeϓཱི",
+      "output": " ́̈EཱིeΎཱི"
+    },
+    {
+      "input": "̈½a゚zᅡ",
+      "output": "̈1⁄2a゚zᅡ"
+    },
+    {
+      "input": "ẛウ̣ AウE",
+      "output": "ṡウ̣ AウE"
+    },
+    {
+      "input": "ạOା̨ᄀạⅫㄱΩ ǅo",
+      "output": "ạOା̨ᄀạXIIᄀΩ Džo"
+    },
+    {
+      "input": "1㎏ウְ̈́śཱི",
+      "output": "1kgウְ̈́śཱི"
+    },
+    {
+      "input": "ᄀᄀs",
+      "output": "ᄀᄀs"
+    },
+    {
+      "input": "̃",
+      "output": "̃"
+    },
+    {
+      "input": "̀は 각",
+      "output": "̀は 각"
+    },
+    {
+      "input": "ାϓE½ᅵ½ϓ",
+      "output": "ାΎE1⁄2ᅵ1⁄2Ύ"
+    },
+    {
+      "input": "ﬃཱི̈Aାsᄒ",
+      "output": "ffïཱིAାsᄒ"
+    },
+    {
+      "input": "άAかּKOྀ²㎏ﬁ",
+      "output": "άAかּKOྀ2kgfi"
+    },
+    {
+      "input": "ﬃＡは𝐀S",
+      "output": "ffiAはAS"
+    },
+    {
+      "input": "ﾞྀﾟ",
+      "output": "゙゚ྀ"
+    },
+    {
+      "input": " ﬃ̨̈C",
+      "output": " ffį̈C"
+    },
+    {
+      "input": "Ǆ𝐀​Ａ𝔞",
+      "output": "DŽAAa"
+    },
+    {
+      "input": "uཱིǄ.ّ̣",
+      "output": "uཱིDŽ.ّ̣"
+    },
+    {
+      "input": "ạ𝔞o𝐀²ϔ각",
+      "output": "ạaoA2Ϋ각"
+    },
+    {
+      "input": "ﾞẛ่ạℌ̧가​",
+      "output": "゙ṡ่ạḨ가"
+    },
+    {
+      "input": "ㄱかaְ",
+      "output": "ᄀかaְ"
+    }
+  ]
+}

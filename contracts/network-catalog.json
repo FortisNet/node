@@ -1,0 +1,597 @@
+{
+  "seeds": [
+    {
+      "id": "bitcoin",
+      "family": "bitcoin",
+      "rpcUrls": [
+        "https://mempool.space/api"
+      ],
+      "native": {
+        "symbol": "BTC",
+        "decimals": 8,
+        "coingeckoId": "bitcoin"
+      }
+    },
+    {
+      "id": "bitcoin-cash",
+      "family": "bitcoinCash",
+      "rpcUrls": [
+        "https://blockbook.bch.zelcore.io/api/v2"
+      ],
+      "native": {
+        "symbol": "BCH",
+        "decimals": 8,
+        "coingeckoId": "bitcoin-cash"
+      }
+    },
+    {
+      "id": "eth-mainnet",
+      "family": "evm",
+      "evmChainId": 1,
+      "rpcUrls": [
+        "https://ethereum-rpc.publicnode.com"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18,
+        "coingeckoId": "ethereum"
+      },
+      "coingeckoPlatform": "ethereum",
+      "dexscreenerSlug": "ethereum"
+    },
+    {
+      "id": "bnb",
+      "family": "evm",
+      "evmChainId": 56,
+      "rpcUrls": [
+        "https://bsc-dataseed.binance.org"
+      ],
+      "native": {
+        "symbol": "BNB",
+        "decimals": 18,
+        "coingeckoId": "binancecoin"
+      },
+      "coingeckoPlatform": "binance-smart-chain",
+      "dexscreenerSlug": "bsc"
+    },
+    {
+      "id": "solana",
+      "family": "solana",
+      "rpcUrls": [
+        "https://api.mainnet-beta.solana.com"
+      ],
+      "native": {
+        "symbol": "SOL",
+        "decimals": 9,
+        "coingeckoId": "solana"
+      },
+      "coingeckoPlatform": "solana",
+      "dexscreenerSlug": "solana"
+    },
+    {
+      "id": "xrpl",
+      "family": "xrpl",
+      "rpcUrls": [
+        "https://xrplcluster.com",
+        "https://s1.ripple.com:51234",
+        "https://s2.ripple.com:51234"
+      ],
+      "native": {
+        "symbol": "XRP",
+        "decimals": 6,
+        "coingeckoId": "ripple"
+      }
+    },
+    {
+      "id": "hedera",
+      "family": "hedera",
+      "rpcUrls": [
+        "https://mainnet-public.mirrornode.hedera.com"
+      ],
+      "native": {
+        "symbol": "HBAR",
+        "decimals": 8,
+        "coingeckoId": "hedera-hashgraph"
+      }
+    },
+    {
+      "id": "cardano",
+      "family": "cardano",
+      "rpcUrls": [
+        "https://api.koios.rest/api/v1"
+      ],
+      "native": {
+        "symbol": "ADA",
+        "decimals": 6,
+        "coingeckoId": "cardano"
+      },
+      "coingeckoPlatform": "cardano",
+      "dexscreenerSlug": "cardano"
+    },
+    {
+      "id": "stellar",
+      "family": "stellar",
+      "rpcUrls": [
+        "https://horizon.stellar.org"
+      ],
+      "native": {
+        "symbol": "XLM",
+        "decimals": 7,
+        "coingeckoId": "stellar"
+      }
+    },
+    {
+      "id": "algorand",
+      "family": "algorand",
+      "rpcUrls": [
+        "https://mainnet-api.algonode.cloud"
+      ],
+      "native": {
+        "symbol": "ALGO",
+        "decimals": 6,
+        "coingeckoId": "algorand"
+      },
+      "coingeckoPlatform": "algorand"
+    },
+    {
+      "id": "base",
+      "family": "evm",
+      "evmChainId": 8453,
+      "rpcUrls": [
+        "https://mainnet.base.org"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18,
+        "coingeckoId": "ethereum"
+      },
+      "coingeckoPlatform": "base",
+      "dexscreenerSlug": "base"
+    },
+    {
+      "id": "polygon",
+      "family": "evm",
+      "evmChainId": 137,
+      "rpcUrls": [
+        "https://polygon-bor-rpc.publicnode.com"
+      ],
+      "native": {
+        "symbol": "POL",
+        "decimals": 18,
+        "coingeckoId": "polygon-ecosystem-token"
+      },
+      "coingeckoPlatform": "polygon-pos",
+      "dexscreenerSlug": "polygon"
+    },
+    {
+      "id": "avalanche",
+      "family": "evm",
+      "evmChainId": 43114,
+      "rpcUrls": [
+        "https://api.avax.network/ext/bc/C/rpc"
+      ],
+      "native": {
+        "symbol": "AVAX",
+        "decimals": 18,
+        "coingeckoId": "avalanche-2"
+      },
+      "coingeckoPlatform": "avalanche",
+      "dexscreenerSlug": "avalanche"
+    },
+    {
+      "id": "cronos",
+      "family": "evm",
+      "evmChainId": 25,
+      "requiredConfirmations": 1,
+      "rpcUrls": [
+        "https://cronos-evm-rpc.publicnode.com",
+        "https://cronos.drpc.org",
+        "https://evm.cronos.org"
+      ],
+      "native": {
+        "symbol": "CRO",
+        "decimals": 18,
+        "coingeckoId": "crypto-com-chain"
+      },
+      "coingeckoPlatform": "cronos",
+      "dexscreenerSlug": "cronos"
+    },
+    {
+      "id": "arbitrum",
+      "family": "evm",
+      "evmChainId": 42161,
+      "rpcUrls": [
+        "https://arb1.arbitrum.io/rpc"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18,
+        "coingeckoId": "ethereum"
+      },
+      "coingeckoPlatform": "arbitrum-one",
+      "dexscreenerSlug": "arbitrum"
+    },
+    {
+      "id": "optimism",
+      "family": "evm",
+      "evmChainId": 10,
+      "rpcUrls": [
+        "https://mainnet.optimism.io"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18,
+        "coingeckoId": "ethereum"
+      },
+      "coingeckoPlatform": "optimistic-ethereum",
+      "dexscreenerSlug": "optimism"
+    },
+    {
+      "id": "hyperevm",
+      "family": "evm",
+      "evmChainId": 999,
+      "rpcUrls": [
+        "https://rpc.hyperliquid.xyz/evm",
+        "https://rpc.hypurrscan.io",
+        "https://hyperliquid.drpc.org"
+      ],
+      "native": {
+        "symbol": "HYPE",
+        "decimals": 18,
+        "coingeckoId": "hyperliquid"
+      },
+      "dexscreenerSlug": "hyperevm"
+    },
+    {
+      "id": "robinhood",
+      "family": "evm",
+      "evmChainId": 4663,
+      "rpcUrls": [
+        "https://rpc.mainnet.chain.robinhood.com"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18,
+        "coingeckoId": "ethereum"
+      }
+    },
+    {
+      "id": "sei",
+      "family": "evm",
+      "evmChainId": 1329,
+      "rpcUrls": [
+        "https://evm-rpc.sei-apis.com"
+      ],
+      "native": {
+        "symbol": "SEI",
+        "decimals": 18,
+        "coingeckoId": "sei-network"
+      },
+      "dexscreenerSlug": "seiv2"
+    },
+    {
+      "id": "xdc",
+      "family": "evm",
+      "evmChainId": 50,
+      "rpcUrls": [
+        "https://rpc.xinfin.network",
+        "https://erpc.xinfin.network"
+      ],
+      "native": {
+        "symbol": "XDC",
+        "decimals": 18,
+        "coingeckoId": "xdce-crowd-sale"
+      },
+      "coingeckoPlatform": "xdc-network"
+    },
+    {
+      "id": "flare",
+      "family": "evm",
+      "evmChainId": 14,
+      "rpcUrls": [
+        "https://flare-api.flare.network/ext/C/rpc"
+      ],
+      "native": {
+        "symbol": "FLR",
+        "decimals": 18,
+        "coingeckoId": "flare-networks"
+      },
+      "dexscreenerSlug": "flare"
+    },
+    {
+      "id": "dogecoin",
+      "family": "dogecoin",
+      "rpcUrls": [
+        "https://dogecoin.atomicwallet.io/api/v2",
+        "https://blockbook.doge.zelcore.io/api/v2"
+      ],
+      "native": {
+        "symbol": "DOGE",
+        "decimals": 8,
+        "coingeckoId": "dogecoin"
+      }
+    },
+    {
+      "id": "dash",
+      "family": "dash",
+      "requiredConfirmations": 1,
+      "rpcUrls": [
+        "https://dash.atomicwallet.io/api/v2"
+      ],
+      "native": {
+        "symbol": "DASH",
+        "decimals": 8,
+        "coingeckoId": "dash"
+      }
+    },
+    {
+      "id": "litecoin",
+      "family": "litecoin",
+      "rpcUrls": [
+        "https://litecoin.atomicwallet.io/api/v2",
+        "https://ltc1.trezor.io/api/v2"
+      ],
+      "native": {
+        "symbol": "LTC",
+        "decimals": 8,
+        "coingeckoId": "litecoin"
+      }
+    },
+    {
+      "id": "zcash",
+      "family": "zcash",
+      "requiredConfirmations": 10,
+      "rpcUrls": [
+        "https://blockbook.zec.zelcore.io/api/v2"
+      ],
+      "native": {
+        "symbol": "ZEC",
+        "decimals": 8,
+        "coingeckoId": "zcash"
+      }
+    },
+    {
+      "id": "sui",
+      "family": "sui",
+      "rpcUrls": [
+        "https://sui-rpc.publicnode.com"
+      ],
+      "graphqlUrls": [
+        "https://graphql.mainnet.sui.io/graphql"
+      ],
+      "native": {
+        "symbol": "SUI",
+        "decimals": 9,
+        "coingeckoId": "sui"
+      },
+      "coingeckoPlatform": "sui"
+    },
+    {
+      "id": "cosmos",
+      "family": "cosmos",
+      "rpcUrls": [
+        "https://cosmos-rest.publicnode.com"
+      ],
+      "native": {
+        "symbol": "ATOM",
+        "decimals": 6,
+        "coingeckoId": "cosmos"
+      }
+    },
+    {
+      "id": "near",
+      "family": "near",
+      "rpcUrls": [
+        "https://free.rpc.fastnear.com"
+      ],
+      "native": {
+        "symbol": "NEAR",
+        "decimals": 24,
+        "coingeckoId": "near"
+      }
+    },
+    {
+      "id": "ton",
+      "family": "ton",
+      "rpcUrls": [
+        "https://toncenter.com"
+      ],
+      "native": {
+        "symbol": "TON",
+        "decimals": 9,
+        "coingeckoId": "the-open-network"
+      }
+    },
+    {
+      "id": "tron",
+      "family": "tron",
+      "rpcUrls": [
+        "https://api.trongrid.io"
+      ],
+      "native": {
+        "symbol": "TRX",
+        "decimals": 6,
+        "coingeckoId": "tron"
+      },
+      "coingeckoPlatform": "tron",
+      "dexscreenerSlug": "tron"
+    },
+    {
+      "id": "vechain",
+      "family": "vechain",
+      "rpcUrls": [
+        "https://mainnet.vechain.org",
+        "https://sync-mainnet.vechain.org",
+        "https://vethor-node.vechain.com"
+      ],
+      "native": {
+        "symbol": "VET",
+        "decimals": 18,
+        "coingeckoId": "vechain"
+      },
+      "coingeckoPlatform": "vechain"
+    },
+    {
+      "id": "aptos",
+      "family": "aptos",
+      "rpcUrls": [
+        "https://fullnode.mainnet.aptoslabs.com/v1"
+      ],
+      "native": {
+        "symbol": "APT",
+        "decimals": 8,
+        "coingeckoId": "aptos"
+      },
+      "coingeckoPlatform": "aptos"
+    },
+    {
+      "id": "bittensor",
+      "family": "bittensor",
+      "rpcUrls": [
+        "https://api.taostats.io"
+      ],
+      "native": {
+        "symbol": "TAO",
+        "decimals": 9,
+        "coingeckoId": "bittensor"
+      }
+    },
+    {
+      "id": "icp",
+      "family": "icp",
+      "rpcUrls": [
+        "https://ledger-api.internetcomputer.org"
+      ],
+      "native": {
+        "symbol": "ICP",
+        "decimals": 8,
+        "coingeckoId": "internet-computer"
+      }
+    },
+    {
+      "id": "eth-sepolia",
+      "family": "evm",
+      "evmChainId": 11155111,
+      "testnet": true,
+      "rpcUrls": [
+        "https://rpc.sepolia.org"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18
+      }
+    },
+    {
+      "id": "base-sepolia",
+      "family": "evm",
+      "evmChainId": 84532,
+      "testnet": true,
+      "rpcUrls": [
+        "https://sepolia.base.org"
+      ],
+      "native": {
+        "symbol": "ETH",
+        "decimals": 18
+      }
+    },
+    {
+      "id": "bnb-testnet",
+      "family": "evm",
+      "evmChainId": 97,
+      "testnet": true,
+      "rpcUrls": [
+        "https://data-seed-prebsc-1-s1.binance.org:8545"
+      ],
+      "native": {
+        "symbol": "BNB",
+        "decimals": 18
+      }
+    },
+    {
+      "id": "cronos-testnet",
+      "family": "evm",
+      "evmChainId": 338,
+      "testnet": true,
+      "requiredConfirmations": 1,
+      "rpcUrls": [
+        "https://evm-t3.cronos.org"
+      ],
+      "native": {
+        "symbol": "TCRO",
+        "decimals": 18
+      }
+    },
+    {
+      "id": "xrpl-testnet",
+      "family": "xrpl",
+      "testnet": true,
+      "rpcUrls": [
+        "https://s.altnet.rippletest.net:51234"
+      ],
+      "native": {
+        "symbol": "XRP",
+        "decimals": 6
+      }
+    },
+    {
+      "id": "stellar-testnet",
+      "family": "stellar",
+      "testnet": true,
+      "rpcUrls": [
+        "https://horizon-testnet.stellar.org"
+      ],
+      "native": {
+        "symbol": "XLM",
+        "decimals": 7
+      }
+    },
+    {
+      "id": "solana-devnet",
+      "family": "solana",
+      "testnet": true,
+      "rpcUrls": [
+        "https://api.devnet.solana.com"
+      ],
+      "native": {
+        "symbol": "SOL",
+        "decimals": 9
+      }
+    },
+    {
+      "id": "hedera-testnet",
+      "family": "hedera",
+      "testnet": true,
+      "rpcUrls": [
+        "https://testnet.mirrornode.hedera.com"
+      ],
+      "native": {
+        "symbol": "HBAR",
+        "decimals": 8
+      }
+    },
+    {
+      "id": "algorand-testnet",
+      "family": "algorand",
+      "testnet": true,
+      "rpcUrls": [
+        "https://testnet-api.algonode.cloud"
+      ],
+      "native": {
+        "symbol": "ALGO",
+        "decimals": 6
+      }
+    }
+  ],
+  "capabilities": [
+    "balances",
+    "transfers",
+    "nfts",
+    "insight",
+    "txStatus",
+    "txDetail",
+    "token",
+    "trustlines",
+    "news",
+    "popularTokens"
+  ]
+}

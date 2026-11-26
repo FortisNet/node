@@ -1,0 +1,989 @@
+{
+  "description": "GET /v1/dashpay/names/resolve over the real Fastify app and EvoDashPayNameResolver; see test/dashpay_route_contract.test.ts",
+  "source": {
+    "route": "server/intelligence/src/api/dashpay.ts",
+    "resolver": "server/intelligence/src/upstream/dashpay_names.ts",
+    "verifiedAnswers": "intelligence_cpp/migration/fixtures/step0/dashpay_proof_corpus.json (real cases)",
+    "fixtureTime": "2026-10-23T12:00:00.000Z"
+  },
+  "cases": [
+    {
+      "group": "main",
+      "name": "found-label",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dash.dash\",\"identityId\":\"Bt5vvxCx1bHJuKfP9gX2uMx6JZhuQBjgLYR8hXG2FjF\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-at-upper",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%40Dash",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dash.dash\",\"identityId\":\"Bt5vvxCx1bHJuKfP9gX2uMx6JZhuQBjgLYR8hXG2FjF\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-suffix-upper",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=DashPay.DASH",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dashpay.dash\",\"identityId\":\"XX5U5QtMwqnpdvwZCLuT6iGZzFFHo6sfygiZE2wjmAP\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-trimmed-nbsp",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%C2%A0%20quantumexp10rer%0A",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"quantumexp10rer.dash\",\"identityId\":\"5qCM4hKdkd5G27Qku7jYDm4vTubBizX72sdMTpbySCCj\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-protobuf",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash.dash",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "wireHex": "0a09646173682e64617368122b42743576767843783162484a754b665039675832754d78364a5a687551426a674c59523868584732466a46",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-protobuf-quality",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dashpay",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/json;q=0.5, Application/Protobuf;q=0.9"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "wireHex": "0a0c646173687061792e64617368122b585835553551744d77716e706476775a434c75543669475a7a4646486f3673667967695a4532776a6d4150",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-protobuf-q0",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dash.dash\",\"identityId\":\"Bt5vvxCx1bHJuKfP9gX2uMx6JZhuQBjgLYR8hXG2FjF\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "found-head",
+      "scenario": "verified",
+      "method": "HEAD",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-homograph-quirk",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=quantumexplorer",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"quantumexplorer.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-alice",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%40alice",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"alice.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-protobuf",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=zzzznotarealname1234",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "wireHex": "0a197a7a7a7a6e6f74617265616c6e616d65313233342e64617368",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-longest-label",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%40aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-hyphen",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=x-y",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"x-y.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-digits",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=000.DASH",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"000.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "absent-plus-space",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=+a1ice+",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"a1ice.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-missing",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-empty",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-blank",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%20%20",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-short",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=ab",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-leading-hyphen",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=-bad-",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-trailing-hyphen",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=alice-",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-other-tld",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=alice.eth",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-subdomain",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash.dash.dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-double-at",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%40%40dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-label-64",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-over-69",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%40aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.dashx",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-70-units",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=%20%40aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.dash%20a",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-space-inside",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=da+sh",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-unicode",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=d%C3%A4sh",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-repeated",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash&name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-bad-escape",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=da%ZZsh",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-protobuf",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=ab",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"INVALID_DASHPAY_NAME\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "invalid-head",
+      "scenario": null,
+      "method": "HEAD",
+      "path": "/v1/dashpay/names/resolve?name=ab",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "unauthenticated",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "unknown-token",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "browser-origin",
+      "scenario": null,
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {
+        "origin": "https://example.com"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}",
+      "connects": 1
+    },
+    {
+      "group": "main",
+      "name": "other-device",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "B",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dash.dash\",\"identityId\":\"Bt5vvxCx1bHJuKfP9gX2uMx6JZhuQBjgLYR8hXG2FjF\"}",
+      "connects": 1
+    },
+    {
+      "group": "proof-failure",
+      "name": "proof-failure-json",
+      "scenario": "proof-failure",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 503,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"DASHPAY_UNAVAILABLE\"}",
+      "connects": 1
+    },
+    {
+      "group": "proof-failure",
+      "name": "proof-failure-protobuf",
+      "scenario": "proof-failure",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=alice",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 503,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"DASHPAY_UNAVAILABLE\"}",
+      "connects": 2
+    },
+    {
+      "group": "proof-failure",
+      "name": "proof-recovered",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dash.dash\",\"identityId\":\"Bt5vvxCx1bHJuKfP9gX2uMx6JZhuQBjgLYR8hXG2FjF\"}",
+      "connects": 3
+    },
+    {
+      "group": "proof-failure",
+      "name": "proof-recovered-kept",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=alice",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"alice.dash\",\"identityId\":null}",
+      "connects": 3
+    },
+    {
+      "group": "malformed-identity",
+      "name": "malformed-identity",
+      "scenario": "malformed",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 503,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"DASHPAY_UNAVAILABLE\"}",
+      "connects": 1
+    },
+    {
+      "group": "malformed-identity",
+      "name": "malformed-absent-unaffected",
+      "scenario": "malformed",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=alice",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"alice.dash\",\"identityId\":null}",
+      "connects": 1
+    },
+    {
+      "group": "connect-failure",
+      "name": "connect-failure",
+      "scenario": "connect-failure",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 503,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"DASHPAY_UNAVAILABLE\"}",
+      "connects": 1
+    },
+    {
+      "group": "connect-failure",
+      "name": "connect-recovered",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "wireHex": "0a09646173682e64617368122b42743576767843783162484a754b665039675832754d78364a5a687551426a674c59523868584732466a46",
+      "connects": 2
+    },
+    {
+      "group": "timeout",
+      "name": "timeout",
+      "scenario": "timeout",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dash",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 503,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"error\":\"DASHPAY_UNAVAILABLE\"}",
+      "connects": 1
+    },
+    {
+      "group": "timeout",
+      "name": "timeout-recovered",
+      "scenario": "verified",
+      "method": "GET",
+      "path": "/v1/dashpay/names/resolve?name=dashpay",
+      "device": "A",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1"
+      },
+      "responseText": "{\"name\":\"dashpay.dash\",\"identityId\":\"XX5U5QtMwqnpdvwZCLuT6iGZzFFHo6sfygiZE2wjmAP\"}",
+      "connects": 2
+    }
+  ]
+}

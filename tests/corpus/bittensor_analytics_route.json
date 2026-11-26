@@ -1,0 +1,2731 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/discovery.ts",
+    "facet": "server/intelligence/src/facets/taostats_proxy.ts",
+    "cache": "server/intelligence/src/cache/swr.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/bittensor.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "apiKey": "fixture-taostats-key",
+    "token": "fintel_dev_TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+    "jitterSample": 0.5
+  },
+  "cases": [
+    {
+      "name": "unconfigured",
+      "group": "unconfigured",
+      "at": 1767323045000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2261646472657373223a223546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d3639347479227d7d",
+      "configured": false,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "69",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor analytics not configured"
+      },
+      "upstream": []
+    },
+    {
+      "name": "unconfiguredInvalid",
+      "group": "unconfigured",
+      "at": 1767323045000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a22227d",
+      "configured": false,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "coldJson",
+      "group": "main",
+      "at": 1767323105000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2261646472657373223a223546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d3639347479222c226e6574776f726b223a226e616b616d6f746f227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/account/latest/v1?address=5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "warmJson",
+      "group": "main",
+      "at": 1767323106000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2261646472657373223a223546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d3639347479222c226e6574776f726b223a226e616b616d6f746f227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "415",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:05.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "warmProtobufReordered",
+      "group": "main",
+      "at": 1767323107000,
+      "accept": "application/protobuf",
+      "contentType": "application/protobuf",
+      "requestHex": "0a162f6170692f6163636f756e742f6c61746573742f763112520a110a076e6574776f726b12061a04746573740a3d0a076164647265737312321a303546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d3639347479",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "446",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:05.000Z"
+        }
+      },
+      "wireHex": "0a9d032a9a030a560a0a706167696e6174696f6e12482a460a190a0c63757272656e745f70616765120911000000000000f03f0a180a0b746f74616c5f6974656d7312091100000000000024400a0f0a096e6578745f70616765120208000abf020a046461746112b60232b3020ab0022aad020a0a0a013112051a036f6e650a0a0a013212051a0374776f0a590a0761646472657373124e2a4c0a3a0a047373353812321a303546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d36393474790a0e0a0368657812071a053078c3a92f0a1d0a0c62616c616e63655f66726565120d1a0b31323530303030303030300a110a0472616e6b12091100000000000008400a120a057374616b65120911000000000000f83f0a110a0474696e7912091148afbc9af2d77a3e0a100a03626967120911dabc047e3ac51a440a100a036e656712091100000000000000800a0a0a04666c6167120220010a0a0a046e6f6e65120208000a120a05656d6f6a6912091a07f09f988020c3a90a0f0a046374726c12071a056101620963121c08011218323032362d30312d30325430333a30353a30352e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "coldProtobuf",
+      "group": "main",
+      "at": 1767323108000,
+      "accept": "application/protobuf",
+      "contentType": "application/protobuf",
+      "requestHex": "0a182f6170692f6474616f2f706f6f6c2f6c61746573742f763112580a130a066e65747569641209110000000000001c400a120a056c696d697412091100000000000049400a110a0470616765120911000000000000f03f0a1a0a056f7264657212111a0f6d61726b65745f6361705f64657363",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "418",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {}
+      },
+      "wireHex": "0a9d032a9a030a560a0a706167696e6174696f6e12482a460a190a0c63757272656e745f70616765120911000000000000f03f0a180a0b746f74616c5f6974656d7312091100000000000024400a0f0a096e6578745f70616765120208000abf020a046461746112b60232b3020ab0022aad020a0a0a013112051a036f6e650a0a0a013212051a0374776f0a590a0761646472657373124e2a4c0a3a0a047373353812321a303546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d36393474790a0e0a0368657812071a053078c3a92f0a1d0a0c62616c616e63655f66726565120d1a0b31323530303030303030300a110a0472616e6b12091100000000000008400a120a057374616b65120911000000000000f83f0a110a0474696e7912091148afbc9af2d77a3e0a100a03626967120911dabc047e3ac51a440a100a036e656712091100000000000000800a0a0a04666c6167120220010a0a0a046e6f6e65120208000a120a05656d6f6a6912091a07f09f988020c3a90a0f0a046374726c12071a0561016209631200",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/dtao/pool/latest/v1?netuid=7&limit=50&page=1&order=market_cap_desc&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "encodedOwnerNoNetwork",
+      "group": "main",
+      "at": 1767323109000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a226120627e2a2e2d5fc3a9f09f9880263d2b2f3f222c226c696d6974223a3230302c2270616765223a22303230222c226f72646572223a747275657d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=a+b%7E*.-_%C3%A9%F0%9F%98%80%26%3D%2B%2F%3F&limit=200&page=020&order=true",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "emptyQuery",
+      "group": "main",
+      "at": 1767323110000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631227d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "emptyQueryObject",
+      "group": "main",
+      "at": 1767323111000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b7d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "415",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:10.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:10.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "nullPayloadProtobuf",
+      "group": "main",
+      "at": 1767323112000,
+      "accept": "application/protobuf",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6474616f2f7374616b655f62616c616e63652f6c61746573742f7631222c227175657279223a7b22636f6c646b6579223a226e756c6c2d7061796c6f6164227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "6",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": null,
+        "cache": {}
+      },
+      "wireHex": "0a0208001200",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/dtao/stake_balance/latest/v1?coldkey=null-payload&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "arrayPayloadJson",
+      "group": "main",
+      "at": 1767323113000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6474616f2f7374616b655f62616c616e63652f6c61746573742f7631222c227175657279223a7b22636f6c646b6579223a2261727261792d7061796c6f6164227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "73",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": [
+          1,
+          "two",
+          {
+            "3": [
+              true
+            ]
+          }
+        ],
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":[1,\"two\",{\"3\":[true]}],\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/dtao/stake_balance/latest/v1?coldkey=array-payload&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "arrayPayloadProtobuf",
+      "group": "main",
+      "at": 1767323114000,
+      "accept": "application/protobuf",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6474616f2f7374616b655f62616c616e63652f6c61746573742f7631222c227175657279223a7b22636f6c646b6579223a2261727261792d7061796c6f6164227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "69",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": [
+          1,
+          "two",
+          {
+            "3": [
+              true
+            ]
+          }
+        ],
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:13.000Z"
+        }
+      },
+      "wireHex": "0a2532230a0911000000000000f03f0a051a0374776f0a0f2a0d0a0b0a0133120632040a022001121c08011218323032362d30312d30325430333a30353a31332e3030305a",
+      "upstream": []
+    },
+    {
+      "name": "numberSpellings",
+      "group": "main",
+      "at": 1767323115000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b2261646472657373223a223546486e655734367847586773356d5569766555347362547947427a6d73745573705a43393255686a4a4d3639347479222c226c696d6974223a3130302c2270616765223a327d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/transfer/v1?address=5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty&limit=100&page=2&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "unknownPath",
+      "group": "validation",
+      "at": 1767323165000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f756e6b6e6f776e2f7631227d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "71",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported bittensor analytics path"
+      },
+      "upstream": []
+    },
+    {
+      "name": "prototypeConstructor",
+      "group": "validation",
+      "at": 1767323165001,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a22636f6e7374727563746f72227d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    },
+    {
+      "name": "prototypeToString",
+      "group": "validation",
+      "at": 1767323165002,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a22746f537472696e67222c227175657279223a7b2261223a317d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    },
+    {
+      "name": "prototypeProto",
+      "group": "validation",
+      "at": 1767323165003,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a095f5f70726f746f5f5f1200",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    },
+    {
+      "name": "unsupportedKey",
+      "group": "validation",
+      "at": 1767323165004,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2268617368223a2278227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported bittensor query"
+      },
+      "upstream": []
+    },
+    {
+      "name": "indexKeyFirst",
+      "group": "validation",
+      "at": 1767323165005,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b2231223a2278222c226c696d6974223a22353030227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported bittensor query"
+      },
+      "upstream": []
+    },
+    {
+      "name": "tooLong",
+      "group": "validation",
+      "at": 1767323165006,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2261646472657373223a226161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "65",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor query value too long"
+      },
+      "upstream": []
+    },
+    {
+      "name": "maxLength",
+      "group": "validation",
+      "at": 1767323165007,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6163636f756e742f6c61746573742f7631222c227175657279223a7b2261646472657373223a22f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/account/latest/v1?address=%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80%F0%9F%98%80&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "limitHigh",
+      "group": "validation",
+      "at": 1767323165008,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b226c696d6974223a3230317d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "limitText",
+      "group": "validation",
+      "at": 1767323165009,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b226c696d6974223a22323061227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "limitBool",
+      "group": "validation",
+      "at": 1767323165010,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b226c696d6974223a747275657d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "limitFraction",
+      "group": "validation",
+      "at": 1767323165011,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b226c696d6974223a312e357d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "limitExponent",
+      "group": "validation",
+      "at": 1767323165012,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b226c696d6974223a31652b32317d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pageHigh",
+      "group": "validation",
+      "at": 1767323165013,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b2270616765223a223231227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "60",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor page exceeds 20"
+      },
+      "upstream": []
+    },
+    {
+      "name": "netuidHigh",
+      "group": "validation",
+      "at": 1767323165014,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6474616f2f706f6f6c2f6c61746573742f7631222c227175657279223a7b226e6574756964223a36353533367d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "59",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "invalid bittensor netuid"
+      },
+      "upstream": []
+    },
+    {
+      "name": "netuidNegative",
+      "group": "validation",
+      "at": 1767323165015,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f6474616f2f706f6f6c2f6c61746573742f7631222c227175657279223a7b226e6574756964223a2d317d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "59",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "invalid bittensor netuid"
+      },
+      "upstream": []
+    },
+    {
+      "name": "errorOrder",
+      "group": "validation",
+      "at": 1767323165016,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7472616e736665722f7631222c227175657279223a7b2270616765223a39392c226c696d6974223a3939397d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "60",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor page exceeds 20"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pathMissing",
+      "group": "validation",
+      "at": 1767323165017,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b227175657279223a7b7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pathEmpty",
+      "group": "validation",
+      "at": 1767323165018,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a22227d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pathTooLong",
+      "group": "validation",
+      "at": 1767323165019,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f78787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878227d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pathMaxUnits",
+      "group": "validation",
+      "at": 1767323165020,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222ff09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f9880f09f988078227d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "71",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported bittensor analytics path"
+      },
+      "upstream": []
+    },
+    {
+      "name": "pathNumber",
+      "group": "validation",
+      "at": 1767323165021,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a357d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "queryNull",
+      "group": "validation",
+      "at": 1767323165022,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a6e756c6c7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "queryArray",
+      "group": "validation",
+      "at": 1767323165023,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a5b2261225d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "valueObject",
+      "group": "validation",
+      "at": 1767323165024,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a7b2261223a317d7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "valueNull",
+      "group": "validation",
+      "at": 1767323165025,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a6e756c6c7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "valueArray",
+      "group": "validation",
+      "at": 1767323165026,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a5b5d7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "extraKey",
+      "group": "validation",
+      "at": 1767323165027,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c226578747261223a317d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "bodyArray",
+      "group": "validation",
+      "at": 1767323165028,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "5b5d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "bodyString",
+      "group": "validation",
+      "at": 1767323165029,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "227465787422",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "duplicateKeysJson",
+      "group": "validation",
+      "at": 1767323165030,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6e6f7065222c2270617468223a222f6170692f756e6b6e6f776e2f7632222c227175657279223a7b226f776e6572223a312c226f776e6572223a7b7d7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "duplicateValueWins",
+      "group": "validation",
+      "at": 1767323165031,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a7b7d2c226f776e6572223a2278222c226c696d6974223a22393939227d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "textPlain",
+      "group": "validation",
+      "at": 1767323165032,
+      "accept": "application/json",
+      "contentType": "text/plain",
+      "requestHex": "706174683d2f6170692f7375626e65742f6f776e65722f7631",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "noContentType",
+      "group": "validation",
+      "at": 1767323165033,
+      "accept": "application/json",
+      "contentType": null,
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631227d",
+      "configured": true,
+      "status": 415,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "126",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 415,
+        "code": "FST_ERR_CTP_INVALID_MEDIA_TYPE",
+        "error": "Unsupported Media Type",
+        "message": "Unsupported Media Type"
+      },
+      "upstream": []
+    },
+    {
+      "name": "unsupportedType",
+      "group": "validation",
+      "at": 1767323165034,
+      "accept": "application/json",
+      "contentType": "application/xml",
+      "requestHex": "3c782f3e",
+      "configured": true,
+      "status": 415,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "126",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 415,
+        "code": "FST_ERR_CTP_INVALID_MEDIA_TYPE",
+        "error": "Unsupported Media Type",
+        "message": "Unsupported Media Type"
+      },
+      "upstream": []
+    },
+    {
+      "name": "invalidJson",
+      "group": "validation",
+      "at": 1767323165035,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "160",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 400,
+        "code": "FST_ERR_CTP_INVALID_JSON_BODY",
+        "error": "Bad Request",
+        "message": "Body is not valid JSON but content-type is set to 'application/json'"
+      },
+      "upstream": []
+    },
+    {
+      "name": "emptyJson",
+      "group": "validation",
+      "at": 1767323165036,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "157",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 400,
+        "code": "FST_ERR_CTP_EMPTY_JSON_BODY",
+        "error": "Bad Request",
+        "message": "Body cannot be empty when content-type is set to 'application/json'"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protoPoison",
+      "group": "validation",
+      "at": 1767323165037,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b225f5f70726f746f5f5f223a7b2278223a317d7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "160",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 400,
+        "code": "FST_ERR_CTP_INVALID_JSON_BODY",
+        "error": "Bad Request",
+        "message": "Body is not valid JSON but content-type is set to 'application/json'"
+      },
+      "upstream": []
+    },
+    {
+      "name": "constructorPoison",
+      "group": "validation",
+      "at": 1767323165038,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c22636f6e7374727563746f72223a7b2270726f746f74797065223a7b7d7d7d",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "160",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "statusCode": 400,
+        "code": "FST_ERR_CTP_INVALID_JSON_BODY",
+        "error": "Bad Request",
+        "message": "Body is not valid JSON but content-type is set to 'application/json'"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufGarbage",
+      "group": "validation",
+      "at": 1767323165039,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "ffffffff",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufTruncated",
+      "group": "validation",
+      "at": 1767323165040,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a05",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufBadUtf8",
+      "group": "validation",
+      "at": 1767323165041,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a02c328",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufEmpty",
+      "group": "validation",
+      "at": 1767323165042,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufUnknownFields",
+      "group": "validation",
+      "at": 1767323165043,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763118011d000000002201ff",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "415",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:05:10.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:05:10.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "protobufEmptyValue",
+      "group": "validation",
+      "at": 1767323165044,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112070a050a01611200",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufNaN",
+      "group": "validation",
+      "at": 1767323165045,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112140a120a056f776e6572120911000000000000f87f",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufInfinity",
+      "group": "validation",
+      "at": 1767323165046,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112140a120a056f776e6572120911000000000000f07f",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufMergedQuery",
+      "group": "validation",
+      "at": 1767323165047,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f7631120e0a0c0a056f776e657212031a017812100a0e0a056c696d697412051a03393939120e0a0c0a056f776e657212031a0179",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "bittensor limit exceeds 200"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufOneofLastWins",
+      "group": "validation",
+      "at": 1767323165048,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112190a170a056c696d6974120e1a03616263110000000000006940",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?limit=200",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "protobufProtoKey",
+      "group": "validation",
+      "at": 1767323165049,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112160a140a095f5f70726f746f5f5f12071a0576616c7565",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "415",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:06:05.043Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:06:05.043Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "protobufMissingKey",
+      "group": "validation",
+      "at": 1767323165050,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112070a0512031a0178",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "62",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST",
+        "detail": "unsupported bittensor query"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufMissingValue",
+      "group": "validation",
+      "at": 1767323165051,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "0a142f6170692f7375626e65742f6f776e65722f763112090a070a056f776e6572",
+      "configured": true,
+      "status": 400,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "23",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "BAD_REQUEST"
+      },
+      "upstream": []
+    },
+    {
+      "name": "protobufPathWireVarint",
+      "group": "validation",
+      "at": 1767323165052,
+      "accept": "application/json",
+      "contentType": "application/protobuf",
+      "requestHex": "08142f6170692f7375626e65742f6f776e65722f7631",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "415",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:06:05.043Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:06:05.043Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "failColdMiss",
+      "group": "failure",
+      "at": 1767323285000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a226661696c2d7468656e2d6f6b227d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=fail-then-ok&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=fail-then-ok&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=fail-then-ok&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "failReplayHold",
+      "group": "failure",
+      "at": 1767323290000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a226661696c2d7468656e2d6f6b227d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": []
+    },
+    {
+      "name": "failRecovered",
+      "group": "failure",
+      "at": 1767323295001,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a226661696c2d7468656e2d6f6b227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "73",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "recovered"
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"recovered\"]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=fail-then-ok&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "notJson",
+      "group": "failure",
+      "at": 1767323297000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a226e6f742d6a736f6e227d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=not-json&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=not-json&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=not-json&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "emptyBody",
+      "group": "failure",
+      "at": 1767323298000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a22656d7074792d626f6479227d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=empty-body&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=empty-body&network=finney",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=empty-body&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "successResetsBreaker",
+      "group": "failure",
+      "at": 1767323299000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a226f6b2d6166746572227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "394",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "pagination": {
+            "current_page": 1,
+            "total_items": 10,
+            "next_page": null
+          },
+          "data": [
+            {
+              "1": "one",
+              "2": "two",
+              "address": {
+                "ss58": "5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty",
+                "hex": "0xé/"
+              },
+              "balance_free": "12500000000",
+              "rank": 3,
+              "stake": 1.5,
+              "tiny": 1e-7,
+              "big": 123456789012345680000,
+              "neg": 0,
+              "flag": true,
+              "none": null,
+              "emoji": "😀 é",
+              "ctrl": "a\u0001b\tc"
+            }
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"pagination\":{\"current_page\":1,\"total_items\":10,\"next_page\":null},\"data\":[{\"1\":\"one\",\"2\":\"two\",\"address\":{\"ss58\":\"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty\",\"hex\":\"0xé/\"},\"balance_free\":\"12500000000\",\"rank\":3,\"stake\":1.5,\"tiny\":1e-7,\"big\":123456789012345680000,\"neg\":0,\"flag\":true,\"none\":null,\"emoji\":\"😀 é\",\"ctrl\":\"a\\u0001b\\tc\"}]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=ok-after&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "throttled429",
+      "group": "failure",
+      "at": 1767323300000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a227468726f74746c6564227d7d",
+      "configured": true,
+      "status": 502,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "error": "UPSTREAM_UNAVAILABLE"
+      },
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/extrinsic/v1?hash=throttled&network=finney",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "breakerOpen",
+      "group": "failure",
+      "at": 1767323300000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a22627265616b65722d6f70656e227d7d",
+      "configured": true,
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10",
+        "retry-after": "30"
+      },
+      "body": {
+        "error": "RATE_LIMITED",
+        "detail": "Upstream data is temporarily busy; retained data remains available."
+      },
+      "upstream": []
+    },
+    {
+      "name": "breakerReplay",
+      "group": "failure",
+      "at": 1767323300000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f65787472696e7369632f7631222c227175657279223a7b2268617368223a22627265616b65722d6f70656e227d7d",
+      "configured": true,
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "103",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10",
+        "retry-after": "30"
+      },
+      "body": {
+        "error": "RATE_LIMITED",
+        "detail": "Upstream data is temporarily busy; retained data remains available."
+      },
+      "upstream": []
+    },
+    {
+      "name": "staleSeed",
+      "group": "stale",
+      "at": 1767323405000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a2272656672657368696e67227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "76",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "generation 1"
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"generation 1\"]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=refreshing",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "staleFreshEdge",
+      "group": "stale",
+      "at": 1767323419999,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a2272656672657368696e67227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "97",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "generation 1"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:10:05.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"generation 1\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:10:05.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "staleServesAndRefreshes",
+      "group": "stale",
+      "at": 1767323420000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a2272656672657368696e67227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "97",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "generation 1"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:10:05.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"generation 1\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:10:05.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=refreshing",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "staleRefreshed",
+      "group": "stale",
+      "at": 1767323421000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a2272656672657368696e67227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "97",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "generation 2"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:10:20.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"generation 2\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:10:20.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "staleExpiredLive",
+      "group": "stale",
+      "at": 1767323736000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a2272656672657368696e67227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "76",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "generation 3"
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"generation 3\"]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=refreshing",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "backoffSeed",
+      "group": "backoff",
+      "at": 1767324045000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a22726576616c69646174652d6661696c73227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "72",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "answer 1"
+          ]
+        },
+        "cache": {
+          "hit": false,
+          "timestamp": null
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"answer 1\"]},\"cache\":{\"hit\":false,\"timestamp\":null}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=revalidate-fails",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "backoffFailedRefresh",
+      "group": "backoff",
+      "at": 1767324065000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a22726576616c69646174652d6661696c73227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "answer 1"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"answer 1\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:20:45.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=revalidate-fails",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=revalidate-fails",
+          "authorization": "fixture-taostats-key"
+        },
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=revalidate-fails",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "backoffHeld",
+      "group": "backoff",
+      "at": 1767324075000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a22726576616c69646174652d6661696c73227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "answer 1"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"answer 1\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:20:45.000Z\"}}",
+      "upstream": []
+    },
+    {
+      "name": "backoffExpired",
+      "group": "backoff",
+      "at": 1767324095001,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a22726576616c69646174652d6661696c73227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "answer 1"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:20:45.000Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"answer 1\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:20:45.000Z\"}}",
+      "upstream": [
+        {
+          "url": "https://api.taostats.io/api/subnet/owner/v1?owner=revalidate-fails",
+          "authorization": "fixture-taostats-key"
+        }
+      ]
+    },
+    {
+      "name": "backoffRefreshed",
+      "group": "backoff",
+      "at": 1767324096000,
+      "accept": "application/json",
+      "contentType": "application/json",
+      "requestHex": "7b2270617468223a222f6170692f7375626e65742f6f776e65722f7631222c227175657279223a7b226f776e6572223a22726576616c69646174652d6661696c73227d7d",
+      "configured": true,
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "93",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "10"
+      },
+      "body": {
+        "payload": {
+          "data": [
+            "answer 5"
+          ]
+        },
+        "cache": {
+          "hit": true,
+          "timestamp": "2026-01-02T03:21:35.001Z"
+        }
+      },
+      "bodyText": "{\"payload\":{\"data\":[\"answer 5\"]},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-02T03:21:35.001Z\"}}",
+      "upstream": []
+    }
+  ]
+}

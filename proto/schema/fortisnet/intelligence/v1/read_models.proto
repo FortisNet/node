@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "google/protobuf/struct.proto";
+
+// Chain and provider specific read models retain their existing JSON field
+// vocabulary inside a protobuf envelope. These are bounded responses; the
+// route still validates path and query parameters before constructing them.
+message StructuredReadResponse {
+  google.protobuf.Struct payload = 1;
+}

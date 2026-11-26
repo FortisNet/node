@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "google/protobuf/struct.proto";
+
+message RobinhoodTradingSession {
+  optional string whole = 1;
+  optional string fractional = 2;
+}
+
+message RobinhoodTradingCapabilities {
+  optional string fractional_tradability = 1;
+  optional string all_day_tradability = 2;
+  optional bool extended_hours_fractional_tradability = 3;
+  RobinhoodTradingSession market = 4;
+  RobinhoodTradingSession extended = 5;
+  RobinhoodTradingSession overnight = 6;
+}
+
+message RobinhoodDeployment {
+  uint32 chain_id = 1;
+  string contract_address = 2;
+}
+
+message RobinhoodStockAsset {
+  string id = 1;
+  string token_symbol = 2;
+  string token_name = 3;
+  repeated RobinhoodDeployment deployments = 4;
+  string current_multiplier = 5;
+  string pending_multiplier = 6;
+  optional string pending_multiplier_effective_time = 7;
+  optional string logo_url = 8;
+  optional string issuer_logo_url = 9;
+  optional string logo_media_key = 10;
+  string status = 11;
+  RobinhoodTradingCapabilities trading_capabilities = 12;
+}
+
+message RobinhoodStockCatalogResponse {
+  repeated RobinhoodStockAsset assets = 1;
+  string source = 2;
+}
+
+message RobinhoodReferenceQuote {
+  string symbol = 1;
+  string contract_address = 2;
+  double bid_usd = 3;
+  double ask_usd = 4;
+  double midpoint_usd = 5;
+  double raw_bid_usd = 6;
+  double raw_ask_usd = 7;
+  string multiplier = 8;
+  optional double daily_trading_volume = 9;
+  bool trading_halted = 10;
+  string generated_at = 11;
+  string currency = 12;
+}
+
+message RobinhoodProcessDate {
+  uint32 year = 1;
+  uint32 month = 2;
+  uint32 day = 3;
+}
+
+message RobinhoodCorporateAction {
+  string id = 1;
+  string type = 2;
+  string status = 3;
+  string token_symbol = 4;
+  string contract_address = 5;
+  RobinhoodProcessDate process_date = 6;
+  google.protobuf.Struct details = 7;
+}
+
+message RobinhoodStockInstrumentResponse {
+  RobinhoodStockAsset asset = 1;
+  RobinhoodReferenceQuote quote = 2;
+  repeated RobinhoodCorporateAction corporate_actions = 3;
+  string source = 4;
+  map<string, string> disclosures = 5;
+}
+
+message RobinhoodSponsoredCapabilitiesResponse {
+  string network = 1;
+  uint32 chain_id = 2;
+  bool enabled = 3;
+  bool gasless = 4;
+  bool sponsored_gas = 5;
+  bool batched_calls = 6;
+  uint32 max_calls = 7;
+  string account_standard = 8;
+  optional string reason = 9;
+}
+
+message RobinhoodEvmCall {
+  string to = 1;
+  string data = 2;
+  optional string value = 3;
+  optional string gas = 4;
+  optional string max_fee_per_gas = 5;
+  optional string max_priority_fee_per_gas = 6;
+}
+
+message RobinhoodDiagnoseRequest {
+  string from = 1;
+  repeated RobinhoodEvmCall calls = 2;
+  bool sponsored = 3;
+}
+
+message RobinhoodPrepareRequest {
+  string from = 1;
+  repeated RobinhoodEvmCall calls = 2;
+}
+
+message RobinhoodSubmitRequest {
+  string ticket = 1;
+  repeated string signatures = 2;
+}
+
+message RobinhoodDynamicResponse {
+  google.protobuf.Struct payload = 1;
+}

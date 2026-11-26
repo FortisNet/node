@@ -1,0 +1,1195 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "provider": "server/intelligence/src/upstream/coingecko.ts",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "demoKey": "fixture-demo-key",
+    "proKey": "fixture-pro-key",
+    "platforms": [
+      "ethereum",
+      "binance-smart-chain",
+      "solana",
+      "cardano",
+      "algorand",
+      "base",
+      "polygon-pos",
+      "avalanche",
+      "cronos",
+      "arbitrum-one",
+      "optimistic-ethereum",
+      "xdc-network",
+      "sui",
+      "tron",
+      "vechain",
+      "aptos"
+    ],
+    "maxIds": 100
+  },
+  "addresses": {
+    "A": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "B": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "C": "0xcccccccccccccccccccccccccccccccccccccccc",
+    "TRON": "TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj",
+    "APTOS": "aptos:0x1::coin::Coin"
+  },
+  "providerRequests": [
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%2C0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa%2C0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/base?contract_addresses=0xcccccccccccccccccccccccccccccccccccccccc&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xdddddddddddddddddddddddddddddddddddddddd&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/base?contract_addresses=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=eur&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/base?contract_addresses=0xcccccccccccccccccccccccccccccccccccccccc&vs_currencies=eur&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/base?contract_addresses=0xcccccccccccccccccccccccccccccccccccccccc&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/tron?contract_addresses=TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/aptos?contract_addresses=0x1%3A%3Acoin%3A%3ACoin&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": "fixture-demo-key",
+      "proKey": null
+    },
+    {
+      "url": "https://pro-api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": "fixture-pro-key"
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x0000000000000000000000000000000000000000%2C0x0000000000000000000000000000000000000001%2C0x0000000000000000000000000000000000000002%2C0x0000000000000000000000000000000000000003%2C0x0000000000000000000000000000000000000004%2C0x0000000000000000000000000000000000000005%2C0x0000000000000000000000000000000000000006%2C0x0000000000000000000000000000000000000007%2C0x0000000000000000000000000000000000000008%2C0x0000000000000000000000000000000000000009%2C0x000000000000000000000000000000000000000a%2C0x000000000000000000000000000000000000000b%2C0x000000000000000000000000000000000000000c%2C0x000000000000000000000000000000000000000d%2C0x000000000000000000000000000000000000000e%2C0x000000000000000000000000000000000000000f%2C0x0000000000000000000000000000000000000010%2C0x0000000000000000000000000000000000000011%2C0x0000000000000000000000000000000000000012%2C0x0000000000000000000000000000000000000013%2C0x0000000000000000000000000000000000000014%2C0x0000000000000000000000000000000000000015%2C0x0000000000000000000000000000000000000016%2C0x0000000000000000000000000000000000000017%2C0x0000000000000000000000000000000000000018%2C0x0000000000000000000000000000000000000019%2C0x000000000000000000000000000000000000001a%2C0x000000000000000000000000000000000000001b%2C0x000000000000000000000000000000000000001c%2C0x000000000000000000000000000000000000001d%2C0x000000000000000000000000000000000000001e%2C0x000000000000000000000000000000000000001f%2C0x0000000000000000000000000000000000000020%2C0x0000000000000000000000000000000000000021%2C0x0000000000000000000000000000000000000022%2C0x0000000000000000000000000000000000000023%2C0x0000000000000000000000000000000000000024%2C0x0000000000000000000000000000000000000025%2C0x0000000000000000000000000000000000000026%2C0x0000000000000000000000000000000000000027%2C0x0000000000000000000000000000000000000028%2C0x0000000000000000000000000000000000000029%2C0x000000000000000000000000000000000000002a%2C0x000000000000000000000000000000000000002b%2C0x000000000000000000000000000000000000002c%2C0x000000000000000000000000000000000000002d%2C0x000000000000000000000000000000000000002e%2C0x000000000000000000000000000000000000002f%2C0x0000000000000000000000000000000000000030%2C0x0000000000000000000000000000000000000031%2C0x0000000000000000000000000000000000000032%2C0x0000000000000000000000000000000000000033%2C0x0000000000000000000000000000000000000034%2C0x0000000000000000000000000000000000000035%2C0x0000000000000000000000000000000000000036%2C0x0000000000000000000000000000000000000037%2C0x0000000000000000000000000000000000000038%2C0x0000000000000000000000000000000000000039%2C0x000000000000000000000000000000000000003a%2C0x000000000000000000000000000000000000003b&vs_currencies=usd&include_24hr_change=true",
+      "demoKey": null,
+      "proKey": null
+    }
+  ],
+  "cases": {
+    "samePlatform": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb": {
+            "sourceId": "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "price": 0.125,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "samePlatformCached": {
+      "segment": "cold",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb": {
+            "sourceId": "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "price": 0.125,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "restartCached": {
+      "segment": "restart",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 1
+    },
+    "sameAddressNetworkAliases": {
+      "segment": "sameAddressNetworkAliases",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "eip155:1:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:1:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eip155:1:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 2
+    },
+    "expiredRefetch": {
+      "segment": "expired",
+      "at": "2026-01-02T03:15:45.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:15:45.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 3
+    },
+    "otherPlatform": {
+      "segment": "otherPlatform",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc": {
+            "sourceId": "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc",
+            "price": 3.75,
+            "change24hPct": -2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 4
+    },
+    "missingAndMalformedRows": {
+      "segment": "missingAndMalformedRows",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xdddddddddddddddddddddddddddddddddddddddd",
+          "base:erc20:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eth-mainnet:erc20:0xdddddddddddddddddddddddddddddddddddddddd",
+          "base:erc20:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "unsupportedPlatform": {
+      "segment": "unsupportedPlatform",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "unsupported-network:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "unsupported-network:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 6
+    },
+    "mixedUnsupportedAndSupported": {
+      "segment": "mixedUnsupportedAndSupported",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "unsupported-network:erc20:0xcccccccccccccccccccccccccccccccccccccccc",
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "unsupported-network:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "nullProviderBody": {
+      "segment": "nullProviderBody",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 8
+    },
+    "robinhoodExcluded": {
+      "segment": "robinhoodExcluded",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "robinhood:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "robinhood:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 9
+    },
+    "otherFiat": {
+      "segment": "otherFiat",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ],
+        "fiat": "eur"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "eur",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 11.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 11
+    },
+    "mixedProviders": {
+      "segment": "mixedProviders",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "spl:So11111111111111111111111111111111111111112",
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3000,
+            "change24hPct": 2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 1,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc": {
+            "sourceId": "base:erc20:0xcccccccccccccccccccccccccccccccccccccccc",
+            "price": 3.75,
+            "change24hPct": -2,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 15
+    },
+    "tronCase": {
+      "segment": "tronCase",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "tron:trc20:TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "tron:trc20:TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj": {
+            "sourceId": "tron:trc20:TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj",
+            "price": 7.25,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 16
+    },
+    "aptosCanonical": {
+      "segment": "aptosCanonical",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "aptos:0x1::coin::Coin"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "aptos:0x1::coin::Coin": {
+            "sourceId": "aptos:0x1::coin::Coin",
+            "price": 9,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 17
+    },
+    "providerFailure": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 20
+    },
+    "providerRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 21
+    },
+    "jsonCachedAfterRecovery": {
+      "segment": "failure",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 21
+    },
+    "protobufMixed": {
+      "segment": "protobufMixed",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "ethereum": {
+              "sourceId": "ethereum",
+              "price": 3000,
+              "change24hPct": 2,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "coingecko",
+              "cache": {}
+            },
+            "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb": {
+              "sourceId": "eth-mainnet:erc20:0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+              "price": 0.125,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "coingecko",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a03757364124f0a08657468657265756d12430a08657468657265756d11000000000070a7401900000000000000402218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a0012ae010a3c6574682d6d61696e6e65743a65726332303a307862626262626262626262626262626262626262626262626262626262626262626262626262626262126e0a3c6574682d6d61696e6e65743a65726332303a30786262626262626262626262626262626262626262626262626262626262626262626262626262626211000000000000c03f2218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a00"
+      },
+      "providerCalls": 23
+    },
+    "demoKeyed": {
+      "segment": "demoKeyed",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 24
+    },
+    "proKeyed": {
+      "segment": "proKeyed",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": {
+            "sourceId": "eth-mainnet:erc20:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "price": 12.5,
+            "change24hPct": 1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 25
+    },
+    "sixtyIds": {
+      "segment": "sixtyIds",
+      "at": "2026-01-02T03:04:05.000Z",
+      "request": {
+        "ids": [
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000000",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000001",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000002",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000003",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000004",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000005",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000006",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000007",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000008",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000009",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000010",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000011",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000012",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000013",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000014",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000015",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000016",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000017",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000018",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000019",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000020",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000021",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000022",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000023",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000024",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000025",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000026",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000027",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000028",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000029",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000030",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000031",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000032",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000033",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000034",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000035",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000036",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000037",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000038",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000039",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000003a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000003b"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000000",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000001",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000002",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000003",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000004",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000005",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000006",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000007",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000008",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000009",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000000f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000010",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000011",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000012",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000013",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000014",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000015",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000016",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000017",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000018",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000019",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000001f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000020",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000021",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000022",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000023",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000024",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000025",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000026",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000027",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000028",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000029",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002b",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002c",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002d",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002e",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000002f",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000030",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000031",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000032",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000033",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000034",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000035",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000036",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000037",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000038",
+          "eth-mainnet:erc20:0x0000000000000000000000000000000000000039",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000003a",
+          "eth-mainnet:erc20:0x000000000000000000000000000000000000003b"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 26
+    }
+  }
+}

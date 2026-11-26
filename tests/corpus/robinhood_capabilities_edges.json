@@ -1,0 +1,2805 @@
+{
+  "description": "GET /v1/networks/robinhood/sponsored-trades/capabilities configuration matrix and request edges over real sockets to the real Fastify app; see test/robinhood_capabilities_edges_contract.test.ts",
+  "source": {
+    "route": "server/intelligence/src/api/robinhood.ts",
+    "gateway": "server/intelligence/src/facets/robinhood_sponsored_trades.ts",
+    "config": "server/intelligence/src/config.ts",
+    "hooks": "server/intelligence/src/api/plugin.ts",
+    "fixtureTime": "2026-10-26T12:00:00.000Z"
+  },
+  "secrets": [
+    "oracle-alchemy-secret-0001",
+    "oracle-gas-policy-0001"
+  ],
+  "deviceIds": {
+    "a": "01ARZ3NDEKTSV4RRFFQ69G5HA1",
+    "b": "01ARZ3NDEKTSV4RRFFQ69G5HB2",
+    "c": "01ARZ3NDEKTSV4RRFFQ69G5HC3",
+    "d": "01ARZ3NDEKTSV4RRFFQ69G5HD4",
+    "e": "01ARZ3NDEKTSV4RRFFQ69G5HE5",
+    "r": "01ARZ3NDEKTSV4RRFFQ69G5HR6"
+  },
+  "upstreamFetches": 0,
+  "configs": [
+    {
+      "name": "keyless",
+      "env": {},
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-only",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001"
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-only",
+      "env": {
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "both",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-blank",
+      "env": {
+        "ALCHEMY_API_KEY": "",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-whitespace",
+      "env": {
+        "ALCHEMY_API_KEY": " \t ",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-blank",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": ""
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-whitespace",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": " \r\n\t "
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "both-blank",
+      "env": {
+        "ALCHEMY_API_KEY": "",
+        "ALCHEMY_GAS_POLICY_ID": ""
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "both-padded",
+      "env": {
+        "ALCHEMY_API_KEY": "  oracle-alchemy-secret-0001\t",
+        "ALCHEMY_GAS_POLICY_ID": "\noracle-gas-policy-0001\r "
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-255",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-255",
+      "env": {
+        "ALCHEMY_API_KEY": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-raw-4096",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          oracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-with-symbols",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "a1b2-c3d4_e5f6.~!$&'()*+,;=:@/?"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-256",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-256",
+      "env": {
+        "ALCHEMY_API_KEY": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-raw-4097",
+      "env": {
+        "ALCHEMY_API_KEY": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "oracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-inner-space",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "policy with space"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-form-feed",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "\foracle-gas-policy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-nbsp",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": " oracle-gas-policy-0001 "
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "policy-non-ascii",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": "pólicy-0001"
+      },
+      "enabled": true,
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    },
+    {
+      "name": "key-only-blank-policy-nbsp",
+      "env": {
+        "ALCHEMY_API_KEY": "oracle-alchemy-secret-0001",
+        "ALCHEMY_GAS_POLICY_ID": " "
+      },
+      "enabled": false,
+      "reason": "ALCHEMY_GAS_POLICY_NOT_CONFIGURED",
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+      "jsonHeaders": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "protobufHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "headHeaders": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "group": "request",
+      "name": "json",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-json",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-empty",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": ""
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-any",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "*/*"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-application-any",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/*"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "234"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-x-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/x-protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "233"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-upper",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "APPLICATION/PROTOBUF"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "232"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-list",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "text/html, application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "231"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-list-tight",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "text/html,application/protobuf;q=0.8"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "230"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-q0",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "229"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-q0-json",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0, application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "228"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-q-small",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0.001"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "227"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-q-space",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf; q=0.5"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "226"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-q-empty",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q="
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "225"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-q-text",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=abc"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "224"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-q-negative",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=-1"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "223"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "accept-charset-param",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;charset=utf-8"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "222"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "accept-first-q-wins",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0;q=1"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "221"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "head-json",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "220"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "request",
+      "name": "head-protobuf",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "219"
+      },
+      "wireHex": ""
+    },
+    {
+      "group": "request",
+      "name": "if-none-match-ignored",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "if-none-match": "*"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "218"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "if-modified-since-ignored",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "if-modified-since": "Mon, 26 Oct 2026 12:00:00 GMT"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "217"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "query-ignored",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c69746965733f656e61626c65643d74727565266e6574776f726b3d657468657265756d",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "216"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "query-empty",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c69746965733f",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "215"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "query-long",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c69746965733f7061643d787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "214"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "query-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c69746965733f783d31",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "61",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "213"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544"
+    },
+    {
+      "group": "request",
+      "name": "content-type-ignored",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "content-type": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "212"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "forwarded-ignored",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "x-forwarded-for": "203.0.113.9",
+        "cookie": "a=b"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "211"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "request",
+      "name": "no-auth",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "no-auth-head",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "request",
+      "name": "no-auth-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "empty-authorization",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": ""
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "bearer-only",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "bearer-space",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer "
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "bad-bearer",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer nonsense"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "short-token",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "long-token",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "wrong-prefix",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_prd_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "bad-alphabet",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa."
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "double-space",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer  fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "trailing-junk",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaax"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "unknown-device",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer fintel_dev_zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "lowercase-bearer",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "bearer fintel_dev_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "basic-auth",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Basic YTpi"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "request",
+      "name": "expired-device",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    },
+    {
+      "group": "request",
+      "name": "expired-device-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    },
+    {
+      "group": "request",
+      "name": "expired-device-head",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "request",
+      "name": "revoked-device",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "r",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin-null",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": "null"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin-empty",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": ""
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin-no-auth",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin-head",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "request",
+      "name": "origin-expired",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "origin-revoked-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "r",
+      "requestHeaders": {
+        "origin": "https://evil.example",
+        "accept": "application/protobuf"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "request",
+      "name": "post",
+      "method": "POST",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "content-length": "0"
+      },
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "124"
+      },
+      "responseText": "{\"message\":\"Route POST:/v1/networks/robinhood/sponsored-trades/capabilities not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "put",
+      "method": "PUT",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "content-length": "0"
+      },
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "123"
+      },
+      "responseText": "{\"message\":\"Route PUT:/v1/networks/robinhood/sponsored-trades/capabilities not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "delete",
+      "method": "DELETE",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "126"
+      },
+      "responseText": "{\"message\":\"Route DELETE:/v1/networks/robinhood/sponsored-trades/capabilities not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "trailing-slash",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c69746965732f",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "124"
+      },
+      "responseText": "{\"message\":\"Route GET:/v1/networks/robinhood/sponsored-trades/capabilities/ not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "upper-path",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f4341504142494c4954494553",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "123"
+      },
+      "responseText": "{\"message\":\"Route GET:/v1/networks/robinhood/sponsored-trades/CAPABILITIES not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "parent-path",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d747261646573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 404,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "110"
+      },
+      "responseText": "{\"message\":\"Route GET:/v1/networks/robinhood/sponsored-trades not found\",\"error\":\"Not Found\",\"statusCode\":404}"
+    },
+    {
+      "group": "request",
+      "name": "escaped-path",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f25363361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "210"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-last",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "d",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "0"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-over",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "d",
+      "requestHeaders": {},
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "0",
+        "retry-after": "60"
+      },
+      "responseText": "{\"error\":\"RATE_LIMITED\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-over-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "d",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "0",
+        "retry-after": "60"
+      },
+      "responseText": "{\"error\":\"RATE_LIMITED\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-over-head",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "d",
+      "requestHeaders": {},
+      "status": 429,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "0",
+        "retry-after": "60"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "quota",
+      "name": "quota-over-origin",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "d",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-over-bad-bearer",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {
+        "authorization": "Bearer nonsense"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "quota",
+      "name": "quota-other-device",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "c",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "199",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-json",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "wireHex": "0a09726f62696e686f6f6410b7241801200128013001380242086569702d37373032"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-head-json",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "237"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-head-protobuf",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "34",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "236"
+      },
+      "wireHex": ""
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-accept-q0",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf;q=0"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "150",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "235"
+      },
+      "responseText": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":true,\"gasless\":true,\"sponsoredGas\":true,\"batchedCalls\":true,\"maxCalls\":2,\"accountStandard\":\"eip-7702\"}"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-no-auth",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-origin",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "enabled",
+      "name": "enabled-expired",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-json",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"ATTESTATION_REQUIRED\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-protobuf",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "accept": "application/protobuf"
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"ATTESTATION_REQUIRED\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-head",
+      "method": "HEAD",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "32",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": ""
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-no-auth",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "24",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"UNAUTHORIZED\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-origin",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "a",
+      "requestHeaders": {
+        "origin": "https://evil.example"
+      },
+      "status": 403,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "36",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"BROWSER_ORIGIN_FORBIDDEN\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-expired",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "e",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    },
+    {
+      "group": "attestation",
+      "name": "attestation-revoked",
+      "method": "GET",
+      "targetHex": "2f76312f6e6574776f726b732f726f62696e686f6f642f73706f6e736f7265642d7472616465732f6361706162696c6974696573",
+      "device": "r",
+      "requestHeaders": {},
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "27",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "responseText": "{\"error\":\"SESSION_EXPIRED\"}"
+    }
+  ],
+  "concurrent": {
+    "kinds": [
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head",
+      "json",
+      "protobuf",
+      "head"
+    ],
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "payloadHex": [
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      "",
+      "7b226e6574776f726b223a22726f62696e686f6f64222c22636861696e4964223a343636332c22656e61626c6564223a66616c73652c226761736c657373223a66616c73652c2273706f6e736f726564476173223a66616c73652c226261746368656443616c6c73223a66616c73652c226d617843616c6c73223a322c226163636f756e745374616e64617264223a226569702d37373032222c22726561736f6e223a22414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544227d",
+      "0a09726f62696e686f6f6410b724380242086569702d373730324a21414c4348454d595f4741535f504f4c4943595f4e4f545f434f4e46494755524544",
+      ""
+    ]
+  },
+  "restart": {
+    "before": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+    "after": "{\"network\":\"robinhood\",\"chainId\":4663,\"enabled\":false,\"gasless\":false,\"sponsoredGas\":false,\"batchedCalls\":false,\"maxCalls\":2,\"accountStandard\":\"eip-7702\",\"reason\":\"ALCHEMY_GAS_POLICY_NOT_CONFIGURED\"}",
+    "afterStatus": 200,
+    "afterRemaining": "239"
+  }
+}

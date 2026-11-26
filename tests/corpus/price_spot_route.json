@@ -1,0 +1,137 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "coldJson": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "content-length": "406",
+      "vary": "Accept",
+      "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "x-rate-limit-cost": "1",
+      "x-rate-limit-remaining": "239"
+    },
+    "body": {
+      "fiat": "usd",
+      "prices": {
+        "ethereum": {
+          "sourceId": "ethereum",
+          "price": 3012.44,
+          "change24hPct": -1.2,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "stale": false,
+          "source": "coingecko",
+          "cache": {
+            "hit": false,
+            "timestamp": null
+          }
+        },
+        "bitcoin": {
+          "sourceId": "bitcoin",
+          "price": 97000.5,
+          "change24hPct": 0.8,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "stale": false,
+          "source": "coingecko",
+          "cache": {
+            "hit": false,
+            "timestamp": null
+          }
+        }
+      },
+      "missing": [],
+      "invalid": []
+    }
+  },
+  "cachedJson": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "content-length": "448",
+      "vary": "Accept",
+      "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "x-rate-limit-cost": "1",
+      "x-rate-limit-remaining": "238"
+    },
+    "body": {
+      "fiat": "usd",
+      "prices": {
+        "ethereum": {
+          "sourceId": "ethereum",
+          "price": 3012.44,
+          "change24hPct": -1.2,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "stale": false,
+          "source": "coingecko",
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-02T03:04:05.000Z"
+          }
+        },
+        "bitcoin": {
+          "sourceId": "bitcoin",
+          "price": 97000.5,
+          "change24hPct": 0.8,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "stale": false,
+          "source": "coingecko",
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-02T03:04:05.000Z"
+          }
+        }
+      },
+      "missing": [],
+      "invalid": []
+    }
+  },
+  "coldProtobuf": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/protobuf",
+      "content-length": "165",
+      "vary": "Accept",
+      "cache-control": "no-store",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "no-referrer",
+      "permissions-policy": "camera=(), microphone=(), geolocation=()",
+      "x-rate-limit-cost": "1",
+      "x-rate-limit-remaining": "239"
+    },
+    "body": {
+      "fiat": "usd",
+      "prices": {
+        "ethereum": {
+          "sourceId": "ethereum",
+          "price": 3012.44,
+          "change24hPct": -1.2,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "source": "coingecko",
+          "cache": {}
+        },
+        "bitcoin": {
+          "sourceId": "bitcoin",
+          "price": 97000.5,
+          "change24hPct": 0.8,
+          "asOf": "2026-01-02T03:04:05.000Z",
+          "source": "coingecko",
+          "cache": {}
+        }
+      }
+    },
+    "wireHex": "0a03757364124f0a08657468657265756d12430a08657468657265756d117b14ae47e188a74019333333333333f3bf2218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a00124d0a07626974636f696e12420a07626974636f696e110000000088aef740199a9999999999e93f2218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a00"
+  },
+  "upstreamCalls": {
+    "coldAndCached": 1,
+    "protobufCold": 1
+  }
+}

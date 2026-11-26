@@ -1,0 +1,1142 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "server/intelligence/src/facets/candle_history.ts",
+    "parser": "server/intelligence/src/normalize/token.ts",
+    "quota": "server/intelligence/src/api/quota_policy.ts",
+    "schema": "server/intelligence/proto/fortisnet/intelligence/v1/prices.proto",
+    "fixtureTime": "2026-01-02T03:04:05.000Z",
+    "first": 1767225600,
+    "corruptSourceId": "spl:CorruptMint11111111111111111111111111111",
+    "parsedIds": {
+      "custom chain:erc20:0x2222222222222222222222222222222222222222": {
+        "kind": "contract",
+        "sourceId": "custom chain:erc20:0x2222222222222222222222222222222222222222"
+      },
+      "custom\tchain:erc20:0x3333333333333333333333333333333333333333": {
+        "kind": "contract",
+        "sourceId": "custom\tchain:erc20:0x3333333333333333333333333333333333333333"
+      },
+      "l2/rollup:erc20:0x4444444444444444444444444444444444444444": {
+        "kind": "contract",
+        "sourceId": "l2/rollup:erc20:0x4444444444444444444444444444444444444444"
+      },
+      "Custom Chain:erc20:0x2222222222222222222222222222222222222222": {
+        "kind": "contract",
+        "sourceId": "custom chain:erc20:0x2222222222222222222222222222222222222222"
+      },
+      "ethereum": {
+        "kind": "coingecko",
+        "sourceId": "ethereum"
+      },
+      "stock:AAPL": null,
+      "spl:So11111111111111111111111111111111111111112": {
+        "kind": "spl",
+        "sourceId": "spl:So11111111111111111111111111111111111111112"
+      },
+      "spl:CorruptMint11111111111111111111111111111": {
+        "kind": "spl",
+        "sourceId": "spl:CorruptMint11111111111111111111111111111"
+      }
+    }
+  },
+  "order": [
+    "unkeyableJson",
+    "unkeyableProtobuf",
+    "unkeyableFormsJson",
+    "mixedJson",
+    "mixedProtobuf",
+    "storeFailureMixedJson",
+    "storeFailureProtobuf",
+    "unkeyableAgainJson"
+  ],
+  "cases": {
+    "unkeyableJson": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"custom chain:erc20:0x2222222222222222222222222222222222222222\"],\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\"}",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "485",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "text": "{\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\",\"series\":{\"custom chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}},\"cache\":{\"hit\":true,\"timestamp\":null,\"partial\":false}}",
+        "decoded": {
+          "from": 1767225600,
+          "to": 1767247200,
+          "interval": "1h",
+          "series": {
+            "custom chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            }
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": null,
+            "partial": false
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "unkeyableProtobuf": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/protobuf",
+        "hex": "0a3d637573746f6d20636861696e3a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232321080f2d6ca061880c4f6ca0622023164",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "165",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "decoded": {
+          "from": "1767225600",
+          "to": "1767744000",
+          "interval": "1d",
+          "series": [
+            {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "history": {
+                "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+                "interval": "1d",
+                "cache": {
+                  "hit": true
+                },
+                "coverage": {},
+                "window": {},
+                "availability": {}
+              }
+            }
+          ],
+          "cache": {
+            "hit": true
+          }
+        },
+        "wireHex": "0880f2d6ca061080c4f6ca061a023164228e010a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232124d0a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232120231642a02080132003a0042002a020801"
+      },
+      "providerCalls": []
+    },
+    "unkeyableFormsJson": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"custom\\tchain:erc20:0x3333333333333333333333333333333333333333\",\"l2/rollup:erc20:0x4444444444444444444444444444444444444444\",\"Custom Chain:erc20:0x2222222222222222222222222222222222222222\"],\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\"}",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "1219",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "3",
+        "x-rate-limit-remaining": "235"
+      },
+      "body": {
+        "text": "{\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\",\"series\":{\"custom\\tchain:erc20:0x3333333333333333333333333333333333333333\":{\"id\":\"custom\\tchain:erc20:0x3333333333333333333333333333333333333333\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"l2/rollup:erc20:0x4444444444444444444444444444444444444444\":{\"id\":\"l2/rollup:erc20:0x4444444444444444444444444444444444444444\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"Custom Chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}},\"cache\":{\"hit\":true,\"timestamp\":null,\"partial\":false}}",
+        "decoded": {
+          "from": 1767225600,
+          "to": 1767247200,
+          "interval": "1h",
+          "series": {
+            "custom\tchain:erc20:0x3333333333333333333333333333333333333333": {
+              "id": "custom\tchain:erc20:0x3333333333333333333333333333333333333333",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "l2/rollup:erc20:0x4444444444444444444444444444444444444444": {
+              "id": "l2/rollup:erc20:0x4444444444444444444444444444444444444444",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "Custom Chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            }
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": null,
+            "partial": false
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "mixedJson": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/json",
+        "text": "{\"ids\":[\" ethereum \",\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"stock:AAPL\",\"spl:So11111111111111111111111111111111111111112\",\"Custom Chain:erc20:0x2222222222222222222222222222222222222222\",\"ethereum\",\" custom chain:erc20:0x2222222222222222222222222222222222222222\\t\"],\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\"}",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "2330",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "7",
+        "x-rate-limit-remaining": "228"
+      },
+      "body": {
+        "text": "{\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\",\"series\":{\"ethereum\":{\"id\":\"ethereum\",\"interval\":\"1h\",\"points\":[[1767225600,101],[1767229200,102],[1767232800,103],[1767236400,104],[1767240000,105],[1767243600,106]],\"volumes\":[[1767225600,0.5],[1767229200,1.5],[1767232800,2.5],[1767236400,3.5],[1767240000,4.5],[1767243600,5.5]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\"},\"coverage\":{\"cachedPoints\":6,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767243600,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}},\"custom chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"stock:AAPL\":{\"error\":\"UNRECOGNIZED_ID\",\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"spl:So11111111111111111111111111111111111111112\":{\"id\":\"spl:So11111111111111111111111111111111111111112\",\"interval\":\"1h\",\"points\":[[1767225600,1.25],[1767229200,2.25],[1767232800,3.25],[1767236400,4.25],[1767240000,5.25],[1767243600,6.25]],\"volumes\":[[1767225600,100],[1767229200,101],[1767232800,102],[1767236400,103],[1767240000,104],[1767243600,105]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\"},\"coverage\":{\"cachedPoints\":6,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767243600,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}},\"Custom Chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}}},\"cache\":{\"hit\":false,\"timestamp\":\"2026-01-01T05:00:00.000Z\",\"partial\":true}}",
+        "decoded": {
+          "from": 1767225600,
+          "to": 1767247200,
+          "interval": "1h",
+          "series": {
+            "ethereum": {
+              "id": "ethereum",
+              "interval": "1h",
+              "points": [
+                [
+                  1767225600,
+                  101
+                ],
+                [
+                  1767229200,
+                  102
+                ],
+                [
+                  1767232800,
+                  103
+                ],
+                [
+                  1767236400,
+                  104
+                ],
+                [
+                  1767240000,
+                  105
+                ],
+                [
+                  1767243600,
+                  106
+                ]
+              ],
+              "volumes": [
+                [
+                  1767225600,
+                  0.5
+                ],
+                [
+                  1767229200,
+                  1.5
+                ],
+                [
+                  1767232800,
+                  2.5
+                ],
+                [
+                  1767236400,
+                  3.5
+                ],
+                [
+                  1767240000,
+                  4.5
+                ],
+                [
+                  1767243600,
+                  5.5
+                ]
+              ],
+              "cache": {
+                "hit": true,
+                "timestamp": "2026-01-01T05:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 6,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              },
+              "availability": {
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1767225600,
+                    "to": 1767657600,
+                    "days": 6
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1767225600,
+                    "to": 1767243600,
+                    "days": 2
+                  }
+                ]
+              }
+            },
+            "custom chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "stock:AAPL": {
+              "error": "UNRECOGNIZED_ID",
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "spl:So11111111111111111111111111111111111111112": {
+              "id": "spl:So11111111111111111111111111111111111111112",
+              "interval": "1h",
+              "points": [
+                [
+                  1767225600,
+                  1.25
+                ],
+                [
+                  1767229200,
+                  2.25
+                ],
+                [
+                  1767232800,
+                  3.25
+                ],
+                [
+                  1767236400,
+                  4.25
+                ],
+                [
+                  1767240000,
+                  5.25
+                ],
+                [
+                  1767243600,
+                  6.25
+                ]
+              ],
+              "volumes": [
+                [
+                  1767225600,
+                  100
+                ],
+                [
+                  1767229200,
+                  101
+                ],
+                [
+                  1767232800,
+                  102
+                ],
+                [
+                  1767236400,
+                  103
+                ],
+                [
+                  1767240000,
+                  104
+                ],
+                [
+                  1767243600,
+                  105
+                ]
+              ],
+              "cache": {
+                "hit": true,
+                "timestamp": "2026-01-01T05:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 6,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              },
+              "availability": {
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1767225600,
+                    "to": 1767657600,
+                    "days": 6
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1767225600,
+                    "to": 1767243600,
+                    "days": 2
+                  }
+                ]
+              }
+            },
+            "Custom Chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            }
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": "2026-01-01T05:00:00.000Z",
+            "partial": true
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "mixedProtobuf": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/protobuf",
+        "hex": "0a0a20657468657265756d200a3d637573746f6d20636861696e3a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232320a0a73746f636b3a4141504c0a2f73706c3a536f31313131313131313131313131313131313131313131313131313131313131313131313131313131320a3d437573746f6d20436861696e3a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232320a08657468657265756d0a3f20637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232091080f2d6ca061880c4f6ca0622023164",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "1134",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "7",
+        "x-rate-limit-remaining": "221"
+      },
+      "body": {
+        "decoded": {
+          "from": "1767225600",
+          "to": "1767744000",
+          "interval": "1d",
+          "series": [
+            {
+              "id": "ethereum",
+              "history": {
+                "id": "ethereum",
+                "interval": "1d",
+                "points": [
+                  {
+                    "unixSeconds": "1767225600",
+                    "value": 203
+                  },
+                  {
+                    "unixSeconds": "1767312000",
+                    "value": 204
+                  },
+                  {
+                    "unixSeconds": "1767398400",
+                    "value": 205
+                  },
+                  {
+                    "unixSeconds": "1767484800",
+                    "value": 206
+                  },
+                  {
+                    "unixSeconds": "1767571200",
+                    "value": 207
+                  },
+                  {
+                    "unixSeconds": "1767657600",
+                    "value": 208
+                  }
+                ],
+                "volumes": [
+                  {
+                    "unixSeconds": "1767225600",
+                    "value": 10
+                  },
+                  {
+                    "unixSeconds": "1767312000",
+                    "value": 11
+                  },
+                  {
+                    "unixSeconds": "1767398400",
+                    "value": 12
+                  },
+                  {
+                    "unixSeconds": "1767484800",
+                    "value": 13
+                  },
+                  {
+                    "unixSeconds": "1767571200",
+                    "value": 14
+                  },
+                  {
+                    "unixSeconds": "1767657600",
+                    "value": 15
+                  }
+                ],
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2026-01-06T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 6
+                },
+                "window": {
+                  "from": "1767225600",
+                  "to": "1767657600",
+                  "days": 6
+                },
+                "availability": {
+                  "from": "1767225600",
+                  "to": "1767657600",
+                  "days": 6,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1767225600",
+                      "to": "1767657600",
+                      "days": 6
+                    },
+                    {
+                      "interval": "1h",
+                      "from": "1767225600",
+                      "to": "1767243600",
+                      "days": 2
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "history": {
+                "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+                "interval": "1d",
+                "cache": {
+                  "hit": true
+                },
+                "coverage": {},
+                "window": {},
+                "availability": {}
+              }
+            },
+            {
+              "id": "stock:AAPL",
+              "failure": {
+                "error": "UNRECOGNIZED_ID",
+                "availability": {}
+              }
+            },
+            {
+              "id": "spl:So11111111111111111111111111111111111111112",
+              "history": {
+                "id": "spl:So11111111111111111111111111111111111111112",
+                "interval": "1d",
+                "points": [
+                  {
+                    "unixSeconds": "1767225600",
+                    "value": 2.5
+                  },
+                  {
+                    "unixSeconds": "1767312000",
+                    "value": 3.5
+                  },
+                  {
+                    "unixSeconds": "1767398400",
+                    "value": 4.5
+                  },
+                  {
+                    "unixSeconds": "1767484800",
+                    "value": 5.5
+                  },
+                  {
+                    "unixSeconds": "1767571200",
+                    "value": 6.5
+                  },
+                  {
+                    "unixSeconds": "1767657600",
+                    "value": 7.5
+                  }
+                ],
+                "volumes": [
+                  {
+                    "unixSeconds": "1767225600",
+                    "value": 200
+                  },
+                  {
+                    "unixSeconds": "1767398400",
+                    "value": 202
+                  },
+                  {
+                    "unixSeconds": "1767571200",
+                    "value": 204
+                  }
+                ],
+                "cache": {
+                  "hit": true,
+                  "timestamp": "2026-01-06T00:00:00.000Z"
+                },
+                "coverage": {
+                  "cachedPoints": 6
+                },
+                "window": {
+                  "from": "1767225600",
+                  "to": "1767657600",
+                  "days": 6
+                },
+                "availability": {
+                  "from": "1767225600",
+                  "to": "1767657600",
+                  "days": 6,
+                  "resolutions": [
+                    {
+                      "interval": "1d",
+                      "from": "1767225600",
+                      "to": "1767657600",
+                      "days": 6
+                    },
+                    {
+                      "interval": "1h",
+                      "from": "1767225600",
+                      "to": "1767243600",
+                      "days": 2
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "id": "Custom Chain:erc20:0x2222222222222222222222222222222222222222",
+              "history": {
+                "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+                "interval": "1d",
+                "cache": {
+                  "hit": true
+                },
+                "coverage": {},
+                "window": {},
+                "availability": {}
+              }
+            }
+          ],
+          "cache": {
+            "timestamp": "2026-01-06T00:00:00.000Z",
+            "partial": true
+          }
+        },
+        "wireHex": "0880f2d6ca061080c4f6ca061a02316422ed020a08657468657265756d12e0020a08657468657265756d120231641a0f0880f2d6ca061100000000006069401a0f088095dcca061100000000008069401a0f0880b8e1ca06110000000000a069401a0f0880dbe6ca06110000000000c069401a0f0880feebca06110000000000e069401a0f0880a1f1ca06110000000000006a40220f0880f2d6ca06110000000000002440220f088095dcca06110000000000002640220f0880b8e1ca06110000000000002840220f0880dbe6ca06110000000000002a40220f0880feebca06110000000000002c40220f0880a1f1ca06110000000000002e402a1c08011218323032362d30312d30365430303a30303a30302e3030305a320208063a150880f2d6ca061080a1f1ca06190000000000001840424b0880f2d6ca061080a1f1ca0619000000000000184022190a0231641080f2d6ca061880a1f1ca0621000000000000184022190a0231681080f2d6ca0618d0fed7ca06210000000000000040228e010a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232124d0a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232120231642a02080132003a00420022210a0a73746f636b3a4141504c1a130a0f554e5245434f474e495a45445f494412002288030a2f73706c3a536f313131313131313131313131313131313131313131313131313131313131313131313131313131313212d4020a2f73706c3a536f3131313131313131313131313131313131313131313131313131313131313131313131313131313132120231641a0f0880f2d6ca061100000000000004401a0f088095dcca06110000000000000c401a0f0880b8e1ca061100000000000012401a0f0880dbe6ca061100000000000016401a0f0880feebca06110000000000001a401a0f0880a1f1ca06110000000000001e40220f0880f2d6ca06110000000000006940220f0880b8e1ca06110000000000406940220f0880feebca061100000000008069402a1c08011218323032362d30312d30365430303a30303a30302e3030305a320208063a150880f2d6ca061080a1f1ca06190000000000001840424b0880f2d6ca061080a1f1ca0619000000000000184022190a0231641080f2d6ca061880a1f1ca0621000000000000184022190a0231681080f2d6ca0618d0fed7ca06210000000000000040228e010a3d437573746f6d20436861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232124d0a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232120231642a02080132003a0042002a1c1218323032362d30312d30365430303a30303a30302e3030305a1801"
+      },
+      "providerCalls": []
+    },
+    "storeFailureMixedJson": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"spl:CorruptMint11111111111111111111111111111\",\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"ethereum\"],\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\"}",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "1284",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "3",
+        "x-rate-limit-remaining": "218"
+      },
+      "body": {
+        "text": "{\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\",\"series\":{\"spl:CorruptMint11111111111111111111111111111\":{\"error\":\"UPSTREAM_UNAVAILABLE\",\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"custom chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"ethereum\":{\"id\":\"ethereum\",\"interval\":\"1h\",\"points\":[[1767225600,101],[1767229200,102],[1767232800,103],[1767236400,104],[1767240000,105],[1767243600,106]],\"volumes\":[[1767225600,0.5],[1767229200,1.5],[1767232800,2.5],[1767236400,3.5],[1767240000,4.5],[1767243600,5.5]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\"},\"coverage\":{\"cachedPoints\":6,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767243600,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}}},\"cache\":{\"hit\":false,\"timestamp\":\"2026-01-01T05:00:00.000Z\",\"partial\":true}}",
+        "decoded": {
+          "from": 1767225600,
+          "to": 1767247200,
+          "interval": "1h",
+          "series": {
+            "spl:CorruptMint11111111111111111111111111111": {
+              "error": "UPSTREAM_UNAVAILABLE",
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "custom chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "ethereum": {
+              "id": "ethereum",
+              "interval": "1h",
+              "points": [
+                [
+                  1767225600,
+                  101
+                ],
+                [
+                  1767229200,
+                  102
+                ],
+                [
+                  1767232800,
+                  103
+                ],
+                [
+                  1767236400,
+                  104
+                ],
+                [
+                  1767240000,
+                  105
+                ],
+                [
+                  1767243600,
+                  106
+                ]
+              ],
+              "volumes": [
+                [
+                  1767225600,
+                  0.5
+                ],
+                [
+                  1767229200,
+                  1.5
+                ],
+                [
+                  1767232800,
+                  2.5
+                ],
+                [
+                  1767236400,
+                  3.5
+                ],
+                [
+                  1767240000,
+                  4.5
+                ],
+                [
+                  1767243600,
+                  5.5
+                ]
+              ],
+              "cache": {
+                "hit": true,
+                "timestamp": "2026-01-01T05:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 6,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              },
+              "availability": {
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1767225600,
+                    "to": 1767657600,
+                    "days": 6
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1767225600,
+                    "to": 1767243600,
+                    "days": 2
+                  }
+                ]
+              }
+            }
+          },
+          "cache": {
+            "hit": false,
+            "timestamp": "2026-01-01T05:00:00.000Z",
+            "partial": true
+          }
+        }
+      },
+      "providerCalls": []
+    },
+    "storeFailureProtobuf": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/protobuf",
+        "hex": "0a3d637573746f6d20636861696e3a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232320a2c73706c3a436f72727570744d696e7431313131313131313131313131313131313131313131313131313131311080f2d6ca0618e09ad8ca0622023168",
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "content-length": "239",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "2",
+        "x-rate-limit-remaining": "216"
+      },
+      "body": {
+        "decoded": {
+          "from": "1767225600",
+          "to": "1767247200",
+          "interval": "1h",
+          "series": [
+            {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "history": {
+                "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+                "interval": "1h",
+                "cache": {
+                  "hit": true
+                },
+                "coverage": {},
+                "window": {},
+                "availability": {}
+              }
+            },
+            {
+              "id": "spl:CorruptMint11111111111111111111111111111",
+              "failure": {
+                "error": "UPSTREAM_UNAVAILABLE",
+                "availability": {}
+              }
+            }
+          ],
+          "cache": {
+            "partial": true
+          }
+        },
+        "wireHex": "0880f2d6ca0610e09ad8ca061a023168228e010a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232124d0a3d637573746f6d20636861696e3a65726332303a307832323232323232323232323232323232323232323232323232323232323232323232323232323232120231682a02080132003a00420022480a2c73706c3a436f72727570744d696e7431313131313131313131313131313131313131313131313131313131311a180a14555053545245414d5f554e415641494c41424c4512002a021801"
+      },
+      "providerCalls": []
+    },
+    "unkeyableAgainJson": {
+      "segment": "otherIds",
+      "request": {
+        "contentType": "application/json",
+        "text": "{\"ids\":[\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"spl:So11111111111111111111111111111111111111112\"],\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\"}",
+        "accept": "application/json"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "content-length": "1223",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "2",
+        "x-rate-limit-remaining": "214"
+      },
+      "body": {
+        "text": "{\"from\":1767225600,\"to\":1767247200,\"interval\":\"1h\",\"series\":{\"custom chain:erc20:0x2222222222222222222222222222222222222222\":{\"id\":\"custom chain:erc20:0x2222222222222222222222222222222222222222\",\"interval\":\"1h\",\"points\":[],\"volumes\":[],\"cache\":{\"hit\":true,\"timestamp\":null},\"coverage\":{\"cachedPoints\":0,\"fetchedPoints\":0},\"window\":{\"from\":null,\"to\":null,\"days\":0},\"availability\":{\"from\":null,\"to\":null,\"days\":0,\"resolutions\":[]}},\"spl:So11111111111111111111111111111111111111112\":{\"id\":\"spl:So11111111111111111111111111111111111111112\",\"interval\":\"1h\",\"points\":[[1767225600,1.25],[1767229200,2.25],[1767232800,3.25],[1767236400,4.25],[1767240000,5.25],[1767243600,6.25]],\"volumes\":[[1767225600,100],[1767229200,101],[1767232800,102],[1767236400,103],[1767240000,104],[1767243600,105]],\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\"},\"coverage\":{\"cachedPoints\":6,\"fetchedPoints\":0},\"window\":{\"from\":1767225600,\"to\":1767243600,\"days\":2},\"availability\":{\"from\":1767225600,\"to\":1767657600,\"days\":6,\"resolutions\":[{\"interval\":\"1d\",\"from\":1767225600,\"to\":1767657600,\"days\":6},{\"interval\":\"1h\",\"from\":1767225600,\"to\":1767243600,\"days\":2}]}}},\"cache\":{\"hit\":true,\"timestamp\":\"2026-01-01T05:00:00.000Z\",\"partial\":false}}",
+        "decoded": {
+          "from": 1767225600,
+          "to": 1767247200,
+          "interval": "1h",
+          "series": {
+            "custom chain:erc20:0x2222222222222222222222222222222222222222": {
+              "id": "custom chain:erc20:0x2222222222222222222222222222222222222222",
+              "interval": "1h",
+              "points": [],
+              "volumes": [],
+              "cache": {
+                "hit": true,
+                "timestamp": null
+              },
+              "coverage": {
+                "cachedPoints": 0,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": null,
+                "to": null,
+                "days": 0
+              },
+              "availability": {
+                "from": null,
+                "to": null,
+                "days": 0,
+                "resolutions": []
+              }
+            },
+            "spl:So11111111111111111111111111111111111111112": {
+              "id": "spl:So11111111111111111111111111111111111111112",
+              "interval": "1h",
+              "points": [
+                [
+                  1767225600,
+                  1.25
+                ],
+                [
+                  1767229200,
+                  2.25
+                ],
+                [
+                  1767232800,
+                  3.25
+                ],
+                [
+                  1767236400,
+                  4.25
+                ],
+                [
+                  1767240000,
+                  5.25
+                ],
+                [
+                  1767243600,
+                  6.25
+                ]
+              ],
+              "volumes": [
+                [
+                  1767225600,
+                  100
+                ],
+                [
+                  1767229200,
+                  101
+                ],
+                [
+                  1767232800,
+                  102
+                ],
+                [
+                  1767236400,
+                  103
+                ],
+                [
+                  1767240000,
+                  104
+                ],
+                [
+                  1767243600,
+                  105
+                ]
+              ],
+              "cache": {
+                "hit": true,
+                "timestamp": "2026-01-01T05:00:00.000Z"
+              },
+              "coverage": {
+                "cachedPoints": 6,
+                "fetchedPoints": 0
+              },
+              "window": {
+                "from": 1767225600,
+                "to": 1767243600,
+                "days": 2
+              },
+              "availability": {
+                "from": 1767225600,
+                "to": 1767657600,
+                "days": 6,
+                "resolutions": [
+                  {
+                    "interval": "1d",
+                    "from": 1767225600,
+                    "to": 1767657600,
+                    "days": 6
+                  },
+                  {
+                    "interval": "1h",
+                    "from": 1767225600,
+                    "to": 1767243600,
+                    "days": 2
+                  }
+                ]
+              }
+            }
+          },
+          "cache": {
+            "hit": true,
+            "timestamp": "2026-01-01T05:00:00.000Z",
+            "partial": false
+          }
+        }
+      },
+      "providerCalls": []
+    }
+  }
+}

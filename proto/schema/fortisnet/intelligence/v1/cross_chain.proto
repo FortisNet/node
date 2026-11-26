@@ -1,0 +1,164 @@
+syntax = "proto3";
+
+package fortisnet.intelligence.v1;
+
+import "fortisnet/intelligence/v1/prices.proto";
+import "google/protobuf/struct.proto";
+
+message CrossChainProviderCapabilities {
+  bool quote = 1;
+  bool execution = 2;
+  bool status = 3;
+}
+
+message CrossChainProvider {
+  string id = 1;
+  string name = 2;
+  string website_url = 3;
+  bool configured = 4;
+  string custody = 5;
+  CrossChainProviderCapabilities capabilities = 6;
+}
+
+message CrossChainProvidersResponse {
+  repeated CrossChainProvider providers = 1;
+  CacheInfo cache = 2;
+}
+
+message CrossChainEndpoint {
+  string chain_id = 1;
+  string token = 2;
+  uint32 decimals = 3;
+  string address = 4;
+}
+
+message CrossChainQuoteRequest {
+  CrossChainEndpoint from = 1;
+  CrossChainEndpoint to = 2;
+  string amount_in = 3;
+  optional uint32 slippage_bps = 4;
+  bool prepare = 5;
+  repeated string providers = 6;
+}
+
+message CrossChainStep {
+  string kind = 1;
+  string tool = 2;
+  optional string from_chain_id = 3;
+  optional string to_chain_id = 4;
+  optional string from_token = 5;
+  optional string to_token = 6;
+}
+
+message CrossChainExecution {
+  string kind = 1;
+  optional string to = 2;
+  optional string memo = 3;
+  optional string data = 4;
+  optional string value = 5;
+  optional string gas_limit = 6;
+  optional string approval_address = 7;
+}
+
+message CrossChainRoute {
+  string id = 1;
+  string provider_id = 2;
+  string provider_name = 3;
+  string provider_url = 4;
+  optional string provider_quote_id = 5;
+  optional string bridge_id = 6;
+  string bridge = 7;
+  optional string bridge_url = 8;
+  string risk_key = 9;
+  string custody = 10;
+  optional string output_protection = 11;
+  string amount_in = 12;
+  string amount_out = 13;
+  string amount_out_min = 14;
+  uint32 decimals_in = 15;
+  uint32 decimals_out = 16;
+  optional double fee_usd = 17;
+  optional string source_network_fee = 18;
+  optional uint32 eta_seconds = 19;
+  string quoted_at = 20;
+  string expires_at = 21;
+  repeated CrossChainStep steps = 22;
+  CrossChainExecution execution = 23;
+  uint32 rank = 24;
+}
+
+message CrossChainProviderAttempt {
+  string provider_id = 1;
+  string status = 2;
+  uint32 route_count = 3;
+}
+
+message CrossChainQuoteResponse {
+  repeated CrossChainRoute routes = 1;
+  optional string best_route_id = 2;
+  repeated CrossChainProviderAttempt attempts = 3;
+  CacheInfo cache = 4;
+}
+
+message CrossChainStatusRequest {
+  string provider_id = 1;
+  string tx_hash = 2;
+  string from_chain_id = 3;
+  string to_chain_id = 4;
+  optional string to_token = 5;
+  optional string to_symbol = 6;
+  optional uint32 to_decimals = 7;
+  optional string provider_quote_id = 8;
+  optional string deposit_memo = 9;
+  optional string bridge_id = 10;
+  optional string bridge = 11;
+}
+
+message CrossChainProgressStep {
+  string id = 1;
+  string kind = 2;
+  string label = 3;
+  string state = 4;
+  optional string chain_id = 5;
+  optional string tx_hash = 6;
+  optional string explorer_url = 7;
+  optional string started_at = 8;
+  optional string completed_at = 9;
+  optional uint32 duration_seconds = 10;
+  optional string timing_source = 11;
+  optional string detail = 12;
+  optional string error_code = 13;
+  optional string error_message = 14;
+}
+
+message CrossChainRecovery {
+  string kind = 1;
+  string title = 2;
+  string description = 3;
+  optional string action_label = 4;
+  optional string action_url = 5;
+}
+
+message CrossChainReceivedAsset {
+  optional string chain_id = 1;
+  string amount = 2;
+  optional string token_address = 3;
+  optional string symbol = 4;
+  optional uint32 decimals = 5;
+}
+
+message CrossChainStatusResponse {
+  string provider_id = 1;
+  string state = 2;
+  optional string substatus = 3;
+  optional string message = 4;
+  string source_hash = 5;
+  optional string destination_hash = 6;
+  optional string provider_explorer_url = 7;
+  optional string bridge_explorer_url = 8;
+  optional uint32 elapsed_seconds = 9;
+  CrossChainReceivedAsset actual_received = 10;
+  repeated CrossChainProgressStep progress = 11;
+  CrossChainRecovery recovery = 12;
+  google.protobuf.Struct provider_data = 13;
+}

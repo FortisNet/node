@@ -1,0 +1,9 @@
+# KraftKit 0.12.16 resolves Git commit versions incorrectly for these components.
+# The build uses stable refs and verifies their current heads against this file.
+unikraft/unikraft 7351f8b563c9e6773da9fdd5bacde6ac91e32112
+unikraft/lib-musl 5fed64ecd7f8abb29df444c73df6d797d4efa18f
+unikraft/lib-lwip ec55ae17618feeb57c8c10109bcf5c42723e8e95
+unikraft/lib-libunwind c00929901c1b07d3587c50c7a28ae58f9918f68f
+unikraft/lib-libcxxabi 6105b8a26bb084c4e59068c83fe667e591bd4fe3
+unikraft/lib-libcxx 980bcedd35d7dac8a12f4c7537bae5689b578739
+unikraft/lib-compiler-rt 61baeeb7ec4f88f0dd637bbbc52c9b459caa8d8d

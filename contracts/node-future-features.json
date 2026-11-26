@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "possible",
+  "notice": "Ideas for future node versions. Not available on this node, committed releases or delivery dates.",
+  "features": [
+    {
+      "id": "vpn",
+      "name": "VPN",
+      "description": "Private network connectivity through participating nodes."
+    },
+    {
+      "id": "storage",
+      "name": "Storage",
+      "description": "Encrypted storage with explicit access permissions."
+    },
+    {
+      "id": "compute",
+      "name": "Compute",
+      "description": "Run approved workloads on participating nodes."
+    },
+    {
+      "id": "agent-discovery",
+      "name": "Agent discovery",
+      "description": "Find agents and services with verifiable identities."
+    },
+    {
+      "id": "agreements",
+      "name": "Agent agreements",
+      "description": "Coordinate work with explicit terms and verifiable receipts."
+    }
+  ]
+}

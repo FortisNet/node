@@ -1,0 +1,1378 @@
+{
+  "source": {
+    "route": "server/intelligence/src/api/prices.ts",
+    "facet": "PricesFacet.spot",
+    "providers": [
+      "coingecko coin",
+      "coingecko contract",
+      "jupiter",
+      "vestige",
+      "tronscan",
+      "robinhood-assets"
+    ],
+    "maxIds": 100,
+    "decodedQueryLimit": 4000,
+    "fixtureTime": "2026-01-02T03:04:05.000Z"
+  },
+  "ids": {
+    "CONTRACT": "0x1111111111111111111111111111111111111111",
+    "STOCK": "0x2222222222222222222222222222222222222222",
+    "MINT": "So11111111111111111111111111111111111111112",
+    "ASA": "31566705",
+    "TRC10": "1001305"
+  },
+  "providerRequests": [
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x1111111111111111111111111111111111111111&vs_currencies=usd&include_24hr_change=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TEST",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=unknown-coin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x3333333333333333333333333333333333333333&vs_currencies=usd&include_24hr_change=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=11111111111111111111111111111111",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566706&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x1111111111111111111111111111111111111111&vs_currencies=usd&include_24hr_change=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TEST",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 503
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 429,
+      "retryAfter": "17"
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x1111111111111111111111111111111111111111&vs_currencies=usd&include_24hr_change=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TEST",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=0x1111111111111111111111111111111111111111&vs_currencies=usd&include_24hr_change=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/assets",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://lite-api.jup.ag/price/v3?ids=So11111111111111111111111111111111111111112",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.vestigelabs.org/assets/price?network_id=0&asset_ids=31566705&denominating_asset_id=31566704",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://apilist.tronscanapi.com/api/getAssetWithPriceList",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.robinhood.com/rhj/prices/TEST",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=queue-a&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=queue-b&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.coingecko.com/api/v3/simple/price?ids=queue-c&vs_currencies=usd&include_24hr_change=true&include_24hr_vol=true",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "cases": {
+    "mixedAllProviders": {
+      "segment": "mixed",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+            "price": 123.45,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 2.5,
+            "change24hPct": 1.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 3.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1001305": {
+            "sourceId": "tron:trc10:1001305",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "allCachedAfterRestart": {
+      "segment": "restart",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+            "price": 123.45,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 2.5,
+            "change24hPct": 1.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 3.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "tron:trc10:1001305": {
+            "sourceId": "tron:trc10:1001305",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          },
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 7
+    },
+    "allNegative": {
+      "segment": "allNegative",
+      "request": {
+        "ids": [
+          "unknown-coin",
+          "eip155:1:erc20:0x3333333333333333333333333333333333333333",
+          "spl:11111111111111111111111111111111",
+          "asa:31566706",
+          "tron:trc10:1001306",
+          "eip155:4663:erc20:0x4444444444444444444444444444444444444444"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "unknown-coin",
+          "eip155:1:erc20:0x3333333333333333333333333333333333333333",
+          "spl:11111111111111111111111111111111",
+          "asa:31566706",
+          "tron:trc10:1001306",
+          "eip155:4663:erc20:0x4444444444444444444444444444444444444444"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 13
+    },
+    "allNegativeCached": {
+      "segment": "allNegative",
+      "request": {
+        "ids": [
+          "unknown-coin"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "unknown-coin"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 13
+    },
+    "partialVestigeFailure": {
+      "segment": "partialVestigeFailure",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+            "price": 123.45,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 2.5,
+            "change24hPct": 1.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1001305": {
+            "sourceId": "tron:trc10:1001305",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [
+          "asa:31566705"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 22
+    },
+    "coingecko503ThreeAttempts": {
+      "segment": "cg503",
+      "request": {
+        "ids": [
+          "ethereum"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "ethereum"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 25
+    },
+    "coingeckoRecoveryAfterThree503": {
+      "segment": "cg503",
+      "request": {
+        "ids": [
+          "ethereum"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 26
+    },
+    "coingeckoRetrySucceedsAfter503": {
+      "segment": "cg503-retry-success",
+      "request": {
+        "ids": [
+          "bitcoin"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "bitcoin": {
+            "sourceId": "bitcoin",
+            "price": 64000,
+            "change24hPct": 0.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 28
+    },
+    "coingeckoRetrySuccessCached": {
+      "segment": "cg503-retry-success",
+      "request": {
+        "ids": [
+          "bitcoin"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "bitcoin": {
+            "sourceId": "bitcoin",
+            "price": 64000,
+            "change24hPct": 0.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 28
+    },
+    "coingecko429OpensSharedLane": {
+      "segment": "cg429",
+      "request": {
+        "ids": [
+          "ethereum"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "ethereum"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 29
+    },
+    "coingeckoContractBlockedBySharedBreaker": {
+      "segment": "cg429",
+      "request": {
+        "ids": [
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {},
+        "missing": [
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111"
+        ],
+        "invalid": []
+      },
+      "providerCalls": 29
+    },
+    "clientDisconnectedDuringProvider": {
+      "segment": "cancel",
+      "request": {
+        "ids": [
+          "ethereum"
+        ],
+        "client": "disconnect before upstream response"
+      },
+      "status": "client-aborted",
+      "headers": {},
+      "body": {
+        "providerWorkContinued": true
+      },
+      "providerCalls": 30
+    },
+    "cacheAfterClientDisconnect": {
+      "segment": "cancel",
+      "request": {
+        "ids": [
+          "ethereum"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "238"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": true,
+              "timestamp": "2026-01-02T03:04:05.000Z"
+            }
+          }
+        },
+        "missing": [],
+        "invalid": []
+      },
+      "providerCalls": 30
+    },
+    "mixedProtobuf": {
+      "segment": "mixedProtobuf",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ],
+        "accept": "application/protobuf"
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/protobuf",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "decoded": {
+          "fiat": "usd",
+          "prices": {
+            "ethereum": {
+              "sourceId": "ethereum",
+              "price": 3012.44,
+              "change24hPct": -1.25,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "coingecko",
+              "cache": {}
+            },
+            "eip155:1:erc20:0x1111111111111111111111111111111111111111": {
+              "sourceId": "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+              "price": 123.45,
+              "change24hPct": 2.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "coingecko",
+              "cache": {}
+            },
+            "spl:So11111111111111111111111111111111111111112": {
+              "sourceId": "spl:So11111111111111111111111111111111111111112",
+              "price": 2.5,
+              "change24hPct": 1.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "jupiter",
+              "cache": {}
+            },
+            "asa:31566705": {
+              "sourceId": "asa:31566705",
+              "price": 3.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "vestige",
+              "cache": {}
+            },
+            "tron:trc10:1001305": {
+              "sourceId": "tron:trc10:1001305",
+              "price": 4.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "tronscan",
+              "cache": {}
+            },
+            "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+              "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+              "price": 5.5,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "source": "robinhood-assets",
+              "cache": {}
+            }
+          }
+        },
+        "wireHex": "0a03757364124f0a08657468657265756d12430a08657468657265756d117b14ae47e188a74019000000000000f4bf2218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a0012b1010a396569703135353a313a65726332303a30783131313131313131313131313131313131313131313131313131313131313131313131313131313112740a396569703135353a313a65726332303a30783131313131313131313131313131313131313131313131313131313131313131313131313131313111cdccccccccdc5e401900000000000004402218323032362d30312d30325430333a30343a30352e3030305a3209636f696e6765636b6f3a00129b010a2f73706c3a536f313131313131313131313131313131313131313131313131313131313131313131313131313131313212680a2f73706c3a536f313131313131313131313131313131313131313131313131313131313131313131313131313131313211000000000000044019000000000000f83f2218323032362d30312d30325430333a30343a30352e3030305a32076a7570697465723a00124c0a0c6173613a3331353636373035123c0a0c6173613a3331353636373035110000000000000c402218323032362d30312d30325430333a30343a30352e3030305a3207766573746967653a0012590a1274726f6e3a74726331303a3130303133303512430a1274726f6e3a74726331303a313030313330351100000000000012402218323032362d30312d30325430333a30343a30352e3030305a320874726f6e7363616e3a0012b5010a3c6569703135353a343636333a65726332303a30783232323232323232323232323232323232323232323232323232323232323232323232323232323212750a3c6569703135353a343636333a65726332303a3078323232323232323232323232323232323232323232323232323232323232323232323232323232321100000000000016402218323032362d30312d30325430333a30343a30352e3030305a3210726f62696e686f6f642d6173736574733a00"
+      },
+      "providerCalls": 37
+    },
+    "unauthorized": {
+      "segment": "unauthorized",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222"
+        ],
+        "authorization": null
+      },
+      "status": 401,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "body": {
+        "error": "UNAUTHORIZED"
+      },
+      "providerCalls": 37
+    },
+    "largestValid100Ids": {
+      "segment": "largestValid100Ids",
+      "request": {
+        "ids": [
+          "ethereum",
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+          "spl:So11111111111111111111111111111111111111112",
+          "asa:31566705",
+          "tron:trc10:1001305",
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+          "bad:00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:02xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:03xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:04xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:05xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:07xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:08xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:09xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:10xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:11xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:12xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:13xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:14xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:15xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:16xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:17xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:18xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:19xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:20xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:21xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:22xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:23xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:24xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:25xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:26xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:27xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:28xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:29xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:30xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:31xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:32xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:33xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:34xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:35xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:36xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:37xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:38xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:39xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:40xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:41xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:42xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:43xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:44xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:45xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:46xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:47xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:48xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:49xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:50xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:51xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:52xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:53xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:54xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:55xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:56xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:57xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:58xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:59xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:60xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:61xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:62xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:63xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:64xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:65xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:66xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:67xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:68xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:69xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:71xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:72xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:73xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:74xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:75xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:76xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:77xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:78xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:79xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:80xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:81xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:82xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:83xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:84xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:85xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:86xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:87xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:88xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:89xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:90xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:91xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:92xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:93xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ]
+      },
+      "status": 200,
+      "headers": {
+        "content-type": "application/json; charset=utf-8",
+        "vary": "Accept",
+        "cache-control": "no-store",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer",
+        "permissions-policy": "camera=(), microphone=(), geolocation=()",
+        "x-rate-limit-cost": "1",
+        "x-rate-limit-remaining": "239"
+      },
+      "body": {
+        "fiat": "usd",
+        "prices": {
+          "ethereum": {
+            "sourceId": "ethereum",
+            "price": 3012.44,
+            "change24hPct": -1.25,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:1:erc20:0x1111111111111111111111111111111111111111": {
+            "sourceId": "eip155:1:erc20:0x1111111111111111111111111111111111111111",
+            "price": 123.45,
+            "change24hPct": 2.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "coingecko",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "spl:So11111111111111111111111111111111111111112": {
+            "sourceId": "spl:So11111111111111111111111111111111111111112",
+            "price": 2.5,
+            "change24hPct": 1.5,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "jupiter",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "asa:31566705": {
+            "sourceId": "asa:31566705",
+            "price": 3.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "vestige",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "tron:trc10:1001305": {
+            "sourceId": "tron:trc10:1001305",
+            "price": 4.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "tronscan",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          },
+          "eip155:4663:erc20:0x2222222222222222222222222222222222222222": {
+            "sourceId": "eip155:4663:erc20:0x2222222222222222222222222222222222222222",
+            "price": 5.5,
+            "change24hPct": null,
+            "asOf": "2026-01-02T03:04:05.000Z",
+            "stale": false,
+            "source": "robinhood-assets",
+            "cache": {
+              "hit": false,
+              "timestamp": null
+            }
+          }
+        },
+        "missing": [],
+        "invalid": [
+          "bad:00xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:01xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:02xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:03xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:04xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:05xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:06xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:07xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:08xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:09xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:10xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:11xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:12xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:13xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:14xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:15xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:16xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:17xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:18xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:19xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:20xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:21xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:22xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:23xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:24xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:25xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:26xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:27xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:28xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:29xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:30xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:31xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:32xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:33xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:34xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:35xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:36xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:37xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:38xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:39xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:40xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:41xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:42xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:43xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:44xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:45xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:46xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:47xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:48xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:49xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:50xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:51xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:52xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:53xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:54xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:55xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:56xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:57xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:58xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:59xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:60xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:61xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:62xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:63xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:64xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:65xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:66xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:67xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:68xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:69xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:70xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:71xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:72xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:73xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:74xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:75xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:76xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:77xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:78xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:79xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:80xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:81xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:82xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:83xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:84xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:85xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:86xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:87xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:88xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:89xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:90xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:91xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:92xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "bad:93xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ]
+      },
+      "providerCalls": 44
+    },
+    "coingeckoQueuePressure": {
+      "segment": "coinQueuePressure",
+      "request": {
+        "concurrentIds": [
+          "queue-a",
+          "queue-b",
+          "queue-c"
+        ]
+      },
+      "status": [
+        200,
+        200,
+        200
+      ],
+      "headers": [
+        {
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "239"
+        },
+        {
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "238"
+        },
+        {
+          "x-rate-limit-cost": "1",
+          "x-rate-limit-remaining": "237"
+        }
+      ],
+      "body": [
+        {
+          "fiat": "usd",
+          "prices": {
+            "queue-a": {
+              "sourceId": "queue-a",
+              "price": 107,
+              "change24hPct": 1,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "stale": false,
+              "source": "coingecko",
+              "cache": {
+                "hit": false,
+                "timestamp": null
+              }
+            }
+          },
+          "missing": [],
+          "invalid": []
+        },
+        {
+          "fiat": "usd",
+          "prices": {
+            "queue-b": {
+              "sourceId": "queue-b",
+              "price": 108,
+              "change24hPct": 1,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "stale": false,
+              "source": "coingecko",
+              "cache": {
+                "hit": false,
+                "timestamp": null
+              }
+            }
+          },
+          "missing": [],
+          "invalid": []
+        },
+        {
+          "fiat": "usd",
+          "prices": {
+            "queue-c": {
+              "sourceId": "queue-c",
+              "price": 109,
+              "change24hPct": 1,
+              "asOf": "2026-01-02T03:04:05.000Z",
+              "stale": false,
+              "source": "coingecko",
+              "cache": {
+                "hit": false,
+                "timestamp": null
+              }
+            }
+          },
+          "missing": [],
+          "invalid": []
+        }
+      ],
+      "providerCalls": 47,
+      "pressure": {
+        "maxConcurrent": 2,
+        "callsBeforeRelease": 2
+      }
+    }
+  }
+}

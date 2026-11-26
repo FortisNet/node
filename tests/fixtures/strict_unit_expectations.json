@@ -1,0 +1,451 @@
+{
+  "address": {
+    "limit=": {
+      "valid": false
+    },
+    "limit": {
+      "valid": false
+    },
+    "limit=-1": {
+      "valid": false
+    },
+    "limit=1.5": {
+      "valid": false
+    },
+    "limit=2.0": {
+      "valid": false
+    },
+    "limit=2e0": {
+      "valid": false
+    },
+    "limit=0x3": {
+      "valid": false
+    },
+    "limit=0b11": {
+      "valid": false
+    },
+    "limit=0o3": {
+      "valid": false
+    },
+    "limit=+3": {
+      "valid": false
+    },
+    "limit=%2B3": {
+      "valid": false
+    },
+    "limit=%203%20": {
+      "valid": false
+    },
+    "limit=%093": {
+      "valid": false
+    },
+    "limit=%C2%A03": {
+      "valid": false
+    },
+    "limit=%E2%80%8B3": {
+      "valid": false
+    },
+    "limit=3abc": {
+      "valid": false
+    },
+    "limit=Infinity": {
+      "valid": false
+    },
+    "limit=NaN": {
+      "valid": false
+    },
+    "limit=1&limit=2": {
+      "valid": true,
+      "value": {
+        "limit": 1
+      }
+    },
+    "limit=3%00": {
+      "valid": false
+    },
+    "limit=%zz": {
+      "valid": false
+    },
+    "limit=%EF%BC%93": {
+      "valid": false
+    },
+    "limit=.5e1": {
+      "valid": false
+    },
+    "limit=5.": {
+      "valid": false
+    },
+    "since=1&since=2": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "since": "1"
+      }
+    },
+    "since=%zz": {
+      "valid": false
+    },
+    "refresh=true&refresh=true": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "refresh": true
+      }
+    },
+    "token=a&token=b": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "token": "a"
+      }
+    },
+    "token=%ED%A0%80": {
+      "valid": false
+    },
+    "token=%FF": {
+      "valid": false
+    },
+    "priceId=a&priceId=b": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "priceId": "a"
+      }
+    },
+    "from=": {
+      "valid": false
+    },
+    "from=-0": {
+      "valid": false
+    },
+    "from=-1": {
+      "valid": false
+    },
+    "from=1.5": {
+      "valid": false
+    },
+    "from=1e3": {
+      "valid": false
+    },
+    "from=0x10": {
+      "valid": false
+    },
+    "from=1&from=2": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "from": 1
+      }
+    },
+    "to=-0": {
+      "valid": false
+    },
+    "from=%20": {
+      "valid": false
+    },
+    "to=1e400": {
+      "valid": false
+    },
+    "flow=out&token=x&flow=in": {
+      "valid": true,
+      "value": {
+        "limit": 100,
+        "token": "x",
+        "flow": "out"
+      }
+    },
+    "x=%zz&y": {
+      "valid": false
+    },
+    "limit=2#x": {
+      "valid": false
+    },
+    "limit=%E0%A4%A": {
+      "valid": false
+    },
+    "since=%C0%80": {
+      "valid": false
+    }
+  },
+  "news": {
+    "?topics=a&topics=b": {
+      "status": 200,
+      "key": "news:|40"
+    },
+    "?topics=macro&topics=macro": {
+      "status": 200,
+      "key": "news:macro|40"
+    },
+    "?topics=%ZZ": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?topics=%E9": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=0": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=101": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=-1": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1.5": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1.0": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1e2": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1e3": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=0x10": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=0b11": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=0o7": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=%2B5": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=+5": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=%205%20": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=%20": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=abc": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=Infinity": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=-Infinity": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=NaN": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1e400": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=9007199254740991": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=9007199254740993": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=-9007199254740993": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1_000": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=\u0663": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=5&limit=6": {
+      "status": 200,
+      "key": "news:|5"
+    },
+    "?limit=5&limit=5": {
+      "status": 200,
+      "key": "news:|5"
+    },
+    "?limit=0.0000001": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=-0": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=.5e1": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=5.": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=%0A5": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=5%00": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?topics=macro&limit=abc": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?topics=a&topics=b&limit=0": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?topics=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&limit=abc": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=7#frag": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=%2": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    },
+    "?limit=1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111": {
+      "status": 400,
+      "body": "{\"error\":\"BAD_REQUEST\"}"
+    }
+  },
+  "search": {
+    "q-repeated": {
+      "term": "a"
+    },
+    "q-repeated-same": {
+      "term": "usd"
+    },
+    "q-repeated-empty": {
+      "term": "usd"
+    },
+    "term-bad-escape": {
+      "term": null
+    },
+    "term-invalid-utf8": {
+      "term": null
+    },
+    "term-lone-surrogate": {
+      "term": null
+    }
+  },
+  "page": {
+    "days-negative": {
+      "strictExpected": "invalid"
+    },
+    "days-fraction": {
+      "strictExpected": "invalid"
+    },
+    "days-empty": {
+      "strictExpected": "invalid"
+    },
+    "days-bare-key": {
+      "strictExpected": "invalid"
+    },
+    "days-blank": {
+      "strictExpected": "invalid"
+    },
+    "days-word": {
+      "strictExpected": "invalid"
+    },
+    "days-nan": {
+      "strictExpected": "invalid"
+    },
+    "days-infinity": {
+      "strictExpected": "invalid"
+    },
+    "days-huge": {
+      "strictExpected": "invalid"
+    },
+    "days-negative-zero": {
+      "strictExpected": "invalid"
+    },
+    "days-hex-empty": {
+      "strictExpected": "invalid"
+    },
+    "days-underscore": {
+      "strictExpected": "invalid"
+    },
+    "days-repeated": {
+      "strictExpected": "ok"
+    },
+    "days-repeated-same": {
+      "strictExpected": "ok"
+    },
+    "interval-repeated": {
+      "strictExpected": "ok"
+    },
+    "include-repeated": {
+      "strictExpected": "ok"
+    },
+    "hint-repeated": {
+      "strictExpected": "ok"
+    },
+    "days-padded": {
+      "strictExpected": "invalid"
+    },
+    "days-plus": {
+      "strictExpected": "invalid"
+    },
+    "days-decimal-zero": {
+      "strictExpected": "invalid"
+    },
+    "days-exponent": {
+      "strictExpected": "invalid"
+    },
+    "days-hex": {
+      "strictExpected": "invalid"
+    },
+    "days-binary": {
+      "strictExpected": "invalid"
+    },
+    "days-octal": {
+      "strictExpected": "invalid"
+    },
+    "days-tab": {
+      "strictExpected": "invalid"
+    },
+    "series-hex-16": {
+      "strictExpected": "invalid"
+    },
+    "series-hex-16-protobuf": {
+      "strictExpected": "invalid"
+    }
+  }
+}
