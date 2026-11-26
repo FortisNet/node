@@ -6,9 +6,9 @@ What is promised: the native URL parser gives, for every input, what
 (node:22-alpine, Ada 2.9.2): the same ten components, or the same refusal.
 The address filters that decide what the server may fetch depend on it.
 
-Where the expected answers come from: the corpus was frozen from that runtime
-by tests/reference/generate_whatwg_url_corpus.mjs ("source" in the corpus names the
-image, Node.js, Ada and ICU versions). This test never consults Python's
+Where the expected answers come from: the corpus is the node's own reference.
+It was first frozen from that runtime ("source" in the corpus names the
+image, Node.js, Ada and ICU versions) and is now maintained here. This test never consults Python's
 urllib or any other URL implementation; it only compares the driver's output
 with the corpus.
 

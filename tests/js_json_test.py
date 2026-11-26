@@ -9,12 +9,11 @@ What is promised: for a JSON document the server
   * encodes it as a google.protobuf.Value exactly as protobuf-es 2.x does;
   * counts the elements of a top-level array.
 
-Where the expected answers come from: Python cannot be the reference (it
-formats numbers differently and has no protobuf-es), so the answers were
-recorded once from Node.js and @bufbuild/protobuf, by
-tests/reference/record_js_json.mjs, into
-tests/corpus/js_json_expectations.json. The header of that file names the
-versions. This test only replays it: it never parses or formats a document
+Where the expected answers come from: they are the node's own reference,
+tests/corpus/js_json_expectations.json. They were first recorded from
+Node.js and @bufbuild/protobuf (the header of that file names the versions)
+and are now maintained here: a deliberate change of behaviour changes that
+file in the same commit. This test only replays it: it never parses or formats a document
 itself, and it does not reproduce the JavaScript random generator (the seeded
 documents are stored as data).
 

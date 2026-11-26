@@ -4,8 +4,6 @@
     "engine": "Node.js 25.9.0 (V8 14.1.146.11-node.25, ICU 78.3)",
     "node": "25.9.0",
     "unicode": "17.0",
-    "recorder": "tests/reference/record_js_case.mjs",
-    "regenerate": "node tests/reference/record_js_case.mjs",
     "layout": {
       "scalars": "[code point in hex, upper-cased, lower-cased] for every Unicode scalar value (U+0000..U+10FFFF without the surrogates U+D800..U+DFFF) that either operation changes. Every scalar value not listed is returned unchanged by both operations.",
       "contexts": "[input, upper-cased, lower-cased]: Final_Sigma and special-casing contexts.",

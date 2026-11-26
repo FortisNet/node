@@ -81,12 +81,6 @@ The dashboard links to and explains the other public pages: the error board (`/e
 - `operations_pages_test` covers buffer bounds and disabled documentation links.
 - `tests/operations_routes_test.py` and `tests/statusz_route_test.py` replay the routes against the real program.
 
-All of these run in `make test`, except the browser test, which is run by hand. It needs Node.js and Chrome or Chromium; set `CHROME` to its path if it is not found:
-
-```sh
-node tests/reference/dashboard_browser_test.mjs build/fortis_node_operations_test build/dashboard-evidence
-```
-
-It starts an isolated node and a fresh browser profile. The HTML comes from the real program; the metrics are local fixtures. It covers desktop and mobile navigation, filtering and pagination, keyboard chart inspection, gaps, known zeros, unsupported values, omitted samples, failed and malformed responses, pausing and the benchmark chart. It writes screenshots and `browser-result.json` to the output directory.
+All of these run in `make test`. Layout, keyboard use and accessibility in a real browser are checked by hand after a change to the dashboard.
 
 References for the operating-system counters: [Linux procfs](https://docs.kernel.org/filesystems/proc.html) and [cgroup v2](https://docs.kernel.org/admin-guide/cgroup-v2.html).

@@ -139,7 +139,6 @@ The gate runs the unit commands and the `test-current-contracts` replays. It
 does not run:
 
 - the other Python replays of `make test`;
-- the two checks that need a JavaScript engine (`tests/reference/`);
 - the sanitizer builds (see [sanitizers.md](sanitizers.md));
 - a release build or a test of the packaged executable.
 

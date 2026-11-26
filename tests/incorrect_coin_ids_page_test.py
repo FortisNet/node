@@ -11,11 +11,10 @@ panels. The rule is:
 So a provider rate limit (http_rate_limited, 429) or a missing quote
 (quote_unavailable) never appears as an incorrect coin ID.
 
-THIS TEST IS WEAKER THAN tests/reference/incorrect_coin_ids_page_test.mjs. That test
-runs the script in a JavaScript engine with fake page elements and looks at
-the HTML it produces for four records. Python's standard library cannot run
-JavaScript, so this test never executes the script. It checks the source
-text instead:
+THIS TEST DOES NOT EXECUTE THE PAGE'S SCRIPT. Python's standard library
+cannot run JavaScript, so what the script displays for given records is not
+checked here; try the page in a browser after changing it. The test checks
+the source text instead:
   1. the page names the panel, says it is read-only and has no form or
      control that could submit anything;
   2. the script cannot write over the network: its only request is one

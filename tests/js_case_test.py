@@ -6,17 +6,14 @@ String.prototype.toUpperCase / toLowerCase return in the JavaScript engine
 the server replaced (full Unicode case mapping, including one-to-many
 mappings such as "ß" -> "SS" and the Final_Sigma rule for "Σ").
 
-Where the expected answers come from: Python cannot be the reference (its
-Unicode version and its special-casing differ from the engine's), so the
-engine's own answers were recorded once, by
-tests/reference/record_js_case.mjs, into
-tests/corpus/js_case_expectations.json. The header of that file names the
-engine and the Unicode version. This test only replays it; no JavaScript
-engine is needed.
+Where the expected answers come from: they are the node's own reference,
+tests/corpus/js_case_expectations.json. They were first recorded from a
+JavaScript engine, named in the header of that file with its Unicode
+version, and are now maintained here: a deliberate change of behaviour
+changes that file in the same commit. Python is not used as a reference
+(its Unicode version and special-casing vary with the interpreter).
 
-What is exercised (as the earlier JavaScript version of this test, except that the
-mixed strings come from the recorder's corrected generator; the earlier one
-produced only 29 different strings):
+What is exercised:
   * every Unicode scalar value alone (U+0000..U+10FFFF without the surrogates
     U+D800..U+DFFF), upper-cased and lower-cased. The data file lists only the
     scalar values that change; every other one must come back unchanged;

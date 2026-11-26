@@ -185,7 +185,7 @@ comparison all use `proto_wire::Reader`.
 - `python3 tests/js_json_test.py build/js_json_test` compares the serializer
   with recorded reference answers: an independent source-order `Map`
   reference using Node.js scalar formatting and protobuf-es scalar encodings
-  with independent Struct framing (`tests/reference/record_js_json.mjs`).
+  with independent Struct framing.
 - `tests/proto_request_reader_test.cpp`, `tests/query_string_test.cpp` and
   `tests/unicode_contract_test.cpp` pin the shared request reader, the query
   parser and the Unicode rules.
