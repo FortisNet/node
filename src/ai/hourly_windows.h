@@ -8,7 +8,7 @@
 
 #include "threading.h"
 
-namespace fortis::compat {
+namespace fortis::ai::quota {
 
 // The hourly allowances of the AI conversation routes
 // (docs/compat-decisions.md#hourly-windows): a fixed window from the first
@@ -63,4 +63,4 @@ class HourlyWindows {
   fortis::base::Mutex mutex_;
 };
 
-}  // namespace fortis::compat
+}  // namespace fortis::ai::quota

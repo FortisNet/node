@@ -5,7 +5,7 @@
 // Guest-safe.
 #include "chain_family_drivers.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -369,7 +369,7 @@ bool StellarView::Fetch(Context& ctx, const Network& network, const char* hash, 
     const Value* text = js_string(arena, memo);
     if (text) {
       size_t begin = 0, end = 0;
-      fortis::compat::token_text::Trim(text->text, text->length, &begin, &end);
+      fortis::codec::provider_text::Trim(text->text, text->length, &begin, &end);
       if (end > begin) tj::Set(arena, out, "memo", tj::Str(arena, text->text + begin, end - begin));
     }
   }

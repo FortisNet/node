@@ -7,7 +7,7 @@
 #include <cstdint>
 #include <string_view>
 
-namespace fortis::compat::sandbox {
+namespace fortis::operations::sandbox {
 /** Owned local-control reply; payload is sanitized job status or a fixed error.
  * Accepted means durable acceptance, not application readiness or success.
  */
@@ -41,4 +41,4 @@ uint32_t PeerUid(int fd);
  * No abstract namespace, pathname traversal, symlinks or UID fallback is accepted.
  */
 base::FileDescriptor Connect(std::string_view path, Deadline deadline);
-}  // namespace fortis::compat::sandbox
+}  // namespace fortis::operations::sandbox

@@ -8,7 +8,7 @@
 #include "media_registry.h"
 #include "spot_provider_owner.h"
 #include "threading.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdarg.h>
@@ -132,7 +132,7 @@ void SetError(FacetReply* result, const chains::Error& error) {
 const char* Canonical(Arena& arena, const Network& network, const char* address) {
   if (network.family != chains::Family::kEvm) return address;
   // String.prototype.toLowerCase (any non-ASCII character maps as in JS).
-  Value* folded = fortis::compat::token_text::ToLowerCase(arena, address, strlen(address));
+  Value* folded = fortis::codec::provider_text::ToLowerCase(arena, address, strlen(address));
   if (!folded) return nullptr;
   return folded->text;
 }
@@ -166,7 +166,7 @@ bool SplitTrackedTokens(const char* value, size_t length, std::unique_ptr<char*[
   for (size_t i = 0; i <= length; ++i) {
     if (i < length && value[i] != ',') continue;
     size_t b = 0, e = 0;
-    fortis::compat::token_text::Trim(value + start, i - start, &b, &e);
+    fortis::codec::provider_text::Trim(value + start, i - start, &b, &e);
     if (e > b) {
       auto item = base::AllocateStorage<char[]>(e - b + 1);
       if (!item) return false;
@@ -537,7 +537,7 @@ Value* balance_entry(Arena& arena, const char* key, const Value* t, const Value*
     units = chains::JsNumber(display);
   } else {
     const Value* raw = tj::Get(t, "balanceRaw");
-    const double number = tj::IsString(raw) ? fortis::compat::token_text::ToNumber(raw->text, raw->length) : chains::JsNumber(raw);
+    const double number = tj::IsString(raw) ? fortis::codec::provider_text::ToNumber(raw->text, raw->length) : chains::JsNumber(raw);
     const double decimals = chains::JsNumber(tj::Get(t, "decimals"));
     units = number / (decimals >= 0 && decimals <= 22 && trunc(decimals) == decimals ? pow(10, decimals)
                                                                                      : pow(10, decimals));
@@ -1554,7 +1554,7 @@ Revalidation* selector_revalidation(void* opaque, const char* key) {
 }  // namespace
 
 const char* WalletQueryContext::MethodSignature(const char* selector, Arena& arena) {
-  Value* lowered = fortis::compat::token_text::ToLowerCase(arena, selector, strlen(selector));
+  Value* lowered = fortis::codec::provider_text::ToLowerCase(arena, selector, strlen(selector));
   if (!lowered) return nullptr;
   char key[256];
   if (!key_text(key, sizeof(key), "4byte:%s", lowered->text)) return nullptr;

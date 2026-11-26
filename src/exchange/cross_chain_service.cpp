@@ -10,12 +10,12 @@
 #include "device_policy_step.h"
 #include "discovery_route_support.h"
 #include "http_middleware.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "price_history_batch_codec.h"
 #include "threading.h"
 #include "token_json.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "whatwg_url.h"
 
 #include <math.h>
@@ -33,7 +33,7 @@ namespace {
 namespace cc = fortis::exchange::cross_chain;
 namespace tj = fortis::codec::tj;
 namespace hb = fortis::codec::history_batch;
-namespace jj = fortis::compat::js_json;
+namespace jj = fortis::codec::json_document_writer;
 namespace pw = fortis::codec::proto_wire;
 using tj::OutBuffer;
 using tj::Value;
@@ -320,7 +320,7 @@ bool only_keys(const Value* object, const char* const* keys, size_t count) {
 Value* trimmed(tj::Arena& arena, const Value* v) {
   if (!tj::IsString(v)) return nullptr;
   size_t begin = 0, end = 0;
-  fortis::compat::token_text::Trim(v->text, v->length, &begin, &end);
+  fortis::codec::provider_text::Trim(v->text, v->length, &begin, &end);
   return tj::Str(arena, v->text + begin, end - begin);
 }
 

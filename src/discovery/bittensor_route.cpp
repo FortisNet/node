@@ -19,7 +19,7 @@ namespace fortis::discovery {
 
 namespace {
 
-using fortis::compat::js_json::OutBuffer;
+using fortis::codec::json_document_writer::OutBuffer;
 
 constexpr uint32_t kCost = 10;
 constexpr size_t kSlots = http::HttpResponseHandoff::kCapacity;
@@ -847,7 +847,7 @@ bool BittensorNormalizePayload(DiscoveryWorkspace* workspace, const unsigned cha
                                            kDiscoveryTokens, codec::kBoundedJsonMaxExpandedInputBytes,
                                            &error)) return false;
   OutBuffer out{workspace->payload, sizeof(workspace->payload)};
-  if (!fortis::compat::js_json::Stringify(document, document.root(), out, DiscoveryScratch(workspace)))
+  if (!fortis::codec::json_document_writer::Stringify(document, document.root(), out, DiscoveryScratch(workspace)))
     return false;
   *payload_length = out.used;
   return true;
@@ -876,12 +876,12 @@ bool BittensorEncodeResponse(DiscoveryWorkspace* workspace, const uint8_t* paylo
     return false;
   const auto scratch = DiscoveryScratch(workspace);
   OutBuffer measure{};
-  if (!fortis::compat::js_json::AppendProtoValue(document, document.root(), measure, scratch))
+  if (!fortis::codec::json_document_writer::AppendProtoValue(document, document.root(), measure, scratch))
     return false;
   OutBuffer out{workspace->proto_out, sizeof(workspace->proto_out)};
   fortis::codec::proto_wire::PutTag(out, 1, 2);
   fortis::codec::proto_wire::PutVarint(out, measure.used);
-  if (!fortis::compat::js_json::AppendProtoValue(document, document.root(), out, scratch)) return false;
+  if (!fortis::codec::json_document_writer::AppendProtoValue(document, document.root(), out, scratch)) return false;
   OutBuffer cache{};
   AppendDiscoveryCacheProto(cache, hit, hit ? as_of_ms : -1, false);
   fortis::codec::proto_wire::PutTag(out, 2, 2);

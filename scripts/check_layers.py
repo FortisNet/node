@@ -12,11 +12,16 @@ or from another module in the same layer (peers stay independent), is a
 violation:
 
   0  base                         header-only seams (Clock, Starter<T>, ...)
-  1  codec, crypto, config        byte/JSON codecs (tj, price_history_batch_codec,
-                                  bounded_json, protobuf), crypto, NativeConfig
-  2  compat                       TypeScript-compatibility helpers (js_case,
-                                  js_json, whatwg_url, token_text,
-                                  diagnostic_redaction, ...)
+  1  compat, security             compat: the remaining helpers that reproduce
+                                  another runtime's behaviour (js_case,
+                                  js_date_parse, js_regex, whatwg_url, idna);
+                                  security: the secret scanner for public
+                                  error reports and AI text
+                                  (diagnostic_redaction, redaction_tables)
+  2  codec, crypto, config        byte/JSON codecs (tj, price_history_batch_codec,
+                                  bounded_json, json_document_writer, protobuf),
+                                  the node's text rules (provider_text,
+                                  text_sanitize), crypto, NativeConfig
   3  http, storage                HTTP server/clients, KV store
   4  auth                         device auth, attestation, EVM proofs
   5  providers, networks          provider lanes/requests, price-id parser,
@@ -33,6 +38,9 @@ violation:
 
 Why the less obvious placements are where they are (the order follows the
 real includes; it was not loosened to make the check pass):
+  - compat sits BELOW codec. What is left in compat/ includes nothing but
+    base, and codec's provider_text.cpp still calls its case mapping and date
+    parser (js_case.h, js_date_parse.h).
   - discovery sits BELOW prices. discovery/ is the shared market-data layer
     (discovery_cache SWR caches, market_view, media_registry) and the
     coin_price_scheduler in prices/ reads it. coin_popularity (the decayed
@@ -79,8 +87,8 @@ import sys
 
 LAYERS = [
     ["base"],
+    ["compat", "security"],
     ["codec", "crypto", "config"],
-    ["compat"],
     ["http", "storage"],
     ["auth"],
     ["providers", "networks"],

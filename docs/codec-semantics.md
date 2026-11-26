@@ -24,7 +24,7 @@ those decisions.
 | Codec | Files | Model | Use it for |
 |---|---|---|---|
 | Bounded tokenizer (`BoundedJsonDocument`) | `src/codec/bounded_json.{h,cpp}` | Strict, allocation-free tokens over the caller's buffer | Untrusted request bodies and provider replies that are read field by field |
-| JS serializer (`js_json`) | `src/compat/js_json.{h,cpp}` | Not a parser: `JSON.stringify` and `google.protobuf.Value/Struct` output over a bounded token document | Relaying a provider payload as JSON or as a Struct |
+| Document writer (`json_document_writer`) | `src/codec/json_document_writer.{h,cpp}` | Not a parser: `JSON.stringify` and `google.protobuf.Value/Struct` output over a bounded token document | Relaying a provider payload as JSON or as a Struct |
 | Mutable DOM (`tj`) | `src/codec/token_json.{h,cpp}` | Arena DOM with JavaScript value semantics; parse, build, patch, stringify, Struct | Documents the server builds or patches itself and then writes as JSON and as a Struct |
 | News DOM (`news::json`) | `src/news/news_json.{h,cpp}` | Read-only arena DOM, UTF-16 strings, source spans | The news store's own cached documents (re-emitting elements byte for byte) |
 | Shared JSON lexer (`json_lex`) | `src/codec/json_lex.h` | Header-only: whitespace, number grammar, hex digits, UTF-8 encode | Internal to the three readers above |
@@ -59,8 +59,8 @@ What they have in common, the lexical rules, lives once in `json_lex.h`.
 | Allocation | None: caller-owned token array | Caller-owned bump arena (fixed, or growing by ~1 MiB blocks up to a limit); nothing freed individually | `news::Arena` bump allocation |
 | Source spans kept | Yes (tokens index the input) | No | Yes (`raw`, `raw_length` per value) |
 | Mutable | No | Yes (`Set`, `Remove`, `Push`, `Clone`) | No |
-| JSON output | `js_json::Stringify` | `tj::Stringify` | None (elements are re-emitted from their source span) |
-| Protobuf output | `js_json::AppendProtoValue` / `AppendProtoStruct` | `tj::AppendProtoStruct` / `AppendStructuredReadResponse` | `news_routes` message encoders on `proto_wire` |
+| JSON output | `json_document_writer::Stringify` | `tj::Stringify` | None (elements are re-emitted from their source span) |
+| Protobuf output | `json_document_writer::AppendProtoValue` / `AppendProtoStruct` | `tj::AppendProtoStruct` / `AppendStructuredReadResponse` | `news_routes` message encoders on `proto_wire` |
 
 ## JSON behaviours and whether they are JS parity only
 
@@ -71,13 +71,13 @@ What they have in common, the lexical rules, lives once in `json_lex.h`.
 | Bounded tokenizer | Strict raw UTF-8; lone-surrogate escapes become U+FFFD | no (one Unicode scalar representation) | same |
 | Bounded tokenizer | `FindObjectValue` returns the last duplicate | yes (`JSON.parse` last-wins) | same |
 | Bounded tokenizer | Numbers read through `strtod` as IEEE doubles (`9007199254740993` reads as `...992`) | yes (JavaScript has only doubles; a native API could keep integers exact) | same |
-| `js_json::Stringify` | Duplicate keys: first position, last value | yes (`JSON.stringify(JSON.parse(text))`) | discovery (markets, token search, bittensor, route support), prices (coin price scheduler), news (price samples) |
-| `js_json::Stringify` | Keys retain source order | no | same |
-| `js_json::Stringify` | Numbers re-formatted with `Number.prototype.toString` (see number formatting below), so `1E3` becomes `1000` and `-0` becomes `0` | yes | same |
-| `js_json::Stringify` | String escaping: `\"`, `\\`, `\b \f \n \r \t`, other controls as lowercase `\u00xx`; `/`, U+007F, U+2028 and U+2029 are not escaped; escapes in the input are decoded then re-escaped | yes (`JSON.stringify` well-formed output) | same |
-| `js_json::AppendProtoValue/Struct` | Same member order and duplicate rule as `Stringify` for `Struct.fields` map entries | yes (protobuf-es `fromJson` then `toBinary` iterates the JS object) | discovery, exchange (Robinhood policy) |
-| `js_json::AppendProtoValue/Struct` | `-0` is written as `number_value` -0 although `Stringify` writes `0` | yes (the double survives `JSON.parse`; only `toString` drops the sign) | same |
-| `js_json::ForEachTopLevelArrayElement` | Splits a top-level array without tokenizing it | no (native memory optimisation) | discovery (markets), prices (coin price scheduler) |
+| `json_document_writer::Stringify` | Duplicate keys: first position, last value | yes (`JSON.stringify(JSON.parse(text))`) | discovery (markets, token search, bittensor, route support), prices (coin price scheduler), news (price samples) |
+| `json_document_writer::Stringify` | Keys retain source order | no | same |
+| `json_document_writer::Stringify` | Numbers re-formatted with `Number.prototype.toString` (see number formatting below), so `1E3` becomes `1000` and `-0` becomes `0` | yes | same |
+| `json_document_writer::Stringify` | String escaping: `\"`, `\\`, `\b \f \n \r \t`, other controls as lowercase `\u00xx`; `/`, U+007F, U+2028 and U+2029 are not escaped; escapes in the input are decoded then re-escaped | yes (`JSON.stringify` well-formed output) | same |
+| `json_document_writer::AppendProtoValue/Struct` | Same member order and duplicate rule as `Stringify` for `Struct.fields` map entries | yes (protobuf-es `fromJson` then `toBinary` iterates the JS object) | discovery, exchange (Robinhood policy) |
+| `json_document_writer::AppendProtoValue/Struct` | `-0` is written as `number_value` -0 although `Stringify` writes `0` | yes (the double survives `JSON.parse`; only `toString` drops the sign) | same |
+| `json_document_writer::ForEachTopLevelArrayElement` | Splits a top-level array without tokenizing it | no (native memory optimisation) | discovery (markets), prices (coin price scheduler) |
 | `tj::Parse` | Invalid UTF-8 replaced by U+FFFD (maximal subparts), leading BOM dropped | yes (the text `Response.json()` / `TextDecoder` would hand to `JSON.parse`) | ai, chains, exchange, tokens, wallet |
 | `tj::Parse` | Lone surrogate escapes become one U+FFFD | no (valid UTF-8) | same |
 | `tj::Parse` | Number literals of any length become the nearest double; overflow becomes +-Infinity | yes (`JSON.parse` number semantics) | same |
@@ -91,9 +91,9 @@ What they have in common, the lexical rules, lives once in `json_lex.h`.
 | `news::json::Parse` | Strings decoded to UTF-16 units; lone surrogates kept; source spans kept | partly: UTF-16 is what the ported news text code (JavaScript string indices, `.length`, regex) operates on | news (routes, reactions, reaction prices) |
 | `news::json::Find` | Returns the last duplicate | yes (`JSON.parse` last-wins) | news |
 | `news::json::Parse` | Depth 32; number literal < 64 bytes; structural UTF-8 check only | no (native bounds; the input is the server's own output) | news |
-| `history_batch::AppendJsNumber` | Shortest round-trip digits, then `Number.prototype.toString` layout: plain decimal for 1e-7 <= abs(x) < 1e21, otherwise `d.ddde+x` / `d.ddde-x`; `-0` is `0`; non-finite is `null` | yes for the layout thresholds, the `e+21` form and the `-0` / `null` rules; shortest round-trip digits themselves are a sound native choice | chains, codec, compat (token text), discovery, news, operations, prices, tokens, wallet |
-| `history_batch::AppendJsonString` | `JSON.stringify` escaping of valid UTF-8 (same set as above; no lone-surrogate handling, input must be UTF-8) | yes (which characters are escaped, and lowercase hex) | app, codec, compat, discovery, news, operations, prices, tokens, wallet |
-| `history_batch::JsStringToNumber` | ECMAScript `Number("...")`: trims JS whitespace, accepts hex/octal/binary prefixes and `Infinity`, empty string is 0 | yes | chains, compat, discovery, news, prices, tokens, wallet |
+| `history_batch::AppendJsNumber` | Shortest round-trip digits, then `Number.prototype.toString` layout: plain decimal for 1e-7 <= abs(x) < 1e21, otherwise `d.ddde+x` / `d.ddde-x`; `-0` is `0`; non-finite is `null` | yes for the layout thresholds, the `e+21` form and the `-0` / `null` rules; shortest round-trip digits themselves are a sound native choice | chains, codec (also `provider_text`), discovery, news, operations, prices, tokens, wallet |
+| `history_batch::AppendJsonString` | `JSON.stringify` escaping of valid UTF-8 (same set as above; no lone-surrogate handling, input must be UTF-8) | yes (which characters are escaped, and lowercase hex) | app, codec, discovery, news, operations, prices, tokens, wallet |
+| `history_batch::JsStringToNumber` | ECMAScript `Number("...")`: trims JS whitespace, accepts hex/octal/binary prefixes and `Infinity`, empty string is 0 | yes | chains, codec (`provider_text`), discovery, news, prices, tokens, wallet |
 | `history_batch::JsArrayIndexKey` | Canonical array-index key test (a decimal index without a leading zero), used to index into provider arrays | yes | chains (asset index) |
 
 ## Protobuf writer
@@ -114,7 +114,7 @@ builds on it.
 | Default-value omission | None in the writer. The caller decides per field (see the next table) |
 | Field ordering | Caller's. Every encoder writes fields in ascending field-number order, the order protobuf-es `toBinary` uses |
 | Overflow | Sink-defined: `OutBuffer` and `Span` drop the whole append and clear `ok`; nothing is written past capacity |
-| Struct framing | `kValue*` field numbers, `DelimitedSize`, `StructEntrySize`, `PutNullValue`, `PutBoolValue`, `PutNumberValue`, `PutStructEntryKeyPrefix`, `PutStructEntryValuePrefix`, shared by `js_json` and `tj` |
+| Struct framing | `kValue*` field numbers, `DelimitedSize`, `StructEntrySize`, `PutNullValue`, `PutBoolValue`, `PutNumberValue`, `PutStructEntryKeyPrefix`, `PutStructEntryValuePrefix`, shared by `json_document_writer` and `tj` |
 
 ### protobuf-es behaviours kept by the encoders
 
@@ -124,8 +124,8 @@ builds on it.
 | all `proto_wire` encoders | proto3 implicit-presence fields at their default are omitted (empty string, 0, false); explicit `optional` fields, oneof members and set sub-messages are written even when empty | no (proto3 rule), but **which** sub-messages are always written matches the earlier TypeScript handlers (for example the spot and OHLC `cache` message is always present) | same |
 | `proto_wire::PutImplicitDouble` (OHLC, history view, spot `price`, Robinhood markets) | An implicit double is omitted only when it is positive zero (all bits clear). `-0` is distinct under protobuf's presence rules and **is** written | no (protobuf rule) | prices, exchange |
 | `prices` spot (`spot_response_serializer.cpp`) | `change_24h_pct` is `optional` and written when present, including 0 | no (explicit presence) | prices |
-| `js_json` / `tj` Struct emitters | `google.protobuf.Struct` map entries preserve source/insertion order, one entry per unique key with the last value | no | discovery, exchange, tokens, wallet |
-| `js_json` / `tj` Struct emitters | Every map entry carries both key and value; every `Value` oneof member is written, including `null_value` 0, `false`, `0` and `""` | no (oneof and map-entry rules of the format; protobuf-es writes both entry fields even at defaults, which this matches) | same |
+| `json_document_writer` / `tj` Struct emitters | `google.protobuf.Struct` map entries preserve source/insertion order, one entry per unique key with the last value | no | discovery, exchange, tokens, wallet |
+| `json_document_writer` / `tj` Struct emitters | Every map entry carries both key and value; every `Value` oneof member is written, including `null_value` 0, `false`, `0` and `""` | no (oneof and map-entry rules of the format; protobuf-es writes both entry fields even at defaults, which this matches) | same |
 | `tj::AppendProtoStruct` | Strings and keys share the DOM valid UTF-8 representation | no | exchange, tokens, wallet |
 | `ai_service.cpp` message strings | Implicit strings omitted when empty; malformed raw UTF-8 uses Unicode maximal-subpart replacement | no | ai |
 | `news` encoders (`news_routes_internal.h`) | UTF-16 strings re-encoded as UTF-8; implicit strings and zero varints omitted; optional doubles written when the JSON member is a number | no (proto3), apart from the UTF-16 source | news |
@@ -158,7 +158,7 @@ GroveDB's Merk proof encoding, not protobuf, and stays with the proof code.
   keeps source spans. Each row of "JSON readers: bounds and policies" where
   the columns differ is a difference visible on the wire or in memory, so
   folding one reader into another would change behaviour.
-- **The `js_json` and `tj` Struct emitters.** They produce the same output
+- **The `json_document_writer` and `tj` Struct emitters.** They produce the same output
   format from different inputs: a token document with duplicate-member
   scratch, and a DOM that is already in insertion order. They share the
   framing in `proto_wire.h`; the traversals stay separate.
@@ -182,7 +182,7 @@ comparison all use `proto_wire::Reader`.
   `-0` and non-finite numbers, plus whole messages that use every writer
   entry point. Regenerate the goldens only for an intended wire change:
   `./build/proto_wire_golden_test --print`.
-- `python3 tests/js_json_test.py build/js_json_test` compares the serializer
+- `python3 tests/json_document_writer_test.py build/json_document_writer_test` compares the serializer
   with recorded reference answers: an independent source-order `Map`
   reference using Node.js scalar formatting and protobuf-es scalar encodings
   with independent Struct framing.

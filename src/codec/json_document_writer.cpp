@@ -1,11 +1,11 @@
-#include "js_json.h"
+#include "json_document_writer.h"
 
 #include "json_lex.h"
 #include "proto_wire.h"
 
 #include <string.h>
 
-namespace fortis::compat::js_json {
+namespace fortis::codec::json_document_writer {
 namespace {
 
 namespace pw = fortis::codec::proto_wire;
@@ -103,7 +103,7 @@ size_t decoded_length(const codec::BoundedJsonDocument& document, uint32_t index
   return counter.used;
 }
 
-// JSON.stringify of one string value: the escaped decoded text, quoted.
+// The JSON text of one string value: the escaped decoded text, quoted.
 void append_json_string(OutBuffer& out, const codec::BoundedJsonDocument& document,
                         uint32_t index) {
   const codec::BoundedJsonToken* item = document.token(index);
@@ -157,8 +157,8 @@ bool keys_equal(const codec::BoundedJsonDocument& document, uint32_t left, uint3
   }
 }
 
-// ECMAScript array index: canonical decimal 0..2^32-2.
-// The members of one object in JavaScript property order. `order` receives
+// The members of one object in source order; a repeated key keeps its first
+// position and takes its last value. `order` receives
 // key token indices, `values` the value token index each key finally holds.
 // Scratch is taken from `*top` and must be released by the caller.
 bool order_members(const codec::BoundedJsonDocument& document, uint32_t object,
@@ -435,4 +435,4 @@ bool ForEachTopLevelArrayElement(const unsigned char* text, size_t length, bool*
   return position == length;
 }
 
-}  // namespace fortis::compat::js_json
+}  // namespace fortis::codec::json_document_writer

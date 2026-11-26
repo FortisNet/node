@@ -13,7 +13,7 @@
 #include <unistd.h>
 #endif
 
-namespace fortis::compat::sandbox {
+namespace fortis::operations::sandbox {
 namespace {
 void Require(bool condition) {
   if (!condition) throw std::runtime_error("local sandbox channel unavailable");
@@ -166,4 +166,4 @@ Reply Request(std::string_view socket, codec::sandbox::Operation operation, std:
   Require(root && root->type == codec::BoundedJsonType::kObject);
   return result;
 }
-}  // namespace fortis::compat::sandbox
+}  // namespace fortis::operations::sandbox

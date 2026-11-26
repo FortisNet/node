@@ -3,7 +3,7 @@
 #include "price_id_parser.h"
 #include "token_comparison_store.h"
 #include "token_liquidity.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -70,7 +70,7 @@ bool TokenIdentityResolver::ResolveLive(const networks::TokenNetwork& network, c
     size_t exact = 0;
     for (uint32_t i = 0; i < hits->count; ++i) {
       const Value* symbol = tj::Get(hits->items[i], "symbol");
-      Value* upper = compat::token_text::ToUpperCase(a, symbol->text, symbol->length);
+      Value* upper = codec::provider_text::ToUpperCase(a, symbol->text, symbol->length);
       if (!upper) return false;
       if (upper->length != strlen(ref.symbol) || memcmp(upper->text, ref.symbol, upper->length) != 0) continue;
       if (!first) first = hits->items[i];
@@ -107,8 +107,8 @@ bool TokenIdentityResolver::ResolveLive(const networks::TokenNetwork& network, c
   if (symbol_ok && name_ok) {
     token_store::IdentityPatch patch{};
     using token_store::FieldState;
-    Value* sym = token_liquidity::Truthy(symbol) ? compat::token_text::SanitizeSymbol(a, symbol->text, symbol->length) : nullptr;
-    Value* nm = token_liquidity::Truthy(name) ? compat::token_text::SanitizeName(a, name->text, name->length) : nullptr;
+    Value* sym = token_liquidity::Truthy(symbol) ? codec::provider_text::SanitizeSymbol(a, symbol->text, symbol->length) : nullptr;
+    Value* nm = token_liquidity::Truthy(name) ? codec::provider_text::SanitizeName(a, name->text, name->length) : nullptr;
     patch.symbol = sym ? token_store::StringPatch{FieldState::kValue, sym->text, sym->length}
                        : token_store::StringPatch{FieldState::kNull, nullptr, 0};
     patch.name = nm ? token_store::StringPatch{FieldState::kValue, nm->text, nm->length}
@@ -154,8 +154,8 @@ void TokenIdentityResolver::Resolve(const networks::TokenNetwork& network, const
   // hint?.trim().toLowerCase(), then /^[a-z0-9][a-z0-9-]{0,99}$/.
   if (!hint) return;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(hint, strlen(hint), &begin, &end);
-  Value* lowered = compat::token_text::ToLowerCase(a, hint + begin, end - begin);
+  codec::provider_text::Trim(hint, strlen(hint), &begin, &end);
+  Value* lowered = codec::provider_text::ToLowerCase(a, hint + begin, end - begin);
   if (!lowered || !hint_valid(lowered->text, lowered->length)) return;
   resolution->has_coin = true;
   memcpy(resolution->coin_id, lowered->text, lowered->length);

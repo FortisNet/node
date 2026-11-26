@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-namespace fortis::compat {
+namespace fortis::codec {
 
 namespace {
 
@@ -144,4 +144,4 @@ size_t SanitizedToProtobufUtf8(const char* text, size_t length, char* output, si
   return length;
 }
 
-}  // namespace fortis::compat
+}  // namespace fortis::codec

@@ -297,10 +297,10 @@ bool ParseTransfersQuery(const char* target, TransfersQueryInput* out) {
         !hb::ValidUtf8(reinterpret_cast<const uint8_t*>(price_id.value), price_id.length))
       return false;
     size_t b = 0, e = 0;
-    fortis::compat::token_text::Trim(price_id.value, price_id.length, &b, &e);
+    fortis::codec::provider_text::Trim(price_id.value, price_id.length, &b, &e);
     uint8_t arena_bytes[4096];
     tj::Arena a{arena_bytes, sizeof(arena_bytes), 0, true};
-    Value* lowered = e - b < 1000 ? fortis::compat::token_text::ToLowerCase(a, price_id.value + b, e - b) : nullptr;
+    Value* lowered = e - b < 1000 ? fortis::codec::provider_text::ToLowerCase(a, price_id.value + b, e - b) : nullptr;
     bool valid = lowered && lowered->length >= 1 && lowered->length <= 100;
     for (uint32_t i = 0; valid && i < lowered->length; ++i) {
       const char c = lowered->text[i];

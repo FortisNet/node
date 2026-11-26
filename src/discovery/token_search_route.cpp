@@ -27,7 +27,7 @@ namespace fortis::discovery {
 
 namespace {
 
-using fortis::compat::js_json::OutBuffer;
+using fortis::codec::json_document_writer::OutBuffer;
 namespace hb = fortis::codec::history_batch;
 
 constexpr uint32_t kCost = 10;
@@ -393,9 +393,9 @@ void append_items_json(OutBuffer& out, const Item* items, size_t count) {
     out.Text(",\"address\":");
     hb::AppendJsonString(out, item.address, item.address_length);
     out.Text(",\"symbol\":");
-    compat::AppendSanitizedJsonString(out, item.symbol, item.symbol_length);
+    codec::AppendSanitizedJsonString(out, item.symbol, item.symbol_length);
     out.Text(",\"name\":");
-    compat::AppendSanitizedJsonString(out, item.name, item.name_length);
+    codec::AppendSanitizedJsonString(out, item.name, item.name_length);
     out.Text(",\"decimals\":");
     hb::AppendJsNumber(out, item.decimals);
     out.Text(item.verified ? ",\"verified\":true,\"holderCount\":" :
@@ -435,8 +435,8 @@ void append_proto_string(OutBuffer& out, uint32_t field, const char* text, size_
   if (!length) return;  // proto3 implicit presence: "" is not written
   if (!sanitized) { fortis::codec::proto_wire::PutBytes(out, field, text, length); return; }
   static char converted[1024];
-  const size_t used = compat::SanitizedToProtobufUtf8(text, length, converted, sizeof(converted));
-  if (used == compat::kSanitizeFailed) { out.ok = false; return; }
+  const size_t used = codec::SanitizedToProtobufUtf8(text, length, converted, sizeof(converted));
+  if (used == codec::kSanitizeFailed) { out.ok = false; return; }
   fortis::codec::proto_wire::PutBytes(out, field, converted, used);
 }
 
@@ -524,10 +524,10 @@ size_t dedupe(Item* items, size_t count) {
 
 bool sanitized(TokenSearchState* state, const char* text, size_t length, bool symbol,
                const char** out, size_t* out_length) {
-  char buffer[compat::kSanitizeNameMaxBytes + 1];
-  const size_t used = symbol ? compat::SanitizeSymbol(text, length, buffer, sizeof(buffer))
-                             : compat::SanitizeName(text, length, buffer, sizeof(buffer));
-  if (used == compat::kSanitizeFailed) return false;
+  char buffer[codec::kSanitizeNameMaxBytes + 1];
+  const size_t used = symbol ? codec::SanitizeSymbol(text, length, buffer, sizeof(buffer))
+                             : codec::SanitizeName(text, length, buffer, sizeof(buffer));
+  if (used == codec::kSanitizeFailed) return false;
   *out = arena_copy(state, buffer, used);
   *out_length = used;
   return *out != nullptr;
@@ -1064,7 +1064,7 @@ bool store_detail(DiscoveryWorkspace* workspace, const char* key,
       if (!first) out.Byte(',');
       first = false;
       out.Byte('"'); out.Text(name); out.Text("\":");
-      if (!fortis::compat::js_json::Stringify(document, value, out, DiscoveryScratch(workspace))) return false;
+      if (!fortis::codec::json_document_writer::Stringify(document, value, out, DiscoveryScratch(workspace))) return false;
     }
     out.Byte('}');
   }

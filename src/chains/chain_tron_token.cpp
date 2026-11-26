@@ -1,7 +1,7 @@
 #include "chain_tron_token.h"
 
 #include "chain_core.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -52,7 +52,7 @@ void append_js_string(const Value* v, tj::OutBuffer& out) {
 bool safe_int(const Value* v, double max, double* out) {
   double parsed = NAN;
   if (tj::IsNumber(v)) parsed = v->number;
-  else if (tj::IsString(v) && all_digits(v->text, v->length)) parsed = compat::token_text::ToNumber(v->text, v->length);
+  else if (tj::IsString(v) && all_digits(v->text, v->length)) parsed = codec::provider_text::ToNumber(v->text, v->length);
   if (!isfinite(parsed) || floor(parsed) != parsed || fabs(parsed) > kMaxSafe) return false;
   if (parsed < 0 || parsed > max) return false;
   *out = parsed;
@@ -65,10 +65,10 @@ Value* safe_text(Arena& a, const Value* v, bool symbol, bool* ok) {
   *ok = true;
   if (!tj::IsString(v)) return nullptr;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(v->text, v->length, &begin, &end);
+  codec::provider_text::Trim(v->text, v->length, &begin, &end);
   if (begin == end) return nullptr;
-  Value* out = symbol ? compat::token_text::SanitizeSymbol(a, v->text, v->length)
-                      : compat::token_text::SanitizeName(a, v->text, v->length);
+  Value* out = symbol ? codec::provider_text::SanitizeSymbol(a, v->text, v->length)
+                      : codec::provider_text::SanitizeName(a, v->text, v->length);
   *ok = out != nullptr;
   return out;
 }
@@ -240,7 +240,7 @@ Read TronscanTrc20(Arena& a, const Value* body, const char* contract, Snapshot* 
   if (found && !chains::Equals(found, contract)) return Read::kNull;  // found !== undefined && !== contract
   const Value* type = tj::Get(match, "tokenType");
   if (tj::IsString(type)) {
-    Value* lower = compat::token_text::ToLowerCase(a, type->text, type->length);
+    Value* lower = codec::provider_text::ToLowerCase(a, type->text, type->length);
     if (!lower) return Read::kThrow;
     if (!chains::Equals(lower, "trc20")) return Read::kNull;
   }

@@ -1,5 +1,5 @@
 #include "chain_family_drivers.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -113,7 +113,7 @@ struct CoinCursor {
     size_t end = position;
     while (end < length && text[end] != ',') ++end;
     size_t begin = 0, stop = 0;
-    compat::token_text::Trim(text + position, end - position, &begin, &stop);
+    codec::provider_text::Trim(text + position, end - position, &begin, &stop);
     *piece = text + position + begin;
     *piece_length = stop - begin;
     if (end >= length) done = true;
@@ -715,7 +715,7 @@ bool to_records(Context& ctx, const Network& network, const char* address, const
     if (!raw_log || raw_log->type == tj::Type::kNull) clean = SanitizeText(a, "failed", 6);
     else if (is_string(raw_log)) clean = SanitizeText(a, raw_log->text, raw_log->length);
     else { error->Upstream("cosmos tx: non-string raw_log"); return false; }
-    error_value = clean ? compat::token_text::Slice(a, clean->text, clean->length, 0, 200) : nullptr;
+    error_value = clean ? codec::provider_text::Slice(a, clean->text, clean->length, 0, 200) : nullptr;
   }
   if (!memo_value || !error_value) { error->Upstream("arena exhausted"); return false; }
 

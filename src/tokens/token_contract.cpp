@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "token_contract.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -72,9 +72,9 @@ bool num_value(const Value* v, double* out) {
   if (v->type == tj::Type::kNumber) { if (!isfinite(v->number)) return false; *out = v->number; return true; }
   if (v->type != tj::Type::kString) return false;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(v->text, v->length, &begin, &end);
+  codec::provider_text::Trim(v->text, v->length, &begin, &end);
   if (begin == end) return false;
-  const double parsed = compat::token_text::ToNumber(v->text, v->length);
+  const double parsed = codec::provider_text::ToNumber(v->text, v->length);
   if (!isfinite(parsed)) return false;
   *out = parsed;
   return true;
@@ -86,20 +86,20 @@ Value* percent(Arena& a, const Value* v) { double n = 0; return num_value(v, &n)
 Value* str(Arena& a, const Value* v) {
   if (!tj::IsString(v)) return tj::Null(a);
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(v->text, v->length, &begin, &end);
+  codec::provider_text::Trim(v->text, v->length, &begin, &end);
   if (begin == end) return tj::Null(a);
   return tj::Str(a, v->text + begin, end - begin);
 }
 bool is_null(const Value* v) { return !v || v->type == tj::Type::kNull; }
 const Value* record(const Value* v) { return tj::IsObject(v) ? v : nullptr; }
 
-Value* lower(Arena& a, const Value* s) { return compat::token_text::ToLowerCase(a, s->text, s->length); }
+Value* lower(Arena& a, const Value* s) { return codec::provider_text::ToLowerCase(a, s->text, s->length); }
 bool same_text(const Value* x, const Value* y) {
   return x && y && x->length == y->length && memcmp(x->text, y->text, x->length) == 0;
 }
 
 bool parse_date(const Value* s, double* ms) {
-  return tj::IsString(s) && compat::token_text::DateParse(s->text, s->length, ms);
+  return tj::IsString(s) && codec::provider_text::DateParse(s->text, s->length, ms);
 }
 
 // lockEnd(locked_detail): the latest parseable end_time.
@@ -118,7 +118,7 @@ bool lock_end(Arena& a, const Value* raw, double* latest) {
 
 Value* iso_or_null(Arena& a, double ms) {
   char text[32];
-  if (!compat::token_text::IsoString(static_cast<int64_t>(ms), text)) return tj::Null(a);
+  if (!codec::provider_text::IsoString(static_cast<int64_t>(ms), text)) return tj::Null(a);
   return tj::Str(a, text);
 }
 
@@ -188,7 +188,7 @@ Value* cex_names(Arena& a, const Value* v) {
     const Value* item = list->items[i];
     if (!tj::IsString(item)) continue;
     size_t begin = 0, end = 0;
-    compat::token_text::Trim(item->text, item->length, &begin, &end);
+    codec::provider_text::Trim(item->text, item->length, &begin, &end);
     if (begin == end) continue;
     Value* name = tj::Str(a, item->text + begin, end - begin);
     Value* key = name ? lower(a, name) : nullptr;
@@ -424,7 +424,7 @@ bool with_derived(Arena& a, Value* v, int64_t now_ms) {
 void pct(double value, char* out, size_t capacity) {
   const int digits = value >= 10 ? 0 : value >= 1 ? 1 : 2;
   char text[64];
-  compat::token_text::ToFixed(value, digits, text, sizeof(text));
+  codec::provider_text::ToFixed(value, digits, text, sizeof(text));
   if (strchr(text, '.')) {
     size_t n = strlen(text);
     size_t zeros = n;
@@ -490,10 +490,10 @@ void tax_detail(Arena&, const Value* v, char* out, size_t capacity) {
 // shortAddress (UTF-16 slicing).
 Value* short_address(Arena& a, const Value* address) {
   if (!tj::IsString(address)) return tj::Str(a, "an address");
-  const size_t units = compat::token_text::Utf16Length(address->text, address->length);
+  const size_t units = codec::provider_text::Utf16Length(address->text, address->length);
   if (units <= 12) return tj::Str(a, address->text, address->length);
-  Value* head = compat::token_text::Slice(a, address->text, address->length, 0, 6);
-  Value* tail = compat::token_text::Slice(a, address->text, address->length, units - 4, units);
+  Value* head = codec::provider_text::Slice(a, address->text, address->length, 0, 6);
+  Value* tail = codec::provider_text::Slice(a, address->text, address->length, units - 4, units);
   if (!head || !tail) return nullptr;
   char* text = static_cast<char*>(a.Alloc(head->length + tail->length + 4, 1));
   if (!text) return nullptr;
@@ -777,7 +777,7 @@ Value* NormalizeContractSecurity(Arena& a, const Value* token, const char* chain
 
 bool IsBurnAddress(Arena& a, const char* address, size_t length) {
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(address, length, &begin, &end);
+  codec::provider_text::Trim(address, length, &begin, &end);
   const char* t = address + begin;
   const size_t n = end - begin;
   static const char* kBurn[] = {
@@ -787,7 +787,7 @@ bool IsBurnAddress(Arena& a, const char* address, size_t length) {
       "1nc1nerator11111111111111111111111111111111",
   };
   const Value* key = nullptr;
-  if (n >= 2 && t[0] == '0' && t[1] == 'x') key = compat::token_text::ToLowerCase(a, t, n);
+  if (n >= 2 && t[0] == '0' && t[1] == 'x') key = codec::provider_text::ToLowerCase(a, t, n);
   else key = tj::Str(a, t, n);
   if (!key) return false;
   for (const char* b : kBurn)

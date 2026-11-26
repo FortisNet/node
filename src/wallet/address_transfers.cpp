@@ -6,7 +6,7 @@
 #include "price_series_store.h"
 #include "repair_candidates.h"
 #include "threading.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -65,7 +65,7 @@ double pow10(double decimals) {
 // Number(amountRaw) / 10 ** amountDecimals.
 double record_units(const Value* record) {
   const Value* raw = tj::Get(record, "amountRaw");
-  const double number = tj::IsString(raw) ? fortis::compat::token_text::ToNumber(raw->text, raw->length) : chains::JsNumber(raw);
+  const double number = tj::IsString(raw) ? fortis::codec::provider_text::ToNumber(raw->text, raw->length) : chains::JsNumber(raw);
   return number / pow10(chains::JsNumber(tj::Get(record, "amountDecimals")));
 }
 

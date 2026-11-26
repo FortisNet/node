@@ -9,7 +9,7 @@
 #include "token_comparison_store.h"
 #include "token_jobs.h"
 #include "token_liquidity.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "token_views.h"
 
 #include <math.h>
@@ -93,7 +93,7 @@ Value* identity(Arena& a, const Facts& facts, const Value* market) {
   if (symbol) {
     // `.toUpperCase()` of a string; a cached non-string would throw.
     if (!tj::IsString(symbol)) return nullptr;
-    symbol_value = compat::token_text::ToUpperCase(a, symbol->text, symbol->length);
+    symbol_value = codec::provider_text::ToUpperCase(a, symbol->text, symbol->length);
   }
   const Value* names[] = {tj::Get(chain, "name"), registry_name, tj::Get(market, "name")};
   const Value* decimals[] = {tj::Get(chain, "decimals"), native_decimals};
@@ -406,7 +406,7 @@ bool ParseSections(const char* raw, size_t length, Sections* sections, char* unk
   if (length <= 16) {
     uint8_t all_bytes[256];
     Arena all_arena{all_bytes, sizeof(all_bytes), 0, true};
-    Value* lower = compat::token_text::ToLowerCase(all_arena, raw, length);
+    Value* lower = codec::provider_text::ToLowerCase(all_arena, raw, length);
     if (lower && lower->length == 3 && memcmp(lower->text, "all", 3) == 0) {
       for (size_t i = 0; i < kSectionCount; ++i) sections->Add(static_cast<Section>(i));
       return true;
@@ -426,9 +426,9 @@ bool ParseSections(const char* raw, size_t length, Sections* sections, char* unk
     const size_t segment_length = i - start;
     start = i + 1;
     size_t begin = 0, end = 0;
-    compat::token_text::Trim(segment, segment_length, &begin, &end);
+    codec::provider_text::Trim(segment, segment_length, &begin, &end);
     if (end == begin) continue;
-    Value* lower = compat::token_text::ToLowerCase(arena, segment + begin, end - begin);
+    Value* lower = codec::provider_text::ToLowerCase(arena, segment + begin, end - begin);
     if (!lower) return false;
     int found = -1;
     for (size_t s = 0; s < kSectionCount && found < 0; ++s)
@@ -517,7 +517,7 @@ PageQueryStatus ParsePageQuery(const PageQueryValue& include, const PageQueryVal
     if (end - begin > 300) return PageQueryStatus::kInvalid;
     uint8_t arena_bytes[4096];
     Arena arena{arena_bytes, sizeof(arena_bytes), 0, true};
-    Value* lowered = compat::token_text::ToLowerCase(arena, coingecko_id.text + begin, end - begin);
+    Value* lowered = codec::provider_text::ToLowerCase(arena, coingecko_id.text + begin, end - begin);
     if (!lowered || lowered->length < 1 || lowered->length > 100 || lowered->length >= hint_capacity)
       return PageQueryStatus::kInvalid;
     for (uint32_t i = 0; i < lowered->length; ++i) {

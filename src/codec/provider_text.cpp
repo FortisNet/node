@@ -1,4 +1,4 @@
-#include "token_text.h"
+#include "provider_text.h"
 #include "utf8.h"
 
 #include "js_case.h"
@@ -10,7 +10,7 @@
 
 namespace tj = fortis::codec::tj;
 
-namespace fortis::compat::token_text {
+namespace fortis::codec::provider_text {
 namespace {
 
 using codec::history_batch::OutBuffer;
@@ -100,8 +100,8 @@ tj::Value* map_case(tj::Arena& arena, const char* text, size_t length, bool uppe
   char* out = static_cast<char*>(arena.Alloc(capacity, 1));
   if (!out) return nullptr;
   size_t used = 0;
-  const bool ok = upper ? JsToUpperCase(text, length, out, capacity, &used)
-                        : JsToLowerCase(text, length, out, capacity, &used);
+  const bool ok = upper ? compat::JsToUpperCase(text, length, out, capacity, &used)
+                        : compat::JsToLowerCase(text, length, out, capacity, &used);
   if (!ok) return nullptr;
   return tj::Str(arena, out, used);
 }
@@ -329,7 +329,7 @@ bool DateParse(const char* text, size_t length, double* epoch_ms) {
       units[count++] = static_cast<uint16_t>(cp);
     }
   }
-  return JsDateParse(units, count, epoch_ms);
+  return compat::JsDateParse(units, count, epoch_ms);
 }
 
-}  // namespace fortis::compat::token_text
+}  // namespace fortis::codec::provider_text

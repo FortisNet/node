@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Generate the lookup tables used to redact secrets from diagnostics.
 
-The redaction code (src/compat/diagnostic_redaction.cpp) hides wallet recovery
+The redaction code (src/security/diagnostic_redaction.cpp) hides wallet recovery
 phrases before text leaves the node. To see through disguises it strips
 invisible characters, maps look-alike letters to plain ones and applies
 Unicode normalization. This tool writes the data it needs as C++ tables in
-src/compat/redaction_tables.cpp, from three files under contracts/:
+src/security/redaction_tables.cpp, from three files under contracts/:
 
   redaction-data.json          invisible code points, look-alike letters and
                                the replacement text
@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REDACTION_PATH = ROOT / 'contracts/redaction-data.json'
 WORDLIST_PATH = ROOT / 'contracts/bip39-english.json'
 UNICODE_PATH = ROOT / 'contracts/redaction-unicode-data.json'
-OUTPUT_PATH = ROOT / 'src/compat/redaction_tables.cpp'
+OUTPUT_PATH = ROOT / 'src/security/redaction_tables.cpp'
 
 MAX_CODE_POINT = 0x10FFFF
 UINT32_MAX = 0xFFFFFFFF
@@ -307,7 +307,7 @@ def render(words, rules, unicode_tables):
             f"(ICU {unicode_tables['icuVersion']}).\n")
     out += '// Do not edit; run make generate-redaction-tables.\n'
     out += '#include "redaction_tables.h"\n\n'
-    out += 'namespace fortis::compat {\n\n'
+    out += 'namespace fortis::security {\n\n'
     out += f'const char kRedactionUnicodeVersion[] = {quote_json_string(unicode_version)};\n'
     out += f"const char kRedactionPlaceholder[] = {cpp_string(rules['placeholder'])};\n\n"
     out += 'const char* const kBip39English[2048] = {\n'
@@ -358,7 +358,7 @@ def render(words, rules, unicode_tables):
     digest = hashlib.sha256(json_stringify(rules).encode('utf-8')).hexdigest()
     out += '// SHA-256 of native-owned redaction data.\n'
     out += f'const char kRedactionRulesSha256[] = "{digest}";\n\n'
-    out += '}  // namespace fortis::compat\n'
+    out += '}  // namespace fortis::security\n'
     return out
 
 

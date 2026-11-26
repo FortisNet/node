@@ -8,7 +8,7 @@
 #include "price_history_batch_codec.h"
 #include "token_fetchers.h"
 #include "token_liquidity.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "token_views.h"
 #include "whatwg_url.h"
 
@@ -84,7 +84,7 @@ Value* safe_https(Arena& a, UrlWork& work, const Value* value) {
 // String.prototype.trim(value) === ''.
 bool blank(const Value* text) {
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(text->text, text->length, &begin, &end);
+  codec::provider_text::Trim(text->text, text->length, &begin, &end);
   return begin == end;
 }
 
@@ -107,7 +107,7 @@ Value* safe_saucer_url(Arena& a, UrlWork& work, const Value* value) {
 Value* safe_handle(Arena& a, const Value* value) {
   if (!tj::IsString(value)) return tj::Null(a);
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(value->text, value->length, &begin, &end);
+  codec::provider_text::Trim(value->text, value->length, &begin, &end);
   if (begin < end && value->text[begin] == '@') ++begin;
   const size_t length = end - begin;
   if (!length || length > 30) return tj::Null(a);
@@ -183,7 +183,7 @@ bool decimal_amount(Arena& a, const Value* raw, const Value* decimals, bool* has
     return true;
   Value* text = chains::asset_index::RawToDecimal(a, raw, decimals->number);
   if (!text) return false;
-  const double value = text->type == tj::Type::kString ? compat::token_text::ToNumber(text->text, text->length) : 0;
+  const double value = text->type == tj::Type::kString ? codec::provider_text::ToNumber(text->text, text->length) : 0;
   if (!isfinite(value)) return true;
   *has = true;
   *out = value;
@@ -334,9 +334,9 @@ Value* MarketRow(Arena& a, const Value* token, const Value* prices) {
   const Value* symbol = tj::Get(token, "symbol");
   const Value* name = tj::Get(token, "name");
   Value* out = tj::Obj(a);
-  Value* symbol_value = tj::IsString(symbol) ? compat::token_text::SanitizeSymbol(a, symbol->text, symbol->length)
+  Value* symbol_value = tj::IsString(symbol) ? codec::provider_text::SanitizeSymbol(a, symbol->text, symbol->length)
                                              : tj::Null(a);
-  Value* name_value = tj::IsString(name) ? compat::token_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
+  Value* name_value = tj::IsString(name) ? codec::provider_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
   const bool has_change = has_current && has_baseline && baseline > 0;
   if (!out || !symbol_value || !name_value || !tj::Set(a, out, "symbol", symbol_value) ||
       !tj::Set(a, out, "name", name_value) ||
@@ -359,12 +359,12 @@ Value* Profile(Arena& a, const Value* token, storage::KvStore* kv, int64_t now_m
   const Value* description = tj::Get(token, "description");
   const Value* category = tj::Get(token, "category");
   Value* description_value = tj::IsString(description)
-      ? compat::token_text::SanitizeText(a, description->text, description->length)
+      ? codec::provider_text::SanitizeText(a, description->text, description->length)
       : tj::Null(a);
   Value* categories = tj::Arr(a);
   if (!categories || !logo || !description_value) return nullptr;
   if (tj::IsString(category) && !blank(category) &&
-      !tj::Push(a, categories, compat::token_text::SanitizeName(a, category->text, category->length)))
+      !tj::Push(a, categories, codec::provider_text::SanitizeName(a, category->text, category->length)))
     return nullptr;
   Value* links = tj::Obj(a);
   Value* out = tj::Obj(a);

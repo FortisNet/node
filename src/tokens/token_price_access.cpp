@@ -100,7 +100,7 @@ bool TokenPriceAccess::Quote( const char* price_id, uint64_t deadline_ms,
         quote->cache.hit = tj::Get(cache, "hit") && tj::Get(cache, "hit")->type == tj::Type::kTrue;
         const Value* stamp = tj::Get(cache, "timestamp");
         double parsed = 0;
-        if (tj::IsString(stamp) && fortis::compat::token_text::DateParse(stamp->text, stamp->length, &parsed)) {
+        if (tj::IsString(stamp) && fortis::codec::provider_text::DateParse(stamp->text, stamp->length, &parsed)) {
           quote->cache.has_timestamp = true;
           quote->cache.timestamp = static_cast<int64_t>(parsed);
         }

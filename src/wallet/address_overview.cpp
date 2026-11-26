@@ -3,13 +3,13 @@
 #include "address_facets_internal.h"
 
 #include "address_overview.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "kv_store.h"
 #include "media_registry.h"
 #include "threading.h"
 #include "token_ref.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "whatwg_url.h"
 
 #include <math.h>
@@ -26,7 +26,7 @@ namespace tj = fortis::codec::tj;
 namespace fortis::wallet::address {
 namespace {
 
-namespace jj = fortis::compat::js_json;
+namespace jj = fortis::codec::json_document_writer;
 namespace pw = fortis::codec::proto_wire;
 using chains::OutBuffer;
 
@@ -158,7 +158,7 @@ bool network_news(const Value* item, const Profile& profile) {
 Value* trimmed(Arena& arena, const Value* v) {
   if (!tj::IsString(v)) return tj::Str(arena, "", 0);
   size_t b = 0, e = 0;
-  fortis::compat::token_text::Trim(v->text, v->length, &b, &e);
+  fortis::codec::provider_text::Trim(v->text, v->length, &b, &e);
   return tj::Str(arena, v->text + b, e - b);
 }
 
@@ -169,7 +169,7 @@ bool same_text(const Value* a, const Value* b) {
 bool finite_of(const Value* v, double* out) {
   double parsed = NAN;
   if (tj::IsNumber(v)) parsed = v->number;
-  else if (tj::IsString(v)) parsed = fortis::compat::token_text::ToNumber(v->text, v->length);
+  else if (tj::IsString(v)) parsed = fortis::codec::provider_text::ToNumber(v->text, v->length);
   if (!isfinite(parsed)) return false;
   *out = parsed;
   return true;
@@ -191,14 +191,14 @@ bool base58_only(const char* s, size_t n) {
 // overviewTokenAddress(network, address): null where the app has no grammar.
 Value* overview_address(Arena& arena, const Network& network, const char* raw, size_t raw_length) {
   size_t b = 0, e = 0;
-  fortis::compat::token_text::Trim(raw, raw_length, &b, &e);
+  fortis::codec::provider_text::Trim(raw, raw_length, &b, &e);
   const char* value = raw + b;
   const size_t n = e - b;
   if (!n) return nullptr;
   switch (network.family) {
     case chains::Family::kEvm: {
       if (n != 42 || value[0] != '0' || value[1] != 'x' || !hex_only(value + 2, 40)) return nullptr;
-      return fortis::compat::token_text::ToLowerCase(arena, value, n);
+      return fortis::codec::provider_text::ToLowerCase(arena, value, n);
     }
     case chains::Family::kSolana:
       return n >= 32 && n <= 44 && base58_only(value, n) ? tj::Str(arena, value, n) : nullptr;
@@ -213,10 +213,10 @@ Value* overview_address(Arena& arena, const Network& network, const char* raw, s
     }
     case chains::Family::kCardano: {
       if (n < 56 || !hex_only(value, n)) return nullptr;
-      return fortis::compat::token_text::ToLowerCase(arena, value, n);
+      return fortis::codec::provider_text::ToLowerCase(arena, value, n);
     }
     case chains::Family::kAptos:
-      return fortis::compat::token_text::Utf16Length(value, n) <= 300 ? tj::Str(arena, value, n) : nullptr;
+      return fortis::codec::provider_text::Utf16Length(value, n) <= 300 ? tj::Str(arena, value, n) : nullptr;
     default:
       return nullptr;
   }
@@ -291,7 +291,7 @@ bool OverviewProjectTrending(const Network& network, const Value* body, Arena& a
     if (!address || !name_raw || !symbol_raw) return false;
     Value* name = chains::SanitizeName(arena, name_raw->text, name_raw->length);
     Value* symbol_clean = chains::SanitizeSymbol(arena, symbol_raw->text, symbol_raw->length);
-    Value* symbol = symbol_clean ? fortis::compat::token_text::ToUpperCase(arena, symbol_clean->text, symbol_clean->length) : nullptr;
+    Value* symbol = symbol_clean ? fortis::codec::provider_text::ToUpperCase(arena, symbol_clean->text, symbol_clean->length) : nullptr;
     double decimals = 0, market_cap = 0;
     const bool has_decimals = finite_of(tj::Get(token_attributes, "decimals"), &decimals) && decimals >= 0 &&
                               trunc(decimals) == decimals && decimals <= 9007199254740991.0;
@@ -311,7 +311,7 @@ bool OverviewProjectTrending(const Network& network, const Value* body, Arena& a
     const Value* coin_raw = trimmed(arena, tj::Get(token_attributes, "coingecko_coin_id"));
     if (!image || !coin_raw) return false;
     const char* logo = https_url(arena, image->text, image->length);
-    Value* coin = fortis::compat::token_text::ToLowerCase(arena, coin_raw->text, coin_raw->length);
+    Value* coin = fortis::codec::provider_text::ToLowerCase(arena, coin_raw->text, coin_raw->length);
     Value* row = tj::Obj(arena);
     if (!row || !tj::Set(arena, row, "address", address) || !tj::Set(arena, row, "name", name) ||
         !tj::Set(arena, row, "symbol", symbol) || !tj::Set(arena, row, "decimals", tj::Num(arena, decimals)) ||
@@ -372,7 +372,7 @@ double js_number(const Value* v, bool in_array = false) {
     case tj::Type::kTrue: return in_array ? NAN : 1;
     case tj::Type::kFalse: return in_array ? NAN : 0;
     case tj::Type::kNumber: return v->number;
-    case tj::Type::kString: return fortis::compat::token_text::ToNumber(v->text, v->length);
+    case tj::Type::kString: return fortis::codec::provider_text::ToNumber(v->text, v->length);
     case tj::Type::kArray:
       if (v->count == 0) return 0;
       return v->count == 1 ? js_number(v->items[0], true) : NAN;
@@ -419,7 +419,7 @@ bool WalletOverviewBuilder::HolderFetch(const Network& network, const char* toke
       *value = tj::Null(arena);
       return true;
     }
-    Value* lowered = fortis::compat::token_text::ToLowerCase(arena, address, strlen(address));
+    Value* lowered = fortis::codec::provider_text::ToLowerCase(arena, address, strlen(address));
     const char* encoded = lowered ? chains::EncodeUri(arena, lowered->text) : nullptr;
     if (!encoded) { error->Upstream("arena"); return false; }
     chains::Call call;

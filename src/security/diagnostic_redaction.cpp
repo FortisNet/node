@@ -6,7 +6,7 @@
 
 #include "redaction_tables.h"
 
-namespace fortis::compat::redaction {
+namespace fortis::security::redaction {
 namespace {
 
 // A owned code point string. Every append is bounded by
@@ -53,7 +53,7 @@ struct Text {
   uint32_t At(size_t index) const { return index < size ? data[index] : 0xFFFFFFFFu; }
 };
 
-// ── Character classes (JavaScript regular expressions, non-unicode mode) ──
+// ── Character classes (ASCII \w, \d and \b; \s as below) ──
 
 bool is_word(uint32_t c) {
   return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_';
@@ -463,8 +463,8 @@ bool match_hex32(const Text& text, size_t i, size_t* end) {
 size_t utf16_units(uint32_t cp) { return cp > 0xffff ? 2 : 1; }
 
 // `${text.slice(start - 60, start)} ${text.slice(end, end + 40)}` measured in
-// UTF-16 units. Half of a split surrogate pair is a lone surrogate in
-// JavaScript: neither a word nor a space character, so U+FFFD stands in.
+// UTF-16 units. Half of a split surrogate pair counts as a lone surrogate:
+// neither a word nor a space character, so U+FFFD stands in.
 void hex_context(const Text& text, size_t start, size_t end, Text* context) {
   size_t first = start, units = 0;
   bool split_before = false;
@@ -816,4 +816,4 @@ bool RedactDiagnosticText(const char* input, size_t length, std::unique_ptr<char
   return encode_utf8(text, output, output_length);
 }
 
-}  // namespace fortis::compat::redaction
+}  // namespace fortis::security::redaction

@@ -5,10 +5,10 @@
 // POST /v1/sync `after` grammars in sync_request.cpp: Fastify's ajv-formats
 // "date-time" (AjvDateTime), zod's iso.datetime({ offset: true })
 // (ZodDateTime) and, for every zod-valid string, new Date(s).getTime()
-// (token_text::DateParse). The corpus hash is checked against its pin.
+// (provider_text::DateParse). The corpus hash is checked against its pin.
 #include "sync_request.h"
 #include "token_json.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <mbedtls/sha256.h>
 
@@ -64,7 +64,7 @@ int main(int argc, char** argv) try {
     if (zod) {
       ++checked;
       double ms = 0;
-      const bool parsed = fortis::compat::token_text::DateParse(input->text, input->length, &ms);
+      const bool parsed = fortis::codec::provider_text::DateParse(input->text, input->length, &ms);
       const bool want = tj::IsNumber(date);
       if (parsed != want || (want && ms != date->number)) {
         if (++failures <= 40)

@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "token_evm.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -112,7 +112,7 @@ Value* hex_to_utf8(Arena& a, const Hex& hex) {
   size_t used = 0, i = 0;
   auto put = [&](uint32_t cp) {
     tj::OutBuffer o{reinterpret_cast<uint8_t*>(text + used), 4, 0, true};
-    compat::token_text::AppendCodePoint(o, cp);
+    codec::provider_text::AppendCodePoint(o, cp);
     used += o.used;
   };
   while (i < n) {
@@ -246,7 +246,7 @@ FactsStatus ContractFacts(Arena& a, const Value* body, Value** facts) {
   if (!result) return FactsStatus::kFailed;
   if (!tj::IsString(result)) return FactsStatus::kFailed;  // `.trim()` of a non-string throws
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(result->text, result->length, &begin, &end);
+  codec::provider_text::Trim(result->text, result->length, &begin, &end);
   Hex hex{result->text + begin, end - begin};
   if (hex.length >= 2 && hex.text[0] == '0' && (hex.text[1] == 'x' || hex.text[1] == 'X')) {
     hex.text += 2; hex.length -= 2;
@@ -302,9 +302,9 @@ FactsStatus ContractFacts(Arena& a, const Value* body, Value** facts) {
   Value* name = success[3] ? decode_string(a, returns[3]) : tj::Null(a);
   if (!decimals || !supply || !symbol || !name) return FactsStatus::kFailed;
   if (tj::IsString(symbol))
-    symbol = symbol->length ? compat::token_text::SanitizeSymbol(a, symbol->text, symbol->length) : tj::Null(a);
+    symbol = symbol->length ? codec::provider_text::SanitizeSymbol(a, symbol->text, symbol->length) : tj::Null(a);
   if (tj::IsString(name))
-    name = name->length ? compat::token_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
+    name = name->length ? codec::provider_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
   Value* out = tj::Obj(a);
   if (!out || !symbol || !name || !tj::Set(a, out, "supply", supply) || !tj::Set(a, out, "decimals", decimals) ||
       !tj::Set(a, out, "symbol", symbol) || !tj::Set(a, out, "name", name)) return FactsStatus::kFailed;

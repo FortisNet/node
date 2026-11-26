@@ -1,8 +1,8 @@
 // Reads hex-encoded JSON documents, one per line, and prints for each
 // "<stringify hex> <protobuf Value hex> <array element count or -1>" (or "!"
-// for a refused document). Driven by tests/js_json_test.py, which compares
+// for a refused document). Driven by tests/json_document_writer_test.py, which compares
 // against JSON.stringify(JSON.parse()) and protobuf-es toBinary(fromJson()).
-#include "js_json.h"
+#include "json_document_writer.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -28,10 +28,10 @@ int main() {
   static char line[1 << 20];
   static unsigned char input[1 << 19];
   static BoundedJsonToken tokens[32768];
-  static uint32_t words[32768 * fortis::compat::js_json::kScratchWordsPerToken];
+  static uint32_t words[32768 * fortis::codec::json_document_writer::kScratchWordsPerToken];
   static uint8_t json[1 << 20];
   static uint8_t proto[1 << 20];
-  const fortis::compat::js_json::Scratch scratch{words, sizeof(words) / sizeof(words[0])};
+  const fortis::codec::json_document_writer::Scratch scratch{words, sizeof(words) / sizeof(words[0])};
   while (fgets(line, sizeof(line), stdin)) {
     size_t length = strcspn(line, "\r\n");
     size_t bytes = 0;
@@ -48,14 +48,14 @@ int main() {
     }
     fortis::codec::history_batch::OutBuffer json_out{json, sizeof(json)};
     fortis::codec::history_batch::OutBuffer proto_out{proto, sizeof(proto)};
-    if (!fortis::compat::js_json::Stringify(document, document.root(), json_out, scratch) ||
-        !fortis::compat::js_json::AppendProtoValue(document, document.root(), proto_out, scratch)) {
+    if (!fortis::codec::json_document_writer::Stringify(document, document.root(), json_out, scratch) ||
+        !fortis::codec::json_document_writer::AppendProtoValue(document, document.root(), proto_out, scratch)) {
       puts("!");
       continue;
     }
     bool is_array = false;
     long elements = 0;
-    if (!fortis::compat::js_json::ForEachTopLevelArrayElement(input, bytes, &is_array,
+    if (!fortis::codec::json_document_writer::ForEachTopLevelArrayElement(input, bytes, &is_array,
                                                       count_element, &elements)) {
       puts("!");
       continue;

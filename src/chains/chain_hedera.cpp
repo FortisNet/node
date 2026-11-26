@@ -7,7 +7,7 @@
 // entity id canonicalization in token_ref.cpp. Guest-safe.
 #include "chain_family_drivers.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -159,7 +159,7 @@ bool resolve_account(Context& ctx, const Network& network, const char* address, 
   Arena& arena = *ctx.arena;
   *account = nullptr;
   size_t begin = 0, end = 0;
-  fortis::compat::token_text::Trim(address, strlen(address), &begin, &end);
+  fortis::codec::provider_text::Trim(address, strlen(address), &begin, &end);
   const char* value = arena.CopyText(address + begin, end - begin);
   if (!value) return finish(arena, error);
   const size_t length = end - begin;

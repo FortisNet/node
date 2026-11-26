@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check src/compat/js_json.cpp against recorded JavaScript answers.
+"""Check src/codec/json_document_writer.cpp against recorded reference answers.
 
 What is promised: for a JSON document the server
   * re-serializes it as JavaScript's JSON.stringify(JSON.parse(text)) would
@@ -10,7 +10,7 @@ What is promised: for a JSON document the server
   * counts the elements of a top-level array.
 
 Where the expected answers come from: they are the node's own reference,
-tests/corpus/js_json_expectations.json. They were first recorded from
+tests/corpus/json_document_writer_expectations.json. They were first recorded from
 Node.js and @bufbuild/protobuf (the header of that file names the versions)
 and are now maintained here: a deliberate change of behaviour changes that
 file in the same commit. This test only replays it: it never parses or formats a document
@@ -24,14 +24,14 @@ with escapes, non-ASCII and lone surrogate escapes, repeated and integer-like
 keys). The seeded documents come from the recorder's generator, which
 replaces the earlier test's (that one produced almost only `null`).
 
-How the driver is used: build/js_json_test reads one document per line, as
+How the driver is used: build/json_document_writer_test reads one document per line, as
 the hex of its UTF-8 bytes, and prints
 "<output JSON hex> <protobuf hex> <array element count or -1>", or "!" when it
 refuses the document. No recorded document may be refused.
 
-Usage: js_json_test.py <binary> [data file]
+Usage: json_document_writer_test.py <binary> [data file]
 The optional data file (with a "<file>.sha256" beside it) replaces
-tests/corpus/js_json_expectations.json; it exists so that a deliberately
+tests/corpus/json_document_writer_expectations.json; it exists so that a deliberately
 wrong copy can prove the test still fails.
 Exit status: 0 all documents match, 1 a mismatch or a broken run, 2 usage.
 """
@@ -41,7 +41,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-DEFAULT_DATA = Path(__file__).resolve().parent / "corpus" / "js_json_expectations.json"
+DEFAULT_DATA = Path(__file__).resolve().parent / "corpus" / "json_document_writer_expectations.json"
 
 
 def load(path):
@@ -70,7 +70,7 @@ def utf8_hex(text):
 
 def main():
     if len(sys.argv) not in (2, 3):
-        print("usage: js_json_test.py <binary> [data file]", file=sys.stderr)
+        print("usage: json_document_writer_test.py <binary> [data file]", file=sys.stderr)
         return 2
     binary = sys.argv[1]
     fixture = load(Path(sys.argv[2]) if len(sys.argv) == 3 else DEFAULT_DATA)
@@ -120,7 +120,7 @@ def main():
     if failures:
         print(f"{failures} mismatches ({refused} refused)", file=sys.stderr)
         return 1
-    print(f"js json: {len(documents)} documents match recorded source-order JSON "
+    print(f"json document writer: {len(documents)} documents match recorded source-order JSON "
           f"(Node.js {source['node']}) and protobuf scalar/wire reference "
           f"{source['protobufLine']} ({source['protobuf']})")
     return 0

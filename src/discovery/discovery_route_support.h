@@ -6,7 +6,7 @@
 #include "discovery_cache.h"
 #include "discovery_provider_owner.h"
 #include "http_server.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 
 #include <pthread.h>
 #include <stddef.h>
@@ -35,7 +35,7 @@ struct DiscoveryWorkspace {
   DiscoveryCache* cache;
   unsigned char kv_scratch[kDiscoveryKvScratchBytes];
   codec::BoundedJsonToken tokens[kDiscoveryTokens];
-  uint32_t words[kDiscoveryTokens * fortis::compat::js_json::kScratchWordsPerToken];
+  uint32_t words[kDiscoveryTokens * fortis::codec::json_document_writer::kScratchWordsPerToken];
   uint8_t json_out[kDiscoveryOutputBytes];
   uint8_t proto_out[kDiscoveryOutputBytes];
   uint8_t payload[kDiscoveryOutputBytes];
@@ -63,8 +63,8 @@ struct DiscoveryRouteContext {
   bool attestation_required = false;
 };
 
-inline fortis::compat::js_json::Scratch DiscoveryScratch(DiscoveryWorkspace* workspace) {
-  return fortis::compat::js_json::Scratch{workspace->words,
+inline fortis::codec::json_document_writer::Scratch DiscoveryScratch(DiscoveryWorkspace* workspace) {
+  return fortis::codec::json_document_writer::Scratch{workspace->words,
       sizeof(workspace->words) / sizeof(workspace->words[0])};
 }
 
@@ -104,9 +104,9 @@ http::HttpResponse DiscoveryUpstreamUnavailableResponse();
 
 // The appended CacheInfo provenance, JSON ({"hit":…,"timestamp":…}) and
 // protobuf (field bodies only; omitted defaults as protobuf-es writes them).
-void AppendDiscoveryCacheJson(fortis::compat::js_json::OutBuffer& out, bool hit, int64_t as_of_ms,
+void AppendDiscoveryCacheJson(fortis::codec::json_document_writer::OutBuffer& out, bool hit, int64_t as_of_ms,
                               bool partial_key, bool partial);
-void AppendDiscoveryCacheProto(fortis::compat::js_json::OutBuffer& out, bool hit, int64_t as_of_ms,
+void AppendDiscoveryCacheProto(fortis::codec::json_document_writer::OutBuffer& out, bool hit, int64_t as_of_ms,
                                bool partial);
 
 // One member of a request object (JSON object or decoded protobuf Struct) in

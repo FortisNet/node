@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 using namespace fortis::codec::sandbox;
-namespace io = fortis::compat::sandbox;
+namespace io = fortis::operations::sandbox;
 
 int main() try {
   for (uint8_t operation = 1; operation <= 3; ++operation) {

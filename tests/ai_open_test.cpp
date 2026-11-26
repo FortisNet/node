@@ -1,7 +1,7 @@
 #include "test_support.h"
 // Unit checks of POST /v1/ai/conversations (R38) below the HTTP layer: the
 // store's open()/replay (src/ai/ai_store.cpp Store::Open) and the hourly open
-// quota table (src/compat/hourly_windows.h), against the frozen TypeScript route
+// quota table (src/ai/hourly_windows.h), against the frozen TypeScript route
 // fixture (tests/corpus/ai_conversations_route.json):
 //  - every open of the fixture's main group, in order, through Store::Open
 //    with the fixture's id counter: each 201 gives the TypeScript id,
@@ -576,8 +576,8 @@ void storage_faults() {
 
 // ---- the hourly open quota (kv.incrWindow(`q:ai:open:${device}`, 1 h) > 20) ----
 
-fortis::compat::HourlyWindows<32> g_windows;
-fortis::compat::HourlyWindows<32> g_full;
+fortis::ai::quota::HourlyWindows<32> g_windows;
+fortis::ai::quota::HourlyWindows<32> g_full;
 
 void hourly_windows() {
   const int64_t hour = 60 * 60 * 1000;
@@ -598,11 +598,11 @@ void hourly_windows() {
   // an expired entry is reused.
   char id[32];
   size_t stored = 0;
-  for (size_t i = 0; i < fortis::compat::HourlyWindows<32>::kCapacity; ++i) {
+  for (size_t i = 0; i < fortis::ai::quota::HourlyWindows<32>::kCapacity; ++i) {
     snprintf(id, sizeof(id), "device-%zu", i);
     stored += g_full.Increment('o', id, first, hour, &count) ? 1 : 0;
   }
-  check(stored == fortis::compat::HourlyWindows<32>::kCapacity, "the table holds its capacity");
+  check(stored == fortis::ai::quota::HourlyWindows<32>::kCapacity, "the table holds its capacity");
   check(!g_full.Increment('o', "one-more", first + 1, hour, &count), "a full table of live keys fails open");
   check(g_full.Increment('o', "one-more", first + hour, hour, &count) && count == 1,
         "an expired entry is reused for a new key");

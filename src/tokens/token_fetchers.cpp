@@ -3,7 +3,7 @@
 #include "token_contract.h"
 #include "token_evm.h"
 #include "token_liquidity.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -344,13 +344,13 @@ Outcome EtherscanCount(Arena& arena, const providers::TokenFetch& fetch, bool* h
   double value = NAN;
   if (!result) value = NAN;
   else if (result->type == tj::Type::kNull) value = 0;
-  else if (tj::IsString(result)) value = compat::token_text::ToNumber(result->text, result->length);
+  else if (tj::IsString(result)) value = codec::provider_text::ToNumber(result->text, result->length);
   else if (tj::IsNumber(result)) value = result->number;
   else if (result->type == tj::Type::kTrue) value = 1;
   else if (result->type == tj::Type::kFalse) value = 0;
   else if (tj::IsArray(result) && result->count == 0) value = 0;
   else if (tj::IsArray(result) && result->count == 1 && tj::IsString(result->items[0]))
-    value = compat::token_text::ToNumber(result->items[0]->text, result->items[0]->length);
+    value = codec::provider_text::ToNumber(result->items[0]->text, result->items[0]->length);
   else if (tj::IsArray(result) && result->count == 1 && tj::IsNumber(result->items[0]))
     value = result->items[0]->number;
   if (isfinite(value) && value >= 0 && value <= 9007199254740991.0 && floor(value) == value) {

@@ -352,7 +352,7 @@ bool Store::Open(const OpenInput& input, Opened* opened, bool* storage_error) {
   std::unique_ptr<char[], base::StorageDeleter> body_owner;
   size_t body_length = 0;
   bool redacted = false;
-  const bool body_ok = compat::redaction::RedactSecrets(input.first_message, input.first_message_length, &body_owner, &body_length, &redacted);
+  const bool body_ok = security::redaction::RedactSecrets(input.first_message, input.first_message_length, &body_owner, &body_length, &redacted);
   char* body = body_owner.get();
   if (!body_ok ||
       !OwnerId(secret_, secret_length_, primary, strlen(primary), owner)) {
@@ -681,7 +681,7 @@ AddStatus Store::AddMessage(const char* id, const char* client_message_id, const
   std::unique_ptr<char[], base::StorageDeleter> body_owner;
   size_t body_length = 0;
   bool redacted = false;
-  const bool body_ok = compat::redaction::RedactSecrets(text, text_length, &body_owner, &body_length, &redacted);
+  const bool body_ok = security::redaction::RedactSecrets(text, text_length, &body_owner, &body_length, &redacted);
   char* body = body_owner.get();
   if (!body_ok) {
     return AddStatus::kStorage;

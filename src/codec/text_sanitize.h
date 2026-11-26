@@ -5,7 +5,7 @@
 
 #include "price_history_batch_codec.h"
 
-namespace fortis::compat {
+namespace fortis::codec {
 
 // This server's display sanitizers for token search: the symbol rule
 // (<= 16 UTF-16 units) and the name rule (<= 64), pinned by
@@ -36,4 +36,4 @@ void AppendSanitizedJsonString(fortis::codec::history_batch::OutBuffer& out,
 size_t SanitizedToProtobufUtf8(const char* text, size_t length, char* output,
                                size_t capacity);
 
-}  // namespace fortis::compat
+}  // namespace fortis::codec

@@ -203,7 +203,7 @@ void redactions(const Value* list) {
     size_t length = 0;
     bool redacted = false;
     ++g_checks;
-    if (!fortis::compat::redaction::RedactSecrets(input->text, input->length, &output, &length, &redacted) ||
+    if (!fortis::security::redaction::RedactSecrets(input->text, input->length, &output, &length, &redacted) ||
         !same(tj::Get(row, "text"), output.get(), length) ||
         redacted != (tj::Get(row, "redacted")->type == tj::Type::kTrue)) {
       fail("redact", i, input->text);

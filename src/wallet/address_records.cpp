@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "address_records.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -89,7 +89,7 @@ Value* amount(Arena& arena, const Value* raw, const Value* decimals) {
 // Number(text) of a stored decimal string.
 double stored_number(const Value* v) {
   if (!tj::IsString(v)) return NAN;
-  return fortis::compat::token_text::ToNumber(v->text, v->length);
+  return fortis::codec::provider_text::ToNumber(v->text, v->length);
 }
 
 constexpr double kPow10[] = {1e0,  1e1,  1e2,  1e3,  1e4,  1e5,  1e6,  1e7,  1e8,  1e9,  1e10,
@@ -105,7 +105,7 @@ double pow10(double decimals) {
 
 // `Number(amountRaw) / 10 ** decimals`.
 double units_of(const Value* raw, const Value* decimals) {
-  const double number = tj::IsString(raw) ? fortis::compat::token_text::ToNumber(raw->text, raw->length)
+  const double number = tj::IsString(raw) ? fortis::codec::provider_text::ToNumber(raw->text, raw->length)
                                           : chains::JsNumber(raw);
   const double scale = pow10(chains::JsNumber(decimals));
   return number / scale;
@@ -247,7 +247,7 @@ const char* string_meta(Arena& arena, const Value* metadata, const char* key) {
   const Value* v = tj::IsObject(metadata) ? tj::Get(metadata, key) : nullptr;
   if (!tj::IsString(v)) return nullptr;
   size_t begin = 0, end = 0;
-  fortis::compat::token_text::Trim(v->text, v->length, &begin, &end);
+  fortis::codec::provider_text::Trim(v->text, v->length, &begin, &end);
   if (begin == end) return nullptr;
   return arena.CopyText(v->text + begin, end - begin);
 }
@@ -275,7 +275,7 @@ Value* leg_json(Arena& arena, const Value* row, const LegInput& in) {
       if (isfinite(price) && price >= 0) {
         char text[160];
         JsToFixed(price, 24, text, sizeof(text));
-        unit = tj::Num(arena, fortis::compat::token_text::ToNumber(text, strlen(text)));
+        unit = tj::Num(arena, fortis::codec::provider_text::ToNumber(text, strlen(text)));
       }
     }
   }
@@ -283,7 +283,7 @@ Value* leg_json(Arena& arena, const Value* row, const LegInput& in) {
   if (has_total) {
     char text[160];
     JsToFixed(total, 24, text, sizeof(text));
-    total_value = tj::Num(arena, fortis::compat::token_text::ToNumber(text, strlen(text)));
+    total_value = tj::Num(arena, fortis::codec::provider_text::ToNumber(text, strlen(text)));
   }
   const Value* interval = get(row, "fiatSourceInterval");
   Value* source = !has_total ? tj::Null(arena)
@@ -516,9 +516,9 @@ bool TransferMatches(const Value* row, const TransferQuery& query) {
 const char* PriceIdForTransfer(Arena& arena, const Network& network, const char* token_id, const char* canonical_id) {
   if (canonical_id) {
     size_t begin = 0, end = 0;
-    fortis::compat::token_text::Trim(canonical_id, strlen(canonical_id), &begin, &end);
+    fortis::codec::provider_text::Trim(canonical_id, strlen(canonical_id), &begin, &end);
     if (end > begin) {
-      Value* lowered = fortis::compat::token_text::ToLowerCase(arena, canonical_id + begin, end - begin);
+      Value* lowered = fortis::codec::provider_text::ToLowerCase(arena, canonical_id + begin, end - begin);
       return lowered ? lowered->text : nullptr;
     }
   }

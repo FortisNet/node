@@ -97,26 +97,33 @@ the operator tools.
 
 ## Inventory: `src/compat`
 
-About 27,400 lines, of which about 20,800 are generated tables.
+About 16,900 lines, of which about 12,500 are generated tables.
 
 | Component | Lines | What it is | Callers (modules) | Entries |
 |---|---:|---|---|---|
 | `whatwg_url.{h,cpp}` | 2,050 | A WHATWG URL parser (the behaviour of `new URL()` in Node.js 22, Ada 2.9.2), plus `CanonicalArticleUrl` | news (feed and media fetch, clustering), discovery (`IsHttpUrl`), exchange (provider links, MAYA roots), tokens, wallet | [whatwg-url](#whatwg-url) |
 | `idna.{h,cpp}` + `idna_tables.cpp` | 652 + 8,738 | `to_ascii`: UTS #46 mapping, NFC, punycode, bidi | `whatwg_url.cpp` only | [idna](#idna) |
-| `diagnostic_redaction.{h,cpp}` + `redaction_tables.{h,cpp}` | 861 + 8,376 | Secret scanner, NFKC folding, BIP-39 runs, address and path scrubbing | operations (crash reports), ai (stored and model-bound text) | [redaction](#redaction) |
 | `js_regex.{h,cpp}` | 864 | Bounded backtracking matcher for a fixed ECMAScript subset over UTF-16 | news (`news_text.cpp`), ai (`ai_reply.cpp` secret-request patterns) | [js-regex](#js-regex) |
-| `js_date_parse.{h,cpp}` | 595 | `new Date(string)` as V8 12.4 parses it: the ISO form, then the legacy free-form parser | prices (provider `last_updated`), news (feed dates), ai (proof timestamp), and through `token_text::DateParse` exchange, tokens, wallet, chains | [date-parse](#date-parse) |
+| `js_date_parse.{h,cpp}` | 595 | `new Date(string)` as V8 12.4 parses it: the ISO form, then the legacy free-form parser | prices (provider `last_updated`), news (feed dates), ai (proof timestamp), and through `provider_text::DateParse` exchange, tokens, wallet, chains | [date-parse](#date-parse) |
 | `js_case.{h,cpp}` + `js_case_tables.cpp` | 240 + 3,715 | ASCII case mapping for identifiers, and Unicode `toUpperCase` / `toLowerCase` with full special casing for text | prices, providers, discovery, news, ai, tokens | [js-case](#js-case) |
-| `js_json.{h,cpp}` | 487 | `JSON.stringify` and `google.protobuf.Struct` output over a bounded token document | discovery, exchange, news, prices, wallet | [js-property-order](#js-property-order), [number-format](#number-format) |
-| `token_text.{h,cpp}` | 390 | String helpers over valid UTF-8: UTF-16 limits, safe slice and trim, sanitizers, `toFixed`, case, `Number()`, ISO dates | chains, exchange, tokens, wallet, ai | [lone-surrogates](#lone-surrogates), [number-format](#number-format) |
-| `text_sanitize.{h,cpp}` | 186 | `sanitizeSymbol` / `sanitizeName` for token search | discovery | [text-sanitizers](#text-sanitizers) |
-| `hourly_windows.h` | 66 | Fixed one-hour quota windows in a bounded in-memory table | ai | [hourly-windows](#hourly-windows) |
-| `sandbox_socket.{h,cpp}` | 213 | Client of the local sandbox broker socket. It is not a compatibility component | see [sandbox-control.md](sandbox-control.md) | - |
 
-`idna` has exactly one consumer (`whatwg_url.cpp`), and `redaction_tables`
-has exactly one (`diagnostic_redaction.cpp`). `js_date_parse` is reached
-directly and through `token_text::DateParse` and
+`idna` has exactly one consumer (`whatwg_url.cpp`). `js_date_parse` is reached
+directly and through `provider_text::DateParse` (`src/codec`) and
 `cross_chain_support::DateParse`.
+
+These modules once lived in `src/compat` and now sit with the component that
+owns what they do. The entries below still describe their rules.
+
+| Component | Lines | What it is | Callers (modules) | Entries |
+|---|---:|---|---|---|
+| `src/security/diagnostic_redaction.{h,cpp}` + `src/security/redaction_tables.{h,cpp}` | 861 + 8,376 | Secret scanner, NFKC folding, BIP-39 runs, address and path scrubbing | operations (crash reports), ai (stored and model-bound text) | [redaction](#redaction) |
+| `src/codec/json_document_writer.{h,cpp}` | 487 | `JSON.stringify` and `google.protobuf.Struct` output over a bounded token document | discovery, exchange, news, prices, wallet | [js-property-order](#js-property-order), [number-format](#number-format) |
+| `src/codec/provider_text.{h,cpp}` | 390 | String helpers over valid UTF-8: UTF-16 limits, safe slice and trim, sanitizers, `toFixed`, case, `Number()`, ISO dates | chains, exchange, tokens, wallet, ai | [lone-surrogates](#lone-surrogates), [number-format](#number-format) |
+| `src/codec/text_sanitize.{h,cpp}` | 186 | `sanitizeSymbol` / `sanitizeName` for token search | discovery | [text-sanitizers](#text-sanitizers) |
+| `src/ai/hourly_windows.h` | 66 | Fixed one-hour quota windows in a bounded in-memory table | ai | [hourly-windows](#hourly-windows) |
+| `src/operations/sandbox_socket.{h,cpp}` | 213 | Client of the local sandbox broker socket | see [sandbox-control.md](sandbox-control.md) | - |
+
+`redaction_tables` has exactly one consumer (`diagnostic_redaction.cpp`).
 
 ## Contract
 
@@ -145,9 +152,9 @@ prefix omitted).
 | <a id="dashpay-name"></a>dashpay-name | The resolved `name` is the lower-case ASCII canonical name | The application compares it byte for byte | - | `dashpay_*` |
 | <a id="evm-lowercase"></a>evm-lowercase | EVM addresses are lower-case in sync rows and stored keys | The application matches them as lower-case | - | `sync_*` |
 | <a id="bounds"></a>bounds | Request limits: body 512 KiB (413), path values, id counts, text lengths, quota costs. Lengths of text fields are counted in UTF-16 code units | The limits are this server's resource policy. The unit of counting is invisible for the ASCII and BMP text that clients send | Do not re-derive the limits in another unit. That would move the boundary by a few characters for astral text | query and edge tests |
-| <a id="number-format"></a>number-format | JSON numbers: shortest round-trip digits, plain decimal for 1e-7 <= abs(x) < 1e21, exponent form outside, `-0` as `0`, non-finite as `null`. Display strings are built with fixed decimals (`ToFixed`) or grouping (`en-US`) | JSON responses are contract (snapshot, token page). The display strings are payload text that the application shows | Integers must stay integer literals | `js_json_test.py`, `market_view_test.py`, replays |
+| <a id="number-format"></a>number-format | JSON numbers: shortest round-trip digits, plain decimal for 1e-7 <= abs(x) < 1e21, exponent form outside, `-0` as `0`, non-finite as `null`. Display strings are built with fixed decimals (`ToFixed`) or grouping (`en-US`) | JSON responses are contract (snapshot, token page). The display strings are payload text that the application shows | Integers must stay integer literals | `json_document_writer_test.py`, `market_view_test.py`, replays |
 | <a id="proto-field-order"></a>proto-field-order | Encoders write fields in ascending field-number order and omit proto3 defaults | Standard protobuf practice | - | `proto_wire_golden_test` |
-| <a id="hourly-windows"></a>hourly-windows | AI conversation hourly allowances: a fixed window from the first hit, in memory, reset on restart, fail-open when the 4,096-entry table is full | Server policy. The header lives in `src/compat/` although it is not a compatibility component | - | `ai_open_test.cpp`, `ai_post_message_test.cpp` |
+| <a id="hourly-windows"></a>hourly-windows | AI conversation hourly allowances: a fixed window from the first hit, in memory, reset on restart, fail-open when the 4,096-entry table is full | Server policy. The header is `src/ai/hourly_windows.h` | - | `ai_open_test.cpp`, `ai_post_message_test.cpp` |
 | <a id="text-sanitizers"></a>text-sanitizers | Provider-supplied symbols, names and descriptions are stripped of control and format characters, collapsed and truncated (16 / 64 / 2,000 units, with an ellipsis) before they reach a client | Display safety for third-party text | Truncation cuts at a code point boundary: [lone-surrogates](#lone-surrogates) | `token_ref_test` (`tests/corpus/token_ref_corpus.json`) |
 | <a id="news-pipeline"></a>news-pipeline | Feed parsing, tag stripping, classification, clustering thresholds and `CanonicalArticleUrl` | The server's own product logic. The thresholds were measured | Do not re-tune the thresholds without a new measurement | `news_*` tests |
 
@@ -285,7 +292,7 @@ new 400 on the diagnose route blocks signing.
 | `tokens/token_comparison_store.cpp`: stored symbol upper-casing | display text | Unicode |
 | `discovery/token_search_route.cpp`: search term, catalog symbol and name matching | user search text | Unicode |
 | `news/news_text.cpp` | news text | Unicode |
-| `compat/token_text` `ToLowerCase` / `ToUpperCase` (callers in chains, tokens, wallet, exchange) | provider payload values | Unicode |
+| `codec/provider_text` `ToLowerCase` / `ToUpperCase` (callers in chains, tokens, wallet, exchange) | provider payload values | Unicode |
 
 An id or network name with a non-ASCII letter keeps that letter, and a
 Kelvin sign is not `k`. The Unicode tables in `js_case_tables.cpp` stay,
@@ -299,9 +306,9 @@ under the stated condition.
 
 | Entry | Behaviour | Native rule | Condition and risk | Code |
 |---|---|---|---|---|
-| <a id="date-parse"></a>date-parse | Date strings are parsed as V8 does: the ISO form, then the legacy free-form parser (month names, `GMT+hh`, parenthesised comments, two-digit years, local-time `YYYY-MM-DD HH:mm`) | A parser for exactly ISO 8601 and RFC 822/1123 dates; anything else is "no date". The ISO form must accept `Z` and `±hh:mm` offsets and one to nine fractional digits, and must keep reading a zone-less date-time as UTC | Clients send ISO 8601 only. News feeds send RFC 822 / RFC 1123 or ISO 8601. Whether every provider sends only those forms has **not** been verified, and many call sites read cross-chain and chain provider payloads. A provider with an unusual date format would lose its dates; for a cross-chain status that is a wrong answer, not a missing decoration. Sample real feed and provider dates first. Medium risk | `compat/js_date_parse.{h,cpp}`, `discovery/market_view.cpp` (`DateParseValid`), callers through `token_text::DateParse` and `cross_chain_support::DateParse` |
+| <a id="date-parse"></a>date-parse | Date strings are parsed as V8 does: the ISO form, then the legacy free-form parser (month names, `GMT+hh`, parenthesised comments, two-digit years, local-time `YYYY-MM-DD HH:mm`) | A parser for exactly ISO 8601 and RFC 822/1123 dates; anything else is "no date". The ISO form must accept `Z` and `±hh:mm` offsets and one to nine fractional digits, and must keep reading a zone-less date-time as UTC | Clients send ISO 8601 only. News feeds send RFC 822 / RFC 1123 or ISO 8601. Whether every provider sends only those forms has **not** been verified, and many call sites read cross-chain and chain provider payloads. A provider with an unusual date format would lose its dates; for a cross-chain status that is a wrong answer, not a missing decoration. Sample real feed and provider dates first. Medium risk | `compat/js_date_parse.{h,cpp}`, `discovery/market_view.cpp` (`DateParseValid`), callers through `provider_text::DateParse` and `cross_chain_support::DateParse` |
 | <a id="promise-all"></a>promise-all | Concurrent provider calls reproduce `Promise.all` timing: every request is issued before the first answer, and the failure that **settled first** decides the error | Deterministic: the first failure in call order decides | A client sees a failure code, not which sub-call lost the race. High risk: this is concurrency code with a sensitive shutdown order. Change it only when that code is reworked for another reason | `chains/chain_transport.{h,cpp}` (`FirstSettledFailure`) and its callers in chains, exchange, wallet and tokens |
-| js-case (provider values) | `compat/token_text` `ToLowerCase` / `ToUpperCase` map provider payload values with the Unicode tables | - | They are payload text, not identifiers. See [Case mapping](#case-mapping) | `compat/token_text.{h,cpp}` |
+| js-case (provider values) | `codec/provider_text` `ToLowerCase` / `ToUpperCase` map provider payload values with the Unicode tables | - | They are payload text, not identifiers. See [Case mapping](#case-mapping) | `codec/provider_text.{h,cpp}` |
 | request-coercion (provider values) | `history_batch::JsStringToNumber` converts provider payload strings with ECMAScript `Number()` rules | - | It no longer applies to requests ([request-coercion](#request-coercion)) | callers in chains, tokens, wallet |
 | js-prototype-keys (relayed data) | `exchange/cross_chain_support.cpp` drops a `__proto__` member when it copies a provider payload | - | Response side only. Requests treat the key as ordinary ([js-prototype-keys](#js-prototype-keys)) | `exchange/cross_chain_support.cpp` |
 

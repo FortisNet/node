@@ -18,7 +18,7 @@ bool symbol_visit(void* context, const token_store::IdentityRecord& row) {
   auto* scan = static_cast<SymbolScan*>(context);
   if (!row.symbol.present || !row.coingecko_id.present || !row.coingecko_id.length) return true;
   const tj::Mark mark = tj::MarkOf(*scan->arena);
-  Value* upper = compat::token_text::ToUpperCase(*scan->arena, row.symbol.text, row.symbol.length);
+  Value* upper = codec::provider_text::ToUpperCase(*scan->arena, row.symbol.text, row.symbol.length);
   const bool same = upper && upper->length == strlen(scan->symbol) &&
                     memcmp(upper->text, scan->symbol, upper->length) == 0;
   tj::Rewind(*scan->arena, mark);

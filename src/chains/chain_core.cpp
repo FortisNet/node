@@ -5,7 +5,7 @@
 #include "evm_proof.h"
 #include "network_registry.h"
 #include "price_history_batch_codec.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <mbedtls/sha1.h>
 #include <mbedtls/sha256.h>
@@ -254,14 +254,14 @@ double JsNumber(const Value* v) {
     case tj::Type::kFalse: return 0;
     case tj::Type::kTrue: return 1;
     case tj::Type::kNumber: return v->number;
-    case tj::Type::kString: return compat::token_text::ToNumber(v->text, v->length);
+    case tj::Type::kString: return codec::provider_text::ToNumber(v->text, v->length);
     case tj::Type::kArray:
       // Number([]) = 0; Number([x]) = Number(String(x)); otherwise NaN.
       if (v->count == 0) return 0;
       if (v->count == 1) {
         const Value* item = v->items[0];
         if (!item || item->type == tj::Type::kNull) return 0;
-        if (item->type == tj::Type::kString) return compat::token_text::ToNumber(item->text, item->length);
+        if (item->type == tj::Type::kString) return codec::provider_text::ToNumber(item->text, item->length);
         if (item->type == tj::Type::kNumber) return item->number;
         if (item->type == tj::Type::kArray) return JsNumber(item);
         return NAN;  // String(true) / String({}) are not numeric
@@ -322,7 +322,7 @@ Value* AmountString(Arena& arena, const Value* v) {
 Value* IntegerString(Arena& arena, const Value* v) {
   if (tj::IsString(v)) {
     size_t begin = 0, end = 0;
-    compat::token_text::Trim(v->text, v->length, &begin, &end);
+    codec::provider_text::Trim(v->text, v->length, &begin, &end);
     const char* text = v->text + begin;
     const size_t length = end - begin;
     const size_t sign = length && text[0] == '-' ? 1 : 0;
@@ -551,10 +551,10 @@ bool StartsWith(const char* text, const char* prefix) {
   return text && strncmp(text, prefix, strlen(prefix)) == 0;
 }
 
-bool IsoTime(int64_t epoch_ms, char output[32]) { return compat::token_text::IsoString(epoch_ms, output); }
+bool IsoTime(int64_t epoch_ms, char output[32]) { return codec::provider_text::IsoString(epoch_ms, output); }
 
 bool ParseTime(const char* text, size_t length, double* epoch_ms) {
-  return compat::token_text::DateParse(text, length, epoch_ms);
+  return codec::provider_text::DateParse(text, length, epoch_ms);
 }
 
 Value* IsoValue(Arena& arena, int64_t epoch_ms) {
@@ -718,7 +718,7 @@ bool BigInt::ParseHex(const char* text, size_t length, BigInt* out) {
 bool BigInt::Parse(const char* text, size_t length, BigInt* out) {
   // StringToBigInt: StrWhiteSpaceChar trimmed; "" -> 0n.
   size_t begin = 0, end = length;
-  compat::token_text::Trim(text, length, &begin, &end);
+  codec::provider_text::Trim(text, length, &begin, &end);
   text += begin;
   length = end - begin;
   if (!length) { *out = BigInt(); return true; }
@@ -976,7 +976,7 @@ Value* BigInt::ToValue(Arena& arena) const {
 bool DecimalToRaw(const char* input, size_t input_length, int fixed_decimals, BigInt* raw, int* decimals) {
   // /^([+-]?)(\d*)(?:\.(\d*))?(?:[eE]([+-]?\d+))?$/ over the trimmed value.
   size_t begin = 0, end = input_length;
-  compat::token_text::Trim(input, input_length, &begin, &end);
+  codec::provider_text::Trim(input, input_length, &begin, &end);
   const char* s = input + begin;
   const size_t n = end - begin;
   size_t i = 0;
@@ -1247,15 +1247,15 @@ void Keccak256(const uint8_t* bytes, size_t length, uint8_t digest[32]) { auth::
 // ---- sanitizers -----------------------------------------------------------------
 
 Value* SanitizeSymbol(Arena& arena, const char* text, size_t length) {
-  return compat::token_text::SanitizeSymbol(arena, text, length);
+  return codec::provider_text::SanitizeSymbol(arena, text, length);
 }
 
 Value* SanitizeName(Arena& arena, const char* text, size_t length) {
-  return compat::token_text::SanitizeName(arena, text, length);
+  return codec::provider_text::SanitizeName(arena, text, length);
 }
 
 Value* SanitizeText(Arena& arena, const char* text, size_t length) {
-  return compat::token_text::SanitizeText(arena, text, length);
+  return codec::provider_text::SanitizeText(arena, text, length);
 }
 
 Value* PrintableMemoFromBase64(Arena& arena, const char* base64, size_t length) {
@@ -1266,7 +1266,7 @@ Value* PrintableMemoFromBase64(Arena& arena, const char* base64, size_t length) 
   if (size == 0 || size > 512) return tj::Null(arena);
   for (size_t i = 0; i < size; ++i)
     if ((bytes[i] < 0x20 && bytes[i] != 0x0a) || bytes[i] > 0x7e) return tj::Null(arena);
-  Value* text = compat::token_text::SanitizeText(arena, reinterpret_cast<const char*>(bytes), size);
+  Value* text = codec::provider_text::SanitizeText(arena, reinterpret_cast<const char*>(bytes), size);
   if (!text) return nullptr;
   return text->length == 0 ? tj::Null(arena) : text;
 }
@@ -1278,7 +1278,7 @@ Value* PrintableAsciiFromHex(Arena& arena, const char* hex, size_t length) {
   if (length / 2 > sizeof(bytes) || !HexDecode(hex, length, bytes, sizeof(bytes), &size)) return tj::Null(arena);
   for (size_t i = 0; i < size; ++i)
     if (bytes[i] < 0x20 || bytes[i] > 0x7e) return tj::Null(arena);
-  Value* text = compat::token_text::SanitizeSymbol(arena, reinterpret_cast<const char*>(bytes), size);
+  Value* text = codec::provider_text::SanitizeSymbol(arena, reinterpret_cast<const char*>(bytes), size);
   if (!text) return nullptr;
   return text->length == 0 ? tj::Null(arena) : text;
 }
@@ -1400,7 +1400,7 @@ const char* AbiAggregate3(Arena& arena, const AbiCall3* calls, size_t count) {
 bool AbiDecodeAggregate3(Arena& arena, const char* input, size_t input_length, AbiResult** results,
                          size_t* count) {
   size_t begin = 0, end = input_length;
-  compat::token_text::Trim(input, input_length, &begin, &end);
+  codec::provider_text::Trim(input, input_length, &begin, &end);
   size_t length = end - begin;
   const char* hex = strip0x(input + begin, &length);
   if (length < 128) return false;
@@ -1497,12 +1497,12 @@ Value* AbiString(Arena& arena, const char* input, size_t input_length) {
 
 Value* TransferRecordId(Arena& arena, const char* chain, const char* hash, const char* unit) {
   size_t cb = 0, ce = 0, hb = 0, he = 0;
-  compat::token_text::Trim(chain, strlen(chain), &cb, &ce);
-  compat::token_text::Trim(hash, strlen(hash), &hb, &he);
+  codec::provider_text::Trim(chain, strlen(chain), &cb, &ce);
+  codec::provider_text::Trim(hash, strlen(hash), &hb, &he);
   if (cb == ce || hb == he) return nullptr;
   if (unit) {
     size_t ub = 0, ue = 0;
-    compat::token_text::Trim(unit, strlen(unit), &ub, &ue);
+    codec::provider_text::Trim(unit, strlen(unit), &ub, &ue);
     if (ue > ub) {
       return Format(arena, "%.*s:%.*s:%.*s", static_cast<int>(ce - cb), chain + cb, static_cast<int>(he - hb),
                     hash + hb, static_cast<int>(ue - ub), unit + ub);

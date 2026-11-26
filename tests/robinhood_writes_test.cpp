@@ -33,7 +33,7 @@
 #include "robinhood_policy.h"
 #include "robinhood_service.h"
 #include "robinhood_tickets.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <mbedtls/sha256.h>
 #include <pthread.h>
@@ -253,7 +253,7 @@ void prepare_record(tj::Arena& arena, Context& context, const Value* record, con
   const Value* at = tj::Get(record, "at");
   char expires[32];
   const std::string ticket = ticket_for(static_cast<long long>(tj::Get(record, "ticketCounter")->number));
-  check(fortis::compat::token_text::IsoString(static_cast<int64_t>(at->number) + rh::TicketStore::kTtlMs, expires),
+  check(fortis::codec::provider_text::IsoString(static_cast<int64_t>(at->number) + rh::TicketStore::kTtlMs, expires),
         label + ": expiresAt");
   compare_answer(record, RobinhoodPrepareResult(arena, ticket.c_str(), expires, prepared, requests), label, counts);
 }

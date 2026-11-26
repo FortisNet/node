@@ -5,7 +5,7 @@
 #include "device_auth.h"
 #include "kv_store.h"
 #include "threading.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -1335,7 +1335,7 @@ bool Store::Remember(const char* device_id, const char* account_id, const char* 
   size_t n = 0;
   for (size_t i = 0; i < tracked_count; ++i) {
     size_t b = 0, e = 0;
-    fortis::compat::token_text::Trim(tracked[i], strlen(tracked[i]), &b, &e);
+    fortis::codec::provider_text::Trim(tracked[i], strlen(tracked[i]), &b, &e);
     if (e == b) continue;
     const char* trimmed = arena.CopyText(tracked[i] + b, e - b);
     if (!trimmed) return false;

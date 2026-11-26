@@ -9,7 +9,8 @@
         "ai/ai_service.h",
         "ai/ai_snapshot.h",
         "ai/ai_stats.h",
-        "ai/ai_store.h"
+        "ai/ai_store.h",
+        "ai/hourly_windows.h"
       ],
       "private": [
         "ai/conversation_components_internal.h"
@@ -89,24 +90,20 @@
         "codec/protobuf_probe.h",
         "codec/token_json.h",
         "codec/utf8.h",
-        "codec/sandbox_wire.h"
+        "codec/sandbox_wire.h",
+        "codec/json_document_writer.h",
+        "codec/text_sanitize.h",
+        "codec/provider_text.h"
       ],
       "private": []
     },
     "compat": {
       "public": [
-        "compat/diagnostic_redaction.h",
-        "compat/hourly_windows.h",
         "compat/idna.h",
         "compat/js_case.h",
         "compat/js_date_parse.h",
-        "compat/js_json.h",
         "compat/js_regex.h",
-        "compat/redaction_tables.h",
-        "compat/text_sanitize.h",
-        "compat/token_text.h",
-        "compat/whatwg_url.h",
-        "compat/sandbox_socket.h"
+        "compat/whatwg_url.h"
       ],
       "private": []
     },
@@ -221,7 +218,8 @@
         "operations/token_prices_page.h",
         "operations/token_prices_route.h",
         "operations/release_routes.h",
-        "operations/sandbox_control.h"
+        "operations/sandbox_control.h",
+        "operations/sandbox_socket.h"
       ],
       "private": [
         "operations/benchmark_reports.inc",
@@ -284,6 +282,13 @@
         "providers/upstream_access.h",
         "providers/vestige_price.h",
         "providers/vestige_request.h"
+      ],
+      "private": []
+    },
+    "security": {
+      "public": [
+        "security/diagnostic_redaction.h",
+        "security/redaction_tables.h"
       ],
       "private": []
     },

@@ -7,7 +7,7 @@
 
 #include "device_enrollment.h"
 #include "js_case.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "news_json.h"
 #include "price_history_batch_codec.h"

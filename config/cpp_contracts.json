@@ -24,9 +24,9 @@
     "src/providers/kraken_price.cpp",
     "tests/kraken_price_test.cpp",
     "src/codec/sandbox_wire.h",
-    "src/compat/sandbox_socket.h",
+    "src/operations/sandbox_socket.h",
     "src/operations/sandbox_control.h",
-    "src/compat/sandbox_socket.cpp",
+    "src/operations/sandbox_socket.cpp",
     "src/operations/sandbox_control.cpp",
     "tests/sandbox_ipc_test.cpp",
     "src/providers/defillama_price.h",
@@ -62,7 +62,7 @@
     "src/operations/release_routes.h",
     "src/providers/kraken_price.h",
     "src/codec/sandbox_wire.h",
-    "src/compat/sandbox_socket.h",
+    "src/operations/sandbox_socket.h",
     "src/operations/sandbox_control.h",
     "src/providers/defillama_price.h",
     "src/providers/mexc_price.h"
@@ -82,6 +82,6 @@
     "fortis::operations::ErrorBoard",
     "fortis::operations::NodeServices",
     "fortis::operations::NodeBrandAsset",
-    "fortis::compat::sandbox::Reply"
+    "fortis::operations::sandbox::Reply"
   ]
 }

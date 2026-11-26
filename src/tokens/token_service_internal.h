@@ -31,7 +31,7 @@
 #include "token_provider.h"
 #include "token_robinhood.h"
 #include "token_swr.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "token_tron.h"
 
 #include <math.h>

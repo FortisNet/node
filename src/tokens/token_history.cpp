@@ -5,7 +5,7 @@
 #include "token_data.h"
 #include "token_liquidity.h"
 #include "token_swr.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "token_views.h"
 #include "token_writes.h"
 
@@ -56,7 +56,7 @@ int64_t utc_day(int64_t ms) {
 bool number_of(const Value* v, double* out) {
   if (tj::IsNumber(v)) { if (!isfinite(v->number)) return false; *out = v->number; return true; }
   if (!tj::IsString(v)) return false;
-  const double parsed = compat::token_text::ToNumber(v->text, v->length);
+  const double parsed = codec::provider_text::ToNumber(v->text, v->length);
   if (!isfinite(parsed)) return false;
   *out = parsed;
   return true;
@@ -98,7 +98,7 @@ Value* empty_snapshot(Arena& a, const char* network, const char* token_id, const
 Value* trimmed_source(Arena& a, const Value* source) {
   if (!tj::IsString(source)) return nullptr;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(source->text, source->length, &begin, &end);
+  codec::provider_text::Trim(source->text, source->length, &begin, &end);
   if (begin == end) return nullptr;
   return tj::Str(a, source->text + begin, end - begin);
 }
@@ -158,7 +158,7 @@ Value* normalize_positions(Arena& a, const Value* holders) {
     const Value* address = tj::Get(holder, "address");
     if (!tj::IsString(address)) continue;
     size_t begin = 0, end = 0;
-    compat::token_text::Trim(address->text, address->length, &begin, &end);
+    codec::provider_text::Trim(address->text, address->length, &begin, &end);
     Value* canonical = tj::Str(a, address->text + begin, end - begin);
     if (!canonical) return nullptr;
     bool hex = canonical->length > 2 && canonical->text[0] == '0' &&
@@ -167,7 +167,7 @@ Value* normalize_positions(Arena& a, const Value* holders) {
       const char c = canonical->text[k];
       hex = (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F');
     }
-    if (hex) canonical = compat::token_text::ToLowerCase(a, canonical->text, canonical->length);
+    if (hex) canonical = codec::provider_text::ToLowerCase(a, canonical->text, canonical->length);
     if (!canonical) return nullptr;
     if (canonical->length == 0 || token_contract::IsBurnAddress(a, canonical->text, canonical->length)) continue;
     bool seen = false;
@@ -179,8 +179,8 @@ Value* normalize_positions(Arena& a, const Value* holders) {
     const Value* tag = tj::Get(holder, "tag");
     Value* clean_tag = tj::Null(a);
     if (tj::IsString(tag)) {
-      compat::token_text::Trim(tag->text, tag->length, &begin, &end);
-      if (end > begin) clean_tag = compat::token_text::Slice(a, tag->text + begin, end - begin, 0, 200);
+      codec::provider_text::Trim(tag->text, tag->length, &begin, &end);
+      if (end > begin) clean_tag = codec::provider_text::Slice(a, tag->text + begin, end - begin, 0, 200);
     }
     double balance = 0, percent = 0;
     const bool has_balance = finite_nonnegative(tj::Get(holder, "balance"), &balance);

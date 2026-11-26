@@ -14,7 +14,7 @@
 #include "redaction_tables.h"
 
 using namespace fortis::codec;
-using namespace fortis::compat;
+using namespace fortis::security;
 
 namespace {
 
@@ -35,7 +35,7 @@ char* read_file(const char* path, size_t* length) {
 }
 
 bool redact(const char* input, size_t length, std::unique_ptr<char[], fortis::base::StorageDeleter>* output, size_t* output_length) {
-  return fortis::compat::redaction::RedactDiagnosticText(input, length, output, output_length);
+  return fortis::security::redaction::RedactDiagnosticText(input, length, output, output_length);
 }
 
 void expect(const char* input, const char* wanted) {
@@ -138,10 +138,10 @@ int main(int argc, char** argv) {
   assert(redact(output.get(), output_length, &output, &output_length));
   assert(output_length == 8 && std::strcmp(output.get(), "previous") == 0);
   bool changed = false;
-  assert(fortis::compat::redaction::RedactSecrets(output.get(), output_length,
+  assert(fortis::security::redaction::RedactSecrets(output.get(), output_length,
       &output, &output_length, &changed) && !changed);
   assert(output_length == 8 && std::strcmp(output.get(), "previous") == 0);
-  assert(fortis::compat::redaction::FoldForDetection(output.get(), output_length,
+  assert(fortis::security::redaction::FoldForDetection(output.get(), output_length,
       &output, &output_length));
   assert(output_length == 8 && std::strcmp(output.get(), "previous") == 0);
   assert(!redact("\xff", 1, &output, &output_length));

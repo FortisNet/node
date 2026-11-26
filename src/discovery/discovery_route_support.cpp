@@ -69,7 +69,7 @@ void SendDiscoveryJson(int client, int status, const char* reason, const char* b
 void SendDiscoveryBadRequest(int client, const char* detail, bool head, int rate_cost,
                              uint32_t remaining) {
   char body[256];
-  fortis::compat::js_json::OutBuffer out{reinterpret_cast<uint8_t*>(body), sizeof(body) - 1};
+  fortis::codec::json_document_writer::OutBuffer out{reinterpret_cast<uint8_t*>(body), sizeof(body) - 1};
   out.Text("{\"error\":\"BAD_REQUEST\"");
   if (detail) {
     out.Text(",\"detail\":");
@@ -97,7 +97,7 @@ http::HttpResponse DiscoveryUpstreamUnavailableResponse() {
   return response;
 }
 
-void AppendDiscoveryCacheJson(fortis::compat::js_json::OutBuffer& out, bool hit, int64_t as_of_ms,
+void AppendDiscoveryCacheJson(fortis::codec::json_document_writer::OutBuffer& out, bool hit, int64_t as_of_ms,
                               bool partial_key, bool partial) {
   out.Text(hit ? "{\"hit\":true,\"timestamp\":" : "{\"hit\":false,\"timestamp\":");
   char timestamp[32];
@@ -110,7 +110,7 @@ void AppendDiscoveryCacheJson(fortis::compat::js_json::OutBuffer& out, bool hit,
   out.Byte('}');
 }
 
-void AppendDiscoveryCacheProto(fortis::compat::js_json::OutBuffer& out, bool hit, int64_t as_of_ms,
+void AppendDiscoveryCacheProto(fortis::codec::json_document_writer::OutBuffer& out, bool hit, int64_t as_of_ms,
                                bool partial) {
   if (hit) { fortis::codec::proto_wire::PutTag(out, 1, 0); out.Byte(1); }
   char timestamp[32];

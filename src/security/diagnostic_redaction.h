@@ -16,7 +16,7 @@
 //
 // Security-relevant (docs/compat-decisions.md#redaction): this decides what
 // is stored and what is sent to the model provider. Never weaken a rule.
-namespace fortis::compat::redaction {
+namespace fortis::security::redaction {
 
 // Hard bound on the code points one call may produce. Crash report fields
 // are at most 24,000 UTF-16 units; the largest expansion
@@ -39,4 +39,4 @@ bool RedactSecrets(const char* input, size_t length, std::unique_ptr<char[], bas
 // short tags to spaces, confusables mapped). Same contract as above.
 bool FoldForDetection(const char* input, size_t length, std::unique_ptr<char[], base::StorageDeleter>* output, size_t* output_length);
 
-}  // namespace fortis::compat::redaction
+}  // namespace fortis::security::redaction

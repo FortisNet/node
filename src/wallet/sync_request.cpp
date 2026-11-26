@@ -2,7 +2,7 @@
 
 #include "price_history_batch_codec.h"
 #include "proto_wire.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -394,7 +394,7 @@ bool Validate(const Input& input, Request* request) {
   if (input.has_after) {
     request->has_after = true;
     double ms = 0;
-    request->after_ms = fortis::compat::token_text::DateParse(input.after.data, input.after.length, &ms) ? ms : NAN;
+    request->after_ms = fortis::codec::provider_text::DateParse(input.after.data, input.after.length, &ms) ? ms : NAN;
   }
   request->include_transfer = include_transfer;
   request->limit = input.has_limit ? static_cast<uint32_t>(input.limit) : 200;

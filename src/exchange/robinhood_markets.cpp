@@ -5,14 +5,14 @@
 #include "chain_core.h"
 #include "chain_transport.h"
 #include "cross_chain_support.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "media_registry.h"
 #include "robinhood_policy.h"
 #include "robinhood_price.h"
 #include "threading.h"
 #include "token_search_route.h"
-#include "token_text.h"
+#include "provider_text.h"
 #include "whatwg_url.h"
 
 #include <math.h>
@@ -35,8 +35,8 @@ struct StockClient::Snapshot {
 namespace {
 
 namespace cc = fortis::exchange::cross_chain;
-namespace text = fortis::compat::token_text;
-namespace jj = fortis::compat::js_json;
+namespace text = fortis::codec::provider_text;
+namespace jj = fortis::codec::json_document_writer;
 namespace pw = fortis::codec::proto_wire;
 using tj::OutBuffer;
 

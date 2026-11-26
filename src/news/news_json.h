@@ -7,7 +7,7 @@
 
 // A small JSON DOM over arena memory for the JSON the news routes cache
 // themselves (feed, story and reaction payloads, CoinGecko price samples
-// re-serialized by compat::js_json::Stringify). Strings decode to UTF-16 code units,
+// re-serialized by codec::json_document_writer::Stringify). Strings decode to UTF-16 code units,
 // lone-surrogate escapes included; every value keeps its source span so an
 // element can be re-emitted byte for byte. Depth is bounded at 32.
 namespace fortis::news::json {

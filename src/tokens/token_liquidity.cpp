@@ -1,6 +1,6 @@
 #include "token_liquidity.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <string.h>
@@ -69,7 +69,7 @@ Value* string_or_null(Arena& a, const Value* v) {
 
 // `typeof x === 'string' ? (Number(x) || null) : …`
 Value* numeric_string(Arena& a, const Value* v) {
-  const double n = compat::token_text::ToNumber(v->text, v->length);
+  const double n = codec::provider_text::ToNumber(v->text, v->length);
   return (isnan(n) || n == 0) ? tj::Null(a) : tj::Num(a, n);
 }
 
@@ -121,7 +121,7 @@ Value* map_pair(Arena& a, const Value* p) {
                                              : num_or_null(a, price_native);
   Value* protocol = tj::Null(a);
   if (tj::IsArray(labels) && labels->count > 0 && tj::IsString(labels->items[0]))
-    protocol = compat::token_text::ToLowerCase(a, labels->items[0]->text, labels->items[0]->length);
+    protocol = codec::provider_text::ToLowerCase(a, labels->items[0]->text, labels->items[0]->length);
   const Value* url = tj::Get(p, "url");
   const Value* price_usd = tj::Get(p, "priceUsd");
   ok = ok && tj::Set(a, out, "priceNative", native) && tj::Set(a, out, "protocolLabel", protocol) &&
@@ -291,7 +291,7 @@ Value* TemplateString(Arena& a, const Value* v) {
 }
 
 Value* ChainAddressKey(Arena& a, const char* text, size_t length) {
-  if (length >= 2 && text[0] == '0' && text[1] == 'x') return compat::token_text::ToLowerCase(a, text, length);
+  if (length >= 2 && text[0] == '0' && text[1] == 'x') return codec::provider_text::ToLowerCase(a, text, length);
   return tj::Str(a, text, length);
 }
 

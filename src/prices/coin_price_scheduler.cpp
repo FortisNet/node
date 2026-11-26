@@ -7,7 +7,7 @@
 #include "device_auth.h"
 #include "discovery_cache.h"
 #include "js_case.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "kv_store.h"
 #include "market_view.h"
 #include "media_registry.h"
@@ -192,7 +192,7 @@ bool store_batch(const Deps& deps, Work& w, discovery::DiscoveryCache& cache, Pr
   }
   bool is_array = false;
   ScanContext scan{&w, count, body, false, false};
-  const bool walked = length && compat::js_json::ForEachTopLevelArrayElement(body, length, &is_array, scan_row, &scan);
+  const bool walked = length && codec::json_document_writer::ForEachTopLevelArrayElement(body, length, &is_array, scan_row, &scan);
   if (scan.null_row) return false;
   if (!walked || scan.failed) return true;  // http.json threw: the batch is skipped
   if (!is_array) {

@@ -1,6 +1,6 @@
 #include "token_json.h"
-#include "js_json.h"
-#include "token_text.h"
+#include "json_document_writer.h"
+#include "provider_text.h"
 #include "text_sanitize.h"
 #include "bounded_json.h"
 #include "utf8.h"
@@ -30,12 +30,12 @@ int main() {
   check(root && bounded.DecodeString(root->first_child, decoded, sizeof(decoded), &length) &&
         length == 7 && !memcmp(decoded, "\xef\xbf\xbdx\xef\xbf\xbd", 7), "bounded decoded bytes agree");
   const char emoji[] = "a\xf0\x9f\x98\x80" "b";
-  auto* first = fortis::compat::token_text::Slice(arena, emoji, strlen(emoji), 0, 2);
-  auto* last = fortis::compat::token_text::Slice(arena, emoji, strlen(emoji), 2, 4);
+  auto* first = fortis::codec::provider_text::Slice(arena, emoji, strlen(emoji), 0, 2);
+  auto* last = fortis::codec::provider_text::Slice(arena, emoji, strlen(emoji), 2, 4);
   check(tj::StringEquals(first, "a") && tj::StringEquals(last, "b"), "slice never emits half a code point");
   char sanitized[64];
   const char symbol[] = "abcdefghijklmn\xf0\x9f\x98\x80zz";
-  length = fortis::compat::SanitizeSymbol(symbol, strlen(symbol), sanitized, sizeof(sanitized));
+  length = fortis::codec::SanitizeSymbol(symbol, strlen(symbol), sanitized, sizeof(sanitized));
   check(length == 17 && !memcmp(sanitized, "abcdefghijklmn\xe2\x80\xa6", 17),
         "display truncation drops partial emoji before ellipsis");
   const char raw[] = "\xff";
@@ -54,7 +54,7 @@ int main() {
         "bounded source-order input");
   uint32_t scratch[512]{};
   ordered_out.used = 0;
-  check(fortis::compat::js_json::Stringify(bounded, bounded.root(), ordered_out, {scratch, 512}) &&
+  check(fortis::codec::json_document_writer::Stringify(bounded, bounded.root(), ordered_out, {scratch, 512}) &&
         ordered_out.used == strlen(ordered) && !memcmp(bytes, ordered, ordered_out.used), "bounded source order");
   tj::FreeArena(arena);
   if (failures) return 1;

@@ -9,11 +9,11 @@
 // Allocation-free JSON and google.protobuf.Struct output for a bounded
 // document. Duplicate keys retain their first source position and last value;
 // other keys retain source order. Strings use valid UTF-8 with lone JSON
-// surrogate escapes replaced by U+FFFD. Provider numbers retain the existing
-// Number.prototype.toString formatting.
+// surrogate escapes replaced by U+FFFD. Numbers are written with the shortest
+// digits that round-trip (history_batch::AppendJsNumber).
 // The bounded parser rejects non-finite or >=64-byte numeric literals and
 // nesting deeper than 16. Callers document any provider refusal bounds.
-namespace fortis::compat::js_json {
+namespace fortis::codec::json_document_writer {
 
 using codec::history_batch::OutBuffer;
 
@@ -46,4 +46,4 @@ bool ForEachTopLevelArrayElement(const unsigned char* text, size_t length,
                                  bool* is_array, ArrayElementFn element,
                                  void* context);
 
-}  // namespace fortis::compat::js_json
+}  // namespace fortis::codec::json_document_writer

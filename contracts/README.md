@@ -11,7 +11,7 @@ contract and behavior. This is an ownership transfer, not an ongoing sync.
   generator retains native field-size, escaping and response-capacity checks.
 - `redaction-data.json`: invisible code points, confusable mappings and the
   replacement text; `bip39-english.json`: the sorted 2,048-word vocabulary.
-  The redaction algorithm is owned by `src/compat/diagnostic_redaction.cpp`.
+  The redaction algorithm is owned by `src/security/diagnostic_redaction.cpp`.
   The Unicode normalization data it needs is `redaction-unicode-data.json`
   (Unicode 17.0), maintained here as data.
 - `openapi.base.yaml` and `../openapi.native.yaml`: native API documentation

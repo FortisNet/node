@@ -7,7 +7,7 @@
 #include "hourly_windows.h"
 #include "threading.h"
 namespace fortis::ai {
-using HourlyWindows = fortis::compat::HourlyWindows<32>;
+using HourlyWindows = fortis::ai::quota::HourlyWindows<32>;
 struct Policy {
   int cost = -1;
   uint32_t remaining = 0;

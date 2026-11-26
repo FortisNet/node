@@ -68,7 +68,7 @@ enum class BodyKind : uint8_t { kUndefined, kJson, kProtobuf };
 
 bool redact(cr::Slice input, std::unique_ptr<char[], base::StorageDeleter>& output, cr::Slice* redacted) {
   size_t length = 0;
-  const bool ok = fortis::compat::redaction::RedactDiagnosticText(input.data, input.length, &output, &length);
+  const bool ok = fortis::security::redaction::RedactDiagnosticText(input.data, input.length, &output, &length);
   if (!ok) return false;
   *redacted = {output.get(), length};
   return true;

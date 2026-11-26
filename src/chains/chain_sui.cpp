@@ -1,5 +1,5 @@
 #include "chain_family_drivers.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -69,7 +69,7 @@ bool coin_type_trimmed(const char* s, size_t n, OutBuffer& out) {
 
 void trim(const char* text, size_t length, const char** s, size_t* n) {
   size_t b = 0, e = 0;
-  compat::token_text::Trim(text, length, &b, &e);
+  codec::provider_text::Trim(text, length, &b, &e);
   *s = text + b;
   *n = e - b;
 }
@@ -609,7 +609,7 @@ bool walk_affected(Context& ctx, const Network& network, const char* address, co
 const Value* nonblank(const Value* v) {
   if (!tj::IsString(v)) return nullptr;
   size_t b = 0, e = 0;
-  compat::token_text::Trim(v->text, v->length, &b, &e);
+  codec::provider_text::Trim(v->text, v->length, &b, &e);
   return e > b ? v : nullptr;
 }
 
@@ -819,7 +819,7 @@ bool to_records(Context& ctx, const Network& network, const char* address, const
       const char* lt = static_cast<const char*>(memchr(segment, '<', segment_length));
       if (lt) segment_length = static_cast<size_t>(lt - segment);
       size_t b = 0, e = 0;
-      compat::token_text::Trim(segment, segment_length, &b, &e);
+      codec::provider_text::Trim(segment, segment_length, &b, &e);
       if (e > b) struct_name = tj::Str(a, segment + b, e - b);
     }
     Value* name = display_name("name");

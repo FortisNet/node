@@ -1044,7 +1044,7 @@ void concurrency() {
 
 // ---- the hourly message quota (kv.incrWindow(`q:ai:message:${device}`, 1 h) > 120) ----
 
-fortis::compat::HourlyWindows<32> g_windows;
+fortis::ai::quota::HourlyWindows<32> g_windows;
 
 void hourly_windows() {
   const int64_t hour = 60 * 60 * 1000;

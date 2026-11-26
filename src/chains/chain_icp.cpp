@@ -1,5 +1,5 @@
 #include "chain_family_drivers.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -153,7 +153,7 @@ bool height_of(void*, const Value* row, double* height) {
 Value* lower_or_null(Arena& a, const Value* v, bool* failed) {
   if (!v || v->type == tj::Type::kNull) return tj::Null(a);
   if (!tj::IsString(v)) { *failed = true; return nullptr; }  // .toLowerCase is not a function
-  return compat::token_text::ToLowerCase(a, v->text, v->length);
+  return codec::provider_text::ToLowerCase(a, v->text, v->length);
 }
 
 // The ledger's transfer_type in the app's vocabulary.
@@ -229,7 +229,7 @@ void on_row(void* opaque, Value* block) {
 bool IcpSource::Fetch(Context& ctx, const Network& network, const char* address, const Value* state,
                double backfill_depth, SourceResult* result, Error* error) const {
   Arena& a = *ctx.arena;
-  Value* account = compat::token_text::ToLowerCase(a, address, strlen(address));
+  Value* account = codec::provider_text::ToLowerCase(a, address, strlen(address));
   const char* account_text = account ? tj::CString(a, account) : nullptr;
   const Value* last = tj::Get(state, "lastHeight");
   const double since_height = tj::IsNumber(last) ? last->number : 0;

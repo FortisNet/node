@@ -4,7 +4,7 @@
 // Do not edit; run make generate-redaction-tables.
 #include "redaction_tables.h"
 
-namespace fortis::compat {
+namespace fortis::security {
 
 const char kRedactionUnicodeVersion[] = "17.0";
 const char kRedactionPlaceholder[] = "[redacted \xe2\x80\x94"" never share this with anyone, including us]";
@@ -8313,4 +8313,4 @@ const size_t kCombiningRankCount = sizeof(kCombiningRanks) / sizeof(kCombiningRa
 // SHA-256 of native-owned redaction data.
 const char kRedactionRulesSha256[] = "8a4d9d610b8712110b543c8a3d90af9b36d757619b55362f4940148d34ec3f63";
 
-}  // namespace fortis::compat
+}  // namespace fortis::security

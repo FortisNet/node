@@ -1,6 +1,6 @@
 {
   "source": {
-    "about": "Recorded reference answers for src/compat/js_json.cpp, replayed by tests/js_json_test.py. Do not edit by hand.",
+    "about": "Recorded reference answers for src/codec/json_document_writer.cpp, replayed by tests/json_document_writer_test.py. Do not edit by hand.",
     "engine": "Node.js 25.9.0 (V8 14.1.146.11-node.25)",
     "node": "25.9.0",
     "protobuf": "@bufbuild/protobuf 2.16.0",

@@ -14,7 +14,6 @@
 #include <string.h>
 
 using namespace fortis::codec;
-using namespace fortis::compat;
 using namespace fortis::networks;
 
 namespace {

@@ -281,7 +281,7 @@ bool stringify(const Value* v, OutBuffer& out, size_t depth) {
 // ---- protobuf ---------------------------------------------------------------
 //
 // google.protobuf.Struct over the DOM, on the shared proto_wire writer (the
-// bounded-document counterpart is compat::js_json::AppendProtoStruct).
+// bounded-document counterpart is codec::json_document_writer::AppendProtoStruct).
 
 void utf8(OutBuffer& out, const char* text, size_t length) {
   for (size_t i = 0; i < length;) {

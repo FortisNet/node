@@ -11,18 +11,19 @@
 //
 // Strings contain Unicode scalar values in UTF-8; malformed input becomes
 // U+FFFD. Slices exclude code points crossing either unit boundary.
-namespace fortis::compat::token_text {
+namespace fortis::codec::provider_text {
 
 // Decodes one Unicode scalar, replacing malformed UTF-8.
 uint32_t DecodeAt(const char* text, size_t length, size_t* position);
 // Appends one scalar in UTF-8; surrogate values become U+FFFD.
 void AppendCodePoint(codec::tj::OutBuffer& out, uint32_t cp);
-// String.prototype.length.
+// The length in UTF-16 code units.
 size_t Utf16Length(const char* text, size_t length);
-// String.prototype.slice(begin, end) with non-negative unit offsets
+// The UTF-16 code units [begin, end), with non-negative unit offsets
 // (end clamps to the length), excluding any partial code point.
 codec::tj::Value* Slice(codec::tj::Arena& arena, const char* text, size_t length, size_t begin, size_t end);
-// String.prototype.trim (ECMAScript WhiteSpace and LineTerminator).
+// The span left after trimming white space from both ends (the ECMAScript
+// WhiteSpace and LineTerminator sets, see IsJsWhitespace).
 void Trim(const char* text, size_t length, size_t* begin, size_t* end);
 bool IsJsWhitespace(uint32_t cp);
 
@@ -33,23 +34,24 @@ codec::tj::Value* SanitizeSymbol(codec::tj::Arena& arena, const char* text, size
 codec::tj::Value* SanitizeName(codec::tj::Arena& arena, const char* text, size_t length);
 codec::tj::Value* SanitizeText(codec::tj::Arena& arena, const char* text, size_t length);
 
-// Number.prototype.toFixed(digits) for 0 <= digits <= 20, exact (the
-// mathematical value of the double, ties to the larger magnitude). Values
-// with |x| >= 1e21 use Number.prototype.toString, as JavaScript does.
+// Fixed-decimal text with `digits` fraction digits, 0 <= digits <= 20, exact
+// (the mathematical value of the double, ties to the larger magnitude). Values
+// with |x| >= 1e21 are written as history_batch::AppendJsNumber writes them.
 void ToFixed(double value, int digits, char* output, size_t capacity);
 
 // Unicode upper/lower case over UTF-8. Null on arena failure.
 codec::tj::Value* ToUpperCase(codec::tj::Arena& arena, const char* text, size_t length);
 codec::tj::Value* ToLowerCase(codec::tj::Arena& arena, const char* text, size_t length);
 
-// Provider-only ECMAScript Number(string); malformed UTF-8 makes it NaN.
+// The number a provider string denotes, by the ECMAScript StringToNumber
+// rules (history_batch::JsStringToNumber); malformed UTF-8 makes it NaN.
 double ToNumber(const char* text, size_t length);
 
-// "2026-01-02T03:04:05.000Z" (Date.prototype.toISOString), false when out of
-// the ISO range.
+// "2026-01-02T03:04:05.000Z" (UTC, milliseconds); false before 1970 or after
+// the year 9999.
 bool IsoString(int64_t epoch_ms, char output[32]);
 // The epoch milliseconds of a date string (JsDateParse); false when it does
 // not parse. parity-only, see compat-decisions.md#date-parse
 bool DateParse(const char* text, size_t length, double* epoch_ms);
 
-}  // namespace fortis::compat::token_text
+}  // namespace fortis::codec::provider_text

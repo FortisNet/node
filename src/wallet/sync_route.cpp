@@ -6,7 +6,7 @@
 #include "price_history_batch_codec.h"
 #include "proto_wire.h"
 #include "sync_request.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -150,7 +150,7 @@ Visit write_change(void* context, size_t account_index, const tj::Value* event, 
   char version[48];
   snprintf(version, sizeof(version), "s2_%s", sequence->text);
   char changed[32];
-  if (!fortis::compat::token_text::IsoString(static_cast<int64_t>(changed_at->number), changed)) return Visit::kFailed;
+  if (!fortis::codec::provider_text::IsoString(static_cast<int64_t>(changed_at->number), changed)) return Visit::kFailed;
   Growable& out = *changes->out;
   if (!changes->protobuf) {
     tj::Value* change = tj::Obj(arena);
@@ -389,7 +389,7 @@ void Route::Serve(int client, const http::HttpRequest& request) {
   char as_of[32];
   ScopeAccount* accounts = nullptr;
   size_t account_count = 0;
-  bool ok = fortis::compat::token_text::IsoString(now, as_of) &&
+  bool ok = fortis::codec::provider_text::IsoString(now, as_of) &&
             scope_.Accounts(policy.device.id, now, arena, &accounts, &account_count);
   const char** ids = ok && account_count ? static_cast<const char**>(arena.Alloc(sizeof(char*) * account_count))
                                          : nullptr;

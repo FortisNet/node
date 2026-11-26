@@ -7,7 +7,7 @@
 #include "market_view.h"
 #include "media_registry.h"
 #include "price_history_batch_codec.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -40,7 +40,7 @@ Value* str(Arena& a, const Value* v) {
 Value* iso(Arena& a, const Value* v) {
   const Value* s = str_value(v);
   double ms = 0;
-  if (!s || !compat::token_text::DateParse(s->text, s->length, &ms)) return tj::Null(a);
+  if (!s || !codec::provider_text::DateParse(s->text, s->length, &ms)) return tj::Null(a);
   return tj::Str(a, s->text, s->length);
 }
 
@@ -65,10 +65,10 @@ bool set(Arena& a, Value* o, const char* key, Value* v) { return v && tj::Set(a,
 // usd(), count() and ageLabel() of the Dart scorer.
 void usd(double v, char* out, size_t capacity) {
   char fixed[64];
-  if (v >= 1e9) { compat::token_text::ToFixed(v / 1e9, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "B"}); }
-  else if (v >= 1e6) { compat::token_text::ToFixed(v / 1e6, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "M"}); }
-  else if (v >= 1e3) { compat::token_text::ToFixed(v / 1e3, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "K"}); }
-  else { compat::token_text::ToFixed(v, 0, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, ""}); }
+  if (v >= 1e9) { codec::provider_text::ToFixed(v / 1e9, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "B"}); }
+  else if (v >= 1e6) { codec::provider_text::ToFixed(v / 1e6, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "M"}); }
+  else if (v >= 1e3) { codec::provider_text::ToFixed(v / 1e3, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, "K"}); }
+  else { codec::provider_text::ToFixed(v, 0, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {"$", fixed, ""}); }
 }
 void js_number(double v, char* out, size_t capacity) {
   uint8_t buffer[64];
@@ -79,8 +79,8 @@ void js_number(double v, char* out, size_t capacity) {
 }
 void count(double n, char* out, size_t capacity) {
   char fixed[64];
-  if (n >= 1e6) { compat::token_text::ToFixed(n / 1e6, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {fixed, "M"}); }
-  else if (n >= 1e3) { compat::token_text::ToFixed(n / 1e3, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {fixed, "K"}); }
+  if (n >= 1e6) { codec::provider_text::ToFixed(n / 1e6, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {fixed, "M"}); }
+  else if (n >= 1e3) { codec::provider_text::ToFixed(n / 1e3, 1, fixed, sizeof(fixed)); base::ConcatCString(out, capacity, {fixed, "K"}); }
   else js_number(n, out, capacity);
 }
 // Math.round: ties toward +Infinity.
@@ -90,7 +90,7 @@ double js_round(double x) {
 }
 void age_label(double days, char* out, size_t capacity) {
   char text[64];
-  if (days >= 365) { compat::token_text::ToFixed(days / 365, 1, text, sizeof(text)); base::ConcatCString(out, capacity, {text, "y"}); }
+  if (days >= 365) { codec::provider_text::ToFixed(days / 365, 1, text, sizeof(text)); base::ConcatCString(out, capacity, {text, "y"}); }
   else if (days >= 30) { js_number(js_round(days / 30), text, sizeof(text)); base::ConcatCString(out, capacity, {text, "mo"}); }
   else { js_number(days, text, sizeof(text)); base::ConcatCString(out, capacity, {text, "d"}); }
 }
@@ -111,7 +111,7 @@ bool FiniteNumber(const Value* v, double* out) {
 
 bool FiniteNumberOrString(const Value* v, double* out) {
   if (tj::IsString(v)) {
-    const double n = compat::token_text::ToNumber(v->text, v->length);
+    const double n = codec::provider_text::ToNumber(v->text, v->length);
     if (!isfinite(n)) return false;
     *out = n;
     return true;
@@ -223,7 +223,7 @@ Value* MarketView(Arena& a, const Value* row) {
   Value* out = tj::Obj(a);
   if (!out) return nullptr;
   const Value* symbol = str_value(tj::Get(row, "symbol"));
-  Value* upper = symbol ? compat::token_text::ToUpperCase(a, symbol->text, symbol->length) : tj::Null(a);
+  Value* upper = symbol ? codec::provider_text::ToUpperCase(a, symbol->text, symbol->length) : tj::Null(a);
   auto g = [&](const char* key) { return tj::Get(row, key); };
   const bool ok =
       set(a, out, "symbol", upper) && set(a, out, "name", str(a, g("name"))) &&
@@ -329,7 +329,7 @@ bool TrimProfile(Arena& a, const Value* raw, storage::KvStore* kv, int64_t now_m
                        (description->type == tj::Type::kString && description->length == 0) ||
                        (description->type == tj::Type::kNumber && (description->number == 0 || isnan(description->number))))) {
     if (!tj::IsString(description)) return false;  // sanitizeText(non-string) throws
-    description_value = compat::token_text::SanitizeText(a, description->text, description->length);
+    description_value = codec::provider_text::SanitizeText(a, description->text, description->length);
   }
   Value* category_list = tj::Arr(a);
   if (!category_list) return false;
@@ -337,7 +337,7 @@ bool TrimProfile(Arena& a, const Value* raw, storage::KvStore* kv, int64_t now_m
     for (uint32_t i = 0; i < categories->count; ++i) {
       const Value* c = categories->items[i];
       if (!tj::IsString(c)) continue;
-      if (!tj::Push(a, category_list, compat::token_text::SanitizeName(a, c->text, c->length))) return false;
+      if (!tj::Push(a, category_list, codec::provider_text::SanitizeName(a, c->text, c->length))) return false;
     }
   auto first_string = [&](const Value* list, bool discord) -> Value* {
     if (!tj::IsArray(list)) return tj::Null(a);
@@ -345,7 +345,7 @@ bool TrimProfile(Arena& a, const Value* raw, storage::KvStore* kv, int64_t now_m
       const Value* v = list->items[i];
       if (!tj::IsString(v)) continue;
       if (discord) {
-        Value* lowered = compat::token_text::ToLowerCase(a, v->text, v->length);
+        Value* lowered = codec::provider_text::ToLowerCase(a, v->text, v->length);
         if (!lowered) return nullptr;
         bool has = false;
         for (uint32_t k = 0; k + 7 <= lowered->length && !has; ++k) has = memcmp(lowered->text + k, "discord", 7) == 0;
@@ -477,9 +477,9 @@ Value* SolanaChainMeta(Arena& a, const Value* row, storage::KvStore* kv, int64_t
   }
   const bool integer = tj::IsNumber(decimals) && isfinite(decimals->number) &&
                        floor(decimals->number) == decimals->number;
-  Value* symbol_value = tj::IsString(symbol) ? compat::token_text::SanitizeSymbol(a, symbol->text, symbol->length)
+  Value* symbol_value = tj::IsString(symbol) ? codec::provider_text::SanitizeSymbol(a, symbol->text, symbol->length)
                                              : tj::Null(a);
-  Value* name_value = tj::IsString(name) ? compat::token_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
+  Value* name_value = tj::IsString(name) ? codec::provider_text::SanitizeName(a, name->text, name->length) : tj::Null(a);
   Value* decimals_value = integer ? tj::Num(a, decimals->number) : tj::Null(a);
   Value* verified_value = tj::IsBool(verified) ? tj::Bool(a, verified->type == tj::Type::kTrue) : tj::Null(a);
   Value* holders_value = tj::IsNumber(holders) ? tj::Num(a, holders->number) : tj::Null(a);

@@ -157,7 +157,7 @@ bool OutboundSuppressed(const char* text, size_t length) {
   if (!clean) return true;
   std::unique_ptr<char[], base::StorageDeleter> folded_storage;
   size_t folded_length = 0;
-  const bool folded_ok = compat::redaction::FoldForDetection(clean.get(), clean_length, &folded_storage, &folded_length);
+  const bool folded_ok = security::redaction::FoldForDetection(clean.get(), clean_length, &folded_storage, &folded_length);
   const char* folded = folded_storage.get();
   clean.reset();
   if (!folded_ok) return true;
@@ -177,7 +177,7 @@ bool OutboundSuppressed(const char* text, size_t length) {
     std::unique_ptr<char[], base::StorageDeleter> redacted_storage;
     size_t redacted_length = 0;
     bool redacted = false;
-    if (!compat::redaction::RedactSecrets(folded, folded_length, &redacted_storage, &redacted_length, &redacted))
+    if (!security::redaction::RedactSecrets(folded, folded_length, &redacted_storage, &redacted_length, &redacted))
       suppressed = true;
     else
       suppressed = redacted;

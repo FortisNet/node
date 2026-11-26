@@ -3,10 +3,10 @@
 
 #include "chain_core.h"
 #include "cross_chain_support.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "price_history_batch_codec.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -16,7 +16,7 @@ namespace tj = fortis::codec::tj;
 namespace fortis::exchange::robinhood {
 namespace {
 
-namespace text = fortis::compat::token_text;
+namespace text = fortis::codec::provider_text;
 namespace hb = fortis::codec::history_batch;
 using chains::BigInt;
 
@@ -1070,7 +1070,7 @@ bool EncodeSponsoredCapabilities(bool enabled, char* json, size_t json_capacity,
   // toBinary(create(RobinhoodSponsoredCapabilitiesResponseSchema, ...)):
   // field order; the four bools are proto3 implicit (false is omitted);
   // `optional string reason = 9` is written only when set.
-  compat::js_json::OutBuffer out{proto, proto_capacity, 0, true};
+  codec::json_document_writer::OutBuffer out{proto, proto_capacity, 0, true};
   codec::proto_wire::PutBytes(out, 1, "robinhood", 9);
   codec::proto_wire::PutTag(out, 2, 0);
   codec::proto_wire::PutVarint(out, kChainId);

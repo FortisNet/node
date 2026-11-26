@@ -13,7 +13,7 @@
 # different build systems. Compiler flags stay with each build system.
 
 # Every directory under src/. Both builds put each on the include path.
-FORTIS_SOURCE_DIRS := ai app auth base chains codec compat config crypto discovery exchange http networks news operations prices providers storage tokens wallet
+FORTIS_SOURCE_DIRS := ai app auth base chains codec compat config crypto discovery exchange http networks news operations prices providers security storage tokens wallet
 
 # Compiled for the guest only: C shims over Unikraft APIs with no host
 # counterpart. The host Makefile leaves them out; they stay in FORTIS_SOURCES.
@@ -148,7 +148,7 @@ FORTIS_SOURCES += src/operations/operations_pages.cpp
 FORTIS_SOURCES += src/operations/operations_routes.cpp
 FORTIS_SOURCES += src/operations/release_routes.cpp
 FORTIS_SOURCES += src/operations/sandbox_control.cpp
-FORTIS_SOURCES += src/compat/sandbox_socket.cpp
+FORTIS_SOURCES += src/operations/sandbox_socket.cpp
 FORTIS_SOURCES += src/operations/token_prices_route.cpp
 FORTIS_SOURCES += src/operations/network_preview_route.cpp
 FORTIS_SOURCES += src/operations/cache_explorer_route.cpp
@@ -156,8 +156,8 @@ FORTIS_SOURCES += src/operations/api_docs_generated.cpp
 FORTIS_SOURCES += src/operations/landing_background.cpp
 FORTIS_SOURCES += src/codec/crash_report_codec.cpp
 FORTIS_SOURCES += src/operations/crash_report_route.cpp
-FORTIS_SOURCES += src/compat/diagnostic_redaction.cpp
-FORTIS_SOURCES += src/compat/redaction_tables.cpp
+FORTIS_SOURCES += src/security/diagnostic_redaction.cpp
+FORTIS_SOURCES += src/security/redaction_tables.cpp
 FORTIS_SOURCES += src/storage/kv_expiry_sweeper.cpp
 # Discovery: POST /v1/bittensor/analytics, POST /v1/prices/markets
 # and POST /v1/tokens/compare (registered behind the price canary), their
@@ -165,7 +165,7 @@ FORTIS_SOURCES += src/storage/kv_expiry_sweeper.cpp
 # Unicode case mapping data.
 FORTIS_SOURCES += src/compat/js_case.cpp
 FORTIS_SOURCES += src/compat/js_case_tables.cpp
-FORTIS_SOURCES += src/compat/js_json.cpp
+FORTIS_SOURCES += src/codec/json_document_writer.cpp
 FORTIS_SOURCES += src/discovery/discovery_cache.cpp
 FORTIS_SOURCES += src/discovery/discovery_provider_owner.cpp
 FORTIS_SOURCES += src/discovery/discovery_route_support.cpp
@@ -179,7 +179,7 @@ FORTIS_SOURCES += src/discovery/media_registry.cpp
 FORTIS_SOURCES += src/discovery/price_markets_route.cpp
 FORTIS_SOURCES += src/discovery/token_search_route.cpp
 FORTIS_SOURCES += src/networks/token_ref.cpp
-FORTIS_SOURCES += src/compat/text_sanitize.cpp
+FORTIS_SOURCES += src/codec/text_sanitize.cpp
 FORTIS_SOURCES += src/tokens/token_comparison.cpp
 FORTIS_SOURCES += src/tokens/token_comparison_store.cpp
 FORTIS_SOURCES += src/tokens/token_comparison_route.cpp
@@ -204,7 +204,7 @@ FORTIS_SOURCES += src/news/news_reaction_prices.cpp
 # owner, the SWR cache, the Token360/page/history read models, the recurring
 # jobs and TokenService, composed behind FORTIS_NATIVE_PRICE_ROUTE_CANARY=1.
 FORTIS_SOURCES += src/codec/token_json.cpp
-FORTIS_SOURCES += src/compat/token_text.cpp
+FORTIS_SOURCES += src/codec/provider_text.cpp
 FORTIS_SOURCES += src/tokens/token_views.cpp
 FORTIS_SOURCES += src/tokens/token_liquidity.cpp
 FORTIS_SOURCES += src/tokens/token_evm.cpp
@@ -338,7 +338,7 @@ FORTIS_SOURCES += third_party/blake3/1.8.7/blake3_portable.c
 
 # Component source partitions in link order (consumers before dependencies).
 # Both host archives and guest libraries consume these exact assignments.
-FORTIS_COMPONENTS := app operations wallet ai tokens exchange news prices discovery chains networks providers auth http storage compat config codec crypto base
+FORTIS_COMPONENTS := app operations wallet ai tokens exchange news prices discovery chains networks providers auth http storage config codec compat security crypto base
 FORTIS_COMPONENT_SOURCES_app := $(filter src/app/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_operations := $(filter src/operations/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_wallet := $(filter src/wallet/%,$(FORTIS_SOURCES))
@@ -355,6 +355,7 @@ FORTIS_COMPONENT_SOURCES_auth := $(filter src/auth/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_http := $(filter src/http/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_storage := $(filter src/storage/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_compat := $(filter src/compat/%,$(FORTIS_SOURCES))
+FORTIS_COMPONENT_SOURCES_security := $(filter src/security/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_config := $(filter src/config/%,$(FORTIS_SOURCES))
 FORTIS_COMPONENT_SOURCES_codec := $(filter src/codec/% third_party/nanopb/% proto/generated/%,$(FORTIS_SOURCES))
 # Bundled backends share their owner's partial-link unit. In particular blst's

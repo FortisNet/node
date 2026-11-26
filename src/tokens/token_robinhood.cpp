@@ -4,7 +4,7 @@
 
 #include "media_registry.h"
 #include "token_provider.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -140,8 +140,8 @@ Value* ChainMeta(Arena& arena, const Value* asset, storage::KvStore* kv, int64_t
   const Value* name = tj::Get(asset, "tokenName");
   if (!tj::IsString(symbol) || !tj::IsString(name)) return nullptr;
   Value* out = tj::Obj(arena);
-  if (!out || !put(arena, out, "symbol", compat::token_text::SanitizeSymbol(arena, symbol->text, symbol->length)) ||
-      !put(arena, out, "name", compat::token_text::SanitizeName(arena, name->text, name->length)) ||
+  if (!out || !put(arena, out, "symbol", codec::provider_text::SanitizeSymbol(arena, symbol->text, symbol->length)) ||
+      !put(arena, out, "name", codec::provider_text::SanitizeName(arena, name->text, name->length)) ||
       !put(arena, out, "decimals", tj::Num(arena, 18)) || !put(arena, out, "verified", tj::Bool(arena, true)) ||
       !put(arena, out, "holderCount", tj::Null(arena)) ||
       !put(arena, out, "logoMediaKey", logo_key(arena, asset, kv, now_ms)))

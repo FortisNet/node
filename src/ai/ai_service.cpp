@@ -19,7 +19,7 @@
 #include "proto_wire.h"
 #include "threading.h"
 #include "token_json.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <mbedtls/platform_util.h>
 #include <pthread.h>
@@ -336,7 +336,7 @@ struct Wire {
 };
 Wire wire_of(const ai::MessageView& row, const char* role) {
   Wire w{row.id, role, row.body, row.body_length, {}};
-  fortis::compat::token_text::IsoString(row.created_at_ms, w.created_at);
+  fortis::codec::provider_text::IsoString(row.created_at_ms, w.created_at);
   return w;
 }
 size_t message_size(const Wire& w) {
@@ -702,7 +702,7 @@ bool ConversationService::BuildResponse(const TurnRequest& turn, const char* rep
     const Wire reply_wire = reply_id ? wire_of(reply, reply.role) : Wire{};
     if (turn.protobuf) {
       char expires[32] = "";
-      if (turn.open && turn.expires_at_ms && !fortis::compat::token_text::IsoString(turn.expires_at_ms, expires)) return false;
+      if (turn.open && turn.expires_at_ms && !fortis::codec::provider_text::IsoString(turn.expires_at_ms, expires)) return false;
       const size_t size = turn.open
           ? string_size(strlen(turn.conversation)) + string_size(strlen(turn.access_token)) +
                 (turn.expires_at_ms ? string_size(strlen(expires)) : 0) +
@@ -732,7 +732,7 @@ bool ConversationService::BuildResponse(const TurnRequest& turn, const char* rep
         char expires[32];
         Value* message = message_json(arena, user_wire, false);
         Value* assistant = reply_id ? message_json(arena, reply_wire, true) : nullptr;
-        if ((turn.expires_at_ms && !fortis::compat::token_text::IsoString(turn.expires_at_ms, expires)) || !message ||
+        if ((turn.expires_at_ms && !fortis::codec::provider_text::IsoString(turn.expires_at_ms, expires)) || !message ||
             !tj::Set(arena, root, "id", tj::Str(arena, turn.conversation)) ||
             !tj::Set(arena, root, "accessToken", tj::Str(arena, turn.access_token)) ||
             (turn.expires_at_ms && !tj::Set(arena, root, "expiresAt", tj::Str(arena, expires))) ||

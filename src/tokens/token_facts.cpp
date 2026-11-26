@@ -122,7 +122,7 @@ const char* ResolutionSourceName(ResolutionSource source) {
 
 Value* IsoValue(Arena& arena, int64_t epoch_ms) {
   char iso[32];
-  if (!compat::token_text::IsoString(epoch_ms, iso)) return tj::Null(arena);
+  if (!codec::provider_text::IsoString(epoch_ms, iso)) return tj::Null(arena);
   return tj::Str(arena, iso);
 }
 
@@ -256,7 +256,7 @@ FactsOutcome TokenFactsService::Compute(std::string_view network_input, std::str
   const networks::TokenNetwork& network = facts->network;
   const networks::TokenRef& ref = facts->ref;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(raw_ref, raw_length, &begin, &end);
+  codec::provider_text::Trim(raw_ref, raw_length, &begin, &end);
   facts->input = copy_text(a, raw_ref + begin, end - begin);
   facts->errors = tj::Obj(a);
   if (!facts->input || !facts->errors) return FactsOutcome::kInternal;

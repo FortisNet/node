@@ -15,14 +15,13 @@
 #include "../src/wallet/address_store.h"
 #include "../src/storage/kv_store.h"
 #include "../src/codec/token_json.h"
-#include "../src/compat/token_text.h"
+#include "provider_text.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-using namespace fortis::compat;
 using namespace fortis::wallet;
 
 using namespace fortis::storage;
@@ -90,7 +89,7 @@ void trims(const tj::Value* rows) {
     const tj::Value* value = member(rows->items[i], "value");
     const tj::Value* trimmed = member(rows->items[i], "trimmed");
     size_t b = 0, e = 0;
-    token_text::Trim(value->text, value->length, &b, &e);
+    fortis::codec::provider_text::Trim(value->text, value->length, &b, &e);
     if (e - b != trimmed->length || memcmp(value->text + b, trimmed->text, trimmed->length) != 0) {
       char detail[128];
       snprintf(detail, sizeof(detail), "case %u (%u bytes): kept [%zu, %zu)", i, value->length, b, e);

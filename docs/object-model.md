@@ -338,7 +338,7 @@ These idioms look low-level and are deliberate.
    `std::string`, or nodes to `std::vector` or `shared_ptr`.
 2. **Wire codecs.** `proto_wire` stays free functions over a templated sink.
    `bounded_json` (allocation-free, caller-owned tokens), `json_lex`,
-   `js_json`, nanopb, `price_history_batch_codec` and `crash_report_codec`
+   `json_document_writer`, nanopb, `price_history_batch_codec` and `crash_report_codec`
    stay as they are; their golden tests are the contract
    ([codec-semantics.md](codec-semantics.md)). The codecs use pointer and
    length internally on purpose.

@@ -10,7 +10,7 @@
 #include "chain_family_drivers.h"
 #include "threading.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <pthread.h>
@@ -118,7 +118,7 @@ bool contains_ci(const char* text, size_t length, const char* needle) {
 bool lower_or_empty(Arena& a, const Value* v, Value** out) {
   if (nullish(v)) { *out = tj::Str(a, "", 0); return *out != nullptr; }
   if (!is_string(v)) return false;
-  *out = compat::token_text::ToLowerCase(a, v->text, v->length);
+  *out = codec::provider_text::ToLowerCase(a, v->text, v->length);
   return *out != nullptr;
 }
 
@@ -219,7 +219,7 @@ struct Step {
 bool token_balance_entry(Arena& a, const char* contract, const BigInt& raw, double decimals,
                          Value* symbol, const char* source, Value* tokens) {
   Value* entry = tj::Obj(a);
-  Value* lowered = compat::token_text::ToLowerCase(a, contract, strlen(contract));
+  Value* lowered = codec::provider_text::ToLowerCase(a, contract, strlen(contract));
   if (!entry || !lowered) return false;
   Value* token_id = Format(a, "erc20:%.*s", static_cast<int>(lowered->length), lowered->text);
   return token_id && tj::Set(a, entry, "tokenId", token_id) &&
@@ -579,7 +579,7 @@ bool EvmDriver::ReadNfts(Context& ctx, const Network& network, const char* addre
         error->Upstream("contract.address is not a string");
         return false;
       }
-      contract = compat::token_text::ToLowerCase(a, address_value->text, address_value->length);
+      contract = codec::provider_text::ToLowerCase(a, address_value->text, address_value->length);
       if (!contract) return oom(error);
     }
     const Value* token_id = tj::Get(nft, "tokenId");
@@ -591,7 +591,7 @@ bool EvmDriver::ReadNfts(Context& ctx, const Network& network, const char* addre
         error->Upstream("tokenType is not a string");
         return false;
       }
-      standard = compat::token_text::ToLowerCase(a, token_type->text, token_type->length);
+      standard = codec::provider_text::ToLowerCase(a, token_type->text, token_type->length);
     }
     Value* name = nullptr;
     Value* collection = nullptr;
@@ -770,7 +770,7 @@ void etherscan_page(Arena& a, const Network& network, const char* action, const 
     return;
   }
   size_t begin = 0, end = 0;
-  if (is_string(result)) compat::token_text::Trim(result->text, result->length, &begin, &end);
+  if (is_string(result)) codec::provider_text::Trim(result->text, result->length, &begin, &end);
   const char* detail = is_string(result) ? result->text + begin : "";
   const size_t detail_length = is_string(result) ? end - begin : 0;
   if (contains_ci(detail, detail_length, "free api access is not supported for this chain") ||
@@ -825,7 +825,7 @@ enum class RecordOutcome : uint8_t { kRecord, kSkip, kFailed, kEmptyId };
 bool blank_hash(const Value* hash) {
   if (!is_string(hash)) return false;
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(hash->text, hash->length, &begin, &end);
+  codec::provider_text::Trim(hash->text, hash->length, &begin, &end);
   return begin == end;
 }
 
@@ -908,7 +908,7 @@ RecordOutcome etherscan_token(Arena& a, const Network& network, const char* hold
   if (!lower_or_empty(a, tj::Get(tx, "from"), &from) || !lower_or_empty(a, tj::Get(tx, "to"), &to))
     return RecordOutcome::kFailed;
   const char* direction = DirectionFromFlow(same(to, holder), same(from, holder));
-  Value* contract = compat::token_text::ToLowerCase(a, contract_value->text, contract_value->length);
+  Value* contract = codec::provider_text::ToLowerCase(a, contract_value->text, contract_value->length);
   if (!contract) return RecordOutcome::kFailed;
   const double decimals = JsNumber(tj::Get(tx, "tokenDecimal"));
   if (!isfinite(decimals) || floor(decimals) != decimals || decimals < 0) return RecordOutcome::kSkip;
@@ -1022,7 +1022,7 @@ bool etherscan_fetch(Context& ctx, const Network& network, const char* address, 
       snprintf(result->reason, sizeof(result->reason), "%s", pages[i].reason);
       return true;
     }
-  Value* holder_value = compat::token_text::ToLowerCase(a, address, strlen(address));
+  Value* holder_value = codec::provider_text::ToLowerCase(a, address, strlen(address));
   const char* holder = holder_value ? tj::CString(a, holder_value) : nullptr;
   Value* records = tj::Arr(a);
   if (!holder || !records) return oom(error);
@@ -1199,7 +1199,7 @@ RecordOutcome alchemy_record(Arena& a, const Network& network, const char* holde
   const Value* contract_value = tj::Get(raw_contract, "address");
   if (!equals(category, "erc20") || !truthy(contract_value)) return RecordOutcome::kSkip;
   if (!is_string(contract_value)) return RecordOutcome::kFailed;
-  Value* contract = compat::token_text::ToLowerCase(a, contract_value->text, contract_value->length);
+  Value* contract = codec::provider_text::ToLowerCase(a, contract_value->text, contract_value->length);
   const char* contract_text = contract ? tj::CString(a, contract) : nullptr;
   if (!contract_text) return RecordOutcome::kFailed;
   double decimals = 0;
@@ -1312,7 +1312,7 @@ bool alchemy_fetch(Context& ctx, const Network& network, const char* address, co
     if (tj::Get(body, "error")) {
       const Value* message = tj::Get(tj::Get(body, "error"), "message");
       if (is_string(message)) {
-        Value* cut = compat::token_text::Slice(a, message->text, message->length, 0, 240);
+        Value* cut = codec::provider_text::Slice(a, message->text, message->length, 0, 240);
         error->Upstream("Alchemy transfers: %.*s", cut ? static_cast<int>(cut->length) : 0, cut ? cut->text : "");
       } else {
         error->Upstream("Alchemy transfers: request rejected");
@@ -1328,7 +1328,7 @@ bool alchemy_fetch(Context& ctx, const Network& network, const char* address, co
     const Value* key = tj::Get(tj::Get(body, "result"), "pageKey");
     keys[side] = is_string(key) && key->length ? key : nullptr;
   }
-  Value* holder_value = compat::token_text::ToLowerCase(a, address, strlen(address));
+  Value* holder_value = codec::provider_text::ToLowerCase(a, address, strlen(address));
   const char* holder = holder_value ? tj::CString(a, holder_value) : nullptr;
   Value* records = tj::Arr(a);
   if (!holder || !records) return oom(error);

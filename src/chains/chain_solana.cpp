@@ -1,6 +1,6 @@
 #include "chain_family_drivers.h"
 
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -265,7 +265,7 @@ bool SolanaDriver::Balances(Context& ctx, const Network& network, const char* ad
         return false;
       }
       const double shown = JsNumber(tj::Get(token_amount, "uiAmountString"));
-      const double fallback = compat::token_text::ToNumber(amount->text, amount->length) / pow(10, decimals->number);
+      const double fallback = codec::provider_text::ToNumber(amount->text, amount->length) / pow(10, decimals->number);
       MintTotal* found = nullptr;
       for (size_t k = 0; k < count; ++k) {
         if (mints[k].mint->length == mint->length && memcmp(mints[k].mint->text, mint->text, mint->length) == 0) {

@@ -1,6 +1,6 @@
 # Sandboxed workloads: the node's control client
 
-A Linux host can run bounded workloads in gVisor sandboxes next to the node. This document describes the part of that system that is in this repository: the client with which the node asks a local broker to start, inspect and stop a job. Developers who change `src/compat/sandbox_socket.cpp` or `src/operations/sandbox_control.cpp`, and operators who connect a node to a sandbox broker, need it.
+A Linux host can run bounded workloads in gVisor sandboxes next to the node. This document describes the part of that system that is in this repository: the client with which the node asks a local broker to start, inspect and stop a job. Developers who change `src/operations/sandbox_socket.cpp` or `src/operations/sandbox_control.cpp`, and operators who connect a node to a sandbox broker, need it.
 
 The sandbox manager itself is not in this repository. The `fortis-sandbox` program (manager, supervisor and broker), its installation policy, its service templates and the gVisor packaging are in the [`sandbox/` directory of FortisNet Node OS](https://github.com/FortisNet/node-os/tree/main/sandbox). Provisioning a host, resource limits, isolation settings and job records are documented there.
 
@@ -95,7 +95,7 @@ Reply codes:
 
 ### C++ interface
 
-`fortis::compat::sandbox::Request` ([src/compat/sandbox_socket.h](../src/compat/sandbox_socket.h)) performs one exchange and returns the reply code and the JSON payload. It borrows its inputs only for the duration of the call and owns the reply. It is synchronous and safe to call from several threads at once, because each call uses its own connection. It throws on authentication, transport and protocol failures.
+`fortis::operations::sandbox::Request` ([src/operations/sandbox_socket.h](../src/operations/sandbox_socket.h)) performs one exchange and returns the reply code and the JSON payload. It borrows its inputs only for the duration of the call and owns the reply. It is synchronous and safe to call from several threads at once, because each call uses its own connection. It throws on authentication, transport and protocol failures.
 
 ## Tests
 

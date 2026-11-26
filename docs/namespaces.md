@@ -20,8 +20,9 @@ Run it with `make check-layers`; `make test` runs it too.
   | base      | `clock_detail`, `log_internal`, `stdlib_check_detail` |
   | storage   | `kv_internal`, `kv_checksum_detail` |
   | http      | `query_string` |
-  | codec     | `tj` (token JSON DOM), `history_batch` (writers), `proto_wire`, `json_lex`, `utf8`, `crash_report`, `sandbox` |
-  | compat    | `url`, `idna`, `idna_tables`, `js_json`, `js_regex`, `js_case_tables`, `redaction`, `token_text`, `sandbox` |
+  | codec     | `tj` (token JSON DOM), `history_batch` (writers), `proto_wire`, `json_lex`, `utf8`, `crash_report`, `sandbox` (wire format), `json_document_writer`, `provider_text` |
+  | compat    | `url`, `idna`, `idna_tables`, `js_regex`, `js_case_tables` |
+  | security  | `redaction` |
   | chains    | `asset_index`, `tron_token`, `utxo_detail` |
   | discovery | `market_view`, `coin_popularity`, `coin_popularity_store` |
   | prices    | `coin_prices`, `history_batch` (history views), `history_query`, `ohlc_query`, `spot_query`, `spot_provider_owner_internal` |
@@ -29,7 +30,8 @@ Run it with `make check-layers`; `make test` runs it too.
   | exchange  | `cross_chain` (+ `detail`), `dashpay`, `robinhood`, `robinhood_service_internal` |
   | tokens    | `token_facts`, `token_data`, `token_jobs`, `token_page`, ... (one per token facet), `comparison`, `price_jobs`, `saucerswap`, `token_service_internal` |
   | wallet    | `address`, `sync`, `address_service_internal` |
-  | operations | `detail` |
+  | ai        | `quota` (`hourly_windows.h`) |
+  | operations | `detail`, `sandbox` (broker socket client) |
   | app       | `detail`, `https_detail` |
 
 - `history_batch` exists twice on purpose: the codec writers
@@ -48,7 +50,7 @@ Run it with `make check-layers`; `make test` runs it too.
   never in its own: `namespace fortis::storage { class KvStore; }`.
 - Short aliases are allowed only as `namespace x = fortis::y;` in a `.cpp`
   file, never in a header. The common ones: `tj` (`fortis::codec::tj`), `pw`
-  (`fortis::codec::proto_wire`), `jj` (`fortis::compat::js_json`), `hb`
+  (`fortis::codec::proto_wire`), `jj` (`fortis::codec::json_document_writer`), `hb`
   (`fortis::codec::history_batch`), `cc` (`fortis::exchange::cross_chain`),
   `rh` (`fortis::exchange::robinhood`).
 

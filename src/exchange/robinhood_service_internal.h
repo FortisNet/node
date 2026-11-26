@@ -17,13 +17,13 @@
 #include "device_policy_step.h"
 #include "discovery_route_support.h"
 #include "http_middleware.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "proto_wire.h"
 #include "robinhood_markets.h"
 #include "robinhood_policy.h"
 #include "robinhood_tickets.h"
 #include "token_json.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <pthread.h>
 #include <stdio.h>

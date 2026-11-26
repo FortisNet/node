@@ -42,7 +42,7 @@ std::optional<int> SandboxControlMain(int argc, char** argv) {
     else if (verb == "stop") operation = codec::sandbox::Operation::Stop;
     else Require(false);
     const auto payload = operation == codec::sandbox::Operation::Start ? ReadSpec(argv[4]) : std::string(argv[4]);
-    const auto reply = compat::sandbox::Request(argv[2], operation, payload);
+    const auto reply = sandbox::Request(argv[2], operation, payload);
     (void)std::fwrite(reply.payload.data(), 1, reply.payload.size(), stdout);
     (void)std::fputc('\n', stdout);
     return reply.code == codec::sandbox::ReplyCode::Ok || reply.code == codec::sandbox::ReplyCode::Accepted ? 0 : 1;

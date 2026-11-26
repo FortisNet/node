@@ -153,7 +153,7 @@ inline size_t BytesFieldSize(uint32_t field, size_t length) {
 //
 // Shared by the two emitters that turn a JSON document into the bytes
 // protobuf-es toBinary(fromJson(StructSchema | ValueSchema, json)) writes:
-// compat::js_json::AppendProtoValue/AppendProtoStruct (bounded token document) and
+// codec::json_document_writer::AppendProtoValue/AppendProtoStruct (bounded token document) and
 // tj::AppendProtoStruct (mutable DOM). Both measure bottom-up and then write;
 // both preserve source/insertion member order and duplicate-key positions.
 //   Struct    { map<string, Value> fields = 1; }   entry { key = 1; value = 2; }

@@ -2,7 +2,7 @@
 #include "cross_chain_support.h"
 
 #include "chain_core.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -13,7 +13,7 @@ namespace tj = fortis::codec::tj;
 namespace fortis::exchange::cross_chain {
 namespace {
 
-namespace tt = fortis::compat::token_text;
+namespace tt = fortis::codec::provider_text;
 
 bool is_digit(char c) { return c >= '0' && c <= '9'; }
 bool is_hex(char c) { return is_digit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'); }

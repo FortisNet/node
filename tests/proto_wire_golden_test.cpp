@@ -3,19 +3,19 @@
 //      unified writer replaced, kept here as an
 //      independent oracle, over boundary and pseudo-random values;
 //  (2) golden bytes (tests/proto_wire_golden.inc) for whole messages. The
-//      js_json/* and tj/* entries were captured from the pre-unification
-//      writers: the two google.protobuf.Struct emitters (js_json over a
+//      json_document_writer/* and tj/* entries were captured from the pre-unification
+//      writers: the two google.protobuf.Struct emitters (json_document_writer over a
 //      bounded document, tj over the mutable DOM) and both JSON.stringify
 //      emulations, on documents that exercise the JavaScript-parity rules
 //      listed in docs/codec-semantics.md. The two message/* entries are
 //      written with the new API (the old one had no such caller), so each is
 //      also rebuilt here with the reference encoders and compared.
 // Before the old writers were deleted this test also compared the live
-// js_json::Append* helpers with proto_wire::Put* on 240,000 random fields.
+// json_document_writer::Append* helpers with proto_wire::Put* on 240,000 random fields.
 // `--print` writes the golden table instead of checking it; regenerate it
 // only for an intended wire change.
 #include "bounded_json.h"
-#include "js_json.h"
+#include "json_document_writer.h"
 #include "price_history_batch_codec.h"
 #include "proto_wire.h"
 #include "token_json.h"
@@ -28,7 +28,7 @@
 using namespace fortis::codec;
 
 namespace pw = fortis::codec::proto_wire;
-namespace jj = fortis::compat::js_json;
+namespace jj = fortis::codec::json_document_writer;
 namespace tj = fortis::codec::tj;
 using fortis::codec::history_batch::OutBuffer;
 
@@ -42,7 +42,7 @@ void fail(const char* group, const char* detail) {
 
 // ---- reference encoders (the replaced writers, verbatim) ----------------------
 
-// js_json / token_json / ai_service / sync_route style.
+// json_document_writer / token_json / ai_service / sync_route style.
 size_t legacy_while(uint8_t* out, uint64_t value) {
   size_t n = 0;
   while (value >= 0x80) { out[n++] = static_cast<uint8_t>(value | 0x80); value >>= 7; }
@@ -86,7 +86,7 @@ struct LegacyPbWriter {
     Raw(data, length);
   }
 };
-// The former js_json::Append* helpers (OutBuffer, byte at a time).
+// The former json_document_writer::Append* helpers (OutBuffer, byte at a time).
 void legacy_varint(OutBuffer& out, uint64_t value) {
   while (value >= 0x80) { out.Byte(static_cast<uint8_t>(value | 0x80)); value >>= 7; }
   out.Byte(static_cast<uint8_t>(value));
@@ -365,19 +365,19 @@ void struct_goldens() {
     const unsigned char* text = reinterpret_cast<const unsigned char*>(document.json);
     const size_t length = strlen(document.json);
 
-    // Bounded tokenizer + js_json.
+    // Bounded tokenizer + json_document_writer.
     BoundedJsonDocument parsed;
     BoundedJsonError error = BoundedJsonError::kNone;
     const bool accepted = parsed.Parse(text, length, tokens, sizeof(tokens) / sizeof(tokens[0]), &error);
-    snprintf(name, sizeof(name), "js_json/%s/stringify", document.name);
+    snprintf(name, sizeof(name), "json_document_writer/%s/stringify", document.name);
     OutBuffer json{out_bytes, sizeof(out_bytes)};
     bool ok = accepted && jj::Stringify(parsed, parsed.root(), json, scratch);
     emit(name, out_bytes, json.used, ok);
-    snprintf(name, sizeof(name), "js_json/%s/proto-value", document.name);
+    snprintf(name, sizeof(name), "json_document_writer/%s/proto-value", document.name);
     OutBuffer value{out_bytes, sizeof(out_bytes)};
     ok = accepted && jj::AppendProtoValue(parsed, parsed.root(), value, scratch);
     emit(name, out_bytes, value.used, ok);
-    snprintf(name, sizeof(name), "js_json/%s/proto-struct", document.name);
+    snprintf(name, sizeof(name), "json_document_writer/%s/proto-struct", document.name);
     OutBuffer structure{out_bytes, sizeof(out_bytes)};
     ok = accepted && jj::AppendProtoStruct(parsed, parsed.root(), structure, scratch);
     emit(name, out_bytes, structure.used, ok);
@@ -385,7 +385,7 @@ void struct_goldens() {
       // The measure pass (a counting buffer) agrees with the write pass.
       OutBuffer counter{};
       if (!jj::AppendProtoValue(parsed, parsed.root(), counter, scratch) || counter.used != value.used)
-        fail(document.name, "js_json measure pass");
+        fail(document.name, "json_document_writer measure pass");
     }
 
     // Mutable DOM (tj).

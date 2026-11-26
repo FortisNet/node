@@ -96,6 +96,7 @@ The API is described by [contracts/openapi.base.yaml](contracts/openapi.base.yam
 | `src/news`, `src/ai`, `src/exchange` | News/media, durable AI jobs and exchange integrations |
 | `src/operations` | Health, metrics, public status/error pages and diagnostic persistence |
 | `src/base`, `src/compat`, `src/crypto` | Ownership, concurrency, compatibility contracts and cryptographic glue |
+| `src/security` | Redaction of secrets from diagnostic and AI text |
 | `contracts`, `proto/schema` | Project-owned generator inputs and wire schemas |
 | `tests`, `scripts` | Native units, independent replays, analysis and build/deployment tools |
 

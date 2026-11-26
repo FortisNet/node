@@ -1,6 +1,6 @@
 #include "chain_family_drivers.h"
 #include "chain_asset_index.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -326,7 +326,7 @@ bool Legs(Context& ctx, const Network& network, const char* holder, const Value*
     if (entry.net.IsZero()) continue;
     const char* leg_direction = entry.net.negative() ? "outgoing" : "incoming";
     // printableAsciiFromHex(unit.slice(56)) ?? ''
-    Value* name_hex = compat::token_text::Slice(arena, entry.unit, strlen(entry.unit), 56, static_cast<size_t>(-1));
+    Value* name_hex = codec::provider_text::Slice(arena, entry.unit, strlen(entry.unit), 56, static_cast<size_t>(-1));
     Value* printable = name_hex ? PrintableAsciiFromHex(arena, name_hex->text, name_hex->length) : nullptr;
     Value* label = printable && printable->type == tj::Type::kString ? printable : tj::Str(arena, "");
     Value* asset = tj::Obj(arena);

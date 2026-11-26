@@ -1,5 +1,5 @@
 #include "chain_family_drivers.h"
-#include "token_text.h"
+#include "provider_text.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -75,7 +75,7 @@ enum class IdKind : uint8_t { kNone, kCoin, kFungibleAsset };
 // canonicalAptosTokenIdentifier(raw).
 IdKind canonical_identifier(Arena& a, const char* raw, size_t raw_length, const char** value) {
   size_t begin = 0, end = 0;
-  compat::token_text::Trim(raw, raw_length, &begin, &end);
+  codec::provider_text::Trim(raw, raw_length, &begin, &end);
   const char* s = raw + begin;
   const size_t n = end - begin;
   *value = nullptr;
@@ -268,14 +268,14 @@ void read_metadata(Arena& a, const Call& call, Meta* meta) {
   const char* symbol_text = "";
   size_t symbol_length = 0;
   if (tj::IsString(symbol)) {
-    compat::token_text::Trim(symbol->text, symbol->length, &b, &e);
+    codec::provider_text::Trim(symbol->text, symbol->length, &b, &e);
     symbol_text = symbol->text + b;
     symbol_length = e - b;
   }
   const char* name_text = "";
   size_t name_length = 0;
   if (tj::IsString(name)) {
-    compat::token_text::Trim(name->text, name->length, &b, &e);
+    codec::provider_text::Trim(name->text, name->length, &b, &e);
     name_text = name->text + b;
     name_length = e - b;
   }

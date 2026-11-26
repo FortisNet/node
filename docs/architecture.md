@@ -31,7 +31,7 @@ Each directory under `src/` is one component. [sources.mk](../sources.mk) lists 
 | `src/app` | Entry point, configuration slices, composition of all services, the HTTP and HTTPS listeners, the worker pool and ordered shutdown |
 | `src/config` | Reading and validating the environment at startup |
 | `src/http` | Request parsing, the router, response writing, the response handoff and the outbound HTTPS client |
-| `src/codec` | Bounded JSON, protobuf wire encoding and other wire formats |
+| `src/codec` | Bounded JSON, protobuf wire encoding and other wire formats, and the node's rules for cleaning and truncating provider text |
 | `src/storage` | The key-value store: log, index, recovery, commit, compaction, expiry and in-memory quota counters |
 | `src/auth` | Device challenges, enrollment, rotation, revocation, Apple App Attest and Google Play Integrity |
 | `src/providers` | Provider lanes, the execution coordinator and the price provider clients |
@@ -46,7 +46,8 @@ Each directory under `src/` is one component. [sources.mk](../sources.mk) lists 
 | `src/exchange` | Cross-chain quotes, tokenized stocks and Dash payments |
 | `src/operations` | Health, metrics, telemetry, the error board, dashboards, release pages and the sandbox control client |
 | `src/base` | Ownership, threading, clocks, logging, status types and exception boundaries |
-| `src/compat` | Behavior that must match the wallet's expectations exactly: JavaScript-compatible JSON, case mapping, URL and IDNA handling, redaction |
+| `src/security` | The scanner that removes secrets from public error reports and AI text |
+| `src/compat` | Behavior that must match the wallet's expectations exactly: case mapping, date parsing, regular expressions, URL and IDNA handling |
 | `src/crypto` | Build glue for Mbed TLS, BLAKE3 and blst |
 
 `src/app` is the composition root. It creates each service, gives it borrowed references to the stores and transports it needs, and owns every thread. A consumer never outlives what it borrows: shutdown stops and joins workers before it releases a store or a transport.

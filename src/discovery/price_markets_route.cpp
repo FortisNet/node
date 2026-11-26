@@ -24,7 +24,7 @@ namespace fortis::discovery {
 
 namespace {
 
-using fortis::compat::js_json::OutBuffer;
+using fortis::codec::json_document_writer::OutBuffer;
 namespace hb = fortis::codec::history_batch;
 
 constexpr size_t kRequests = 8;          // deferred requests in flight
@@ -346,7 +346,7 @@ bool store_batch(DiscoveryRouteContext* route, Batch& batch, const unsigned char
   }
   bool is_array = false;
   ScanContext scan{state, &owner, &batch, body, false};
-  if (!length || !fortis::compat::js_json::ForEachTopLevelArrayElement(body, length, &is_array,
+  if (!length || !fortis::codec::json_document_writer::ForEachTopLevelArrayElement(body, length, &is_array,
                                                               scan_row, &scan)) return false;
   if (!is_array) {
     // `Array.isArray(body) ? body : []`: any other JSON value lists nothing.
@@ -940,11 +940,11 @@ bool PriceMarketsRender(DiscoveryWorkspace* workspace, const PriceMarketsRenderI
     if (!document.Parse(input.markets[i], input.market_lengths[i], workspace->tokens,
                         kDiscoveryTokens, &error)) return false;
     OutBuffer measure{};
-    if (!fortis::compat::js_json::AppendProtoStruct(document, document.root(), measure, scratch))
+    if (!fortis::codec::json_document_writer::AppendProtoStruct(document, document.root(), measure, scratch))
       return false;
     fortis::codec::proto_wire::PutTag(out, 1, 2);
     fortis::codec::proto_wire::PutVarint(out, measure.used);
-    if (!fortis::compat::js_json::AppendProtoStruct(document, document.root(), out, scratch)) return false;
+    if (!fortis::codec::json_document_writer::AppendProtoStruct(document, document.root(), out, scratch)) return false;
   }
   for (size_t i = 0; i < input.pending_count; ++i)
     fortis::codec::proto_wire::PutBytes(out, 2, input.pending[i], input.pending_lengths[i]);

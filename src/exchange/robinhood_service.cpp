@@ -460,7 +460,7 @@ void RobinhoodService::Impl::RunPrepare(Job* job) {
   char expires_iso[32];
   const bool ready = drawn && text && tj::Stringify(prepared, stored) && stored.ok &&
                      RobinhoodTicketText(random, ticket) &&
-                     fortis::compat::token_text::IsoString(expires, expires_iso);
+                     fortis::codec::provider_text::IsoString(expires, expires_iso);
   if (!ready) {
     text_storage.reset();
     Complete(job, internal_error(job->policy));
