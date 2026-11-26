@@ -57,8 +57,10 @@ curl --fail http://127.0.0.1:8080/statusz
 ```
 
 Open `http://127.0.0.1:8080/` for the node's home page, `/dashboard` for
-live measurements and `/doc` for the API reference. Protected routes such as
-`/v1/prices` answer 401 without a device credential.
+live measurements and `/doc` for the API reference. The price, AI and other
+service routes are switched on by their own settings
+([Configuration](#configuration)); once on, a protected route such as
+`/v1/prices` answers 401 without a device credential.
 
 Never commit `.env` files, provider keys, device credentials, stores or
 backups. Use a data directory of its own for development: a lock stops two
